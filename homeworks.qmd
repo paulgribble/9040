@@ -2,8 +2,7 @@
 title: A Note about Homeworks
 format:
   html:
-    toc: true
-    toc-expand: 3
+    toc: false
 ---
 
 The reason I assign homework to you each week is **not** because I want to see your homework.
