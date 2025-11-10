@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "introduction.html",
+    "href": "introduction.html",
+    "title": "Introduction to the Course",
+    "section": "",
+    "text": "Welcome! I’m glad you’re here.\nThis is Psychology 9040: Scientific Computing, for FW25, Jan-Apr 2026.\nBring your computer to class! We will be writing code.\nCourse website: https://gribblelab.org/9040"
+  },
+  {
+    "objectID": "introduction.html#course-goals",
+    "href": "introduction.html#course-goals",
+    "title": "Introduction to the Course",
+    "section": "Course Goals",
+    "text": "Course Goals\nIn this one-semester graduate course you will learn skills in scientific computing—tools and techniques that you can use in your own research. You will learn to program using Python, which is a high-level programming language with many libraries that provide a rich ecosystem for scientific computing. If you want to use a different language in the course you are welcome to but I will focus on Python in class. Having said that, as much as I can I will teach concepts in a way that are language-agnostic.\nThe course is designed to achieve three primary goals:\n\nYou will learn to write code in a high-level language (Python)\nYou will learn to think computationally and algorithmically about data analysis\nYou will learn some common data analysis techniques, which will give you a foundation from which to learn more complex scientific computing skills to suit your own research goals"
+  },
+  {
+    "objectID": "introduction.html#topics",
+    "href": "introduction.html#topics",
+    "title": "Introduction to the Course",
+    "section": "Topics",
+    "text": "Topics\nIn the first part of the course you will learn how to write code. The topics we will cover are common to any high-level language including Python, MATLAB, R, Javascript, C, Julia, Go, Swift, etc. All high level languages have things like numbers, strings, arrays, loops, if-statements. Languages differ in their syntax, in the names of common functions, and sometimes in some other subtle ways (e.g. passing by reference vs passing by value) but otherwise, all high-level languages basically work in the same way. Learning these fundamental concepts of high-level programming languages using one language will enable you to learn other languages as well in the future.\nThe other aspect of programming that you will learn is how to think algorithmically about solving problems and completing tasks with computers. In general there are two reasons to use a computer to perform a given task, (1) because the task would take too long by hand (e.g. churning through processing a huge amount of data), and (2) because the computer can do something clever that you cannot do yourself (e.g. applying complex algorithms to a dataset).\nIn learning the fundamentals of high-level programming languages (data types, loops, conditionals, etc) we will sometimes practice writing code to solve little toy problems. This will start to teach you how to think algorithmically. Think about it like learning to play a musical instrument. You don’t start by learining to play Beethoven. You start learning basic skills by playing scales, arpeggios, different key signatures, etc. Building up basic skills using toy problems is a convenient path towards using coding skills to solve real-world programming problems in the context of your own thesis research.\nWe will also practice and learn by using code to answer questions about data. Some of the data will be from real experiments and some will be fictitious. The goal will be to answer a series of questions by writing code that performs operations on the data (reorganization, summarising, counting, calculating, processing, plotting, etc) and writing a short summary of your findings. This mimics how you will be using your coding skills in your own research going forward.\n\nFundamentals of Coding\n\ndigital representation of data\nbasic data types, operators, & expressions\ncontrol flow & conditionals\nfunctions\ncomplex data types\nfile input & output\ngraphical displays of data\nobject oriented programming (OOP)\n\n\n\nReproducibility & Replicability\n\nPython venvs (virtual environments)\nCode versioning using Git & GitHub\norganization of code and data\ndata analysis workflow\n\n\n\nTopics in Data Analysis\n\nsampling, signal processing, & filtering data\nstatistical tests (parametric vs resampling/boostrapping/randomization)\nfitting models to data\n\nBy building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses."
+  },
+  {
+    "objectID": "homeworks.html",
+    "href": "homeworks.html",
+    "title": "A Note about Homeworks",
+    "section": "",
+    "text": "The reason I assign homework to you each week is not because I want to see your homework.\nThe goal of homework is not to deliver each assignment.\nThe purpose of homeworks is for you to do the intellectual work required to write code that satisfies each homework assignment.\nIf you choose to use an AI tool (e.g. ChatGPT, or Claude Code, or GitHub CoPilot, or others) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work, and in this way there will be no reason for you to have taken this course.\nIn my experience (which is 3 decades+ in a university environment) reading code that someone else wrote (or that an AI tool wrote) is not a substitute for doing the intellectual work involved in producing your own code from scratch. It simple isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you in the future to have mastered the material and skill that are advertised in the course outline, and that are reflected in the homework assignments that you hand in.\nThe grade is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course.\nIf you are having difficulty with the intellectual work, come and see me or the TA, we will be absolutely pleased to help!\n—Paul"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Scientific Computing FW25 (Jan-Apr 2026)",
+    "section": "",
+    "text": "URL\n\n\nwww.gribblelab.org/9040\n\n\n\n\nInstructor\n\n\nPaul Gribble (pgribble at uwo dot ca)\n\n\n\n\nClasses\n\n\nMondays & Thursdays, 9:30 am - 11:30 am in WIRB 1110\n\n\n\n\nTA\n\n\nAnthony Cruz (acruz27 at uwo dot ca)"
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Scientific Computing FW25 (Jan-Apr 2026)",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nHomework\n\n\n\n\n1\nJan 5/8\n\n\n\n\n2\nJan 12/15\n\n\n\n\n3\nJan 19/22\n\n\n\n\n4\nJan 26/29\n\n\n\n\n5\nFeb 2/5\n\n\n\n\n6\nFeb 9/12\n\n\n\n\n-\nFeb 16/19\nreading week / no class\n\n\n\n7\nFeb 23/26\n\n\n\n\n8\nMar 2/5\n\n\n\n\n9\nMar 9/12\n\n\n\n\n10\nMar 16/19\n\n\n\n\n11\nMar 23/26\n\n\n\n\n12\nMar 30/Apr 2\n\n\n\n\n13\nApr 6/Apr 9"
+  }
+]

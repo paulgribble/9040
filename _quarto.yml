@@ -1,0 +1,43 @@
+project:
+  type: website
+  output-dir: docs
+  resources: files/
+  render:
+    - "*.qmd"
+    - "!hw_sol/"
+
+execute:
+  freeze: auto  # re-render only when source changes
+
+website:
+  title: "Psychology 9040B FW25"
+  site-url: "https://gribblelab.org/9040"
+  favicon: images/hmc_t_square.png
+
+  search:
+    location: navbar
+    type: overlay
+
+  navbar:
+    background: "#efefff"
+    style: "docked"
+    logo: "images/hmc_t_square.png"
+    search: true
+    pinned: true
+    left:
+    - text: "Schedule"
+      file: index.qmd
+
+format:
+  html:
+    email-obfuscation: javascript
+    highlight-style: github
+    theme: [default, theme.scss]
+    toc: false
+    toc-depth: 3
+    html-math-method: katex
+    link-external-newwindow: false
+    link-external-icon: false
+    include-in-header: _no_cache.html
+
+

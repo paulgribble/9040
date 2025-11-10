@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing FW25 (Jan-Apr 2026) – Psychology 9040B FW25</title>
+<title>Introduction to the Course – Psychology 9040B FW25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
 </ul>
@@ -107,21 +107,35 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#course-goals" id="toc-course-goals" class="nav-link active" data-scroll-target="#course-goals">Course Goals</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a>
+  <ul class="collapse">
+  <li><a href="#fundamentals-of-coding" id="toc-fundamentals-of-coding" class="nav-link" data-scroll-target="#fundamentals-of-coding">Fundamentals of Coding</a></li>
+  <li><a href="#reproducibility-replicability" id="toc-reproducibility-replicability" class="nav-link" data-scroll-target="#reproducibility-replicability">Reproducibility &amp; Replicability</a></li>
+  <li><a href="#topics-in-data-analysis" id="toc-topics-in-data-analysis" class="nav-link" data-scroll-target="#topics-in-data-analysis">Topics in Data Analysis</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scientific Computing FW25 (Jan-Apr 2026)</h1>
+<h1 class="title">Introduction to the Course</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -133,164 +147,60 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="info">
-<tbody><tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>URL</strong>
-</td>
-<td>
-<a href="https://gribblelab.org/9040">www.gribblelab.org/9040</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>Instructor</strong>
-</td>
-<td>
-Paul Gribble (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#112;&#x67;&#114;&#x69;&#98;&#98;&#108;&#x65;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>pgribble at uwo dot ca</noscript>)
-</td>
-</tr>
-<tr>
-<td style="text-align:right; padding: 7px;">
-<strong>Classes</strong>
-</td>
-<td>
-Mondays &amp; Thursdays, 9:30 am - 11:30 am in <a href="https://wts.uwo.ca/ctg/classrooms/western_interdisciplinary_research_building/wirb_1110.html">WIRB 1110</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>TA</strong>
-</td>
-<td>
-Anthony Cruz (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#x61;&#x63;&#114;&#x75;&#122;&#50;&#x37;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>acruz27 at uwo dot ca</noscript>)
-</td>
-</tr>
-</tbody></table>
+<p>Welcome! I’m glad you’re here.</p>
+<p>This is <strong>Psychology 9040: Scientific Computing</strong>, for FW25, Jan-Apr 2026.</p>
+<p>Bring your computer to class! We will be writing code.</p>
+<p>Course website: <a href="https://gribblelab.org/9040">https://gribblelab.org/9040</a></p>
 <hr>
+<section id="course-goals" class="level2">
+<h2 class="anchored" data-anchor-id="course-goals">Course Goals</h2>
+<p>In this one-semester graduate course you will learn skills in scientific computing—tools and techniques that you can use in your own research. You will learn to program using <strong>Python</strong>, which is a high-level programming language with many libraries that provide a rich ecosystem for scientific computing. If you want to use a different language in the course you are welcome to but I will focus on Python in class. Having said that, as much as I can I will teach concepts in a way that are language-agnostic.</p>
+<p>The course is designed to achieve three primary goals:</p>
+<ol type="1">
+<li>You will learn to <strong>write code</strong> in a high-level language (Python)</li>
+<li>You will learn to <strong>think computationally and algorithmically</strong> about data analysis</li>
+<li>You will learn some common <strong>data analysis techniques</strong>, which will give you a foundation from which to learn more complex scientific computing skills to suit your own research goals</li>
+</ol>
+</section>
+<section id="topics" class="level2">
+<h2 class="anchored" data-anchor-id="topics">Topics</h2>
+<p>In the first part of the course you will <strong>learn how to write code</strong>. The topics we will cover are common to any high-level language including Python, MATLAB, R, Javascript, C, Julia, Go, Swift, etc. All high level languages have things like numbers, strings, arrays, loops, if-statements. Languages differ in their syntax, in the names of common functions, and sometimes in some other subtle ways (e.g.&nbsp;passing by reference vs passing by value) but otherwise, all high-level languages basically work in the same way. Learning these <strong>fundamental concepts of high-level programming languages</strong> using one language will enable you to learn other languages as well in the future.</p>
+<p>The other aspect of programming that you will learn is how to think algorithmically about solving problems and completing tasks with computers. In general there are two reasons to use a computer to perform a given task, (1) because the task would take too long by hand (e.g.&nbsp;churning through processing a huge amount of data), and (2) because the computer can do something clever that you cannot do yourself (e.g.&nbsp;applying complex algorithms to a dataset).</p>
+<p>In learning the fundamentals of high-level programming languages (data types, loops, conditionals, etc) we will sometimes practice writing code to solve little toy problems. This will start to teach you how to think algorithmically. Think about it like learning to play a musical instrument. You don’t start by learining to play Beethoven. You start learning basic skills by playing scales, arpeggios, different key signatures, etc. Building up basic skills using toy problems is a convenient path towards using coding skills to solve real-world programming problems in the context of your own thesis research.</p>
+<p>We will also practice and learn by using code to answer questions about data. Some of the data will be from real experiments and some will be fictitious. The goal will be to answer a series of questions by writing code that performs operations on the data (reorganization, summarising, counting, calculating, processing, plotting, etc) and writing a short summary of your findings. This mimics how you will be using your coding skills in your own research going forward.</p>
+<section id="fundamentals-of-coding" class="level3">
+<h3 class="anchored" data-anchor-id="fundamentals-of-coding">Fundamentals of Coding</h3>
 <ul>
-<li><a href="./introduction.html">Introduction to the course</a></li>
-<li><a href="./homeworks.html">A note about homeworks</a></li>
+<li>digital representation of data</li>
+<li>basic data types, operators, &amp; expressions</li>
+<li>control flow &amp; conditionals</li>
+<li>functions</li>
+<li>complex data types</li>
+<li>file input &amp; output</li>
+<li>graphical displays of data</li>
+<li>object oriented programming (OOP)</li>
 </ul>
-<hr>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<div class="mt-4 table-bordered">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 15%">
-<col style="width: 56%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Week</th>
-<th>Date</th>
-<th>Topic</th>
-<th style="text-align: center;">Homework</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>Jan 5/8</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Jan 12/15</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>Jan 19/22</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td>Jan 26/29</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">5</td>
-<td>Feb 2/5</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">6</td>
-<td>Feb 9/12</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">-</td>
-<td>Feb 16/19</td>
-<td><em>reading week / no class</em></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">7</td>
-<td>Feb 23/26</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">8</td>
-<td>Mar 2/5</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">9</td>
-<td>Mar 9/12</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">10</td>
-<td>Mar 16/19</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">11</td>
-<td>Mar 23/26</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">12</td>
-<td>Mar 30/Apr 2</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">13</td>
-<td>Apr 6/Apr 9</td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
+</section>
+<section id="reproducibility-replicability" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibility-replicability">Reproducibility &amp; Replicability</h3>
+<ul>
+<li>Python venvs (virtual environments)</li>
+<li>Code versioning using Git &amp; GitHub</li>
+<li>organization of code and data</li>
+<li>data analysis workflow</li>
+</ul>
+</section>
+<section id="topics-in-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="topics-in-data-analysis">Topics in Data Analysis</h3>
+<ul>
+<li>sampling, signal processing, &amp; filtering data</li>
+<li>statistical tests (parametric vs resampling/boostrapping/randomization)</li>
+<li>fitting models to data</li>
+</ul>
+<p>By building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
