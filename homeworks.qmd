@@ -15,7 +15,7 @@ The purpose of homeworks is for you to **do the intellectual work** required to 
 
 If you choose to use an AI tool (e.g. ChatGPT, or Claude Code, or GitHub CoPilot, or others) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work, and in this way there will be no reason for you to have taken this course.
 
-In my experience (which is 3 decades+ in a university environment) reading code that someone else wrote (or that an AI tool wrote) is not a substitute for doing the intellectual work involved in producing your own code from scratch. It simple isn't.
+In my experience (which is more than three decades in a university environment) reading code that someone else wrote (or that an AI tool wrote) is not a substitute for doing the intellectual work involved in producing your own code from scratch. It simple isn't.
 
 If you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you in the future to have mastered the material and skill that are advertised in the course outline, and that are reflected in the homework assignments that you hand in.
 
