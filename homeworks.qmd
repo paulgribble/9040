@@ -7,7 +7,7 @@ format:
 
 The reason I assign homework to you each week is **not** because I want to see your homework.
 
-The goal of homework is **not** to hand in each assignment.
+The goal of homework isn't to hand in each assignment.
 
 The purpose of homework assignments is for you to **do the intellectual work** required to write code that satisfies each homework assignment.
 
