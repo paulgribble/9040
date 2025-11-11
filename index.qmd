@@ -33,6 +33,8 @@ format:
 
 ## Schedule
 
+more details coming soon ...
+
 <div class="mt-4 table-bordered">
 
 | Week  |     Date     |           Topic           | Homework |
