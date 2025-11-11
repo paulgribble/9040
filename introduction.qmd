@@ -61,6 +61,7 @@ We will also practice and learn by using code to answer questions about data. So
 - sampling, signal processing, & filtering data
 - statistical tests (parametric vs resampling/boostrapping/randomization)
 - fitting models to data
+- simulating dynamical systems
 
 By building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses.
 
