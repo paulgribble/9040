@@ -5,7 +5,7 @@ format:
     toc: false
 ---
 
-The reason I assign homework to you each week is **not** because I want to see the code that you write.
+The reason I assign homework to you each week is not because I want to see the code that you write.
 
 The purpose of homework is for you to **do the intellectual work** required to write the code that completes each assignment.
 
