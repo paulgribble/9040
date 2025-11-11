@@ -7,7 +7,7 @@ format:
 
 The reason I assign homework to you each week is not because I want to see the code that you write.
 
-The purpose of homework is for you to **do the intellectual work** required to write the code that completes each assignment.
+The purpose of homework is for you to **do the intellectual work** required to write the code.
 
 If you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.
 
