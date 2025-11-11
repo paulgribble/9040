@@ -11,7 +11,7 @@ The goal of homework isn't to hand in each assignment.
 
 The purpose of homework assignments is for you to **do the intellectual work** required to write code that satisfies each homework assignment.
 
-If you choose to use an AI tool (e.g. ChatGPT, or Claude Code, or GitHub CoPilot, or others) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.
+If you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.
 
 In my experience (which is more than three decades in a university environment), reading code that someone else wrote (or that an AI tool wrote) is not a substitute for doing the intellectual work involved in producing your own code from scratch. It simply isn't.
 
