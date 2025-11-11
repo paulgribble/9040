@@ -11,7 +11,7 @@ The purpose of homework is for you to **do the intellectual work** required to w
 
 If you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.
 
-In my experience (more than three decades in a university environment), reading other people's code (or code that an AI tool wrote) is not a substitute for doing the intellectual work involved in producing your own code.  
+In my experience (more than three decades in a university environment), reading other people's code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.  
 It simply isn't.
 
 If you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.
