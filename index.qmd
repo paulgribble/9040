@@ -26,6 +26,7 @@ format:
 
 ---
 
+- [Course Syllabus](9040B_FW25.pdf)
 - [Introduction to the course](introduction.qmd)
 - [A note about homeworks](homeworks.qmd)
 
