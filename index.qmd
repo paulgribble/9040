@@ -60,5 +60,7 @@ more details coming soon ...
 
 ## Readings
 - [Better Code, Better Science](https://poldrack.github.io/BetterCodeBetterScience/) by Russ Poldrack
+- [The Curious Coder's Guide to Git](https://matthew-brett.github.io/curious-git/index.html) by Matthew Brett
+
 
 
