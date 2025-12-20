@@ -60,5 +60,6 @@ more details coming soon ...
 
 ## Readings
 - [Better Code, Better Science](https://poldrack.github.io/BetterCodeBetterScience/) by Russ Poldrack
+- [Computational and Inferential Thinking: The Foundations of Data Science](https://inferentialthinking.com) by Adhikari, DeNero, & Wagner
 
 
