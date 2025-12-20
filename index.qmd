@@ -59,6 +59,6 @@ more details coming soon ...
 </div>
 
 ## Readings
-- [Better Code Better Science](https://poldrack.github.io/BetterCodeBetterScience/) by Russ Poldrack
+- [Better Code, Better Science](https://poldrack.github.io/BetterCodeBetterScience/) by Russ Poldrack
 
 
