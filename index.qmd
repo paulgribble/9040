@@ -57,3 +57,8 @@ more details coming soon ...
 
 : {tbl-colwidths="[8,15,57,20]"}
 </div>
+
+## Readings
+- [Better Code Better Science](https://poldrack.github.io/BetterCodeBetterScience/) by Russ Poldrack
+
+
