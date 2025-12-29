@@ -88,14 +88,14 @@ PS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamili
 Open up a terminal and (assuming Ubuntu Linux) update the system:
 
 ```{bash}
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt update
+sudo apt upgrade -y
 ```
 
 and then install some necessary tools:
 
 ```{bash}
-sudo apt-get install -y build-essential git curl
+sudo apt install -y build-essential git curl
 ```
 
 and then install the uv tool:
