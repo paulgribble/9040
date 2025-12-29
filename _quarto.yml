@@ -27,6 +27,8 @@ website:
     left:
     - text: "Schedule"
       file: index.qmd
+    - text: "OWL/Brightspace"
+      url: https://westernu.brightspace.com/d2l/home/163612
 
 format:
   html:
