@@ -171,8 +171,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos">MacOS</a></li>
   <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
   </ul></li>
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
-  <li><a href="#code-editor" id="toc-code-editor" class="nav-link" data-scroll-target="#code-editor">Code Editor</a></li>
   <li><a href="#gitgithub" id="toc-gitgithub" class="nav-link" data-scroll-target="#gitgithub">Git/GitHub</a></li>
   <li><a href="#check-your-setup" id="toc-check-your-setup" class="nav-link" data-scroll-target="#check-your-setup">Check your setup</a></li>
   </ul>
@@ -264,38 +262,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>PS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.</p>
 <section id="unixlinux" class="level3">
 <h3 class="anchored" data-anchor-id="unixlinux">Unix/Linux</h3>
-<p>x</p>
+<p>Open up a terminal and (assuming Ubuntu Linux) install some necessary tools:</p>
+<pre class="{bash}"><code>sudo apt-get install build-essential git</code></pre>
+<p>and then install the <code>uv</code> tool:</p>
+<pre class="{bash}"><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
+<p>and then download <a href="https://code.visualstudio.com/Download">Visual Studio Code</a> and install it.</p>
 </section>
 <section id="macos" class="level3">
 <h3 class="anchored" data-anchor-id="macos">MacOS</h3>
-<p>x</p>
+<p>Open up a terminal and install some necessary build tools:</p>
+<pre class="{bash}"><code>xcode-select --install</code></pre>
+<p>Install the Homebrew package manager:</p>
+<pre class="{bash}"><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+<p>Then close the terminal and open up a new one, and install some other necessary tools:</p>
+<pre class="{bash}"><code>brew install git</code></pre>
+<p>Then install the <code>uv</code> tool:</p>
+<pre class="{bash}"><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
+<p>and then download <a href="https://code.visualstudio.com/Download">Visual Studio Code</a> and install it.</p>
 </section>
 <section id="windows" class="level3">
 <h3 class="anchored" data-anchor-id="windows">Windows</h3>
 <p>x</p>
 </section>
 </section>
-<section id="python" class="level2">
-<h2 class="anchored" data-anchor-id="python">Python</h2>
-<p>We will be using Python in this course.</p>
-<ul>
-<li>download and install <a href="https://www.python.org/downloads/">Python</a></li>
-</ul>
-</section>
-<section id="code-editor" class="level2">
-<h2 class="anchored" data-anchor-id="code-editor">Code Editor</h2>
-<p>Python code lives in plain text files that by convention have a <code>.py</code> extension, and you can view and edit them in any editor you want. There are many to choose from. I use Visual Studio Code which is free and available on MacOS, Windows, and Linux. You can use whatever you wish. In class I will be using Visual Studio Code, and I will show you how to use some of its more useful features for Python programming and data analysis.</p>
-<ul>
-<li>download and install <a href="https://code.visualstudio.com">Visual Studio Code</a></li>
-</ul>
-</section>
 <section id="gitgithub" class="level2">
 <h2 class="anchored" data-anchor-id="gitgithub">Git/GitHub</h2>
-<p>We will be covering code versioning using Git and GitHub, so you should:</p>
-<ul>
-<li>download and install <a href="https://git-scm.com">Git</a> on your computer</li>
-<li>sign up for a (free) <a href="https://www.github.com">GitHub</a> account</li>
-</ul>
+<p>We will be covering code versioning using Git and GitHub, so you should sign up for a (free) <a href="https://www.github.com">GitHub</a> account.</p>
 </section>
 <section id="check-your-setup" class="level2">
 <h2 class="anchored" data-anchor-id="check-your-setup">Check your setup</h2>
@@ -309,12 +301,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>If you didn’t get asked about installing the Python extension, do it manually: type CMD-Shift-P (MacOS) or CTRL-Shift-P (Windows/Linux) to launch the Command Palette and enter <code>Extensions: Install Extensions</code> and select the item from the dropdown menu by clicking it with the mouse or by typing Enter/Return; the Extension browser will have opened as a column on the left hand side of the VSCode window. At the top there is an empty text entry field. Type <code>Python</code>; click “Install” on the one called “Python” (Python extension for Visual Studio Code) from Microsoft</li>
 <li>type the following in your <code>hello.py</code> file:</li>
 </ol>
-<div id="1f937a29" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array ([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">29</span>])</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.<span class="bu">sum</span>(x)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the sum of </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="9cff1a48" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array ([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">29</span>])</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.<span class="bu">sum</span>(x)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the sum of </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="7" type="1">
 <li><p>launch the Command Palette and type in <code>Python: Create Environment</code> and select that item in the dropdown list</p></li>
@@ -325,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>now type <code>python hello.py</code> and Return/Enter</p></li>
 </ol>
 <p>You should see the following output in the Terminal:</p>
-<div id="c2a5654b" class="cell" data-execution_count="2">
+<div id="74efc3e3" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>the sum of [ 2  3  5  7 11 13 17 19 23 29] is 129</code></pre>
 </div>

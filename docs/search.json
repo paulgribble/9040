@@ -25,7 +25,7 @@
     "href": "weeks/01_intro.html#macos-windows-or-linux",
     "title": "Introduction to the Course",
     "section": "MacOS, Windows, or Linux?",
-    "text": "MacOS, Windows, or Linux?\nYes.\nSort of.\nIf you are using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.\nIf you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.\nIf you are using Windows, also good news, sort of, you will not need to use Windows! Let me explain. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the Windows Subsystem for Linux (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.\nPS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.\n\nUnix/Linux\nx\n\n\nMacOS\nx\n\n\nWindows\nx"
+    "text": "MacOS, Windows, or Linux?\nYes.\nSort of.\nIf you are using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.\nIf you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.\nIf you are using Windows, also good news, sort of, you will not need to use Windows! Let me explain. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the Windows Subsystem for Linux (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.\nPS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.\n\nUnix/Linux\nOpen up a terminal and (assuming Ubuntu Linux) install some necessary tools:\nsudo apt-get install build-essential git\nand then install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nand then download Visual Studio Code and install it.\n\n\nMacOS\nOpen up a terminal and install some necessary build tools:\nxcode-select --install\nInstall the Homebrew package manager:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\nThen close the terminal and open up a new one, and install some other necessary tools:\nbrew install git\nThen install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nand then download Visual Studio Code and install it.\n\n\nWindows\nx"
   },
   {
     "objectID": "weeks/01_intro.html#python",
@@ -46,7 +46,7 @@
     "href": "weeks/01_intro.html#gitgithub",
     "title": "Introduction to the Course",
     "section": "Git/GitHub",
-    "text": "Git/GitHub\nWe will be covering code versioning using Git and GitHub, so you should:\n\ndownload and install Git on your computer\nsign up for a (free) GitHub account"
+    "text": "Git/GitHub\nWe will be covering code versioning using Git and GitHub, so you should sign up for a (free) GitHub account."
   },
   {
     "objectID": "weeks/01_intro.html#check-your-setup",
@@ -74,7 +74,7 @@
     "href": "index.html#schedule",
     "title": "Scientific Computing FW25 (Jan-Apr 2026)",
     "section": "Schedule",
-    "text": "Schedule\nmore details coming soon …\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic / Notes\nHomework\n\n\n\n\n1\nJan 5/8\nIntro/Setup\n\n\n\n2\nJan 12/15\nPython basics\n\n\n\n3\nJan 19/22\n\n\n\n\n4\nJan 26/29\n\n\n\n\n5\nFeb 2/5\n\n\n\n\n6\nFeb 9/12\n\n\n\n\n-\nFeb 16/19\nno class (reading week)\n-\n\n\n7\nFeb 23/26\n\n\n\n\n8\nMar 2/5\n\n\n\n\n-\nMar 9/12\nno class (Paul away)\n-\n\n\n9\nMar 16/19\n\n\n\n\n10\nMar 23/26\n\n\n\n\n11\nMar 30/Apr 2\n\n\n\n\n12\nApr 6/Apr 9"
+    "text": "Schedule\nmore details coming soon …\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nHomework\n\n\n\n\n1\nJan 5/8\nIntro/Setup\n\n\n\n2\nJan 12/15\nPython basics\n\n\n\n3\nJan 19/22\n\n\n\n\n4\nJan 26/29\n\n\n\n\n5\nFeb 2/5\n\n\n\n\n6\nFeb 9/12\n\n\n\n\n-\nFeb 16/19\nno class (reading week)\n-\n\n\n7\nFeb 23/26\n\n\n\n\n8\nMar 2/5\n\n\n\n\n-\nMar 9/12\nno class (Paul away)\n-\n\n\n9\nMar 16/19\n\n\n\n\n10\nMar 23/26\n\n\n\n\n11\nMar 30/Apr 2\n\n\n\n\n12\nApr 6/Apr 9"
   },
   {
     "objectID": "index.html#readings",
