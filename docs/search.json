@@ -28,18 +28,11 @@
     "text": "MacOS, Windows, or Linux?\nYes.\nSort of.\nIf you are using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.\nIf you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.\nIf you are using Windows, also good news, sort of, you will not need to use Windows! Let me explain. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the Windows Subsystem for Linux (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.\nPS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.\n\nUnix/Linux\nOpen up a terminal and (assuming Ubuntu Linux) update the system:\nsudo apt-get update\nsudo apt-get upgrade -y\nand then install some necessary tools:\nsudo apt-get install -y build-essential git curl\nand then install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\n\n\nMacOS\nOpen up a terminal and install some necessary build tools:\nxcode-select --install\nInstall the Homebrew package manager:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\nThen close the terminal and open up a new one, and install some other necessary tools:\nbrew install git\nThen install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\nIf you want a nicer looking Terminal than the one that ships with MacOS you can try one of these:\n\niTerm2\nghostty\n\n\n\nWindows\nFirst update Windows, I think you can access this by going to the Start menu and typing “update” and one of the options will be a system update.\nNext, open up Powershell (again, go to the Start menu and type Powershell to access it) and type:\nwsl --install\nWhen it is done, reboot your computer.\nOpen up Powershell again and type:\nwsl.exe --install Ubuntu\nIt will eventually ask you for a default Unix user account and password.\nClose Powershell and any other junky windows that Windows may have opened.\nOpen Powershell and check to see which version of WSL is running:\nwsl -l -v\nif it shows version 1 instead of version 2 then switch:\nwsl --set-version Ubuntu 2\nClose Powershell and reboot the computer.\nFrom your Start menu select “Ubuntu” and it should launch a terminal, which is now, running Ubuntu linux.\nNow go through the steps above in the Unix/Linux section."
   },
   {
-    "objectID": "weeks/01_intro.html#python",
-    "href": "weeks/01_intro.html#python",
+    "objectID": "weeks/01_intro.html#check-your-setup",
+    "href": "weeks/01_intro.html#check-your-setup",
     "title": "Introduction to the Course",
-    "section": "Python",
-    "text": "Python\nWe will be using Python in this course.\n\ndownload and install Python"
-  },
-  {
-    "objectID": "weeks/01_intro.html#code-editor",
-    "href": "weeks/01_intro.html#code-editor",
-    "title": "Introduction to the Course",
-    "section": "Code Editor",
-    "text": "Code Editor\nPython code lives in plain text files that by convention have a .py extension, and you can view and edit them in any editor you want. There are many to choose from. I use Visual Studio Code which is free and available on MacOS, Windows, and Linux. You can use whatever you wish. In class I will be using Visual Studio Code, and I will show you how to use some of its more useful features for Python programming and data analysis.\n\ndownload and install Visual Studio Code"
+    "section": "Check your setup",
+    "text": "Check your setup\nCreate a new folder somewhere on your computer’s file system and name it Psych_9040, and then navigate inside of it.\nOpen a new terminal:\nmkdir Psych_9040\ncd Psych_9040\nUse uv to install a python environment\nuv init --python 3.12\nAdd the numpy package\nuv add numpy\nCreate a new empty file:\ntouch hello.py\nand add some Python lines of code to it:\necho \"import numpy as np\" &gt;&gt; hello.py\necho \"x = np.array ([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])\" &gt;&gt; hello.py\necho \"y = np.sum(x)\" &gt;&gt; hello.py\necho \"print(f\\\"the sum of {x} is {y}\\\")\" &gt;&gt; hello.py\nand test the code:\nuv run python hello.py\nand you should see this output:\n\n\nthe sum of [ 2  3  5  7 11 13 17 19 23 29] is 129"
   },
   {
     "objectID": "weeks/01_intro.html#gitgithub",
@@ -47,13 +40,6 @@
     "title": "Introduction to the Course",
     "section": "Git/GitHub",
     "text": "Git/GitHub\nWe will be covering code versioning using Git and GitHub, so you should sign up for a (free) GitHub account."
-  },
-  {
-    "objectID": "weeks/01_intro.html#check-your-setup",
-    "href": "weeks/01_intro.html#check-your-setup",
-    "title": "Introduction to the Course",
-    "section": "Check your setup",
-    "text": "Check your setup\nCreate a new folder somewhere on your computer’s file system and name it Psych_9040, and then navigate inside of it.\nOpen a new terminal:\nmkdir Psych_9040\ncd Psych_9040\nUse uv to install a python environment\nuv init --python 3.12\nAdd the numpy package\nuv add numpy\nCreate a new empty file:\ntouch hello.py\nand add some Python lines of code to it:\necho \"import numpy as np\" &gt;&gt; hello.py\necho \"x = np.array ([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])\" &gt;&gt; hello.py\necho \"y = np.sum(x)\" &gt;&gt; hello.py\necho \"print(f\\\"the sum of {x} is {y}\\\")\" &gt;&gt; hello.py\nand test the code:\nuv run python hello.py\nand you should see this output:\n\n\nthe sum of [ 2  3  5  7 11 13 17 19 23 29] is 129"
   },
   {
     "objectID": "homeworks.html",
