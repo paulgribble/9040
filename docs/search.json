@@ -1,31 +1,66 @@
 [
   {
-    "objectID": "introduction.html",
-    "href": "introduction.html",
+    "objectID": "weeks/01_intro.html",
+    "href": "weeks/01_intro.html",
     "title": "Introduction to the Course",
     "section": "",
     "text": "Welcome! I’m glad you’re here.\nThis is Psychology 9040: Scientific Computing, for FW25, Jan-Apr 2026.\nBring your computer to class! We will be writing code.\nCourse website: https://gribblelab.org/9040"
   },
   {
-    "objectID": "introduction.html#course-goals",
-    "href": "introduction.html#course-goals",
+    "objectID": "weeks/01_intro.html#course-goals",
+    "href": "weeks/01_intro.html#course-goals",
     "title": "Introduction to the Course",
     "section": "Course Goals",
     "text": "Course Goals\nIn this one-semester graduate course you will learn skills in scientific computing—tools and techniques that you can use in your own research. You will learn to program using Python, which is a high-level programming language with many libraries that provide a rich ecosystem for scientific computing. If you want to use a different language in the course you are welcome to but I will focus on Python in class. Having said that, as much as I can I will teach concepts in a way that are language-agnostic.\nThe course is designed to achieve three primary goals:\n\nYou will learn to write code in a high-level language (Python)\nYou will learn to think computationally and algorithmically about data analysis\nYou will learn some common data analysis techniques, which will give you a foundation from which to learn more complex scientific computing skills to suit your own research goals"
   },
   {
-    "objectID": "introduction.html#topics",
-    "href": "introduction.html#topics",
+    "objectID": "weeks/01_intro.html#topics",
+    "href": "weeks/01_intro.html#topics",
     "title": "Introduction to the Course",
     "section": "Topics",
     "text": "Topics\nIn the first part of the course you will learn how to write code. The topics we will cover are common to any high-level language including Python, MATLAB, R, Javascript, C, Julia, Go, Swift, etc. All high level languages have things like numbers, strings, arrays, loops, if-statements. Languages differ in their syntax, in the names of common functions, and sometimes in some other subtle ways (e.g. passing by reference vs passing by value) but otherwise, all high-level languages basically work in the same way. Learning these fundamental concepts of high-level programming languages using one language will enable you to learn other languages as well in the future.\nThe other aspect of programming that you will learn is how to think algorithmically about solving problems and completing tasks with computers. In general there are two reasons to use a computer to perform a given task, (1) because the task would take too long by hand (e.g. churning through processing a huge amount of data), and (2) because the computer can do something clever that you cannot do yourself (e.g. applying complex algorithms to a dataset).\nIn learning the fundamentals of high-level programming languages (data types, loops, conditionals, etc) we will sometimes practice writing code to solve little toy problems. This will start to teach you how to think algorithmically. Think about it like learning to play a musical instrument. You don’t start by learining to play Beethoven. You start learning basic skills by playing scales, arpeggios, different key signatures, etc. Building up basic skills using toy problems is a convenient path towards using coding skills to solve real-world programming problems in the context of your own thesis research.\nWe will also practice and learn by using code to answer questions about data. Some of the data will be from real experiments and some will be fictitious. The goal will be to answer a series of questions by writing code that performs operations on the data (reorganization, summarising, counting, calculating, processing, plotting, etc) and writing a short summary of your findings. This mimics how you will be using your coding skills in your own research going forward.\n\nFundamentals of Coding\n\ndigital representation of data\nbasic data types, operators, & expressions\ncontrol flow & conditionals\nfunctions\ncomplex data types\nfile input & output\ngraphical displays of data\nobject oriented programming (OOP)\n\n\n\nReproducibility & Replicability\n\nPython venvs (virtual environments)\nCode versioning using Git & GitHub\norganization of code and data\ndata analysis workflow\n\n\n\nTopics in Data Analysis\n\nsampling, signal processing, & filtering data\nstatistical tests (parametric vs resampling/boostrapping/randomization)\nfitting models to data\nsimulating dynamical systems\n\nBy building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses."
+  },
+  {
+    "objectID": "weeks/01_intro.html#macos-windows-or-linux",
+    "href": "weeks/01_intro.html#macos-windows-or-linux",
+    "title": "Introduction to the Course",
+    "section": "MacOS, Windows, or Linux?",
+    "text": "MacOS, Windows, or Linux?\nYes.\nSort of.\nIf you are using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.\nIf you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.\nIf you are using Windows, also good news, sort of, you will not need to use Windows! Let me explain. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the Windows Subsystem for Linux (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.\nPS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.\n\nUnix/Linux\nx\n\n\nMacOS\nx\n\n\nWindows\nx"
+  },
+  {
+    "objectID": "weeks/01_intro.html#python",
+    "href": "weeks/01_intro.html#python",
+    "title": "Introduction to the Course",
+    "section": "Python",
+    "text": "Python\nWe will be using Python in this course.\n\ndownload and install Python"
+  },
+  {
+    "objectID": "weeks/01_intro.html#code-editor",
+    "href": "weeks/01_intro.html#code-editor",
+    "title": "Introduction to the Course",
+    "section": "Code Editor",
+    "text": "Code Editor\nPython code lives in plain text files that by convention have a .py extension, and you can view and edit them in any editor you want. There are many to choose from. I use Visual Studio Code which is free and available on MacOS, Windows, and Linux. You can use whatever you wish. In class I will be using Visual Studio Code, and I will show you how to use some of its more useful features for Python programming and data analysis.\n\ndownload and install Visual Studio Code"
+  },
+  {
+    "objectID": "weeks/01_intro.html#gitgithub",
+    "href": "weeks/01_intro.html#gitgithub",
+    "title": "Introduction to the Course",
+    "section": "Git/GitHub",
+    "text": "Git/GitHub\nWe will be covering code versioning using Git and GitHub, so you should:\n\ndownload and install Git on your computer\nsign up for a (free) GitHub account"
+  },
+  {
+    "objectID": "weeks/01_intro.html#check-your-setup",
+    "href": "weeks/01_intro.html#check-your-setup",
+    "title": "Introduction to the Course",
+    "section": "Check your setup",
+    "text": "Check your setup\nAssuming you have installed Python and VSCode:\n\ncreate a new folder somewhere on your computer’s file system and name it Psych_9040\nlaunch VSCode\nin the welcome screen there is an item under “Start” called “Open Folder …” — click it and navigate to the Psych_9040 folder you created in step 1 above, and select it\nnow click on “New File …” to create a new empty file, select “Text File” from the dropdown menu\nIn the VSCode “File” menu select “Save” and name the file hello.py; VSCode may ask you if you want to install the Python extension, click Yes\nIf you didn’t get asked about installing the Python extension, do it manually: type CMD-Shift-P (MacOS) or CTRL-Shift-P (Windows/Linux) to launch the Command Palette and enter Extensions: Install Extensions and select the item from the dropdown menu by clicking it with the mouse or by typing Enter/Return; the Extension browser will have opened as a column on the left hand side of the VSCode window. At the top there is an empty text entry field. Type Python; click “Install” on the one called “Python” (Python extension for Visual Studio Code) from Microsoft\ntype the following in your hello.py file:\n\n\nimport numpy as np\n\nx = np.array ([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])\ny = np.sum(x)\nprint(f\"the sum of {x} is {y}\")\n\n\nlaunch the Command Palette and type in Python: Create Environment and select that item in the dropdown list\nselect the “Venv” option to create a .venv virtual environment in the current workspace\nselect your preferred Python interpreter from the dropdown list\nbring up the Command Palette again and type Terminal: Create New Terminal and select it; (note: if you are on Windows, click the down-arrow next to the + and select “Select Default Profile” and then select “Command Prompt”)… then close the terminal and re-open it via the Command Palette\nin the Terminal that opens up, type pip install numpy and then Return/Enter\nnow type python hello.py and Return/Enter\n\nYou should see the following output in the Terminal:\n\n\nthe sum of [ 2  3  5  7 11 13 17 19 23 29] is 129"
   },
   {
     "objectID": "homeworks.html",
     "href": "homeworks.html",
     "title": "A Note about Homeworks",
     "section": "",
-    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—Paul"
+    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—P"
   },
   {
     "objectID": "index.html",
@@ -39,7 +74,7 @@
     "href": "index.html#schedule",
     "title": "Scientific Computing FW25 (Jan-Apr 2026)",
     "section": "Schedule",
-    "text": "Schedule\nmore details coming soon …\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nHomework\n\n\n\n\n1\nJan 5/8\nSetting up your computer for coding\n\n\n\n2\nJan 12/15\nPython basics\n\n\n\n3\nJan 19/22\n\n\n\n\n4\nJan 26/29\n\n\n\n\n5\nFeb 2/5\n\n\n\n\n6\nFeb 9/12\n\n\n\n\n-\nFeb 16/19\nno class (reading week)\n-\n\n\n7\nFeb 23/26\n\n\n\n\n8\nMar 2/5\n\n\n\n\n-\nMar 9/12\nno class (Paul away)\n-\n\n\n9\nMar 16/19\n\n\n\n\n10\nMar 23/26\n\n\n\n\n11\nMar 30/Apr 2\n\n\n\n\n12\nApr 6/Apr 9"
+    "text": "Schedule\nmore details coming soon …\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic / Notes\nHomework\n\n\n\n\n1\nJan 5/8\nIntro/Setup\n\n\n\n2\nJan 12/15\nPython basics\n\n\n\n3\nJan 19/22\n\n\n\n\n4\nJan 26/29\n\n\n\n\n5\nFeb 2/5\n\n\n\n\n6\nFeb 9/12\n\n\n\n\n-\nFeb 16/19\nno class (reading week)\n-\n\n\n7\nFeb 23/26\n\n\n\n\n8\nMar 2/5\n\n\n\n\n-\nMar 9/12\nno class (Paul away)\n-\n\n\n9\nMar 16/19\n\n\n\n\n10\nMar 23/26\n\n\n\n\n11\nMar 30/Apr 2\n\n\n\n\n12\nApr 6/Apr 9"
   },
   {
     "objectID": "index.html#readings",

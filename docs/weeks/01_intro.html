@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/hmc_t_square.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1b2b25f1670aefbab54dcdee8661afc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/hmc_t_square.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-1b2b25f1670aefbab54dcdee8661afc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,11 +116,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo light-content">
-    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo dark-content">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/hmc_t_square.png" alt="" class="navbar-logo light-content">
+    <img src="../images/hmc_t_square.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Psychology 9040B FW25</span>
     </a>
   </div>
@@ -96,8 +131,12 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gribblelab.org/9040/syllabus.pdf"> 
+<span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://westernu.brightspace.com/d2l/home/163612"> 
@@ -115,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -126,6 +165,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#reproducibility-replicability" id="toc-reproducibility-replicability" class="nav-link" data-scroll-target="#reproducibility-replicability">Reproducibility &amp; Replicability</a></li>
   <li><a href="#topics-in-data-analysis" id="toc-topics-in-data-analysis" class="nav-link" data-scroll-target="#topics-in-data-analysis">Topics in Data Analysis</a></li>
   </ul></li>
+  <li><a href="#macos-windows-or-linux" id="toc-macos-windows-or-linux" class="nav-link" data-scroll-target="#macos-windows-or-linux">MacOS, Windows, or Linux?</a>
+  <ul class="collapse">
+  <li><a href="#unixlinux" id="toc-unixlinux" class="nav-link" data-scroll-target="#unixlinux">Unix/Linux</a></li>
+  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos">MacOS</a></li>
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+  </ul></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#code-editor" id="toc-code-editor" class="nav-link" data-scroll-target="#code-editor">Code Editor</a></li>
+  <li><a href="#gitgithub" id="toc-gitgithub" class="nav-link" data-scroll-target="#gitgithub">Git/GitHub</a></li>
+  <li><a href="#check-your-setup" id="toc-check-your-setup" class="nav-link" data-scroll-target="#check-your-setup">Check your setup</a></li>
   </ul>
 </nav>
     </div>
@@ -203,9 +252,86 @@ ul.task-list li input[type="checkbox"] {
 <li>simulating dynamical systems</li>
 </ul>
 <p>By building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses.</p>
-
-
 </section>
+</section>
+<section id="macos-windows-or-linux" class="level2">
+<h2 class="anchored" data-anchor-id="macos-windows-or-linux">MacOS, Windows, or Linux?</h2>
+<p>Yes.</p>
+<p>Sort of.</p>
+<p>If you are using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.</p>
+<p>If you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.</p>
+<p>If you are using Windows, also good news, sort of, you will not need to use Windows! Let me explain. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the <em>Windows Subsystem for Linux</em> (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.</p>
+<p>PS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.</p>
+<section id="unixlinux" class="level3">
+<h3 class="anchored" data-anchor-id="unixlinux">Unix/Linux</h3>
+<p>x</p>
+</section>
+<section id="macos" class="level3">
+<h3 class="anchored" data-anchor-id="macos">MacOS</h3>
+<p>x</p>
+</section>
+<section id="windows" class="level3">
+<h3 class="anchored" data-anchor-id="windows">Windows</h3>
+<p>x</p>
+</section>
+</section>
+<section id="python" class="level2">
+<h2 class="anchored" data-anchor-id="python">Python</h2>
+<p>We will be using Python in this course.</p>
+<ul>
+<li>download and install <a href="https://www.python.org/downloads/">Python</a></li>
+</ul>
+</section>
+<section id="code-editor" class="level2">
+<h2 class="anchored" data-anchor-id="code-editor">Code Editor</h2>
+<p>Python code lives in plain text files that by convention have a <code>.py</code> extension, and you can view and edit them in any editor you want. There are many to choose from. I use Visual Studio Code which is free and available on MacOS, Windows, and Linux. You can use whatever you wish. In class I will be using Visual Studio Code, and I will show you how to use some of its more useful features for Python programming and data analysis.</p>
+<ul>
+<li>download and install <a href="https://code.visualstudio.com">Visual Studio Code</a></li>
+</ul>
+</section>
+<section id="gitgithub" class="level2">
+<h2 class="anchored" data-anchor-id="gitgithub">Git/GitHub</h2>
+<p>We will be covering code versioning using Git and GitHub, so you should:</p>
+<ul>
+<li>download and install <a href="https://git-scm.com">Git</a> on your computer</li>
+<li>sign up for a (free) <a href="https://www.github.com">GitHub</a> account</li>
+</ul>
+</section>
+<section id="check-your-setup" class="level2">
+<h2 class="anchored" data-anchor-id="check-your-setup">Check your setup</h2>
+<p>Assuming you have installed Python and VSCode:</p>
+<ol type="1">
+<li>create a new folder somewhere on your computer’s file system and name it <code>Psych_9040</code></li>
+<li>launch VSCode</li>
+<li>in the welcome screen there is an item under “Start” called “Open Folder …” — click it and navigate to the <code>Psych_9040</code> folder you created in step 1 above, and select it</li>
+<li>now click on “New File …” to create a new empty file, select “Text File” from the dropdown menu</li>
+<li>In the VSCode “File” menu select “Save” and name the file <code>hello.py</code>; VSCode may ask you if you want to install the Python extension, click Yes</li>
+<li>If you didn’t get asked about installing the Python extension, do it manually: type CMD-Shift-P (MacOS) or CTRL-Shift-P (Windows/Linux) to launch the Command Palette and enter <code>Extensions: Install Extensions</code> and select the item from the dropdown menu by clicking it with the mouse or by typing Enter/Return; the Extension browser will have opened as a column on the left hand side of the VSCode window. At the top there is an empty text entry field. Type <code>Python</code>; click “Install” on the one called “Python” (Python extension for Visual Studio Code) from Microsoft</li>
+<li>type the following in your <code>hello.py</code> file:</li>
+</ol>
+<div id="1f937a29" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array ([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">29</span>])</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.<span class="bu">sum</span>(x)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"the sum of </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss"> is </span><span class="sc">{</span>y<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="7" type="1">
+<li><p>launch the Command Palette and type in <code>Python: Create Environment</code> and select that item in the dropdown list</p></li>
+<li><p>select the “Venv” option to create a <code>.venv</code> virtual environment in the current workspace</p></li>
+<li><p>select your preferred Python interpreter from the dropdown list</p></li>
+<li><p>bring up the Command Palette again and type <code>Terminal: Create New Terminal</code> and select it; (note: if you are on Windows, click the down-arrow next to the <code>+</code> and select “Select Default Profile” and then select “Command Prompt”)… then close the terminal and re-open it via the Command Palette</p></li>
+<li><p>in the Terminal that opens up, type <code>pip install numpy</code> and then Return/Enter</p></li>
+<li><p>now type <code>python hello.py</code> and Return/Enter</p></li>
+</ol>
+<p>You should see the following output in the Terminal:</p>
+<div id="c2a5654b" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>the sum of [ 2  3  5  7 11 13 17 19 23 29] is 129</code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

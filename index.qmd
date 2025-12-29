@@ -26,8 +26,6 @@ format:
 
 ---
 
-- [Course Syllabus](syllabus.pdf)
-- [Introduction to the course](introduction.qmd)
 - [A note about homeworks](homeworks.qmd)
 
 ---
@@ -38,22 +36,22 @@ more details coming soon ...
 
 <div class="mt-4 table-bordered">
 
-| Week  |     Date     |                Topic                | Homework |
-| :---: | ------------ | ----------------------------------- | :------: |
-|   1   | Jan 5/8      | Setting up your computer for coding |          |
-|   2   | Jan 12/15    | Python basics                       |          |
-|   3   | Jan 19/22    |                                     |          |
-|   4   | Jan 26/29    |                                     |          |
-|   5   | Feb 2/5      |                                     |          |
-|   6   | Feb 9/12     |                                     |          |
-|   -   | Feb 16/19    | *no class* (reading week)           |    -     |
-|   7   | Feb 23/26    |                                     |          |
-|   8   | Mar 2/5      |                                     |          |
-|   -   | Mar 9/12     | *no class* (Paul away)              |    -     |
-|   9   | Mar 16/19    |                                     |          |
-|  10   | Mar 23/26    |                                     |          |
-|  11   | Mar 30/Apr 2 |                                     |          |
-|  12   | Apr 6/Apr 9  |                                     |          |
+| Week  |     Date     |           Topic / Notes           | Homework |
+| :---: | ------------ | --------------------------------- | :------: |
+|   1   | Jan 5/8      | [Intro/Setup](weeks/01_intro.qmd) |          |
+|   2   | Jan 12/15    | Python basics                     |          |
+|   3   | Jan 19/22    |                                   |          |
+|   4   | Jan 26/29    |                                   |          |
+|   5   | Feb 2/5      |                                   |          |
+|   6   | Feb 9/12     |                                   |          |
+|   -   | Feb 16/19    | *no class* (reading week)         |    -     |
+|   7   | Feb 23/26    |                                   |          |
+|   8   | Mar 2/5      |                                   |          |
+|   -   | Mar 9/12     | *no class* (Paul away)            |    -     |
+|   9   | Mar 16/19    |                                   |          |
+|  10   | Mar 23/26    |                                   |          |
+|  11   | Mar 30/Apr 2 |                                   |          |
+|  12   | Apr 6/Apr 9  |                                   |          |
 
 : {tbl-colwidths="[8,15,57,20]"}
 </div>
