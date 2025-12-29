@@ -4,7 +4,7 @@ format:
   html:
     toc: true
     toc-expand: 1
-    page-layout: full
+#    page-layout: full
 ---
 
 Welcome! I'm glad you're here.
@@ -81,17 +81,26 @@ PS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamili
 
 ### Unix/Linux
 
-Open up a terminal and (assuming Ubuntu Linux) install some necessary tools:
+Open up a terminal and (assuming Ubuntu Linux) update the system:
 
 ```{bash}
-sudo apt-get install build-essential git
+sudo apt-get update
+sudo apt-get upgrade -y
 ```
 
-and then install the `uv` tool:
+and then install some necessary tools:
+
+```{bash}
+sudo apt-get install -y build-essential git curl
+```
+
+and then install the uv tool:
 
 ```{bash}
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+
+close your Terminal.
 
 and then download [Visual Studio Code](https://code.visualstudio.com/Download) and install it.
 
@@ -115,56 +124,92 @@ Then close the terminal and open up a new one, and install some other necessary 
 brew install git
 ```
 
-Then install the `uv` tool:
+Then install the uv tool:
 
 ```{bash}
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
+close your Terminal.
+
 and then download [Visual Studio Code](https://code.visualstudio.com/Download) and install it.
+
+If you want a nicer looking Terminal than the one that ships with MacOS you can try one of these:
+
+- [iTerm2](https://iterm2.com/)
+- [ghostty](https://ghostty.org/)
 
 ### Windows
 
-x
+First update Windows, I think you can access this by going to the Start menu and typing "update" and one of the options will be a system update.
 
-## Git/GitHub
+Next, open up Powershell (again, go to the Start menu and type Powershell to access it) and type:
 
-We will be covering code versioning using Git and GitHub, so you should sign up for a (free) [GitHub](https://www.github.com) account.
+```{bash}
+wsl --install
+```
+
+When it is done, reboot your computer.
+
+Open up Powershell again and type:
+
+```{bash}
+wsl.exe --install Ubuntu
+```
+
+It will eventually ask you for a default Unix user account and password.
+
+Close Powershell and any other junky windows that Windows may have opened.
+
+From your Start menu select "Ubuntu" and it should launch a terminal, which is now, running Ubuntu linux.
+
+Now go through the steps above in the Unix/Linux section.
 
 ## Check your setup
 
-Assuming you have installed Python and VSCode:
+Create a new folder somewhere on your computer's file system and name it `Psych_9040`, and then navigate inside of it.
 
-1. create a new folder somewhere on your computer's file system and name it `Psych_9040`
-2. launch VSCode
-3. in the welcome screen there is an item under "Start" called "Open Folder ..." --- click it and navigate to the `Psych_9040` folder you created in step 1 above, and select it
-4. now click on "New File ..." to create a new empty file, select "Text File" from the dropdown menu
-4. In the VSCode "File" menu select "Save" and name the file `hello.py`; VSCode may ask you if you want to install the Python extension, click Yes
-5. If you didn't get asked about installing the Python extension, do it manually: type CMD-Shift-P (MacOS) or CTRL-Shift-P (Windows/Linux) to launch the Command Palette and enter `Extensions: Install Extensions` and select the item from the dropdown menu by clicking it with the mouse or by typing Enter/Return; the Extension browser will have opened as a column on the left hand side of the VSCode window. At the top there is an empty text entry field. Type `Python`; click "Install" on the one called "Python" (Python extension for Visual Studio Code) from Microsoft
-6. type the following in your `hello.py` file:
+Open a new terminal:
 
-```{python}
-#| eval: false
-import numpy as np
-
-x = np.array ([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
-y = np.sum(x)
-print(f"the sum of {x} is {y}")
+```{bash}
+mkdir Psych_9040
+cd Psych_9040
 ```
 
-7. launch the Command Palette and type in `Python: Create Environment` and select that item in the dropdown list
+Use uv to install a python environment
 
-8. select the "Venv" option to create a `.venv` virtual environment in the current workspace
+```{bash}
+uv init --python 3.12
+```
 
-9. select your preferred Python interpreter from the dropdown list
+Add the numpy package
 
-10. bring up the Command Palette again and type `Terminal: Create New Terminal` and select it; (note: if you are on Windows, click the down-arrow next to the `+` and select "Select Default Profile" and then select "Command Prompt")... then close the terminal and re-open it via the Command Palette
+```{bash}
+uv add numpy
+```
 
-11. in the Terminal that opens up, type `pip install numpy` and then Return/Enter
+Create a new empty file:
 
-12. now type `python hello.py` and Return/Enter
+```{bash}
+touch hello.py
+```
 
-You should see the following output in the Terminal:
+and add some Python lines of code to it:
+
+```{bash}
+echo "import numpy as np" >> hello.py
+echo "x = np.array ([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])" >> hello.py
+echo "y = np.sum(x)" >> hello.py
+echo "print(f\"the sum of {x} is {y}\")" >> hello.py
+```
+
+and test the code:
+
+```{bash}
+uv run python hello.py
+```
+
+and you should see this output:
 
 ```{python}
 #| echo: false
@@ -175,4 +220,7 @@ y = np.sum(x)
 print(f"the sum of {x} is {y}")
 ```
 
+## Git/GitHub
+
+We will be covering code versioning using Git and GitHub, so you should sign up for a (free) [GitHub](https://www.github.com) account.
 
