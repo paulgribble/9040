@@ -265,6 +265,11 @@ sudo apt-get upgrade -y</code></pre>
 <pre class="{bash}"><code>wsl.exe --install Ubuntu</code></pre>
 <p>It will eventually ask you for a default Unix user account and password.</p>
 <p>Close Powershell and any other junky windows that Windows may have opened.</p>
+<p>Open Powershell and check to see which version of WSL is running:</p>
+<pre class="{bash}"><code>wsl -l -v</code></pre>
+<p>if it shows version 1 instead of version 2 then switch:</p>
+<pre class="{bash}"><code>wsl --set-version Ubuntu 2</code></pre>
+<p>Close Powershell and reboot the computer.</p>
 <p>From your Start menu select “Ubuntu” and it should launch a terminal, which is now, running Ubuntu linux.</p>
 <p>Now go through the steps above in the Unix/Linux section.</p>
 </section>
@@ -289,7 +294,7 @@ echo "print(f\"the sum of {x} is {y}\")" &gt;&gt; hello.py</code></pre>
 <p>and test the code:</p>
 <pre class="{bash}"><code>uv run python hello.py</code></pre>
 <p>and you should see this output:</p>
-<div id="a79aeb10" class="cell" data-execution_count="1">
+<div id="4e4eeb0b" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>the sum of [ 2  3  5  7 11 13 17 19 23 29] is 129</code></pre>
 </div>

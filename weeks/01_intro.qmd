@@ -161,6 +161,20 @@ It will eventually ask you for a default Unix user account and password.
 
 Close Powershell and any other junky windows that Windows may have opened.
 
+Open Powershell and check to see which version of WSL is running:
+
+```{bash}
+wsl -l -v
+```
+
+if it shows version 1 instead of version 2 then switch:
+
+```{bash}
+wsl --set-version Ubuntu 2
+```
+
+Close Powershell and reboot the computer.
+
 From your Start menu select "Ubuntu" and it should launch a terminal, which is now, running Ubuntu linux.
 
 Now go through the steps above in the Unix/Linux section.
