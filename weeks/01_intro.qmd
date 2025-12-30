@@ -71,7 +71,7 @@ Yes.
 
 Sort of.
 
-For this course, we will be working extensively with the command line and VS Code, which function similarly across all three major operating systems—--so you can use whichever you prefer or already have. Linux is the gold standard in scientific computing environments; most computing clusters, cloud servers, and neuroimaging pipelines run on it, so familiarity with its command line is invaluable. macOS shares Linux's Unix heritage, meaning the terminal experience is nearly identical, making it a convenient choice for researchers who want a polished laptop environment that translates well to work on Linux/Unix environments such as servers and clusters.
+For this course, we will be working extensively with the command line and VS Code, which function similarly across all three major operating system, so you can use whichever OS you prefer or already have. Linux is the gold standard in scientific computing environments; most computing clusters, cloud servers, and neuroimaging pipelines run on it, so familiarity with its command line is invaluable. MacOS runs on a Unix variant under the hood, meaning the terminal experience is nearly identical, making it a convenient choice for researchers who want a polished laptop environment that translates well to work on Linux/Unix environments such as servers and clusters.
 
 Windows has historically been the odd one out for scientific computing, but the Windows Subsystem for Linux (WSL) has changed this dramatically. The WSL lets you run a full Linux environment inside Windows, giving you access to the same tools and workflows. For our purposes, the key is having a working terminal and Python environment.
 
