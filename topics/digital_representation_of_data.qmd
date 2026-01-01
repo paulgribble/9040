@@ -1,0 +1,465 @@
+---
+title: "Digital Representation of Data"
+format:
+  html:
+    toc: true
+jupyter: python3
+---
+
+# Readings
+
+- LWP 1: [The way of the program](https://openbookproject.net/thinkcs/python/english3e/way_of_the_program.html)
+- LWP 2: [Variables, expressions and statements](https://openbookproject.net/thinkcs/python/english3e/variables_expressions_statements.html)
+- PDA 1: [Preliminaries](https://wesmckinney.com/book/preliminaries.html)
+- PDA 2: [Python Language Basics, iPython, and Jupyter Notebooks](https://wesmckinney.com/book/python-basics.html)
+
+### other potentially useful readings
+
+- [The way of the program](https://openbookproject.net/thinkcs/python/english3e/way_of_the_program.html)
+- [Variables, expressions, and statements](https://greenteapress.com/thinkpython2/html/thinkpython2003.html)
+- [Python Language Basics](https://wesmckinney.com/book/python-basics.html#tut_basics)
+- [Holding a Program in One's Head](http://www.paulgraham.com/head.html)
+
+# What is a Computer Program?
+
+What is a computer program? What is code? What is a computer language? A computer program is simply a series of instructions that the computer executes, one after the other. An instruction is a single command. A program is a series of instructions. Code is another way of referring to a single instruction or a series of instructions (a program).
+
+## High-level vs low-level languages
+
+The [CPU](https://en.wikipedia.org/wiki/Central_processing_unit) (central processing unit) chip(s) that sit on the [motherboard](https://en.wikipedia.org/wiki/Motherboard) of your computer is the piece of hardware that actually executes instructions. A CPU only understands a relatively low-level language called [machine code](https://en.wikipedia.org/wiki/Machine_code). Often machine code is generated automatically by translating code written in [assembly language](https://en.wikipedia.org/wiki/Assembly_language), which is a [low-level programming language](https://en.wikipedia.org/wiki/Low-level_programming_language) that has a relatively direcy relationship to machine code (but is more readable by a human). A utility program called an [assembler](https://en.wikipedia.org/wiki/Assembly_language#Assembler) is what translates assembly language code into machine code.
+
+In this course we will be learning how to program in Python, which is a [high-level programming language](https://en.wikipedia.org/wiki/High-level_programming_language). The "high-level" refers to the fact that the language has a strong abstraction from the details of the computer (the details of the machine code). A "strong abstraction" means that one can operate using high-level instructions without having to worry about the low-level details of carrying out those instructions.
+
+An analogy is motor skill learning. A high-level language for human action might be *drive your car to the grocery store and buy apples*. A low-level version of this might be something like: (1) walk to your car; (2) open the door; (3) start the ignition; (4) put the transmission into Drive; (5) step on the gas pedal, and so on. An even lower-level description might involve instructions like: (1) activate your
+[gastrocnemius muscle](https://en.wikipedia.org/wiki/Gastrocnemius_muscle) until you feel 2 kg of pressure on the underside of your right foot, maintain this pressure for 2.7 seconds, then release (stepping on the gas pedal); (2) move your left and right eyeballs 27 degrees to the left (check for oncoming cars); (3) activate your pectoralis muscle on the right side of your chest and simultaneously squeeze the steering wheel with the fingers on your right hand (steer the car to the left); and so on.
+
+For scientific programming, we would like to deal at the highest level we can, so that we can avoid worrying about the low-level details. We might for example want to plot a line in a Figure and colour it blue. We don't want to have to program the low-level details of how each pixel on the screen is set, and how to generate each letter of the font that is used to specify the x-axis label.
+
+As an example, here is a *hello, world* program written in a variety of languages, just to give you a sense of things. You can see the high-level languages like MATLAB, Python and R are extremely readable and understandable, even though you may not know anything about these languages (yet). The C code is less readable, there are lots of details one may not know about\... and the assembly language example is a bit of a nightmare, obviously too low-level for our needs here.
+
+Python
+
+``` python
+print("hello, world")
+```
+
+MATLAB
+``` matlab
+disp('hello, world')
+```
+
+R
+
+```r
+cat("hello, world\n")
+```
+
+Javascript
+
+```javascript
+document.write("hello, world");
+```
+
+Fortran
+
+```fortran
+print *,"hello, world"
+```
+
+C
+
+``` c
+#include <stdio.h>
+int main (int argc, char *argv[]) {
+  printf("hello, world\n");
+  return 0;
+}
+```
+
+8086 Assembly language
+
+```asm
+; this example prints out  "hello world!" by writing directly to video memory.
+; first byte is ascii character, next is character attribute (8 bit value)
+; high 4 bits set background color and low 4 bits set foreground color.
+ 
+org 100h
+
+; set video mode    
+mov ax, 3     ; text mode 80x25, 16 colors, 8 pages (ah=0, al=3)
+int 10h       ; do it!
+
+; cancel blinking and enable all 16 colors:
+mov ax, 1003h
+mov bx, 0
+int 10h
+
+; set segment register:
+mov     ax, 0b800h
+mov     ds, ax
+
+; print "hello world"
+
+mov [02h], 'H'
+mov [04h], 'e'
+mov [06h], 'l'
+mov [08h], 'l'
+mov [0ah], 'o'
+mov [0ch], ','
+mov [0eh], 'W'
+mov [10h], 'o'
+mov [12h], 'r'
+mov [14h], 'l'
+mov [16h], 'd'
+mov [18h], '!'
+
+; color all characters:
+mov cx, 12  ; number of characters.
+mov di, 03h ; start from byte after 'h'
+
+c:  mov [di], 11101100b   ; light red(1100) on yellow(1110)
+    add di, 2 ; skip over next ascii code in vga memory.
+    loop c
+
+; wait for any key press:
+mov ah, 0
+int 16h
+
+ret
+```
+
+## Interpreted vs compiled languages
+
+Some languages like C and Fortran are [compiled languages](https://en.wikipedia.org/wiki/Compiled_language), meaning that we write code in C or Fortran, and then to run the code (to have the computer execute those instructions) we first have to translate the code into machine code, and then run the machine code. The utility function that performs this translation (compilation) is called a [compiler](https://en.wikipedia.org/wiki/Compiler). In addition to simply translating a high-level language into machine code, modern compilers will also perform a number of optimizations to ensure that the resulting machine code runs fast, and uses little memory. Typically we write a program in C, then compile it, and if there are no errors, we then run it. We deal with the entire program as a whole. Compiled program tend to be fast since the entire program is compiled and optimized as a whole, into machine code, and then run on the CPU as a whole.
+
+Other languages, like MATLAB, Python and R, are [interpreted languages](https://en.wikipedia.org/wiki/Interpreted_language), meaning that we write code which is then translated, command by command, into machine language instructions which are run one after another. This is done using a utility called an [interpreter](https://en.wikipedia.org/wiki/Interpreter_(computing)). We don't have to compile the whole program all together in order to run it. Instead we can run it one instruction at a time. Typically we do this in an interactive programming environment where we can type in a command, and observe the result, and then type a next command, etc. This is known as the [read-eval-print (REPL) loop](https://en.wikipedia.org/wiki/Read–eval–print_loop). This is advantageous for scientific programming, where we typically spend a lot of time exploring our data in an interactive way. One can of course run a program such as this in a batch mode, all at once, without the interactive REPL environment\... but this doesn't change the fact that the translation to machine code still happens one line at a time, each in isolation. Interpreted languages tend to be slow, because every single command is taken in isolation, one after the other, and in real time translated into machine code which is then executed in a piecemeal fashion.
+
+For interactive programming, when we are exploring our data, interpreted languages like MATLAB, Python and R shine. They may be slow but it (typically) doesn't matter, because what's many orders of magnitude slower, is the firing of the neurons in our brain as we consider the output of each command and decide what to do next, how to analyse our data differently, what to plot next, etc. For batch programming (for example fMRI processing pipelines, or electrophysiological recording signal processing, or numerical optimizations, or statistical bootstrapping operations), where we want to run a large set of instructions all at once, without looking at the result of each step along the way, compiled languages really shine. They are much faster than interpreted languages, often several orders of magnitude faster. It's not unusual for even a simple program written in C to run 100x or even 1000x faster than the same program written in MATLAB, Python or R.
+
+A 1000x speedup may not be very important when the program runs in 5 seconds (versus 5 milliseconds) but when a program takes 60 seconds to run in MATLAB, Python, or R, for example, things can start to get problematic.
+
+Imagine you write some code to read in data from one subject, process that data, and write the result to a file, and that operation takes 60 seconds. Is that so bad? Not if you only have to run it once. Now let's imagine you have 15 subjects in your group. Now 60 seconds is 15 minutes. Now let's say you have 4 groups. Now 15 minutes is one hour. You run your program, go have lunch, and come back an hour later and you find there was an error. You fix the error and re-run. Another hour. Even if you get it right, now imagine your supervisor asks you to re-run the analysis 5 different ways, varying some parameter of the analysis (maybe filtering the data at a different frequency, for example). Now you need 5 hours to see the result. It doesn't take a huge amount of data to run into this sort of situation.
+
+Now imagine if you could program this data processing pipeline in C instead, and you could achieve a 500x speedup (not unusual), now those 5 hours turn into 36 seconds (you could run your analysis twice and it would still take less time than listening to Stairway to Heaven a dozen times). All of a sudden it's the difference between an overnight operation and a 30 second operation. That makes a big difference to the kind of work you can do, and the kinds of questions you can pursue.
+
+Python (when using NumPy) and MATLAB is pretty good about using optimized, compiled subroutines for certain operations (e.g. matrix algebra), so in many cases the difference between Python/MATLAB and C performance isn't as great as it is for others. Python has add-ons, for example [Numba](https://numba.pydata.org), that with some work, enables one to essentially compile parts of Python code. In practice this can be tricky though. MATLAB also has a toolbox (called the [MATLAB Coder](http://www.mathworks.com/products/matlab-coder/)) that will allow you to generate C code from your MATLAB code, so in principle you can take slow MATLAB code and generate faster, compiled C code. 
+
+
+# Digital Representation of Data
+
+Here we review how information is stored in digital format on computers.
+
+You will see some Python code used here to illustrate concepts. It is not necessary to understand the Python code to understand the concepts. We will be going over Python programming in subsequent classes.
+
+## Readings
+
+- play with the [IEEE-754 Floating Point Converter](https://www.h-schmidt.net/FloatConverter/IEEE754.html) (e.g. lookup the representation of 0.1, 0.2, and 0.3)
+
+## Binary
+
+Information on a digital computer is stored in a [binary](http://en.wikipedia.org/wiki/Binary_code) format. Binary format represents information using a series of 0s and 1s. If there are $n$ digits of a binary code, one can represent $2^{n}$ [bits](http://en.wikipedia.org/wiki/Bit) of information.
+
+So for example the binary number denoted by:
+
+```
+0001
+```
+
+represents the number 1.
+
+```
+0010
+```
+
+This is a 4-bit code since there are 4 binary digits. The full list of all values that can be represented using a 4-bit code are shown in the Table below:
+
+
+```{python}
+#| code-fold: true
+print("Decimal Binary")
+print("------- -------")
+for n in range(16):
+    print(f"{n:7d} {n:04b}")
+```
+
+So with a 4-bit binary code one can represent $2^{4} = 16$ different values (0-15). Each additional bit doubles the number of values one can represent. So a 5-bit code enables us to represent 32 distinct values, a 6-bit code 64, a 7-bit code 128 and an 8-bit code 256 values (0-255).
+
+Another piece of terminology: a given sequence of binary digits that forms the natural unit of data for a given processor (CPU) is called a [word](http://en.wikipedia.org/wiki/Word_(computer_architecture)).
+
+Have a look at the [ASCII table](http://www.asciitable.com). The standard ASCII table represents 128 different characters and the extended ASCII codes enable another 128 for a total of 256 characters. How many binary bits are used for each?
+
+## Hexadecimal
+
+You will also see in the ASCII table that it gives the decimal representation of each character but also the Hexadecimal and Octal representations. The [hexadecimal](http://en.wikipedia.org/wiki/Hexadecimal) system is a base-16 code and the [octal](http://en.wikipedia.org/wiki/Octal) system is a base-8 code. Hex values for a single hexadecimal digit can range over:
+
+```
+0 1 2 3 4 5 6 7 8 9 a b c d e f
+```
+
+If we use a 2-digit hex code we can represent $16^{2} = 256$ distinct values. In computer science, engineering and programming, a common practice is to represent successive 4-bit binary sequences using single-digit hex codes:
+
+
+```{python}
+#| code-fold: true
+print("Dec Bin  Hex")
+print("--- ---- ---")
+for n in range(16):
+    print(f"{n:3d} {n:04b} {n:x}")
+```
+
+If we have 8-bit binary codes we would use successive hex digits to represent each 4-bit word of the 8-bit [byte](http://en.wikipedia.org/wiki/Byte) (another piece of lingo):
+
+
+```{python}
+#| code-fold: true
+print("Dec Bin      Hex")
+print("--- -------- ---")
+for n in range(3):
+    print(f"{n:3d} {n:08b} {n:x}")
+print("    ...     ")
+for n in range(253,256,1):
+    print(f"{n:3d} {n:08b} {n:x}")
+```
+
+The left chunk of 4-bit binary digits (the left word) is represented in hex as a single hex digit (0-f) and the next chunk of 4-bit binary digits (the right word) is represented as another single hex digit (0-f).
+
+Hex is typically used to represent bytes (8-bits long) because it is a more compact notation than using 8 binary digits (hex uses just 2 hex digits).
+
+## Floating point values
+
+The material above talks about the decimal representation of bytes in terms of integer values (e.g. 0-255). Frequently however in science we want the ability to represent [real numbers](http://en.wikipedia.org/wiki/Real_number) on a continuous scale, for example 3.14159, or 5.5, or 0.123, etc. For this, the convention is to use [floating point](http://en.wikipedia.org/wiki/Floating_point) representations of numbers.
+
+The idea behind the floating point representation is that it allows us to represent an approximation of a real number in a way that allows for a large number of possible values. Floating point numbers are represented to a fixed number of *significant digits* (called a *significand*) and then this is scaled using a *base* raised to an *exponent*:
+
+$$s~\mathrm{x}~b^{e}$$
+
+This is related to something you may have come across in high-school science, namely [scientific
+notation](http://en.wikipedia.org/wiki/Scientific_notation). In scientific notation, the base is 10 and so a real number like 123.4 is represented as $1.234~\mathrm{x}~10^{2}$.
+
+In computers there are different conventions for different CPUs but there are standards, like the [IEEE
+754](http://en.wikipedia.org/wiki/IEEE_floating_point) floating-point standard. As an example, a so-called [single-precision floating point format](http://en.wikipedia.org/wiki/Binary32) is represented in binary (using a base of 2) using 32 bits (4 bytes) and a /double precision/ floating point number is represented using 64 bits (8 bytes). In C you can find out how many bytes are used for various types using the `sizeof()` function:
+
+``` c
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+  printf("a single precision float uses %ld bytes\n", sizeof(float));
+  printf("a double precision float uses %ld bytes\n", sizeof(double));
+  return 0;
+}
+```
+
+On my macbook pro laptop this results in this output:
+
+```
+a single precision float uses 4 bytes
+a double precision float uses 8 bytes
+```
+
+According to the IEEE 754 standard, a single precision 32-bit binary floating point representation is composed of a *1-bit sign bit* (signifying whether the number is positive or negative), an *8-bit exponent* and a *23-bit significand*. See the various wikipedia pages for full details.
+
+### Floating point error
+
+There is a key phrase in the description of floating point values above, which is that floating point representation allows us to store an *approximation* of a real number. If we attempt to represent a number
+that has more significant digits than can be store in a 32-bit floating point value, then we have to approximate that real number, typically by rounding off the digits that cannot fit in the 32 bits. This introduces [rounding error](http://en.wikipedia.org/wiki/Round-off_error).
+
+Now with 32 bits, or even 64-bits in the case of double precision floating point values, rounding error is likely to be relatively small. However it's not zero, and depending on what your program is doing with these values, the rounding errors can accumulate (for example if you're simulating a dynamical system over thousands of time steps, and at each time step there is a small rounding error).
+
+We don't need a fancy simulation however to see the results of floating point rounding error. Open up your favourite programming language (MATLAB, Python, R, C, etc) and type the following (adjust the syntax as needed for your language of choice):
+
+```{python}
+(0.1 + 0.2) == 0.3
+```
+
+How could this return `False` when it ought to be true?
+
+What's going on here? What's happening is that these decimal numbers, 0.1, 0.2 and 0.3 are being represented by the computer in a binary floating-point format, that is, using a base 2 representation. The issue is that in base 2, the decimal number 0.1 cannot be represented precisely, no matter how many bits you use. Plug in the decimal number 0.1 into an online binary/decimal/hexadecimal converter (such as [here](http://www.wolframalpha.com/input/?i=0.1+to+binary)) and you will see that the binary representation of 0.1 is an infinitely repeating sequence:
+
+```
+0.000110011001100110011001100... (base 2)
+```
+
+This shouldn't be an unfamiliar situation, if we remember that there are also real numbers that cannot be represented precisely in decimal format, either, because they involve an infintely repeating sequence. For example the real number $\frac{1}{3}$ [when represented in decimal](http://www.wolframalpha.com/input/?i=1%2F3+in+decimal) is:
+
+```
+0.3333333333... (base 10)
+```
+
+If we try to represent $\frac{1}{3}$ using $n$ decimal digits then we have to chop off the digits to the right that we cannot include, thereby rounding the number. We lose some amount of precision that depends on how many significant digits we retain in our representation.
+
+So the same is true in binary. There are some real numbers that cannot be represented precisely in binary floating-point format.
+
+See [here](http://ta.twi.tudelft.nl/users/vuik/wi211/disasters.html) for some examples of significant adverse events (i.e. disasters) cause by numerical errors.
+
+Rounding can be used to your advantage, if you're in the business of stealing from people (see [salami slicing](http://en.wikipedia.org/wiki/Salami_slicing)). In the 1980s movie [Superman III](http://en.wikipedia.org/wiki/Superman_III), Richard Pryor's character plays a "bumbling computer genius" who embezzles a ton of money by stealing a large number of fractions of cents (which in the movie are said to be lost anyway due to rounding) from his company's payroll (YouTube clip [here](http://www.youtube.com/watch?v=iLw9OBV7HYA)).
+
+There is a comprehensive theoretical summary of these issues here: [What Every Computer Scientist Should Know About Floating-Point Arithmetic](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html).
+
+Here is a fantastic blog post that takes you through how floating-point numbers are represented:
+
+[Exposing Floating
+Point](https://ciechanow.ski/exposing-floating-point/)
+
+Finally here is a recent post by Julia Evans in which she discusses different [Examples of floating point problems](https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/)
+
+and another post by Julia Evans in which she goes through the actual floating-point arithmetic that underlies the `0.1 + 0.2 == 0.3` problem: [Why does 0.1 + 0.2 = 0.30000000000000004?](https://jvns.ca/blog/2023/02/08/why-does-0-1-plus-0-2-equal-0-30000000000000004/)
+
+## Integer Overflow
+
+Just in case you thought that floating point values are the only source of problems, representing integer values also comes with the problem of *integer overflow*. This is when one attempts to represent an integer that is larger than possible given the number of bits available.
+
+So for example if we were representing positive integers using only 16 bits, we would only be able to store $2^{16}=65536$ distinct values. So if the first value is $0$ then we are able to store positive integers up to $65535$. If we attempt to add the value $1$ to a variable that uses 16 bits and is currently storing the value $65535$, the variable will "overflow", probably back to zero, in this case.
+
+Here is a not-well-enough-known recent case of integer overflow error affecting Boeing's new 787 "Dreamliner" aircraft:
+
+[Reboot Your Dreamliner Every 248 Days To Avoid Integer Overflow](https://www.i-programmer.info/news/149 security/8548-reboot-your-dreamliner-every-248-days-to-avoid-integer-overflow.html)
+
+## Floating point precision
+
+One non-intuitive feature of floating point representations is that the precision varies with the magnitude of the number being represented. That is, the "next possible representable number" is a very small step away from the current number, when the number is relatively small... but it becomes very large indeed when the numbers are large, sitting far along the number line.
+
+In Python the `numpy` package has a function called `nextafter()` that will report the next representable value from a given value towards a second value:
+
+```{python}
+import numpy as np
+x = 1.234
+x2 = np.nextafter(x, +np.inf)
+print(f"smallest possible increment after {x} is\n {x2-x:0.20f}")
+```
+
+Now let's try this with a larger number:
+
+```{python}
+import numpy as np
+x = 1234567890.123
+x2 = np.nextafter(x, +np.inf)
+print(f"smallest possible increment after {x} is\n {x2-x:0.20f}")
+```
+
+Now let's try a much larger number:
+
+```{python}
+import numpy as np
+x = 1.234 * 10**25
+x2 = np.nextafter(x, +np.inf)
+print(f"smallest possible increment after {x} is\n {x2-x:0.1f}")
+```
+
+So if `x` is `1.234 * 10**25` (admittedly a large number) then the next number that is possible to represent with floating point arithmetic is more than **two billion**! That's a big "step" along the number line.
+
+This is a consequence of the floating-point representation of numbers. If you are regularly dealing with very large numbers then you should be aware of this.
+
+
+## Size of Python built-in types
+
+In Python we can query the size (in bytes) of a given variable using the function `getsizeof()` which is part of the `sys` module:
+
+
+```{python}
+import sys
+
+a = int(12)
+print(f"the {type(a)} {a} uses {sys.getsizeof(a)} bytes")
+
+b = 123.456
+print(f"the {type(b)} {b} uses {sys.getsizeof(b)} bytes")
+
+```
+
+In Python (version 3 and above) integer variables start off using a certain number of bytes but if necessary they will expand.
+
+
+```{python}
+a = 1234567890987654321234567891
+print(f"the {type(a)} {a} uses {sys.getsizeof(a)} bytes")
+
+b = a * 10
+print(f"the {type(b)} {b} uses {sys.getsizeof(b)} bytes")
+```
+
+Of course there are limits governed for integers by the size of your system's memory.
+
+In the case of floating-point values, the limit of 64 bits for the IEEE [double-precision floating point format](https://en.wikipedia.org/wiki/Double-precision_floating-point_format):
+
+
+```{python}
+print(sys.float_info.max)
+```
+
+
+## ASCII
+
+ASCII stands for *American Standard Code for Information Interchange*. ASCII codes delineate how text is represented in digital format for computers (as well as other communications equipment).
+
+ASCII uses a 7-bit binary code to represent 128 specific characters of text. The first 32 codes (decimal 0 through 31) are non-printable codes like `TAB`, `BEL` (play a bell sound), `CR` (carriage return), etc. Decimal codes 32 through 47 are more typical text symbols like `#` and `&`. Decimal codes 48 through 57 are the numbers `0` through `9`:
+
+
+```{python}
+#| code-fold: true
+print("Dec Hex Oct Chr")
+print("--- --- --- ---")
+for n in range(48,58,1):
+    print(f"{n:3d}  {n:x}  {n:o}   {chr(n)}")
+```
+
+Decimal codes 65 through 90 are capital letters `A` through `Z`, and
+codes 97 through 122 are lowercase letters `a` through `z`:
+
+
+```{python}
+#| code-fold: true
+print("Dec Hex Oct Chr      Dec Hex Oct Chr")
+print("--- --- --- ---      --- --- --- ---")
+for n in range(65,91,1):
+    print(f"{n:3d}  {n:x} {n:o}   {chr(n)}      {n+32:3d}  {n+32:x} {n+32:o}   {chr(n+32)}")
+```
+
+For a full description of the 7-bit ascii codes in their entirety, including the *extended ASCII codes* (where you will find things like ö and é), see this webpage:
+
+<http://www.asciitable.com> (ASCII Table and Extended ASCII Codes).
+
+In Python you can find the ASCII integer value of a character using the `ord()` function. You can get the character value of an ASCII code using the `chr()` function.
+
+
+```{python}
+ord('A')
+```
+
+```{python}
+chr(65)
+```
+
+You can use your knowledge of ASCII codes to do clever things, like convert to and from uppercase and lowercase, given your knowledge that the difference (in decimal) between ASCII `A` and ASCII `a` is 32 (see the ASCII table above):
+
+
+```{python}
+chr(ord('A')+32)
+```
+
+```{python}
+chr(ord('a')-32)
+```
+
+Of course in Python there are more straightforward ways to convert between upper and lower case:
+
+
+```{python}
+'a'.upper()
+```
+
+```{python}
+'A'.lower()
+```
+
+## Unicode
+
+The ASCII codes only represent a limited number of characters that are useful mostly in the English language. Starting in the 1980s, Xerox, Apple, and others began work on a new variable-length encoding scheme that could represent a much larger number of characters that would be useful for the world's languages (and now even for [emoji](https://en.wikipedia.org/wiki/Emoji)). This is called [Unicode](https://en.wikipedia.org/wiki/Unicode) and includes the most common standard on the web, [UTF-8](https://en.wikipedia.org/wiki/UTF-8), which can encode more than a million different characters and symbols.
+
+Here is a website where you can view and search the [Unicode character table](https://unicode-table.com/en/blocks/). 
+
+For example, in Unicode the [smiling face emoji](https://unicode-table.com/en/1F600/) &#128512; is encoded using hexadecimal value `1F600`:
+
+
+```{python}
+print(f"Unicode (hex) 1f600 is {chr(0x1f600)}")
+```
+
