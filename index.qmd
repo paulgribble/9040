@@ -38,7 +38,7 @@ more details coming soon ...
 
 | Week  |     Date     |           Topic / Notes           | Homework |
 | :---: | ------------ | --------------------------------- | :------: |
-|   1   | Jan 5/8      | [Intro/Setup](weeks/01_intro.qmd) |          |
+|   1   | Jan 5/8      | [Intro/Setup](weeks/01_setup.qmd) |          |
 |   2   | Jan 12/15    | Python basics                     |          |
 |   3   | Jan 19/22    |                                   |          |
 |   4   | Jan 26/29    |                                   |          |

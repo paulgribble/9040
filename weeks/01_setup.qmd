@@ -240,5 +240,9 @@ print(f"the sum of {x} is {y}")
 
 ## Git/GitHub
 
-We will be covering code versioning using Git and GitHub, so you should sign up for a (free) [GitHub](https://www.github.com) account.
+We will be learning about and using code versioning with Git and GitHub, so you should sign up for a (free) [GitHub](https://www.github.com) account.
+
+### Git basics
+
+x
 
