@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introduction to the Course – Psychology 9040B FW25</title>
+<title>Git &amp; GitHub Basics – Psychology 9040B FW25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b2b25f1670aefbab54dcdee8661afc1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c403d798273eef921068aca0a4124571.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -123,21 +123,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#course-goals" id="toc-course-goals" class="nav-link active" data-scroll-target="#course-goals">Course Goals</a></li>
-  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a>
-  <ul class="collapse">
-  <li><a href="#fundamentals-of-coding" id="toc-fundamentals-of-coding" class="nav-link" data-scroll-target="#fundamentals-of-coding">Fundamentals of Coding</a></li>
-  <li><a href="#reproducibility-replicability" id="toc-reproducibility-replicability" class="nav-link" data-scroll-target="#reproducibility-replicability">Reproducibility &amp; Replicability</a></li>
-  <li><a href="#topics-in-data-analysis" id="toc-topics-in-data-analysis" class="nav-link" data-scroll-target="#topics-in-data-analysis">Topics in Data Analysis</a></li>
-  </ul></li>
-  <li><a href="#macos-windows-or-linux" id="toc-macos-windows-or-linux" class="nav-link" data-scroll-target="#macos-windows-or-linux">MacOS, Windows, or Linux?</a>
-  <ul class="collapse">
-  <li><a href="#unixlinux" id="toc-unixlinux" class="nav-link" data-scroll-target="#unixlinux">Unix/Linux</a></li>
-  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos">MacOS</a></li>
-  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
-  </ul></li>
-  <li><a href="#check-your-setup" id="toc-check-your-setup" class="nav-link" data-scroll-target="#check-your-setup">Check your setup</a></li>
-  <li><a href="#gitgithub" id="toc-gitgithub" class="nav-link" data-scroll-target="#gitgithub">Git/GitHub</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#what-is-version-control" id="toc-what-is-version-control" class="nav-link" data-scroll-target="#what-is-version-control">What is Version Control?</a></li>
   </ul>
 </nav>
     </div>
@@ -146,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to the Course</h1>
+<h1 class="title">Git &amp; GitHub Basics</h1>
 </div>
 
 
@@ -163,148 +150,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome! I’m glad you’re here.</p>
-<p>This is <strong>Psychology 9040: Scientific Computing</strong>, for FW25, Jan-Apr 2026.</p>
-<p>Bring your computer to class! We will be writing code.</p>
-<p>Course website: <a href="https://gribblelab.org/9040">https://gribblelab.org/9040</a></p>
-<hr>
-<section id="course-goals" class="level2">
-<h2 class="anchored" data-anchor-id="course-goals">Course Goals</h2>
-<p>In this one-semester graduate course you will learn skills in scientific computing—tools and techniques that you can use in your own research. You will learn to program using <strong>Python</strong>, which is a high-level programming language with many libraries that provide a rich ecosystem for scientific computing. If you want to use a different language in the course you are welcome to but I will focus on Python in class. Having said that, as much as I can I will teach concepts in a way that are language-agnostic.</p>
-<p>The course is designed to achieve three primary goals:</p>
-<ol type="1">
-<li>You will learn to <strong>write code</strong> in a high-level language (Python)</li>
-<li>You will learn to <strong>think computationally and algorithmically</strong> about data analysis</li>
-<li>You will learn some common <strong>data analysis techniques</strong>, which will give you a foundation from which to learn more complex scientific computing skills to suit your own research goals</li>
-</ol>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>First, if you don’t have a GitHub account already, go and sign up for a (free) <a href="https://www.github.com">GitHub</a> account.</p>
+<p>Then, double-check that you have installed git as part of the <a href="../weeks/01b_setup.html">setup</a> instructions. Open up a terminal and type:</p>
+<pre class="{bash}"><code>git --version</code></pre>
+<p>and you should get something like:</p>
+<pre class="{bash}"><code>git version 2.34.0</code></pre>
+<p>It doesn’t much matter if the version number isn’t identical to the one above.</p>
 </section>
-<section id="topics" class="level2">
-<h2 class="anchored" data-anchor-id="topics">Topics</h2>
-<p>In the first part of the course you will <strong>learn how to write code</strong>. The topics we will cover are common to any high-level language including Python, MATLAB, R, Javascript, C, Julia, Go, Swift, etc. All high level languages have things like numbers, strings, arrays, loops, if-statements. Languages differ in their syntax, in the names of common functions, and sometimes in some other subtle ways (e.g.&nbsp;passing by reference vs passing by value) but otherwise, all high-level languages basically work in the same way. Learning these <strong>fundamental concepts of high-level programming languages</strong> using one language will enable you to learn other languages as well in the future.</p>
-<p>The other aspect of programming that you will learn is how to think algorithmically about solving problems and completing tasks with computers. In general there are two reasons to use a computer to perform a given task, (1) because the task would take too long by hand (e.g.&nbsp;churning through processing a huge amount of data), and (2) because the computer can do something clever that you cannot do yourself (e.g.&nbsp;applying complex algorithms to a dataset).</p>
-<p>In learning the fundamentals of high-level programming languages (data types, loops, conditionals, etc) we will sometimes practice writing code to solve little toy problems. This will start to teach you how to think algorithmically. Think about it like learning to play a musical instrument. You don’t start by learining to play Beethoven. You start learning basic skills by playing scales, arpeggios, different key signatures, etc. Building up basic skills using toy problems is a convenient path towards using coding skills to solve real-world programming problems in the context of your own thesis research.</p>
-<p>We will also practice and learn by using code to answer questions about data. Some of the data will be from real experiments and some will be fictitious. The goal will be to answer a series of questions by writing code that performs operations on the data (reorganization, summarising, counting, calculating, processing, plotting, etc) and writing a short summary of your findings. This mimics how you will be using your coding skills in your own research going forward.</p>
-<section id="fundamentals-of-coding" class="level3">
-<h3 class="anchored" data-anchor-id="fundamentals-of-coding">Fundamentals of Coding</h3>
-<ul>
-<li>digital representation of data</li>
-<li>basic data types, operators, &amp; expressions</li>
-<li>control flow &amp; conditionals</li>
-<li>functions</li>
-<li>complex data types</li>
-<li>file input &amp; output</li>
-<li>graphical displays of data</li>
-<li>object oriented programming (OOP)</li>
-</ul>
-</section>
-<section id="reproducibility-replicability" class="level3">
-<h3 class="anchored" data-anchor-id="reproducibility-replicability">Reproducibility &amp; Replicability</h3>
-<ul>
-<li>Python venvs (virtual environments)</li>
-<li>Code versioning using Git &amp; GitHub</li>
-<li>organization of code and data</li>
-<li>data analysis workflow</li>
-</ul>
-</section>
-<section id="topics-in-data-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="topics-in-data-analysis">Topics in Data Analysis</h3>
-<ul>
-<li>sampling, signal processing, &amp; filtering data</li>
-<li>statistical tests (parametric vs resampling/boostrapping/randomization)</li>
-<li>fitting models to data</li>
-<li>simulating dynamical systems</li>
-</ul>
-<p>By building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses.</p>
-</section>
-</section>
-<section id="macos-windows-or-linux" class="level2">
-<h2 class="anchored" data-anchor-id="macos-windows-or-linux">MacOS, Windows, or Linux?</h2>
-<p>Yes.</p>
-<p>Sort of.</p>
-<p>For this course, we will be working extensively with the command line and VS Code, which function similarly across all three major operating system, so you can use whichever OS you prefer or already have. Linux is the gold standard in scientific computing environments; most computing clusters, cloud servers, and neuroimaging pipelines run on it, so familiarity with its command line is invaluable. MacOS runs on a Unix variant under the hood, meaning the terminal experience is nearly identical, making it a convenient choice for researchers who want a polished laptop environment that translates well to work on Linux/Unix environments such as servers and clusters.</p>
-<p>Windows has historically been the odd one out for scientific computing, but the Windows Subsystem for Linux (WSL) has changed this dramatically. The WSL lets you run a full Linux environment inside Windows, giving you access to the same tools and workflows. For our purposes, the key is having a working terminal and Python environment.</p>
-<p>So if you are already using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.</p>
-<p>If you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.</p>
-<p>If you are using Windows, it will be ok. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the <em>Windows Subsystem for Linux</em> (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.</p>
-<p>PS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.</p>
-<section id="unixlinux" class="level3">
-<h3 class="anchored" data-anchor-id="unixlinux">Unix/Linux</h3>
-<p>Open up a terminal and (assuming Ubuntu Linux) update the system:</p>
-<pre class="{bash}"><code>sudo apt update
-sudo apt upgrade -y</code></pre>
-<p>and then install some necessary tools:</p>
-<pre class="{bash}"><code>sudo apt install -y build-essential git curl</code></pre>
-<p>and then install the uv tool:</p>
-<pre class="{bash}"><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
-<p>close your Terminal.</p>
-<p>and then download <a href="https://code.visualstudio.com/Download">Visual Studio Code</a> and install it.</p>
-</section>
-<section id="macos" class="level3">
-<h3 class="anchored" data-anchor-id="macos">MacOS</h3>
-<p>Open up a terminal and install some necessary build tools:</p>
-<pre class="{bash}"><code>xcode-select --install</code></pre>
-<p>Install the Homebrew package manager:</p>
-<pre class="{bash}"><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
-<p>Then close the terminal and open up a new one, and install some other necessary tools:</p>
-<pre class="{bash}"><code>brew install git</code></pre>
-<p>Then install the uv tool:</p>
-<pre class="{bash}"><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
-<p>close your Terminal.</p>
-<p>and then download <a href="https://code.visualstudio.com/Download">Visual Studio Code</a> and install it.</p>
-<p>If you want a nicer looking Terminal than the one that ships with MacOS you can try one of these:</p>
-<ul>
-<li><a href="https://iterm2.com/">iTerm2</a></li>
-<li><a href="https://ghostty.org/">ghostty</a></li>
-</ul>
-</section>
-<section id="windows" class="level3">
-<h3 class="anchored" data-anchor-id="windows">Windows</h3>
-<p>First update Windows, I think you can access this by going to the Start menu and typing “update” and one of the options will be a system update.</p>
-<p>Next, open up Powershell (again, go to the Start menu and type Powershell to access it) and type:</p>
-<pre class="{bash}"><code>wsl --install</code></pre>
-<p>When it is done, reboot your computer.</p>
-<p>Open up Powershell again and type:</p>
-<pre class="{bash}"><code>wsl.exe --install Ubuntu</code></pre>
-<p>It will eventually ask you for a default Unix user account and password.</p>
-<p>Close Powershell and any other junky windows that Windows may have opened.</p>
-<p>Open Powershell and check to see which version of WSL is running:</p>
-<pre class="{bash}"><code>wsl -l -v</code></pre>
-<p>if it shows version 1 instead of version 2 then switch:</p>
-<pre class="{bash}"><code>wsl --set-version Ubuntu 2</code></pre>
-<p>Close Powershell and reboot the computer.</p>
-<p>From your Start menu select “Ubuntu” and it should launch a terminal, which is now, running Ubuntu linux.</p>
-<p>Now go through the steps above in the Unix/Linux section.</p>
-</section>
-</section>
-<section id="check-your-setup" class="level2">
-<h2 class="anchored" data-anchor-id="check-your-setup">Check your setup</h2>
-<p>Create a new folder somewhere on your computer’s file system and name it <code>Psych_9040</code>, and then navigate inside of it.</p>
-<p>Open a new terminal:</p>
-<pre class="{bash}"><code>mkdir Psych_9040
-cd Psych_9040</code></pre>
-<p>Use uv to install a python environment</p>
-<pre class="{bash}"><code>uv init --python 3.12</code></pre>
-<p>Add the numpy package</p>
-<pre class="{bash}"><code>uv add numpy</code></pre>
-<p>Create a new empty file:</p>
-<pre class="{bash}"><code>touch hello.py</code></pre>
-<p>and add some Python lines of code to it:</p>
-<pre class="{bash}"><code>echo "import numpy as np" &gt;&gt; hello.py
-echo "x = np.array ([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])" &gt;&gt; hello.py
-echo "y = np.sum(x)" &gt;&gt; hello.py
-echo "print(f\"the sum of {x} is {y}\")" &gt;&gt; hello.py</code></pre>
-<p>and test the code:</p>
-<pre class="{bash}"><code>uv run python hello.py</code></pre>
-<p>and you should see this output:</p>
-<div id="043a406c" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stdout">
-<pre><code>the sum of [ 2  3  5  7 11 13 17 19 23 29] is 129</code></pre>
-</div>
-</div>
-</section>
-<section id="gitgithub" class="level2">
-<h2 class="anchored" data-anchor-id="gitgithub">Git/GitHub</h2>
-<p>We will be covering code versioning using Git and GitHub, so you should sign up for a (free) <a href="https://www.github.com">GitHub</a> account.</p>
+<section id="what-is-version-control" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-version-control">What is Version Control?</h2>
+<p>more to come …</p>
 
 
 </section>

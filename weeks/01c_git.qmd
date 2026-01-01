@@ -1,0 +1,30 @@
+---
+title: Git & GitHub Basics
+format:
+  html:
+    toc: true
+    toc-expand: 1
+#    page-layout: full
+---
+
+## Setup
+
+First, if you don't have a GitHub account already, go and sign up for a (free) [GitHub](https://www.github.com) account.
+
+Then, double-check that you have installed git as part of the [setup](01b_setup.qmd) instructions. Open up a terminal and type:
+
+```{bash}
+git --version
+```
+
+and you should get something like:
+
+```{bash}
+git version 2.34.0
+```
+
+It doesn't much matter if the version number isn't identical to the one above.
+
+## What is Version Control?
+
+more to come ...

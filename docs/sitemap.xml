@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://gribblelab.org/9040/weeks/01_intro.html</loc>
-    <lastmod>2025-12-30T14:54:22.957Z</lastmod>
+    <loc>https://gribblelab.org/9040/weeks/01c_git.html</loc>
+    <lastmod>2026-01-01T19:08:38.799Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/weeks/01a_intro.html</loc>
+    <lastmod>2026-01-01T19:00:33.661Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/index.html</loc>
+    <lastmod>2026-01-01T19:07:56.046Z</lastmod>
   </url>
   <url>
     <loc>https://gribblelab.org/9040/homeworks.html</loc>
     <lastmod>2025-12-29T12:34:17.481Z</lastmod>
   </url>
   <url>
-    <loc>https://gribblelab.org/9040/index.html</loc>
-    <lastmod>2025-12-29T15:40:38.941Z</lastmod>
+    <loc>https://gribblelab.org/9040/topics/digital_representation_of_data.html</loc>
+    <lastmod>2026-01-01T18:53:06.246Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/weeks/01b_setup.html</loc>
+    <lastmod>2026-01-01T19:04:17.436Z</lastmod>
   </url>
 </urlset>

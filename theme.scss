@@ -37,7 +37,10 @@ h3, .h3
 .cell-output pre code {
     border-radius: 7px;
     border: 1px solid #cececf;
-    margin-bottom: 1em;
     background-color: #FFFFFF;
+}
+
+pre {
+    background-color: rgba(233, 236, 239, .65);
 }
 
