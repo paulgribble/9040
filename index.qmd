@@ -38,8 +38,8 @@ more details coming soon ...
 
 | Week  |     Date     |                                           Topic / Notes                                           | Homework |
 | :---: | ------------ | ------------------------------------------------------------------------------------------------- | :------: |
-|   1   | Jan 5/8      | [Intro](weeks/01a_intro.qmd)  ;  [Setup](weeks/01b_setup.qmd)  ;  [Git](weeks/01c_git.qmd) |          |
-|   2   | Jan 12/15    | [Digital Representation of Data](topics/digital_representation_of_data.qmd)  ;  Python basics     |          |
+|   1   | Jan 5/8      | [Intro](topics/01a_intro.qmd)  ;  [Setup](topics/01b_setup.qmd)  ;  [Git](topics/01c_git.qmd)     |          |
+|   2   | Jan 12/15    | [Digital Representation of Data](topics/02a_digital_representation_of_data.qmd)  ;  Python basics |          |
 |   3   | Jan 19/22    |                                                                                                   |          |
 |   4   | Jan 26/29    |                                                                                                   |          |
 |   5   | Feb 2/5      |                                                                                                   |          |
