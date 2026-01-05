@@ -1,0 +1,15 @@
+---
+title: "Functions, File input & output"
+format:
+  html:
+    toc: true
+---
+
+## Readings
+
+- Learning with Python 3 chapter 4: [Functions](https://openbookproject.net/thinkcs/python/english3e/functions.html)
+- Think Python [Chapter 3](https://wesmckinney.com/pages/book.html)
+- Python for Data Analysis chapter 3.2: [Functions](https://wesmckinney.com/book/python-builtin.html#functions)
+- Python for Data Analysis chapter 3.3: [Files and the Operating System](https://wesmckinney.com/book/python-builtin.html#files_os)
+- Python for Data Analysis chapter 6: [Data Loading, Storage, and File Formats](https://wesmckinney.com/book/accessing-data.html)
+

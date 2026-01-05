@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing FW25 (Jan-Apr 2026) – Psychology 9040B FW25</title>
+<title>Functions, File input &amp; output – Psychology 9040B FW25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
@@ -118,13 +118,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#readings" id="toc-readings" class="nav-link active" data-scroll-target="#readings">Readings</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scientific Computing FW25 (Jan-Apr 2026)</h1>
+<h1 class="title">Functions, File input &amp; output</h1>
 </div>
 
 
@@ -141,153 +149,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="info">
-<tbody><tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>URL</strong>
-</td>
-<td>
-<a href="https://gribblelab.org/9040">www.gribblelab.org/9040</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>Instructor</strong>
-</td>
-<td>
-Paul Gribble (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#112;&#x67;&#114;&#x69;&#98;&#98;&#108;&#x65;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>pgribble at uwo dot ca</noscript>)
-</td>
-</tr>
-<tr>
-<td style="text-align:right; padding: 7px;">
-<strong>Classes</strong>
-</td>
-<td>
-Mondays &amp; Thursdays, 9:30 am - 11:30 am in <a href="https://wts.uwo.ca/ctg/classrooms/western_interdisciplinary_research_building/wirb_1110.html">WIRB 1110</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>TA</strong>
-</td>
-<td>
-Anthony Cruz (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#x61;&#x63;&#114;&#x75;&#122;&#50;&#x37;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>acruz27 at uwo dot ca</noscript>)
-</td>
-</tr>
-</tbody></table>
-<hr>
-<ul>
-<li><a href="./homeworks.html">A note about homeworks</a></li>
-</ul>
-<hr>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p><strong>OUR FIRST CLASS WILL BE THURSDAY JANUARY 8</strong></p>
-<p>more details coming soon …</p>
-<div class="mt-4">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 75%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>Topic / Notes</th>
-<th style="text-align: center;">Homework</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan 5/8</td>
-<td><a href="./intro.html">Intro</a> ; <a href="./setup.html">Setup</a></td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Jan 12/15</td>
-<td><a href="./fundamentals.html">Fundamentals</a> ; <a href="./git.html">Git</a></td>
-<td style="text-align: center;">HW01</td>
-</tr>
-<tr class="odd">
-<td>Jan 19/22</td>
-<td></td>
-<td style="text-align: center;">HW02</td>
-</tr>
-<tr class="even">
-<td>Jan 26/29</td>
-<td></td>
-<td style="text-align: center;">HW03</td>
-</tr>
-<tr class="odd">
-<td>Feb 2/5</td>
-<td></td>
-<td style="text-align: center;">HW04</td>
-</tr>
-<tr class="even">
-<td>Feb 9/12</td>
-<td></td>
-<td style="text-align: center;">HW05</td>
-</tr>
-<tr class="odd">
-<td>Feb 16/19</td>
-<td><em>no class</em> (reading week)</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Feb 23/26</td>
-<td></td>
-<td style="text-align: center;">HW06</td>
-</tr>
-<tr class="odd">
-<td>Mar 2/5</td>
-<td></td>
-<td style="text-align: center;">HW07</td>
-</tr>
-<tr class="even">
-<td>Mar 9/12</td>
-<td><em>no class</em> (Paul away)</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td>Mar 16/19</td>
-<td></td>
-<td style="text-align: center;">HW08</td>
-</tr>
-<tr class="even">
-<td>Mar 23/26</td>
-<td></td>
-<td style="text-align: center;">HW09</td>
-</tr>
-<tr class="odd">
-<td>Mar 30/Apr 2</td>
-<td></td>
-<td style="text-align: center;">HW10</td>
-</tr>
-<tr class="even">
-<td>Apr 6/Apr 9</td>
-<td></td>
-<td style="text-align: center;">-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings">Readings</h2>
 <ul>
-<li><a href="https://poldrack.github.io/BetterCodeBetterScience/">Better Code, Better Science</a> by Russ Poldrack</li>
-<li><a href="https://matthew-brett.github.io/curious-git/index.html">The Curious Coder’s Guide to Git</a> by Matthew Brett</li>
+<li>Learning with Python 3 chapter 4: <a href="https://openbookproject.net/thinkcs/python/english3e/functions.html">Functions</a></li>
+<li>Think Python <a href="https://wesmckinney.com/pages/book.html">Chapter 3</a></li>
+<li>Python for Data Analysis chapter 3.2: <a href="https://wesmckinney.com/book/python-builtin.html#functions">Functions</a></li>
+<li>Python for Data Analysis chapter 3.3: <a href="https://wesmckinney.com/book/python-builtin.html#files_os">Files and the Operating System</a></li>
+<li>Python for Data Analysis chapter 6: <a href="https://wesmckinney.com/book/accessing-data.html">Data Loading, Storage, and File Formats</a></li>
 </ul>
 
 

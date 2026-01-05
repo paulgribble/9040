@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing FW25 (Jan-Apr 2026) – Psychology 9040B FW25</title>
+<title>Control Flow &amp; Complex data types – Psychology 9040B FW25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -74,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -96,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
@@ -118,13 +153,30 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#control-flow" id="toc-control-flow" class="nav-link active" data-scroll-target="#control-flow">Control Flow</a>
+  <ul class="collapse">
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
+  <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a>
+  <ul class="collapse">
+  <li><a href="#for-loops" id="toc-for-loops" class="nav-link" data-scroll-target="#for-loops">For loops</a></li>
+  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops">While loops</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conditionals" id="toc-conditionals" class="nav-link" data-scroll-target="#conditionals">Conditionals</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scientific Computing FW25 (Jan-Apr 2026)</h1>
+<h1 class="title">Control Flow &amp; Complex data types</h1>
 </div>
 
 
@@ -141,154 +193,131 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="info">
-<tbody><tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>URL</strong>
-</td>
-<td>
-<a href="https://gribblelab.org/9040">www.gribblelab.org/9040</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>Instructor</strong>
-</td>
-<td>
-Paul Gribble (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#112;&#x67;&#114;&#x69;&#98;&#98;&#108;&#x65;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>pgribble at uwo dot ca</noscript>)
-</td>
-</tr>
-<tr>
-<td style="text-align:right; padding: 7px;">
-<strong>Classes</strong>
-</td>
-<td>
-Mondays &amp; Thursdays, 9:30 am - 11:30 am in <a href="https://wts.uwo.ca/ctg/classrooms/western_interdisciplinary_research_building/wirb_1110.html">WIRB 1110</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>TA</strong>
-</td>
-<td>
-Anthony Cruz (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#x61;&#x63;&#114;&#x75;&#122;&#50;&#x37;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>acruz27 at uwo dot ca</noscript>)
-</td>
-</tr>
-</tbody></table>
-<hr>
-<ul>
-<li><a href="./homeworks.html">A note about homeworks</a></li>
-</ul>
-<hr>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p><strong>OUR FIRST CLASS WILL BE THURSDAY JANUARY 8</strong></p>
-<p>more details coming soon …</p>
-<div class="mt-4">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 75%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>Topic / Notes</th>
-<th style="text-align: center;">Homework</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan 5/8</td>
-<td><a href="./intro.html">Intro</a> ; <a href="./setup.html">Setup</a></td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Jan 12/15</td>
-<td><a href="./fundamentals.html">Fundamentals</a> ; <a href="./git.html">Git</a></td>
-<td style="text-align: center;">HW01</td>
-</tr>
-<tr class="odd">
-<td>Jan 19/22</td>
-<td></td>
-<td style="text-align: center;">HW02</td>
-</tr>
-<tr class="even">
-<td>Jan 26/29</td>
-<td></td>
-<td style="text-align: center;">HW03</td>
-</tr>
-<tr class="odd">
-<td>Feb 2/5</td>
-<td></td>
-<td style="text-align: center;">HW04</td>
-</tr>
-<tr class="even">
-<td>Feb 9/12</td>
-<td></td>
-<td style="text-align: center;">HW05</td>
-</tr>
-<tr class="odd">
-<td>Feb 16/19</td>
-<td><em>no class</em> (reading week)</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Feb 23/26</td>
-<td></td>
-<td style="text-align: center;">HW06</td>
-</tr>
-<tr class="odd">
-<td>Mar 2/5</td>
-<td></td>
-<td style="text-align: center;">HW07</td>
-</tr>
-<tr class="even">
-<td>Mar 9/12</td>
-<td><em>no class</em> (Paul away)</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td>Mar 16/19</td>
-<td></td>
-<td style="text-align: center;">HW08</td>
-</tr>
-<tr class="even">
-<td>Mar 23/26</td>
-<td></td>
-<td style="text-align: center;">HW09</td>
-</tr>
-<tr class="odd">
-<td>Mar 30/Apr 2</td>
-<td></td>
-<td style="text-align: center;">HW10</td>
-</tr>
-<tr class="even">
-<td>Apr 6/Apr 9</td>
-<td></td>
-<td style="text-align: center;">-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
+<section id="control-flow" class="level1">
+<h1>Control Flow</h1>
+<p>Here we will learn above several ways to specify the flow of information as your code gets executed. We will learn about <em>loops</em>, which are constructs that allow you to repeat blocks of code multiple times, typically while changing the values of variables inside the repeating block. We will learn about <em>conditionals</em>, which allow you to execute different branches of code depending on the values of variables.</p>
 <section id="readings" class="level2">
 <h2 class="anchored" data-anchor-id="readings">Readings</h2>
 <ul>
-<li><a href="https://poldrack.github.io/BetterCodeBetterScience/">Better Code, Better Science</a> by Russ Poldrack</li>
-<li><a href="https://matthew-brett.github.io/curious-git/index.html">The Curious Coder’s Guide to Git</a> by Matthew Brett</li>
+<li>Learning with Python 3 chapter 5: <a href="https://openbookproject.net/thinkcs/python/english3e/conditionals.html#conditionals">Conditionals</a></li>
+<li>Learning with Python 3 chapter 7: <a href="https://openbookproject.net/thinkcs/python/english3e/iteration.html#iteration">Iteration</a></li>
+<li>Python for Data Analysis chapter 3: <a href="https://wesmckinney.com/book/python-builtin.html">Built-in Data Structures, Functions, and Files</a></li>
+<li>Python for Data Analysis chapter 4: <a href="https://wesmckinney.com/book/numpy-basics.html">NumPy Basics: Arrays and Vectorized Computation</a></li>
+<li>Python for Data Analysis chapter 5: <a href="https://wesmckinney.com/book/pandas-basics.html">Getting Started with pandas</a></li>
+<li><a href="https://greenteapress.com/thinkpython2/html/thinkpython2006.html">Conditionals and recursion</a> (you can ignore for now the section on recursion)</li>
+<li><a href="https://wesmckinney.com/book/python-basics.html#control_flow">Control Flow</a></li>
 </ul>
+</section>
+<section id="loops" class="level2">
+<h2 class="anchored" data-anchor-id="loops">Loops</h2>
+<p>Loops are used when you have a chunk of code that you need to repeat over and over again, each time changing one (or more) parameters.</p>
+<p>There are two kinds of loops: a <strong>for loop</strong> and a <strong>while loop</strong>. A <strong>for loop</strong> is used when you (or your code) know in advance of starting the loop, how many iterations to run through. A <strong>while loop</strong> is used when the number of iterations is not known in advance of starting the loop. You might use a <strong>for loop</strong> to load in a list of data files. You might use a <strong>while loop</strong> to iterate through an EEG waveform over samples (time) to search for the first value that exceeds some baseline threshold.</p>
+<p>Here is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named <code>data1.txt</code>, <code>data2.txt</code>, …, <code>data5.txt</code>. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:</p>
+<section id="for-loops" class="level3">
+<h3 class="anchored" data-anchor-id="for-loops">For loops</h3>
+<div id="3d1331e1" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> load(<span class="st">"data1.txt"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>d1m <span class="op">=</span> mean(d1)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>d2 <span class="op">=</span> load(<span class="st">"data2.txt"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>d2m <span class="op">=</span> mean(d2)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> load(<span class="st">"data3.txt"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>d3m <span class="op">=</span> mean(d3)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>d4 <span class="op">=</span> load(<span class="st">"data4.txt"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>d4m <span class="op">=</span> mean(d4)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>d5 <span class="op">=</span> load(<span class="st">"data5.txt"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>d5m <span class="op">=</span> mean(d5)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># report overall mean and overall variance of 5 data file means</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>alldata <span class="op">=</span> [d1m, d2m, d3m, d4m, d5m]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>datamean <span class="op">=</span> mean(alldata)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>datavar <span class="op">=</span> var(alldata)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mean=</span><span class="sc">{</span>datamean<span class="sc">:.3f}</span><span class="ss"> and variance=</span><span class="sc">{</span>datavar<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a <strong>for loop</strong>. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a <strong>for loop</strong>:</p>
+<div id="a77e76dd" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nfiles <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>alldata <span class="op">=</span> np.zeros(<span class="dv">1000</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(nfiles):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> load(<span class="st">"data"</span> <span class="op">+</span> <span class="bu">str</span>(i) <span class="op">+</span> <span class="st">".txt"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    alldata[i] <span class="op">=</span> mean(d)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>datamean <span class="op">=</span> mean(alldata)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>datavar <span class="op">=</span> var(alldata)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mean=</span><span class="sc">{</span>datamean<span class="sc">:.3f}</span><span class="ss"> and variance=</span><span class="sc">{</span>datavar<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now all we would need to change if we have 1000 data files (or one million) is the value of our variable <code>nfiles=1000</code> or <code>nfiles=1e6</code>—nothing else in the code would have to change. This makes our code much more resilient against programming errors.</p>
+<p>You can see a for loop begins with the keyword <code>for</code> followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word <code>in</code> followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using <strong>indentation</strong>. Python is very fussy indeed about indentation.</p>
+<div id="90996258" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">3</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"i=</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>i=1
+i=4
+i=7
+i=10
+i=13</code></pre>
+</div>
+</div>
+<p>For loops are executed in a serial fashion, one repetition after another.</p>
+</section>
+<section id="while-loops" class="level3">
+<h3 class="anchored" data-anchor-id="while-loops">While loops</h3>
+<p>There is a second sort of loop called a <strong>while loop</strong>. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:</p>
+<div id="3692b6b7" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="op">&lt;</span> <span class="dv">9</span>):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"i=</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>i=1
+i=2
+i=3
+i=4
+i=5
+i=6
+i=7
+i=8</code></pre>
+</div>
+</div>
+<p>The expression that determines whether a while loop will continue repeating can be any valid Python expression that evaluates to a boolean (<code>true</code> or <code>false</code>).</p>
+<p>For both for loops and while loops, there are two keywords to know about that can break you out of a loop (<code>break</code>) and can move you to the next iteration of the loop (<code>continue</code>). I tend not to use these, but some people find them useful.</p>
+</section>
+</section>
+</section>
+<section id="conditionals" class="level1">
+<h1>Conditionals</h1>
+<p>So far we have seen how to use loops to repeat sections of code over and over again as needed. The other major control flow mechanism in high-level languages is the <em>conditional</em>, which allows you to specify how code branches in one direction or another depending on some logical condition.</p>
+<p>So for example let’s say you ask the user to enter a number, and if the number is even you output “The number is even.” and if the number is odd you output “The number is odd.”:</p>
+<div id="c34c9c69" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number: "</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ((x <span class="op">%</span> <span class="dv">2</span>) <span class="op">==</span> <span class="dv">0</span>):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is even"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is odd"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>which produces:</p>
+<pre><code>Enter a number: 15
+The number is odd</code></pre>
+<p>and</p>
+<pre><code>Enter a number: 12
+The number is even</code></pre>
+<p>In general one can string together any number of <code>elif</code> branches (including none of them). For example:</p>
+<div id="af22b118" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number: "</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">10</span>):</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is less than 10"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (x <span class="op">&lt;</span> <span class="dv">20</span>):</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is less than 20"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (x <span class="op">&lt;</span> <span class="dv">30</span>):</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is less than 30"</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"I don't have anything to say"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You don’t need any <code>else</code> statements at all if is suits your needs:</p>
+<div id="9824a219" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number: "</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">0</span>):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"That is a negative number"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
 </section>

@@ -38,22 +38,22 @@ more details coming soon ...
 
 <div class="mt-4">
 
-|     Date     |                                              Topic / Notes                                              | Homework |
-| ------------ | ------------------------------------------------------------------------------------------------------- | :------: |
-| Jan 5/8      | [Intro](topics/01a_intro.qmd)  ;  [Setup](topics/01b_setup.qmd)                                         |    -     |
-| Jan 12/15    | [Digital Representation of Data](topics/02a_digital_representation_of_data.qmd)  ;  Python basics ; Git |   HW01   |
-| Jan 19/22    |                                                                                                         |   HW02   |
-| Jan 26/29    |                                                                                                         |   HW03   |
-| Feb 2/5      |                                                                                                         |   HW04   |
-| Feb 9/12     |                                                                                                         |   HW05   |
-| Feb 16/19    | *no class* (reading week)                                                                               |    -     |
-| Feb 23/26    |                                                                                                         |   HW06   |
-| Mar 2/5      |                                                                                                         |   HW07   |
-| Mar 9/12     | *no class* (Paul away)                                                                                  |    -     |
-| Mar 16/19    |                                                                                                         |   HW08   |
-| Mar 23/26    |                                                                                                         |   HW09   |
-| Mar 30/Apr 2 |                                                                                                         |   HW10   |
-| Apr 6/Apr 9  |                                                                                                         |    -     |
+|     Date     |                   Topic / Notes                   | Homework |
+| ------------ | ------------------------------------------------- | :------: |
+| Jan 5/8      | [Intro](intro.qmd)  ;  [Setup](setup.qmd)         |    -     |
+| Jan 12/15    | [Fundamentals](fundamentals.qmd) ; [Git](git.qmd) |   HW01   |
+| Jan 19/22    |                                                   |   HW02   |
+| Jan 26/29    |                                                   |   HW03   |
+| Feb 2/5      |                                                   |   HW04   |
+| Feb 9/12     |                                                   |   HW05   |
+| Feb 16/19    | *no class* (reading week)                         |    -     |
+| Feb 23/26    |                                                   |   HW06   |
+| Mar 2/5      |                                                   |   HW07   |
+| Mar 9/12     | *no class* (Paul away)                            |    -     |
+| Mar 16/19    |                                                   |   HW08   |
+| Mar 23/26    |                                                   |   HW09   |
+| Mar 30/Apr 2 |                                                   |   HW10   |
+| Apr 6/Apr 9  |                                                   |    -     |
 
 : {tbl-colwidths="[15,75,10]"}
 </div>
