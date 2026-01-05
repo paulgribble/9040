@@ -36,7 +36,7 @@ format:
 
 more details coming soon ...
 
-<div class="mt-4 table-bordered special-table">
+<div class="mt-4">
 
 |     Date     |                                              Topic / Notes                                              | Homework |
 | ------------ | ------------------------------------------------------------------------------------------------------- | :------: |
