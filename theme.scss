@@ -44,3 +44,9 @@ pre {
     background-color: rgba(233, 236, 239, .65);
 }
 
+/* Only target the first column of tables inside the .special-table div */
+  .special-table table td:nth-child(1), 
+  .special-table table th:nth-child(1) {
+    border-right: 0.5px solid #333 !important;
+    padding-right: 12px; /* Adds space so text doesn't touch the line */
+  }
