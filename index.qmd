@@ -16,7 +16,7 @@ format:
   </tr>
   <tr>
     <td style="text-align:right; padding: 7px;">**Classes**</td>
-    <td>Mondays & Thursdays, 9:30 am - 11:30 am in [WIRB 1110](https://wts.uwo.ca/ctg/classrooms/western_interdisciplinary_research_building/wirb_1110.html)</td>
+    <td>Mondays & Thursdays, 9:30 am - 11:00 am in [WIRB 1110](https://wts.uwo.ca/ctg/classrooms/western_interdisciplinary_research_building/wirb_1110.html)</td>
   </tr>
   <tr>
     <td class=align="right" style="text-align:right; padding: 7px;">**TA**</td>
