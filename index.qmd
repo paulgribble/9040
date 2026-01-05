@@ -38,22 +38,22 @@ more details coming soon ...
 
 <div class="mt-4">
 
-|     Date     |                          Topic / Notes                           | Homework |
-| ------------ | ---------------------------------------------------------------- | :------: |
-| Jan 5/8      | [Intro](intro.qmd)  ;  [Setup](setup.qmd)                        |    -     |
-| Jan 12/15    | [Fundamentals](fundamentals.qmd) ; [uv](uv.qmd) ; [Git](git.qmd) |   HW01   |
-| Jan 19/22    |                                                                  |   HW02   |
-| Jan 26/29    |                                                                  |   HW03   |
-| Feb 2/5      |                                                                  |   HW04   |
-| Feb 9/12     |                                                                  |   HW05   |
-| Feb 16/19    | *no class* (reading week)                                        |    -     |
-| Feb 23/26    |                                                                  |   HW06   |
-| Mar 2/5      |                                                                  |   HW07   |
-| Mar 9/12     | *no class* (Paul away)                                           |    -     |
-| Mar 16/19    |                                                                  |   HW08   |
-| Mar 23/26    |                                                                  |   HW09   |
-| Mar 30/Apr 2 |                                                                  |   HW10   |
-| Apr 6/Apr 9  |                                                                  |    -     |
+|     Date     |                               Topic / Notes                               | Homework |
+| ------------ | ------------------------------------------------------------------------- | :------: |
+| Jan 5/8      | [Intro](intro.qmd)  ;  [Setup](setup.qmd) ; [Git](git.qmd) ; [uv](uv.qmd) |    -     |
+| Jan 12/15    | [Fundamentals](fundamentals.qmd) (expressions & variables)                |   HW01   |
+| Jan 19/22    | [Fundamentals](fundamentals.qmd) (loops & conditionals)                   |   HW02   |
+| Jan 26/29    | [Fundamentals](fundamentals.qmd) (data structures & functions)            |   HW03   |
+| Feb 2/5      | [Fundamentals](fundamentals.qmd) (NumPy & Pandas)                         |   HW04   |
+| Feb 9/12     | Object Oriented Programming (OOP)                                         |   HW05   |
+| Feb 16/19    | *no class* (reading week)                                                 |    -     |
+| Feb 23/26    | Graphical Displays of Data                                                |   HW06   |
+| Mar 2/5      | Reproducibility & Replicability                                           |   HW07   |
+| Mar 9/12     | *no class* (Paul away)                                                    |    -     |
+| Mar 16/19    | Sampling, Signal Processing, & Filtering Data                             |   HW08   |
+| Mar 23/26    | Statistical Thinking & Inferential Statistical Tests                      |   HW09   |
+| Mar 30/Apr 2 | Fitting Models to Data                                                    |   HW10   |
+| Apr 6/Apr 9  | Simulating Dynamical Systems                                              |    -     |
 
 : {tbl-colwidths="[15,75,10]"}
 </div>
