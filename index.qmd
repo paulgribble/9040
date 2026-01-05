@@ -38,22 +38,22 @@ more details coming soon ...
 
 <div class="mt-4 table-bordered">
 
-| Week  |     Date     |                                           Topic / Notes                                           | Homework |
-| :---: | ------------ | ------------------------------------------------------------------------------------------------- | :------: |
-|   1   | Jan 5/8      | [Intro](topics/01a_intro.qmd)  ;  [Setup](topics/01b_setup.qmd)  ;  [Git](topics/01c_git.qmd)     |          |
-|   2   | Jan 12/15    | [Digital Representation of Data](topics/02a_digital_representation_of_data.qmd)  ;  Python basics |          |
-|   3   | Jan 19/22    |                                                                                                   |          |
-|   4   | Jan 26/29    |                                                                                                   |          |
-|   5   | Feb 2/5      |                                                                                                   |          |
-|   6   | Feb 9/12     |                                                                                                   |          |
-|   -   | Feb 16/19    | *no class* (reading week)                                                                         |    -     |
-|   7   | Feb 23/26    |                                                                                                   |          |
-|   8   | Mar 2/5      |                                                                                                   |          |
-|   -   | Mar 9/12     | *no class* (Paul away)                                                                            |    -     |
-|   9   | Mar 16/19    |                                                                                                   |          |
-|  10   | Mar 23/26    |                                                                                                   |          |
-|  11   | Mar 30/Apr 2 |                                                                                                   |          |
-|  12   | Apr 6/Apr 9  |                                                                                                   |          |
+| Week  |     Date     |                                                         Topic / Notes                                                         | Homework |
+| :---: | ------------ | ----------------------------------------------------------------------------------------------------------------------------- | :------: |
+|   1   | Jan 5/8      | [Intro](topics/01a_intro.qmd)  ;  [Setup](topics/01b_setup.qmd)                                                               |          |
+|   2   | Jan 12/15    | [Digital Representation of Data](topics/02a_digital_representation_of_data.qmd)  ;  Python basics ; [Git](topics/02x_git.qmd) |          |
+|   3   | Jan 19/22    |                                                                                                                               |          |
+|   4   | Jan 26/29    |                                                                                                                               |          |
+|   5   | Feb 2/5      |                                                                                                                               |          |
+|   6   | Feb 9/12     |                                                                                                                               |          |
+|   -   | Feb 16/19    | *no class* (reading week)                                                                                                     |    -     |
+|   7   | Feb 23/26    |                                                                                                                               |          |
+|   8   | Mar 2/5      |                                                                                                                               |          |
+|   -   | Mar 9/12     | *no class* (Paul away)                                                                                                        |    -     |
+|   9   | Mar 16/19    |                                                                                                                               |          |
+|  10   | Mar 23/26    |                                                                                                                               |          |
+|  11   | Mar 30/Apr 2 |                                                                                                                               |          |
+|  12   | Apr 6/Apr 9  |                                                                                                                               |          |
 
 : {tbl-colwidths="[8,15,57,20]"}
 </div>

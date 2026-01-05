@@ -1,5 +1,103 @@
 [
   {
+    "objectID": "topics/02x_git.html",
+    "href": "topics/02x_git.html",
+    "title": "Git & GitHub Basics",
+    "section": "",
+    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+  },
+  {
+    "objectID": "topics/02x_git.html#setup",
+    "href": "topics/02x_git.html#setup",
+    "title": "Git & GitHub Basics",
+    "section": "",
+    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+  },
+  {
+    "objectID": "topics/02x_git.html#what-is-version-control",
+    "href": "topics/02x_git.html#what-is-version-control",
+    "title": "Git & GitHub Basics",
+    "section": "What is Version Control?",
+    "text": "What is Version Control?\nmore to come …"
+  },
+  {
+    "objectID": "topics/01b_setup.html",
+    "href": "topics/01b_setup.html",
+    "title": "Set Up Your Computer",
+    "section": "",
+    "text": "Yes.\nSort of.\nFor this course, we will be working extensively with the command line and VS Code, which function similarly across all three major operating system, so you can use whichever OS you prefer or already have. Linux is the gold standard in scientific computing environments; most computing clusters, cloud servers, and neuroimaging pipelines run on it, so familiarity with its command line is invaluable. MacOS runs on a Unix variant under the hood, meaning the terminal experience is nearly identical, making it a convenient choice for researchers who want a polished laptop environment that translates well to work on Linux/Unix environments such as servers and clusters.\nWindows has historically been the odd one out for scientific computing, but the Windows Subsystem for Linux (WSL) has changed this dramatically. The WSL lets you run a full Linux environment inside Windows, giving you access to the same tools and workflows. For our purposes, the key is having a working terminal and Python environment.\nSo if you are already using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.\nIf you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.\nIf you are using Windows, it will be ok. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the Windows Subsystem for Linux (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.\nPS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.\n\n\nOpen up a terminal and (assuming Ubuntu Linux) update the system:\nsudo apt update\nsudo apt upgrade -y\nand then install some necessary tools including git:\nsudo apt install -y build-essential git curl\nand then install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\n\n\n\nOpen up a terminal and install some necessary build tools:\nxcode-select --install\nInstall the Homebrew package manager:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\nThen close the terminal and open up a new one, and install some other necessary tools including git:\nbrew install git\nThen install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\nIf you want a nicer looking Terminal than the one that ships with MacOS you can try one of these:\n\niTerm2\nghostty\n\n\n\n\nFirst update Windows, I think you can access this by going to the Start menu and typing “update” and one of the options will be a system update.\nNext, open up Powershell (again, go to the Start menu and type Powershell to access it) and type:\nwsl --install\nWhen it is done, reboot your computer.\nOpen up Powershell again and type:\nwsl.exe --install Ubuntu\nIt will eventually ask you for a default Unix user account and password.\nClose Powershell and any other junky windows that Windows may have opened.\nOpen Powershell and check to see which version of WSL is running:\nwsl -l -v\nif it shows version 1 instead of version 2 then switch:\nwsl --set-version Ubuntu 2\nClose Powershell and reboot the computer.\nFrom your Start menu select “Ubuntu” and it should launch a terminal, which is now, running Ubuntu linux.\nNow go through the steps above in the Unix/Linux section."
+  },
+  {
+    "objectID": "topics/01b_setup.html#macos-windows-or-linux",
+    "href": "topics/01b_setup.html#macos-windows-or-linux",
+    "title": "Set Up Your Computer",
+    "section": "",
+    "text": "Yes.\nSort of.\nFor this course, we will be working extensively with the command line and VS Code, which function similarly across all three major operating system, so you can use whichever OS you prefer or already have. Linux is the gold standard in scientific computing environments; most computing clusters, cloud servers, and neuroimaging pipelines run on it, so familiarity with its command line is invaluable. MacOS runs on a Unix variant under the hood, meaning the terminal experience is nearly identical, making it a convenient choice for researchers who want a polished laptop environment that translates well to work on Linux/Unix environments such as servers and clusters.\nWindows has historically been the odd one out for scientific computing, but the Windows Subsystem for Linux (WSL) has changed this dramatically. The WSL lets you run a full Linux environment inside Windows, giving you access to the same tools and workflows. For our purposes, the key is having a working terminal and Python environment.\nSo if you are already using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.\nIf you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.\nIf you are using Windows, it will be ok. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the Windows Subsystem for Linux (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.\nPS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.\n\n\nOpen up a terminal and (assuming Ubuntu Linux) update the system:\nsudo apt update\nsudo apt upgrade -y\nand then install some necessary tools including git:\nsudo apt install -y build-essential git curl\nand then install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\n\n\n\nOpen up a terminal and install some necessary build tools:\nxcode-select --install\nInstall the Homebrew package manager:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\nThen close the terminal and open up a new one, and install some other necessary tools including git:\nbrew install git\nThen install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\nIf you want a nicer looking Terminal than the one that ships with MacOS you can try one of these:\n\niTerm2\nghostty\n\n\n\n\nFirst update Windows, I think you can access this by going to the Start menu and typing “update” and one of the options will be a system update.\nNext, open up Powershell (again, go to the Start menu and type Powershell to access it) and type:\nwsl --install\nWhen it is done, reboot your computer.\nOpen up Powershell again and type:\nwsl.exe --install Ubuntu\nIt will eventually ask you for a default Unix user account and password.\nClose Powershell and any other junky windows that Windows may have opened.\nOpen Powershell and check to see which version of WSL is running:\nwsl -l -v\nif it shows version 1 instead of version 2 then switch:\nwsl --set-version Ubuntu 2\nClose Powershell and reboot the computer.\nFrom your Start menu select “Ubuntu” and it should launch a terminal, which is now, running Ubuntu linux.\nNow go through the steps above in the Unix/Linux section."
+  },
+  {
+    "objectID": "topics/01b_setup.html#check-your-setup",
+    "href": "topics/01b_setup.html#check-your-setup",
+    "title": "Set Up Your Computer",
+    "section": "Check your setup",
+    "text": "Check your setup\nCreate a new folder somewhere on your computer’s file system and name it Psych_9040, and then navigate inside of it.\nOpen a new terminal:\nmkdir Psych_9040\ncd Psych_9040\nUse uv to install a python environment\nuv init --python 3.12\nAdd the numpy package\nuv add numpy\nCreate a new empty file:\ntouch hello.py\nand add some Python lines of code to it:\necho \"import numpy as np\" &gt;&gt; hello.py\necho \"x = np.array ([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])\" &gt;&gt; hello.py\necho \"y = np.sum(x)\" &gt;&gt; hello.py\necho \"print(f\\\"the sum of {x} is {y}\\\")\" &gt;&gt; hello.py\nand test the code:\nuv run python hello.py\nand you should see this output:\nthe sum of [ 2  3  5  7 11 13 17 19 23 29] is 129"
+  },
+  {
+    "objectID": "topics/01b_setup.html#gitgithub",
+    "href": "topics/01b_setup.html#gitgithub",
+    "title": "Set Up Your Computer",
+    "section": "Git/GitHub",
+    "text": "Git/GitHub\nWe will be learning about and using code versioning with Git and GitHub, so you should sign up for a (free) GitHub account."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Scientific Computing FW25 (Jan-Apr 2026)",
+    "section": "",
+    "text": "URL\n\n\nwww.gribblelab.org/9040\n\n\n\n\nInstructor\n\n\nPaul Gribble (pgribble at uwo dot ca)\n\n\n\n\nClasses\n\n\nMondays & Thursdays, 9:30 am - 11:30 am in WIRB 1110\n\n\n\n\nTA\n\n\nAnthony Cruz (acruz27 at uwo dot ca)"
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Scientific Computing FW25 (Jan-Apr 2026)",
+    "section": "Schedule",
+    "text": "Schedule\nOUR FIRST CLASS WILL BE THURSDAY JANUARY 8\nmore details coming soon …\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic / Notes\nHomework\n\n\n\n\n1\nJan 5/8\nIntro ; Setup\n\n\n\n2\nJan 12/15\nDigital Representation of Data ; Python basics ; Git\n\n\n\n3\nJan 19/22\n\n\n\n\n4\nJan 26/29\n\n\n\n\n5\nFeb 2/5\n\n\n\n\n6\nFeb 9/12\n\n\n\n\n-\nFeb 16/19\nno class (reading week)\n-\n\n\n7\nFeb 23/26\n\n\n\n\n8\nMar 2/5\n\n\n\n\n-\nMar 9/12\nno class (Paul away)\n-\n\n\n9\nMar 16/19\n\n\n\n\n10\nMar 23/26\n\n\n\n\n11\nMar 30/Apr 2\n\n\n\n\n12\nApr 6/Apr 9"
+  },
+  {
+    "objectID": "index.html#readings",
+    "href": "index.html#readings",
+    "title": "Scientific Computing FW25 (Jan-Apr 2026)",
+    "section": "Readings",
+    "text": "Readings\n\nBetter Code, Better Science by Russ Poldrack\nThe Curious Coder’s Guide to Git by Matthew Brett"
+  },
+  {
+    "objectID": "homeworks.html",
+    "href": "homeworks.html",
+    "title": "A Note about Homeworks",
+    "section": "",
+    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—P"
+  },
+  {
+    "objectID": "topics/01a_intro.html",
+    "href": "topics/01a_intro.html",
+    "title": "Introduction to the Course",
+    "section": "",
+    "text": "Welcome! I’m glad you’re here.\nThis is Psychology 9040: Scientific Computing, for FW25, Jan-Apr 2026.\nBring your computer to class! We will be writing code.\nCourse website: https://gribblelab.org/9040"
+  },
+  {
+    "objectID": "topics/01a_intro.html#course-goals",
+    "href": "topics/01a_intro.html#course-goals",
+    "title": "Introduction to the Course",
+    "section": "Course Goals",
+    "text": "Course Goals\nIn this one-semester graduate course you will learn skills in scientific computing—tools and techniques that you can use in your own research. You will learn to program using Python, which is a high-level programming language with many libraries that provide a rich ecosystem for scientific computing. If you want to use a different language in the course you are welcome to but I will focus on Python in class. Having said that, as much as I can I will teach concepts in a way that are language-agnostic.\nThe course is designed to achieve three primary goals:\n\nYou will learn to write code in a high-level language (Python)\nYou will learn to think computationally and algorithmically about data analysis\nYou will learn some common data analysis techniques, which will give you a foundation from which to learn more complex scientific computing skills to suit your own research goals"
+  },
+  {
+    "objectID": "topics/01a_intro.html#topics",
+    "href": "topics/01a_intro.html#topics",
+    "title": "Introduction to the Course",
+    "section": "Topics",
+    "text": "Topics\nIn the first part of the course you will learn how to write code. The topics we will cover are common to any high-level language including Python, MATLAB, R, Javascript, C, Julia, Go, Swift, etc. All high level languages have things like numbers, strings, arrays, loops, if-statements. Languages differ in their syntax, in the names of common functions, and sometimes in some other subtle ways (e.g. passing by reference vs passing by value) but otherwise, all high-level languages basically work in the same way. Learning these fundamental concepts of high-level programming languages using one language will enable you to learn other languages as well in the future.\nThe other aspect of programming that you will learn is how to think algorithmically about solving problems and completing tasks with computers. In general there are two reasons to use a computer to perform a given task, (1) because the task would take too long by hand (e.g. churning through processing a huge amount of data), and (2) because the computer can do something clever that you cannot do yourself (e.g. applying complex algorithms to a dataset).\nIn learning the fundamentals of high-level programming languages (data types, loops, conditionals, etc) we will sometimes practice writing code to solve little toy problems. This will start to teach you how to think algorithmically. Think about it like learning to play a musical instrument. You don’t start by learining to play Beethoven. You start learning basic skills by playing scales, arpeggios, different key signatures, etc. Building up basic skills using toy problems is a convenient path towards using coding skills to solve real-world programming problems in the context of your own thesis research.\nWe will also practice and learn by using code to answer questions about data. Some of the data will be from real experiments and some will be fictitious. The goal will be to answer a series of questions by writing code that performs operations on the data (reorganization, summarising, counting, calculating, processing, plotting, etc) and writing a short summary of your findings. This mimics how you will be using your coding skills in your own research going forward.\n\nFundamentals of Coding\n\ndigital representation of data\nbasic data types, operators, & expressions\ncontrol flow & conditionals\nfunctions\ncomplex data types\nfile input & output\ngraphical displays of data\nobject oriented programming (OOP)\n\n\n\nReproducibility & Replicability\n\nPython venvs (virtual environments)\nCode versioning using Git & GitHub\norganization of code and data\ndata analysis workflow\n\n\n\nTopics in Data Analysis\n\nsampling, signal processing, & filtering data\nstatistical tests (parametric vs resampling/boostrapping/randomization)\nfitting models to data\nsimulating dynamical systems\n\nBy building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses."
+  },
+  {
     "objectID": "topics/02a_digital_representation_of_data.html",
     "href": "topics/02a_digital_representation_of_data.html",
     "title": "Digital Representation of Data",
@@ -82,103 +180,5 @@
     "title": "Digital Representation of Data",
     "section": "Unicode",
     "text": "Unicode\nThe ASCII codes only represent a limited number of characters that are useful mostly in the English language. Starting in the 1980s, Xerox, Apple, and others began work on a new variable-length encoding scheme that could represent a much larger number of characters that would be useful for the world’s languages (and now even for emoji). This is called Unicode and includes the most common standard on the web, UTF-8, which can encode more than a million different characters and symbols.\nHere is a website where you can view and search the Unicode character table.\nFor example, in Unicode the smiling face emoji 😀 is encoded using hexadecimal value 1F600:\n\nprint(f\"Unicode (hex) 1f600 is {chr(0x1f600)}\")\n\nUnicode (hex) 1f600 is 😀"
-  },
-  {
-    "objectID": "topics/01b_setup.html",
-    "href": "topics/01b_setup.html",
-    "title": "Set Up Your Computer",
-    "section": "",
-    "text": "Yes.\nSort of.\nFor this course, we will be working extensively with the command line and VS Code, which function similarly across all three major operating system, so you can use whichever OS you prefer or already have. Linux is the gold standard in scientific computing environments; most computing clusters, cloud servers, and neuroimaging pipelines run on it, so familiarity with its command line is invaluable. MacOS runs on a Unix variant under the hood, meaning the terminal experience is nearly identical, making it a convenient choice for researchers who want a polished laptop environment that translates well to work on Linux/Unix environments such as servers and clusters.\nWindows has historically been the odd one out for scientific computing, but the Windows Subsystem for Linux (WSL) has changed this dramatically. The WSL lets you run a full Linux environment inside Windows, giving you access to the same tools and workflows. For our purposes, the key is having a working terminal and Python environment.\nSo if you are already using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.\nIf you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.\nIf you are using Windows, it will be ok. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the Windows Subsystem for Linux (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.\nPS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.\n\n\nOpen up a terminal and (assuming Ubuntu Linux) update the system:\nsudo apt update\nsudo apt upgrade -y\nand then install some necessary tools including git:\nsudo apt install -y build-essential git curl\nand then install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\n\n\n\nOpen up a terminal and install some necessary build tools:\nxcode-select --install\nInstall the Homebrew package manager:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\nThen close the terminal and open up a new one, and install some other necessary tools including git:\nbrew install git\nThen install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\nIf you want a nicer looking Terminal than the one that ships with MacOS you can try one of these:\n\niTerm2\nghostty\n\n\n\n\nFirst update Windows, I think you can access this by going to the Start menu and typing “update” and one of the options will be a system update.\nNext, open up Powershell (again, go to the Start menu and type Powershell to access it) and type:\nwsl --install\nWhen it is done, reboot your computer.\nOpen up Powershell again and type:\nwsl.exe --install Ubuntu\nIt will eventually ask you for a default Unix user account and password.\nClose Powershell and any other junky windows that Windows may have opened.\nOpen Powershell and check to see which version of WSL is running:\nwsl -l -v\nif it shows version 1 instead of version 2 then switch:\nwsl --set-version Ubuntu 2\nClose Powershell and reboot the computer.\nFrom your Start menu select “Ubuntu” and it should launch a terminal, which is now, running Ubuntu linux.\nNow go through the steps above in the Unix/Linux section."
-  },
-  {
-    "objectID": "topics/01b_setup.html#macos-windows-or-linux",
-    "href": "topics/01b_setup.html#macos-windows-or-linux",
-    "title": "Set Up Your Computer",
-    "section": "",
-    "text": "Yes.\nSort of.\nFor this course, we will be working extensively with the command line and VS Code, which function similarly across all three major operating system, so you can use whichever OS you prefer or already have. Linux is the gold standard in scientific computing environments; most computing clusters, cloud servers, and neuroimaging pipelines run on it, so familiarity with its command line is invaluable. MacOS runs on a Unix variant under the hood, meaning the terminal experience is nearly identical, making it a convenient choice for researchers who want a polished laptop environment that translates well to work on Linux/Unix environments such as servers and clusters.\nWindows has historically been the odd one out for scientific computing, but the Windows Subsystem for Linux (WSL) has changed this dramatically. The WSL lets you run a full Linux environment inside Windows, giving you access to the same tools and workflows. For our purposes, the key is having a working terminal and Python environment.\nSo if you are already using Unix/Linux, good news, you are all set, just some configuration things and some package installs and your computing environment will be ready for a modern course in coding / scientific computing.\nIf you are using MacOS, also good news, you may not know it but MacOS is based on a Unix variant, so with some small configuration things and some package installs, you will also be ready.\nIf you are using Windows, it will be ok. Something we will cover in this course is learning to use the terminal, learning about file systems, files, directories, and so on. On Linux/Unix and on MacOS (which is based on Unix) this is straightforward and you won’t need to do anything particularly special. On Windows however you will need to do some initial setup to install something called the Windows Subsystem for Linux (WSL). This will enable you to launch a Linux session within Windows, and follow along in the course with everyone else. It’s not such a big deal. Instructions are below.\nPS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamiliar with Windows.\n\n\nOpen up a terminal and (assuming Ubuntu Linux) update the system:\nsudo apt update\nsudo apt upgrade -y\nand then install some necessary tools including git:\nsudo apt install -y build-essential git curl\nand then install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\n\n\n\nOpen up a terminal and install some necessary build tools:\nxcode-select --install\nInstall the Homebrew package manager:\n/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"\nThen close the terminal and open up a new one, and install some other necessary tools including git:\nbrew install git\nThen install the uv tool:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nclose your Terminal.\nand then download Visual Studio Code and install it.\nIf you want a nicer looking Terminal than the one that ships with MacOS you can try one of these:\n\niTerm2\nghostty\n\n\n\n\nFirst update Windows, I think you can access this by going to the Start menu and typing “update” and one of the options will be a system update.\nNext, open up Powershell (again, go to the Start menu and type Powershell to access it) and type:\nwsl --install\nWhen it is done, reboot your computer.\nOpen up Powershell again and type:\nwsl.exe --install Ubuntu\nIt will eventually ask you for a default Unix user account and password.\nClose Powershell and any other junky windows that Windows may have opened.\nOpen Powershell and check to see which version of WSL is running:\nwsl -l -v\nif it shows version 1 instead of version 2 then switch:\nwsl --set-version Ubuntu 2\nClose Powershell and reboot the computer.\nFrom your Start menu select “Ubuntu” and it should launch a terminal, which is now, running Ubuntu linux.\nNow go through the steps above in the Unix/Linux section."
-  },
-  {
-    "objectID": "topics/01b_setup.html#check-your-setup",
-    "href": "topics/01b_setup.html#check-your-setup",
-    "title": "Set Up Your Computer",
-    "section": "Check your setup",
-    "text": "Check your setup\nCreate a new folder somewhere on your computer’s file system and name it Psych_9040, and then navigate inside of it.\nOpen a new terminal:\nmkdir Psych_9040\ncd Psych_9040\nUse uv to install a python environment\nuv init --python 3.12\nAdd the numpy package\nuv add numpy\nCreate a new empty file:\ntouch hello.py\nand add some Python lines of code to it:\necho \"import numpy as np\" &gt;&gt; hello.py\necho \"x = np.array ([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])\" &gt;&gt; hello.py\necho \"y = np.sum(x)\" &gt;&gt; hello.py\necho \"print(f\\\"the sum of {x} is {y}\\\")\" &gt;&gt; hello.py\nand test the code:\nuv run python hello.py\nand you should see this output:\nthe sum of [ 2  3  5  7 11 13 17 19 23 29] is 129"
-  },
-  {
-    "objectID": "topics/01b_setup.html#gitgithub",
-    "href": "topics/01b_setup.html#gitgithub",
-    "title": "Set Up Your Computer",
-    "section": "Git/GitHub",
-    "text": "Git/GitHub\nWe will be learning about and using code versioning with Git and GitHub, so you should sign up for a (free) GitHub account."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Scientific Computing FW25 (Jan-Apr 2026)",
-    "section": "",
-    "text": "URL\n\n\nwww.gribblelab.org/9040\n\n\n\n\nInstructor\n\n\nPaul Gribble (pgribble at uwo dot ca)\n\n\n\n\nClasses\n\n\nMondays & Thursdays, 9:30 am - 11:30 am in WIRB 1110\n\n\n\n\nTA\n\n\nAnthony Cruz (acruz27 at uwo dot ca)"
-  },
-  {
-    "objectID": "index.html#schedule",
-    "href": "index.html#schedule",
-    "title": "Scientific Computing FW25 (Jan-Apr 2026)",
-    "section": "Schedule",
-    "text": "Schedule\nOUR FIRST CLASS WILL BE THURSDAY JANUARY 8\nmore details coming soon …\n\n\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic / Notes\nHomework\n\n\n\n\n1\nJan 5/8\nIntro ; Setup ; Git\n\n\n\n2\nJan 12/15\nDigital Representation of Data ; Python basics\n\n\n\n3\nJan 19/22\n\n\n\n\n4\nJan 26/29\n\n\n\n\n5\nFeb 2/5\n\n\n\n\n6\nFeb 9/12\n\n\n\n\n-\nFeb 16/19\nno class (reading week)\n-\n\n\n7\nFeb 23/26\n\n\n\n\n8\nMar 2/5\n\n\n\n\n-\nMar 9/12\nno class (Paul away)\n-\n\n\n9\nMar 16/19\n\n\n\n\n10\nMar 23/26\n\n\n\n\n11\nMar 30/Apr 2\n\n\n\n\n12\nApr 6/Apr 9"
-  },
-  {
-    "objectID": "index.html#readings",
-    "href": "index.html#readings",
-    "title": "Scientific Computing FW25 (Jan-Apr 2026)",
-    "section": "Readings",
-    "text": "Readings\n\nBetter Code, Better Science by Russ Poldrack\nThe Curious Coder’s Guide to Git by Matthew Brett"
-  },
-  {
-    "objectID": "homeworks.html",
-    "href": "homeworks.html",
-    "title": "A Note about Homeworks",
-    "section": "",
-    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—P"
-  },
-  {
-    "objectID": "topics/01a_intro.html",
-    "href": "topics/01a_intro.html",
-    "title": "Introduction to the Course",
-    "section": "",
-    "text": "Welcome! I’m glad you’re here.\nThis is Psychology 9040: Scientific Computing, for FW25, Jan-Apr 2026.\nBring your computer to class! We will be writing code.\nCourse website: https://gribblelab.org/9040"
-  },
-  {
-    "objectID": "topics/01a_intro.html#course-goals",
-    "href": "topics/01a_intro.html#course-goals",
-    "title": "Introduction to the Course",
-    "section": "Course Goals",
-    "text": "Course Goals\nIn this one-semester graduate course you will learn skills in scientific computing—tools and techniques that you can use in your own research. You will learn to program using Python, which is a high-level programming language with many libraries that provide a rich ecosystem for scientific computing. If you want to use a different language in the course you are welcome to but I will focus on Python in class. Having said that, as much as I can I will teach concepts in a way that are language-agnostic.\nThe course is designed to achieve three primary goals:\n\nYou will learn to write code in a high-level language (Python)\nYou will learn to think computationally and algorithmically about data analysis\nYou will learn some common data analysis techniques, which will give you a foundation from which to learn more complex scientific computing skills to suit your own research goals"
-  },
-  {
-    "objectID": "topics/01a_intro.html#topics",
-    "href": "topics/01a_intro.html#topics",
-    "title": "Introduction to the Course",
-    "section": "Topics",
-    "text": "Topics\nIn the first part of the course you will learn how to write code. The topics we will cover are common to any high-level language including Python, MATLAB, R, Javascript, C, Julia, Go, Swift, etc. All high level languages have things like numbers, strings, arrays, loops, if-statements. Languages differ in their syntax, in the names of common functions, and sometimes in some other subtle ways (e.g. passing by reference vs passing by value) but otherwise, all high-level languages basically work in the same way. Learning these fundamental concepts of high-level programming languages using one language will enable you to learn other languages as well in the future.\nThe other aspect of programming that you will learn is how to think algorithmically about solving problems and completing tasks with computers. In general there are two reasons to use a computer to perform a given task, (1) because the task would take too long by hand (e.g. churning through processing a huge amount of data), and (2) because the computer can do something clever that you cannot do yourself (e.g. applying complex algorithms to a dataset).\nIn learning the fundamentals of high-level programming languages (data types, loops, conditionals, etc) we will sometimes practice writing code to solve little toy problems. This will start to teach you how to think algorithmically. Think about it like learning to play a musical instrument. You don’t start by learining to play Beethoven. You start learning basic skills by playing scales, arpeggios, different key signatures, etc. Building up basic skills using toy problems is a convenient path towards using coding skills to solve real-world programming problems in the context of your own thesis research.\nWe will also practice and learn by using code to answer questions about data. Some of the data will be from real experiments and some will be fictitious. The goal will be to answer a series of questions by writing code that performs operations on the data (reorganization, summarising, counting, calculating, processing, plotting, etc) and writing a short summary of your findings. This mimics how you will be using your coding skills in your own research going forward.\n\nFundamentals of Coding\n\ndigital representation of data\nbasic data types, operators, & expressions\ncontrol flow & conditionals\nfunctions\ncomplex data types\nfile input & output\ngraphical displays of data\nobject oriented programming (OOP)\n\n\n\nReproducibility & Replicability\n\nPython venvs (virtual environments)\nCode versioning using Git & GitHub\norganization of code and data\ndata analysis workflow\n\n\n\nTopics in Data Analysis\n\nsampling, signal processing, & filtering data\nstatistical tests (parametric vs resampling/boostrapping/randomization)\nfitting models to data\nsimulating dynamical systems\n\nBy building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses."
-  },
-  {
-    "objectID": "topics/01c_git.html",
-    "href": "topics/01c_git.html",
-    "title": "Git & GitHub Basics",
-    "section": "",
-    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
-  },
-  {
-    "objectID": "topics/01c_git.html#setup",
-    "href": "topics/01c_git.html#setup",
-    "title": "Git & GitHub Basics",
-    "section": "",
-    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
-  },
-  {
-    "objectID": "topics/01c_git.html#what-is-version-control",
-    "href": "topics/01c_git.html#what-is-version-control",
-    "title": "Git & GitHub Basics",
-    "section": "What is Version Control?",
-    "text": "What is Version Control?\nmore to come …"
   }
 ]

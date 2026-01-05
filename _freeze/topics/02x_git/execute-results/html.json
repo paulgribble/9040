@@ -1,0 +1,12 @@
+{
+  "hash": "f6910cbbcff6eff98421b976c55c4a2f",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Git & GitHub Basics\nformat:\n  html:\n    toc: true\n    toc-expand: 1\n#    page-layout: full\n---\n\n## Setup\n\nFirst, if you don't have a GitHub account already, go and sign up for a (free) [GitHub](https://www.github.com) account.\n\nThen, double-check that you have installed git as part of the [setup](01b_setup.qmd) instructions. Open up a terminal and type:\n\n```{bash}\ngit --version\n```\n\nand you should get something like:\n\n```{bash}\ngit version 2.34.0\n```\n\nIt doesn't much matter if the version number isn't identical to the one above.\n\n## What is Version Control?\n\nmore to come ...\n\n",
+    "supporting": [
+      "02x_git_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
