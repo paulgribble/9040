@@ -1,0 +1,15 @@
+---
+title: uv
+format:
+  html:
+    toc: true
+    toc-expand: 1
+#    page-layout: full
+---
+
+## What is uv?
+
+The uv program is a Python package and project manager. It is like pip or virtualenv (sort of like conda) but it is much faster and more modern. We will be using uv in the course to demo code and you will be using uv for your homework assignments.
+
+- a uv guide: [working on projects](https://docs.astral.sh/uv/guides/projects/)
+- [project concepts](https://docs.astral.sh/uv/concepts/projects/) in uv

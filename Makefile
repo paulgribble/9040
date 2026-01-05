@@ -1,5 +1,8 @@
+render:
+	uv run quarto render
+
 preview:	
 	uv run quarto preview
 
-render:
-	uv run quarto render
+clean:
+	/bin/rm -fr docs/* _freeze/*
