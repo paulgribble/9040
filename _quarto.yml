@@ -31,6 +31,8 @@ website:
       url: syllabus.pdf
     - text: "OWL/Brightspace"
       url: https://westernu.brightspace.com/d2l/home/163612
+    - text: "Exercises"
+      url: "https://gribblelab.org/coding"
 
 format:
   html:
