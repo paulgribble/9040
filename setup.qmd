@@ -27,7 +27,7 @@ PS: Personally I am most familiar with MacOS and Unix/Linux. I am quite unfamili
 
 ### Unix/Linux
 
-Open up a terminal and (assuming Ubuntu Linux) update the system:
+Open up an Ubuntu terminal and (assuming Ubuntu Linux) update the system:
 
 ```{bash}
 sudo apt update
@@ -129,7 +129,7 @@ Now go through the steps above in the Unix/Linux section.
 
 Create a new folder somewhere on your computer's file system and name it `Psych_9040`, and then navigate inside of it.
 
-Open a new terminal:
+Open Ubuntu:
 
 ```{bash}
 mkdir Psych_9040
