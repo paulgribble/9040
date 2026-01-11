@@ -28,3 +28,5 @@ format:
 - commenting code using `#`
 - reserved keywords in Python (e.g. `for`, `return`, etc)
 - getting help using `help()`
+- Visual Studio Code
+
