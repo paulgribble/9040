@@ -147,6 +147,27 @@
     "text": "Unicode\nThe ASCII codes only represent a limited number of characters that are useful mostly in the English language. Starting in the 1980s, Xerox, Apple, and others began work on a new variable-length encoding scheme that could represent a much larger number of characters that would be useful for the world’s languages (and now even for emoji). This is called Unicode and includes the most common standard on the web, UTF-8, which can encode more than a million different characters and symbols.\nHere is a website where you can view and search the Unicode character table.\nFor example, in Unicode the smiling face emoji 😀 is encoded using hexadecimal value 1F600:\n\nprint(f\"Unicode (hex) 1f600 is {chr(0x1f600)}\")\n\nUnicode (hex) 1f600 is 😀"
   },
   {
+    "objectID": "concepts.html",
+    "href": "concepts.html",
+    "title": "Concepts",
+    "section": "",
+    "text": "installing our development environment"
+  },
+  {
+    "objectID": "concepts.html#week-1",
+    "href": "concepts.html#week-1",
+    "title": "Concepts",
+    "section": "",
+    "text": "installing our development environment"
+  },
+  {
+    "objectID": "concepts.html#week-2",
+    "href": "concepts.html#week-2",
+    "title": "Concepts",
+    "section": "Week 2",
+    "text": "Week 2\n\nediting a .py Python program and executing it in the shell\nthe iPython REPL\nexpressions, operators, values, & variables\noperator precedence\nusing brackets ( and ) to override operator precedence\nnumeric vs character string data types\nvariables: str, int, float, bool, inspect using type()\nconversion: str(), int(), float()\noperators: + - * /, **, modulus %\nlogical operators &lt; &gt; == &gt;= &lt;= != and or not True False\nimport statements—for example, from math import cos\nprint() and formatted output using f-strings\ngetting input from the user using input()\ncommenting code using #\nreserved keywords in Python (e.g. for, return, etc)\ngetting help using help()"
+  },
+  {
     "objectID": "control_flow_and_complex_data_types.html",
     "href": "control_flow_and_complex_data_types.html",
     "title": "Control Flow & Complex data types",
@@ -214,7 +235,7 @@
     "href": "index.html#schedule",
     "title": "Scientific Computing FW25 (Jan-Apr 2026)",
     "section": "Schedule",
-    "text": "Schedule\nOUR FIRST CLASS WILL BE THURSDAY JANUARY 8\nmore details coming soon …\n\n\n\n\n\n\n\n\n\nDate\nTopic / Notes\nHomework\n\n\n\n\nJan 5/8\nIntro ; Setup ; Git ; uv\n-\n\n\nJan 12/15\nFundamentals (expressions & variables)\nHW01\n\n\nJan 19/22\nFundamentals (loops & conditionals)\nHW02\n\n\nJan 26/29\nFundamentals (data structures & functions)\nHW03\n\n\nFeb 2/5\nFundamentals (NumPy & Pandas)\nHW04\n\n\nFeb 9/12\nObject Oriented Programming (OOP)\nHW05\n\n\nFeb 16/19\nno class (reading week)\n-\n\n\nFeb 23/26\nGraphical Displays of Data\nHW06\n\n\nMar 2/5\nReproducibility & Replicability\nHW07\n\n\nMar 9/12\nno class (Paul away)\n-\n\n\nMar 16/19\nSampling, Signal Processing, & Filtering Data\nHW08\n\n\nMar 23/26\nStatistical Thinking & Inferential Statistical Tests\nHW09\n\n\nMar 30/Apr 2\nFitting Models to Data\nHW10\n\n\nApr 6/Apr 9\nSimulating Dynamical Systems\n-"
+    "text": "Schedule\nOUR FIRST CLASS WILL BE THURSDAY JANUARY 8\nmore details coming soon …\n\n\n\n\n\n\n\n\n\nDate\nTopic / Notes\nHomework\n\n\n\n\nJan 5/8\nIntro ; Setup ; Git ; uv\n-\n\n\nJan 12/15\nFundamentals (expressions & variables)\nHW01\n\n\nJan 19/22\nFundamentals (loops & conditionals)\nHW02\n\n\nJan 26/29\nFundamentals (data structures & functions)\nHW03\n\n\nFeb 2/5\nFundamentals (NumPy & Pandas)\nHW04\n\n\nFeb 9/12\nObject Oriented Programming (OOP)\nHW05\n\n\nFeb 16/19\nno class (reading week)\n-\n\n\nFeb 23/26\nGraphical Displays of Data\nHW06\n\n\nMar 2/5\nReproducibility & Replicability\nHW07\n\n\nMar 9/12\nno class (Paul away)\n-\n\n\nMar 16/19\nSampling, Signal Processing, & Filtering Data\nHW08\n\n\nMar 23/26\nStatistical Thinking & Inferential Statistical Tests\nHW09\n\n\nMar 30/Apr 2\nFitting Models to Data\nHW10\n\n\nApr 6/Apr 9\nSimulating Dynamical Systems\n-\n\n\n\n\n\n\nconcepts covered each week"
   },
   {
     "objectID": "index.html#readings",

@@ -36,7 +36,7 @@ format:
 
 more details coming soon ...
 
-<div class="mt-4">
+<div class="mt-4 table-bordered">
 
 |     Date     |                               Topic / Notes                               | Homework |
 | ------------ | ------------------------------------------------------------------------- | :------: |
@@ -58,9 +58,11 @@ more details coming soon ...
 : {tbl-colwidths="[15,75,10]"}
 </div>
 
+---
+
+- [concepts](concepts.qmd) covered each week
+
 ## Readings
 - [Better Code, Better Science](https://poldrack.github.io/BetterCodeBetterScience/) by Russ Poldrack
 - [The Curious Coder's Guide to Git](https://matthew-brett.github.io/curious-git/index.html) by Matthew Brett
-
-
 
