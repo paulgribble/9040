@@ -1,0 +1,14 @@
+---
+title: Homework 1
+---
+
+---
+
+Due: Jan 18 by 11:59 pm eastern standard time
+
+Submit a single file called `name_01.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_01.py`
+
+---
+
+Write some code to complete the [Parabolic Flight](https://gribblelab.org/coding/challenges/parabolic_flight.html) coding exercise. Make sure it produces the correct output given the example inputs, including the same number of decimal places.
+
