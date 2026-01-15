@@ -178,3 +178,35 @@ the sum of [ 2  3  5  7 11 13 17 19 23 29] is 129
 ## Git/GitHub
 
 We will be learning about and using code versioning with Git and GitHub, so you should sign up for a (free) [GitHub](https://www.github.com) account.
+
+## Visual Studio Code
+
+After installing VS Code, launch it, and enable launching from the terminal.
+
+### MacOS
+
+1. Open VS Code: Launch the Visual Studio Code application.
+2. Install Shell Command by Open the Command Palette by pressing Shift + Command + P (or F1).
+3. Type "shell command" into the prompt.
+4. Select the command "Shell Command: Install 'code' command in PATH". (You might be prompted for your administrator password.)
+5. Launch from Terminal: Open your terminal. Navigate to the directory of your project. Type the following command:
+
+```{bash}
+code .
+```
+
+The . opens the current directory in a new VS Code window. You can replace . with a specific file name or directory path.
+
+### WSL on Windows
+
+1. Launch VS Code in your Windows environment.
+2. Open the Command Palette (Ctrl + Shift + P).
+3. Type "shell command" and select "Shell Command: Install 'code' command in PATH" if you didn't do so during the initial installation of the Remote - WSL extension. The extension should typically handle this installation, but verifying doesn't hurt.
+4. Launch from WSL Terminal: Open your WSL terminal (e.g., Ubuntu). Navigate to your project directory within the Linux environment. Type the command:
+
+```{bash}
+code .
+```
+
+This command will open the current Linux directory in a new VS Code window on your Windows desktop, automatically connecting via the Remote - WSL extension. 
+

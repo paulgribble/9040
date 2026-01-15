@@ -278,5 +278,12 @@
     "title": "Set Up Your Computer",
     "section": "Git/GitHub",
     "text": "Git/GitHub\nWe will be learning about and using code versioning with Git and GitHub, so you should sign up for a (free) GitHub account."
+  },
+  {
+    "objectID": "setup.html#visual-studio-code",
+    "href": "setup.html#visual-studio-code",
+    "title": "Set Up Your Computer",
+    "section": "Visual Studio Code",
+    "text": "Visual Studio Code\nAfter installing VS Code, launch it, and enable launching from the terminal.\n\nMacOS\n\nOpen VS Code: Launch the Visual Studio Code application.\nInstall Shell Command by Open the Command Palette by pressing Shift + Command + P (or F1).\nType “shell command” into the prompt.\nSelect the command “Shell Command: Install ‘code’ command in PATH”. (You might be prompted for your administrator password.)\nLaunch from Terminal: Open your terminal. Navigate to the directory of your project. Type the following command:\n\ncode .\nThe . opens the current directory in a new VS Code window. You can replace . with a specific file name or directory path.\n\n\nWSL on Windows\n\nLaunch VS Code in your Windows environment.\nOpen the Command Palette (Ctrl + Shift + P).\nType “shell command” and select “Shell Command: Install ‘code’ command in PATH” if you didn’t do so during the initial installation of the Remote - WSL extension. The extension should typically handle this installation, but verifying doesn’t hurt.\nLaunch from WSL Terminal: Open your WSL terminal (e.g., Ubuntu). Navigate to your project directory within the Linux environment. Type the command:\n\ncode .\nThis command will open the current Linux directory in a new VS Code window on your Windows desktop, automatically connecting via the Remote - WSL extension."
   }
 ]
