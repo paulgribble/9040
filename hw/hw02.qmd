@@ -1,0 +1,15 @@
+---
+title: Homework 1
+---
+
+---
+
+Due: Jan 25 by 11:59 pm eastern standard time
+
+Submit a single file called `name_02.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_02.py`
+
+---
+
+Write a Python program to complete the [Nth Prime number](https://gribblelab.org/coding/challenges/nth_prime.html) exercise.
+
+Make sure it produces the correct output given the example inputs.

@@ -35,88 +35,39 @@
     "text": "Topics\nIn the first part of the course you will learn how to write code. The topics we will cover are common to any high-level language including Python, MATLAB, R, Javascript, C, Julia, Go, Swift, etc. All high level languages have things like numbers, strings, arrays, loops, if-statements. Languages differ in their syntax, in the names of common functions, and sometimes in some other subtle ways (e.g. passing by reference vs passing by value) but otherwise, all high-level languages basically work in the same way. Learning these fundamental concepts of high-level programming languages using one language will enable you to learn other languages as well in the future.\nThe other aspect of programming that you will learn is how to think algorithmically about solving problems and completing tasks with computers. In general there are two reasons to use a computer to perform a given task, (1) because the task would take too long by hand (e.g. churning through processing a huge amount of data), and (2) because the computer can do something clever that you cannot do yourself (e.g. applying complex algorithms to a dataset).\nIn learning the fundamentals of high-level programming languages (data types, loops, conditionals, etc) we will sometimes practice writing code to solve little toy problems. This will start to teach you how to think algorithmically. Think about it like learning to play a musical instrument. You don’t start by learining to play Beethoven. You start learning basic skills by playing scales, arpeggios, different key signatures, etc. Building up basic skills using toy problems is a convenient path towards using coding skills to solve real-world programming problems in the context of your own thesis research.\nWe will also practice and learn by using code to answer questions about data. Some of the data will be from real experiments and some will be fictitious. The goal will be to answer a series of questions by writing code that performs operations on the data (reorganization, summarising, counting, calculating, processing, plotting, etc) and writing a short summary of your findings. This mimics how you will be using your coding skills in your own research going forward.\n\nFundamentals of Coding\n\ndigital representation of data\nbasic data types, operators, & expressions\ncontrol flow & conditionals\nfunctions\ncomplex data types\nfile input & output\ngraphical displays of data\nobject oriented programming (OOP)\n\n\n\nReproducibility & Replicability\n\nPython venvs (virtual environments)\nCode versioning using Git & GitHub\norganization of code and data\ndata analysis workflow\n\n\n\nTopics in Data Analysis\n\nsampling, signal processing, & filtering data\nstatistical tests (parametric vs resampling/boostrapping/randomization)\nfitting models to data\nsimulating dynamical systems\n\nBy building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses."
   },
   {
-    "objectID": "hw/hw01.html",
-    "href": "hw/hw01.html",
+    "objectID": "hw/hw02.html",
+    "href": "hw/hw02.html",
     "title": "Homework 1",
     "section": "",
-    "text": "Due: Jan 18 by 11:59 pm eastern standard time\nSubmit a single file called name_01.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_01.py\n\nWrite some code to complete the Parabolic Flight coding exercise. Make sure it produces the correct output given the example inputs, including the same number of decimal places."
+    "text": "Due: Jan 25 by 11:59 pm eastern standard time\nSubmit a single file called name_02.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_02.py\n\nWrite a Python program to complete the Nth Prime number exercise.\nMake sure it produces the correct output given the example inputs."
   },
   {
-    "objectID": "git.html",
-    "href": "git.html",
-    "title": "Git & GitHub",
+    "objectID": "homeworks.html",
+    "href": "homeworks.html",
+    "title": "A Note about Homeworks",
     "section": "",
-    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—P"
   },
   {
-    "objectID": "git.html#setup",
-    "href": "git.html#setup",
-    "title": "Git & GitHub",
+    "objectID": "fundamentals.html",
+    "href": "fundamentals.html",
+    "title": "Fundamentals",
     "section": "",
-    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+    "text": "Digital representation of data\nControl flow & Complex data types\nFunctions, File input & output"
   },
   {
-    "objectID": "git.html#tutorials-intros",
-    "href": "git.html#tutorials-intros",
-    "title": "Git & GitHub",
-    "section": "Tutorials / Intros",
-    "text": "Tutorials / Intros\n\nabout GitHub and Git by GitHub docs\ngit-novice by software carpentry\nhello world by GitHub docs\nGit Cheat Sheet by GitHub Education\nGit project page"
-  },
-  {
-    "objectID": "functions_file_io.html",
-    "href": "functions_file_io.html",
-    "title": "Functions, File input & output",
+    "objectID": "fundamentals.html#pauls-notes",
+    "href": "fundamentals.html#pauls-notes",
+    "title": "Fundamentals",
     "section": "",
-    "text": "Learning with Python 3 chapter 4: Functions\nThink Python Chapter 3\nPython for Data Analysis chapter 3.2: Functions\nPython for Data Analysis chapter 3.3: Files and the Operating System\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
+    "text": "Digital representation of data\nControl flow & Complex data types\nFunctions, File input & output"
   },
   {
-    "objectID": "functions_file_io.html#readings",
-    "href": "functions_file_io.html#readings",
-    "title": "Functions, File input & output",
-    "section": "",
-    "text": "Learning with Python 3 chapter 4: Functions\nThink Python Chapter 3\nPython for Data Analysis chapter 3.2: Functions\nPython for Data Analysis chapter 3.3: Files and the Operating System\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
-  },
-  {
-    "objectID": "control_flow_and_complex_data_types.html",
-    "href": "control_flow_and_complex_data_types.html",
-    "title": "Control Flow & Complex data types",
-    "section": "",
-    "text": "Here we will learn above several ways to specify the flow of information as your code gets executed. We will learn about loops, which are constructs that allow you to repeat blocks of code multiple times, typically while changing the values of variables inside the repeating block. We will learn about conditionals, which allow you to execute different branches of code depending on the values of variables.\n\n\n\nLearning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow\n\n\n\n\nLoops are used when you have a chunk of code that you need to repeat over and over again, each time changing one (or more) parameters.\nThere are two kinds of loops: a for loop and a while loop. A for loop is used when you (or your code) know in advance of starting the loop, how many iterations to run through. A while loop is used when the number of iterations is not known in advance of starting the loop. You might use a for loop to load in a list of data files. You might use a while loop to iterate through an EEG waveform over samples (time) to search for the first value that exceeds some baseline threshold.\nHere is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named data1.txt, data2.txt, …, data5.txt. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:\n\n\n\nd1 = load(\"data1.txt\")\nd1m = mean(d1)\nd2 = load(\"data2.txt\")\nd2m = mean(d2)\nd3 = load(\"data3.txt\")\nd3m = mean(d3)\nd4 = load(\"data4.txt\")\nd4m = mean(d4)\nd5 = load(\"data5.txt\")\nd5m = mean(d5)\n\n# report overall mean and overall variance of 5 data file means\nalldata = [d1m, d2m, d3m, d4m, d5m]\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nYou can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a for loop. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a for loop:\n\nnfiles = 1000\nalldata = np.zeros(1000)\nfor i in range(nfiles):\n    d = load(\"data\" + str(i) + \".txt\")\n    alldata[i] = mean(d)\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nNow all we would need to change if we have 1000 data files (or one million) is the value of our variable nfiles=1000 or nfiles=1e6—nothing else in the code would have to change. This makes our code much more resilient against programming errors.\nYou can see a for loop begins with the keyword for followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word in followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using indentation. Python is very fussy indeed about indentation.\n\nfor i in range(1,15,3):\n    print(f\"i={i}\")\n\ni=1\ni=4\ni=7\ni=10\ni=13\n\n\nFor loops are executed in a serial fashion, one repetition after another.\n\n\n\nThere is a second sort of loop called a while loop. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:\n\ni = 1\nwhile (i &lt; 9):\n    print(f\"i={i}\")\n    i = i + 1\n\ni=1\ni=2\ni=3\ni=4\ni=5\ni=6\ni=7\ni=8\n\n\nThe expression that determines whether a while loop will continue repeating can be any valid Python expression that evaluates to a boolean (true or false).\nFor both for loops and while loops, there are two keywords to know about that can break you out of a loop (break) and can move you to the next iteration of the loop (continue). I tend not to use these, but some people find them useful."
-  },
-  {
-    "objectID": "control_flow_and_complex_data_types.html#readings",
-    "href": "control_flow_and_complex_data_types.html#readings",
-    "title": "Control Flow & Complex data types",
-    "section": "",
-    "text": "Learning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow"
-  },
-  {
-    "objectID": "control_flow_and_complex_data_types.html#loops",
-    "href": "control_flow_and_complex_data_types.html#loops",
-    "title": "Control Flow & Complex data types",
-    "section": "",
-    "text": "Loops are used when you have a chunk of code that you need to repeat over and over again, each time changing one (or more) parameters.\nThere are two kinds of loops: a for loop and a while loop. A for loop is used when you (or your code) know in advance of starting the loop, how many iterations to run through. A while loop is used when the number of iterations is not known in advance of starting the loop. You might use a for loop to load in a list of data files. You might use a while loop to iterate through an EEG waveform over samples (time) to search for the first value that exceeds some baseline threshold.\nHere is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named data1.txt, data2.txt, …, data5.txt. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:\n\n\n\nd1 = load(\"data1.txt\")\nd1m = mean(d1)\nd2 = load(\"data2.txt\")\nd2m = mean(d2)\nd3 = load(\"data3.txt\")\nd3m = mean(d3)\nd4 = load(\"data4.txt\")\nd4m = mean(d4)\nd5 = load(\"data5.txt\")\nd5m = mean(d5)\n\n# report overall mean and overall variance of 5 data file means\nalldata = [d1m, d2m, d3m, d4m, d5m]\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nYou can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a for loop. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a for loop:\n\nnfiles = 1000\nalldata = np.zeros(1000)\nfor i in range(nfiles):\n    d = load(\"data\" + str(i) + \".txt\")\n    alldata[i] = mean(d)\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nNow all we would need to change if we have 1000 data files (or one million) is the value of our variable nfiles=1000 or nfiles=1e6—nothing else in the code would have to change. This makes our code much more resilient against programming errors.\nYou can see a for loop begins with the keyword for followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word in followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using indentation. Python is very fussy indeed about indentation.\n\nfor i in range(1,15,3):\n    print(f\"i={i}\")\n\ni=1\ni=4\ni=7\ni=10\ni=13\n\n\nFor loops are executed in a serial fashion, one repetition after another.\n\n\n\nThere is a second sort of loop called a while loop. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:\n\ni = 1\nwhile (i &lt; 9):\n    print(f\"i={i}\")\n    i = i + 1\n\ni=1\ni=2\ni=3\ni=4\ni=5\ni=6\ni=7\ni=8\n\n\nThe expression that determines whether a while loop will continue repeating can be any valid Python expression that evaluates to a boolean (true or false).\nFor both for loops and while loops, there are two keywords to know about that can break you out of a loop (break) and can move you to the next iteration of the loop (continue). I tend not to use these, but some people find them useful."
-  },
-  {
-    "objectID": "concepts.html",
-    "href": "concepts.html",
-    "title": "Concepts",
-    "section": "",
-    "text": "installing our development environment"
-  },
-  {
-    "objectID": "concepts.html#week-1",
-    "href": "concepts.html#week-1",
-    "title": "Concepts",
-    "section": "",
-    "text": "installing our development environment"
-  },
-  {
-    "objectID": "concepts.html#week-2",
-    "href": "concepts.html#week-2",
-    "title": "Concepts",
-    "section": "Week 2",
-    "text": "Week 2\n\nediting a .py Python program and executing it in the shell\nthe iPython REPL\nexpressions, operators, values, & variables\noperator precedence\nusing brackets ( and ) to override operator precedence\nnumeric vs character string data types\nvariables: str, int, float, bool, inspect using type()\nconversion: str(), int(), float()\noperators: + - * /, **, modulus %\nlogical operators &lt; &gt; == &gt;= &lt;= != and or not True False\nimport statements—for example, from math import cos\nprint() and formatted output using f-strings\ngetting input from the user using input()\ncommenting code using #\nreserved keywords in Python (e.g. for, return, etc)\ngetting help using help()\nVisual Studio Code"
+    "objectID": "fundamentals.html#python-fundamentals",
+    "href": "fundamentals.html#python-fundamentals",
+    "title": "Fundamentals",
+    "section": "Python Fundamentals",
+    "text": "Python Fundamentals\n\nLearning with Python 3 chapter 1: The way of the program\nLearning with Python 3 chapter 2: Variables, expressions and statements\nPython for Data Analysis chapter 1: Preliminaries\nPython for Data Analysis chapter 2: Python Language Basics, iPython, and Jupyter Notebooks\nNumPy: the absolute basics for beginners\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\na fun coding challenge: Advent of Code 2015, Day 6 (hint: use a 1000x1000 2D array)\n\n\nother useful readings\n\nThe way of the program\nVariables, expressions, and statements\nPython Language Basics\nFiles & the File System by Kieran Healy\nHow to Name Files video by Jenny Bryan\n\n\n\nConditionals, Iteration, & Control Flow\n\nLearning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow\n\n\n\nFile i/o\n\nNumPy reading & writing files\nNumPy data types\npandas IO tools\nPython reading and writing files\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
   },
   {
     "objectID": "digital_representation_of_data.html",
@@ -203,32 +154,88 @@
     "text": "Unicode\nThe ASCII codes only represent a limited number of characters that are useful mostly in the English language. Starting in the 1980s, Xerox, Apple, and others began work on a new variable-length encoding scheme that could represent a much larger number of characters that would be useful for the world’s languages (and now even for emoji). This is called Unicode and includes the most common standard on the web, UTF-8, which can encode more than a million different characters and symbols.\nHere is a website where you can view and search the Unicode character table.\nFor example, in Unicode the smiling face emoji 😀 is encoded using hexadecimal value 1F600:\n\nprint(f\"Unicode (hex) 1f600 is {chr(0x1f600)}\")\n\nUnicode (hex) 1f600 is 😀"
   },
   {
-    "objectID": "fundamentals.html",
-    "href": "fundamentals.html",
-    "title": "Fundamentals",
+    "objectID": "concepts.html",
+    "href": "concepts.html",
+    "title": "Concepts",
     "section": "",
-    "text": "Digital representation of data\nControl flow & Complex data types\nFunctions, File input & output"
+    "text": "installing our development environment"
   },
   {
-    "objectID": "fundamentals.html#pauls-notes",
-    "href": "fundamentals.html#pauls-notes",
-    "title": "Fundamentals",
+    "objectID": "concepts.html#week-1",
+    "href": "concepts.html#week-1",
+    "title": "Concepts",
     "section": "",
-    "text": "Digital representation of data\nControl flow & Complex data types\nFunctions, File input & output"
+    "text": "installing our development environment"
   },
   {
-    "objectID": "fundamentals.html#python-fundamentals",
-    "href": "fundamentals.html#python-fundamentals",
-    "title": "Fundamentals",
-    "section": "Python Fundamentals",
-    "text": "Python Fundamentals\n\nLearning with Python 3 chapter 1: The way of the program\nLearning with Python 3 chapter 2: Variables, expressions and statements\nPython for Data Analysis chapter 1: Preliminaries\nPython for Data Analysis chapter 2: Python Language Basics, iPython, and Jupyter Notebooks\nNumPy: the absolute basics for beginners\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\na fun coding challenge: Advent of Code 2015, Day 6 (hint: use a 1000x1000 2D array)\n\n\nother useful readings\n\nThe way of the program\nVariables, expressions, and statements\nPython Language Basics\nFiles & the File System by Kieran Healy\nHow to Name Files video by Jenny Bryan\n\n\n\nConditionals, Iteration, & Control Flow\n\nLearning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow\n\n\n\nFile i/o\n\nNumPy reading & writing files\nNumPy data types\npandas IO tools\nPython reading and writing files\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
+    "objectID": "concepts.html#week-2",
+    "href": "concepts.html#week-2",
+    "title": "Concepts",
+    "section": "Week 2",
+    "text": "Week 2\n\nediting a .py Python program and executing it in the shell\nthe iPython REPL\nexpressions, operators, values, & variables\noperator precedence\nusing brackets ( and ) to override operator precedence\nnumeric vs character string data types\nvariables: str, int, float, bool, inspect using type()\nconversion: str(), int(), float()\noperators: + - * /, **, modulus %\nlogical operators &lt; &gt; == &gt;= &lt;= != and or not True False\nimport statements—for example, from math import cos\nprint() and formatted output using f-strings\ngetting input from the user using input()\ncommenting code using #\nreserved keywords in Python (e.g. for, return, etc)\ngetting help using help()\nVisual Studio Code"
   },
   {
-    "objectID": "homeworks.html",
-    "href": "homeworks.html",
-    "title": "A Note about Homeworks",
+    "objectID": "control_flow_and_complex_data_types.html",
+    "href": "control_flow_and_complex_data_types.html",
+    "title": "Control Flow & Complex data types",
     "section": "",
-    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—P"
+    "text": "Here we will learn above several ways to specify the flow of information as your code gets executed. We will learn about loops, which are constructs that allow you to repeat blocks of code multiple times, typically while changing the values of variables inside the repeating block. We will learn about conditionals, which allow you to execute different branches of code depending on the values of variables.\n\n\n\nLearning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow\n\n\n\n\nLoops are used when you have a chunk of code that you need to repeat over and over again, each time changing one (or more) parameters.\nThere are two kinds of loops: a for loop and a while loop. A for loop is used when you (or your code) know in advance of starting the loop, how many iterations to run through. A while loop is used when the number of iterations is not known in advance of starting the loop. You might use a for loop to load in a list of data files. You might use a while loop to iterate through an EEG waveform over samples (time) to search for the first value that exceeds some baseline threshold.\nHere is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named data1.txt, data2.txt, …, data5.txt. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:\n\n\n\nd1 = load(\"data1.txt\")\nd1m = mean(d1)\nd2 = load(\"data2.txt\")\nd2m = mean(d2)\nd3 = load(\"data3.txt\")\nd3m = mean(d3)\nd4 = load(\"data4.txt\")\nd4m = mean(d4)\nd5 = load(\"data5.txt\")\nd5m = mean(d5)\n\n# report overall mean and overall variance of 5 data file means\nalldata = [d1m, d2m, d3m, d4m, d5m]\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nYou can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a for loop. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a for loop:\n\nnfiles = 1000\nalldata = np.zeros(1000)\nfor i in range(nfiles):\n    d = load(\"data\" + str(i) + \".txt\")\n    alldata[i] = mean(d)\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nNow all we would need to change if we have 1000 data files (or one million) is the value of our variable nfiles=1000 or nfiles=1e6—nothing else in the code would have to change. This makes our code much more resilient against programming errors.\nYou can see a for loop begins with the keyword for followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word in followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using indentation. Python is very fussy indeed about indentation.\n\nfor i in range(1,15,3):\n    print(f\"i={i}\")\n\ni=1\ni=4\ni=7\ni=10\ni=13\n\n\nFor loops are executed in a serial fashion, one repetition after another.\n\n\n\nThere is a second sort of loop called a while loop. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:\n\ni = 1\nwhile (i &lt; 9):\n    print(f\"i={i}\")\n    i = i + 1\n\ni=1\ni=2\ni=3\ni=4\ni=5\ni=6\ni=7\ni=8\n\n\nThe expression that determines whether a while loop will continue repeating can be any valid Python expression that evaluates to a boolean (true or false).\nFor both for loops and while loops, there are two keywords to know about that can break you out of a loop (break) and can move you to the next iteration of the loop (continue). I tend not to use these, but some people find them useful."
+  },
+  {
+    "objectID": "control_flow_and_complex_data_types.html#readings",
+    "href": "control_flow_and_complex_data_types.html#readings",
+    "title": "Control Flow & Complex data types",
+    "section": "",
+    "text": "Learning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow"
+  },
+  {
+    "objectID": "control_flow_and_complex_data_types.html#loops",
+    "href": "control_flow_and_complex_data_types.html#loops",
+    "title": "Control Flow & Complex data types",
+    "section": "",
+    "text": "Loops are used when you have a chunk of code that you need to repeat over and over again, each time changing one (or more) parameters.\nThere are two kinds of loops: a for loop and a while loop. A for loop is used when you (or your code) know in advance of starting the loop, how many iterations to run through. A while loop is used when the number of iterations is not known in advance of starting the loop. You might use a for loop to load in a list of data files. You might use a while loop to iterate through an EEG waveform over samples (time) to search for the first value that exceeds some baseline threshold.\nHere is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named data1.txt, data2.txt, …, data5.txt. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:\n\n\n\nd1 = load(\"data1.txt\")\nd1m = mean(d1)\nd2 = load(\"data2.txt\")\nd2m = mean(d2)\nd3 = load(\"data3.txt\")\nd3m = mean(d3)\nd4 = load(\"data4.txt\")\nd4m = mean(d4)\nd5 = load(\"data5.txt\")\nd5m = mean(d5)\n\n# report overall mean and overall variance of 5 data file means\nalldata = [d1m, d2m, d3m, d4m, d5m]\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nYou can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a for loop. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a for loop:\n\nnfiles = 1000\nalldata = np.zeros(1000)\nfor i in range(nfiles):\n    d = load(\"data\" + str(i) + \".txt\")\n    alldata[i] = mean(d)\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nNow all we would need to change if we have 1000 data files (or one million) is the value of our variable nfiles=1000 or nfiles=1e6—nothing else in the code would have to change. This makes our code much more resilient against programming errors.\nYou can see a for loop begins with the keyword for followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word in followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using indentation. Python is very fussy indeed about indentation.\n\nfor i in range(1,15,3):\n    print(f\"i={i}\")\n\ni=1\ni=4\ni=7\ni=10\ni=13\n\n\nFor loops are executed in a serial fashion, one repetition after another.\n\n\n\nThere is a second sort of loop called a while loop. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:\n\ni = 1\nwhile (i &lt; 9):\n    print(f\"i={i}\")\n    i = i + 1\n\ni=1\ni=2\ni=3\ni=4\ni=5\ni=6\ni=7\ni=8\n\n\nThe expression that determines whether a while loop will continue repeating can be any valid Python expression that evaluates to a boolean (true or false).\nFor both for loops and while loops, there are two keywords to know about that can break you out of a loop (break) and can move you to the next iteration of the loop (continue). I tend not to use these, but some people find them useful."
+  },
+  {
+    "objectID": "functions_file_io.html",
+    "href": "functions_file_io.html",
+    "title": "Functions, File input & output",
+    "section": "",
+    "text": "Learning with Python 3 chapter 4: Functions\nThink Python Chapter 3\nPython for Data Analysis chapter 3.2: Functions\nPython for Data Analysis chapter 3.3: Files and the Operating System\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
+  },
+  {
+    "objectID": "functions_file_io.html#readings",
+    "href": "functions_file_io.html#readings",
+    "title": "Functions, File input & output",
+    "section": "",
+    "text": "Learning with Python 3 chapter 4: Functions\nThink Python Chapter 3\nPython for Data Analysis chapter 3.2: Functions\nPython for Data Analysis chapter 3.3: Files and the Operating System\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
+  },
+  {
+    "objectID": "git.html",
+    "href": "git.html",
+    "title": "Git & GitHub",
+    "section": "",
+    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+  },
+  {
+    "objectID": "git.html#setup",
+    "href": "git.html#setup",
+    "title": "Git & GitHub",
+    "section": "",
+    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+  },
+  {
+    "objectID": "git.html#tutorials-intros",
+    "href": "git.html#tutorials-intros",
+    "title": "Git & GitHub",
+    "section": "Tutorials / Intros",
+    "text": "Tutorials / Intros\n\nabout GitHub and Git by GitHub docs\ngit-novice by software carpentry\nhello world by GitHub docs\nGit Cheat Sheet by GitHub Education\nGit project page"
+  },
+  {
+    "objectID": "hw/hw01.html",
+    "href": "hw/hw01.html",
+    "title": "Homework 1",
+    "section": "",
+    "text": "Due: Jan 18 by 11:59 pm eastern standard time\nSubmit a single file called name_01.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_01.py\n\nWrite some code to complete the Parabolic Flight coding exercise. Make sure it produces the correct output given the example inputs, including the same number of decimal places."
   },
   {
     "objectID": "index.html",
