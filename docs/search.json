@@ -179,7 +179,7 @@
     "href": "concepts.html#week-2-1",
     "title": "Concepts",
     "section": "Week 2",
-    "text": "Week 2\n\nconditionals if elif else\nloops using while and for\nrange() versus list types\nzero-based indexing in Python\nin Python list variables are pointers\nb = a vs b = a.copy()\nb == a vs b is a\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays"
+    "text": "Week 2\n\nconditionals if elif else\nloops using while and for\nrange() versus list types\nthe FizzBuzz coding exercise\nzero-based indexing in Python\nin Python list variables are pointers\nb = a vs b = a.copy()\nb == a vs b is a\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays"
   },
   {
     "objectID": "control_flow_and_complex_data_types.html",

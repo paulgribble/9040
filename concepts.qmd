@@ -35,6 +35,7 @@ format:
 - conditionals `if` `elif` `else`
 - loops using `while` and `for`
 - `range()` versus `list` types
+- the FizzBuzz coding exercise
 - zero-based indexing in Python
 - in Python list variables are pointers
 - `b = a` vs `b = a.copy()`
