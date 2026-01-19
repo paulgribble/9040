@@ -172,7 +172,7 @@
     "href": "concepts.html#week-2",
     "title": "Concepts",
     "section": "Week 2",
-    "text": "Week 2\n\nediting a .py Python program and executing it in the shell\nthe iPython REPL\nexpressions, operators, values, & variables\noperator precedence\nusing brackets ( and ) to override operator precedence\nnumeric vs character string data types\nvariables: str, int, float, bool, inspect using type()\nconversion: str(), int(), float()\noperators: + - * /, **, modulus %\nlogical operators &lt; &gt; == &gt;= &lt;= != and or not True False\nimport statements—for example, from math import cos\nprint() and formatted output using f-strings\ngetting input from the user using input()\ncommenting code using #\nreserved keywords in Python (e.g. for, return, etc)\ngetting help using help()\nVisual Studio Code"
+    "text": "Week 2\n\nediting a .py Python program and executing it in the shell\nthe iPython REPL\nuv add ipython to install; and then uv run ipython to launch\nexpressions, operators, values, & variables\noperator precedence\nusing brackets ( and ) to override operator precedence\nnumeric vs character string data types\nvariables: str, int, float, bool, inspect using type()\nconversion: str(), int(), float()\noperators: + - * /, **, modulus %\nlogical operators &lt; &gt; == &gt;= &lt;= != and or not True False\nimport statements—for example, from math import cos\nprint() and formatted output using f-strings\ngetting input from the user using input()\ncommenting code using #\nreserved keywords in Python (e.g. for, return, etc)\ngetting help using help()\nVisual Studio Code"
   },
   {
     "objectID": "concepts.html#week-2-1",

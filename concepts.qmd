@@ -14,6 +14,7 @@ format:
 
 - editing a `.py` Python program and executing it in the shell
 - the iPython REPL
+- `uv add ipython` to install; and then `uv run ipython` to launch
 - expressions, operators, values, & variables
 - operator precedence
 - using brackets `(` and `)` to override operator precedence
