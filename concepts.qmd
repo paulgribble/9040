@@ -30,3 +30,20 @@ format:
 - getting help using `help()`
 - Visual Studio Code
 
+## Week 2
+
+- conditionals `if` `elif` `else`
+- loops using `while` and `for`
+- `range()` versus `list` types
+- zero-based indexing in Python
+- in Python list variables are pointers
+- `b = a` vs `b = a.copy()`
+- `b == a` vs `b is a`
+- NumPy arrays
+- creating arrays
+- `np.zeros()` and `np.ones()`
+- shape of arrays using `np.shape()`
+- multidimensional arrays
+- vectorized operations on arrays
+- slicing & indexing into arrays
+
