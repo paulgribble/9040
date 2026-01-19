@@ -1,0 +1,10 @@
+---
+title: Sample Code
+format:
+  html:
+    toc: true
+    toc-expand: 3
+---
+
+- [fizzbuzz.py](code/fizzbuzz.py)
+

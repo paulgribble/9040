@@ -57,6 +57,7 @@ format:
 ---
 
 - [concepts](concepts.qmd) covered each week
+- [sample code](code.qmd) produced in class
 
 ## Readings
 - [Better Code, Better Science](https://poldrack.github.io/BetterCodeBetterScience/) by Russ Poldrack

@@ -182,6 +182,13 @@
     "text": "Week 2\n\nconditionals if elif else\nloops using while and for\nrange() versus list types\nthe FizzBuzz coding exercise\nzero-based indexing in Python\nin Python list variables are pointers\nb = a vs b = a.copy()\nb == a vs b is a\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays"
   },
   {
+    "objectID": "code.html",
+    "href": "code.html",
+    "title": "Sample Code",
+    "section": "",
+    "text": "fizzbuzz.py"
+  },
+  {
     "objectID": "control_flow_and_complex_data_types.html",
     "href": "control_flow_and_complex_data_types.html",
     "title": "Control Flow & Complex data types",
@@ -256,7 +263,7 @@
     "href": "index.html#schedule",
     "title": "Scientific Computing FW25 (Jan-Apr 2026)",
     "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\n\n\nDate\nTopic / Notes\nHomework\n\n\n\n\nJan 5/8\nIntro ; Setup ; Git ; uv\n-\n\n\nJan 12/15\nFundamentals (expressions & variables)\nHW01\n\n\nJan 19/22\nFundamentals (loops & conditionals)\nHW02\n\n\nJan 26/29\nFundamentals (data structures & functions)\nHW03\n\n\nFeb 2/5\nFundamentals (NumPy & Pandas)\nHW04\n\n\nFeb 9/12\nObject Oriented Programming (OOP)\nHW05\n\n\nFeb 16/19\nno class (reading week)\n-\n\n\nFeb 23/26\nGraphical Displays of Data\nHW06\n\n\nMar 2/5\nReproducibility & Replicability\nHW07\n\n\nMar 9/12\nno class (Paul away)\n-\n\n\nMar 16/19\nSampling, Signal Processing, & Filtering Data\nHW08\n\n\nMar 23/26\nStatistical Thinking & Inferential Statistical Tests\nHW09\n\n\nMar 30/Apr 2\nFitting Models to Data\nHW10\n\n\nApr 6/Apr 9\nSimulating Dynamical Systems\n-\n\n\n\n\n\n\nconcepts covered each week"
+    "text": "Schedule\n\n\n\n\n\n\n\n\n\nDate\nTopic / Notes\nHomework\n\n\n\n\nJan 5/8\nIntro ; Setup ; Git ; uv\n-\n\n\nJan 12/15\nFundamentals (expressions & variables)\nHW01\n\n\nJan 19/22\nFundamentals (loops & conditionals)\nHW02\n\n\nJan 26/29\nFundamentals (data structures & functions)\nHW03\n\n\nFeb 2/5\nFundamentals (NumPy & Pandas)\nHW04\n\n\nFeb 9/12\nObject Oriented Programming (OOP)\nHW05\n\n\nFeb 16/19\nno class (reading week)\n-\n\n\nFeb 23/26\nGraphical Displays of Data\nHW06\n\n\nMar 2/5\nReproducibility & Replicability\nHW07\n\n\nMar 9/12\nno class (Paul away)\n-\n\n\nMar 16/19\nSampling, Signal Processing, & Filtering Data\nHW08\n\n\nMar 23/26\nStatistical Thinking & Inferential Statistical Tests\nHW09\n\n\nMar 30/Apr 2\nFitting Models to Data\nHW10\n\n\nApr 6/Apr 9\nSimulating Dynamical Systems\n-\n\n\n\n\n\n\nconcepts covered each week\nsample code produced in class"
   },
   {
     "objectID": "index.html#readings",
