@@ -31,7 +31,7 @@ format:
 - getting help using `help()`
 - Visual Studio Code
 
-## Week 2
+## Week 3
 
 - conditionals `if` `elif` `else`
 - loops using `while` and `for`

@@ -175,11 +175,11 @@
     "text": "Week 2\n\nediting a .py Python program and executing it in the shell\nthe iPython REPL\nuv add ipython to install; and then uv run ipython to launch\nexpressions, operators, values, & variables\noperator precedence\nusing brackets ( and ) to override operator precedence\nnumeric vs character string data types\nvariables: str, int, float, bool, inspect using type()\nconversion: str(), int(), float()\noperators: + - * /, **, modulus %\nlogical operators &lt; &gt; == &gt;= &lt;= != and or not True False\nimport statements—for example, from math import cos\nprint() and formatted output using f-strings\ngetting input from the user using input()\ncommenting code using #\nreserved keywords in Python (e.g. for, return, etc)\ngetting help using help()\nVisual Studio Code"
   },
   {
-    "objectID": "concepts.html#week-2-1",
-    "href": "concepts.html#week-2-1",
+    "objectID": "concepts.html#week-3",
+    "href": "concepts.html#week-3",
     "title": "Concepts",
-    "section": "Week 2",
-    "text": "Week 2\n\nconditionals if elif else\nloops using while and for\nrange() versus list types\nthe FizzBuzz coding exercise\nzero-based indexing in Python\nin Python list variables are pointers\nb = a vs b = a.copy()\nb == a vs b is a\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays"
+    "section": "Week 3",
+    "text": "Week 3\n\nconditionals if elif else\nloops using while and for\nrange() versus list types\nthe FizzBuzz coding exercise\nzero-based indexing in Python\nin Python list variables are pointers\nb = a vs b = a.copy()\nb == a vs b is a\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays"
   },
   {
     "objectID": "code.html",
