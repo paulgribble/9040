@@ -179,7 +179,21 @@
     "href": "concepts.html#week-3",
     "title": "Concepts",
     "section": "Week 3",
-    "text": "Week 3\n\nconditionals if elif else\nloops using while and for\nrange() versus list types\nthe FizzBuzz coding exercise\nzero-based indexing in Python\nin Python list variables are pointers\nb = a vs b = a.copy()\nb == a vs b is a\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays"
+    "text": "Week 3\n\nconditionals if elif else\nloops using while and for\nrange() versus list types\n\n“range objects are a specific type of sequence in Python, they behave similarly to lists or tuples but are immutable and lazy”\n\nthe FizzBuzz coding exercise\nzero-based indexing in Python\nputting it all together: testing primeness of integers"
+  },
+  {
+    "objectID": "concepts.html#week-4",
+    "href": "concepts.html#week-4",
+    "title": "Concepts",
+    "section": "Week 4",
+    "text": "Week 4\n\nlists in Python\nlist comprehensions e.g. five_odd_numbers = [i for i in range(1,11,2)]\nin Python list variables are pointers\nb = a vs b = a.copy()\nb == a vs b is a\nother complex data types in Python: tuples, ranges, dictionaries, and sets\nwriting your own functions in Python\n\ndefining a function\nfunction header\ninput arguments\nthe work\nreturning output(s)\nvariable scope\nnamed inputs\ndefault values\n\nthe idea of modularity of code"
+  },
+  {
+    "objectID": "concepts.html#week-5",
+    "href": "concepts.html#week-5",
+    "title": "Concepts",
+    "section": "Week 5",
+    "text": "Week 5\n\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays\nfile input & output: low-level\n\nall files are binary, a series of 8-bit bytes\nASCII encoding (and utf-8 more modern version)\nusing hex editor to view a file as hexadecimal bytes\nPython defaults: 32-bit int, 64-bit float, 8-bit char\nlittle-endian vs big-endian byte ordering (sys.byteorder to check)\nusing numpy to read and write binary bytes by specifying dtype\n\nfile input & output: high-level using NumPy & pandas"
   },
   {
     "objectID": "code.html",
