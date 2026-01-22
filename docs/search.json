@@ -200,7 +200,7 @@
     "href": "code.html",
     "title": "Sample Code",
     "section": "",
-    "text": "fizzbuzz.py"
+    "text": "fizzbuzz.py\nis_it_prime.py"
   },
   {
     "objectID": "control_flow_and_complex_data_types.html",
