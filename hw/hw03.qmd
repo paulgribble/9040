@@ -1,0 +1,16 @@
+---
+title: Homework 3
+---
+
+---
+
+Due: Feb 1 by 11:59 pm eastern standard time
+
+Submit a single file called `name_03.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_03.py`
+
+---
+
+Write a Python program to complete the [Square Digit Chains](https://gribblelab.org/coding/challenges/pe092.html) exercise.
+
+Hint: the answer is a 7 digit number starting with 8 and ending in 6 ... and if you add all the digits up you get 33.
+
