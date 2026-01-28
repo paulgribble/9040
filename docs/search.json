@@ -291,7 +291,7 @@
     "href": "index.html#readings",
     "title": "Scientific Computing FW25 (Jan-Apr 2026)",
     "section": "Readings",
-    "text": "Readings\n\nBetter Code, Better Science by Russ Poldrack\nThe Curious Coder’s Guide to Git by Matthew Brett"
+    "text": "Readings\n\nBetter Code, Better Science by Russ Poldrack\nThe Curious Coder’s Guide to Git by Matthew Brett\nPython for Data Analysis by Wes McKinney"
   },
   {
     "objectID": "setup.html",
