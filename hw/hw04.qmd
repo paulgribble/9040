@@ -1,0 +1,17 @@
+---
+title: Homework 4
+---
+
+---
+
+Due: Feb 8 by 11:59 pm eastern standard time
+
+Submit a single file called `name_04.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_04.py`
+
+---
+
+Choose any one of the "Slighly more challenging problems" listed in the [Advent of Code coding exercises](https://gribblelab.org/coding/challenges/advent_of_code.html). Write a Python script to complete both part 1 and part 2 of the problem you choose. Submit only your code, you don't need to submit your puzzle input.
+
+If you are already Python experienced and you want to try one of the "more challenging problems" instead, that would be fine as well.
+
+If you have never programmed anything before this course and you wish to choose one of the "Easiest problems" that would be ok as well.

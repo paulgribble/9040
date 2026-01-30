@@ -40,7 +40,7 @@ format:
 | Jan 12/15    | [Fundamentals](fundamentals.qmd) (expressions & variables)                | [HW01](hw/hw01.qmd) |
 | Jan 19/22    | [Fundamentals](fundamentals.qmd) (loops & conditionals)                   | [HW02](hw/hw02.qmd) |
 | Jan 26/29    | [Fundamentals](fundamentals.qmd) (data structures & functions)            | [HW03](hw/hw03.qmd) |
-| Feb 2/5      | [Fundamentals](fundamentals.qmd) (NumPy & Pandas)                         |        HW04         |
+| Feb 2/5      | [Fundamentals](fundamentals.qmd) (NumPy & Pandas)                         | [HW04](hw/hw04.qmd) |
 | Feb 9/12     | Object Oriented Programming (OOP)                                         |        HW05         |
 | Feb 16/19    | *no class* (reading week)                                                 |          -          |
 | Feb 23/26    | Graphical Displays of Data                                                |        HW06         |
