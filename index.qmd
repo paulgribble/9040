@@ -60,6 +60,6 @@ format:
 - [sample code](code.qmd) produced in class
 
 ## Readings
-- [Better Code, Better Science](https://poldrack.github.io/BetterCodeBetterScience/) by Russ Poldrack
-- [The Curious Coder's Guide to Git](https://matthew-brett.github.io/curious-git/index.html) by Matthew Brett
 - [Python for Data Analysis](https://wesmckinney.com/book/) by Wes McKinney
+- [The Curious Coder's Guide to Git](https://matthew-brett.github.io/curious-git/index.html) by Matthew Brett
+- [Better Code, Better Science](https://poldrack.github.io/BetterCodeBetterScience/) by Russ Poldrack
