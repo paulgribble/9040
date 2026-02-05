@@ -47,4 +47,4 @@ format:
 - [pandas IO tools](https://pandas.pydata.org/docs/user_guide/io.html)
 - [Python reading and writing files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)
 - Python for Data Analysis chapter 6: [Data Loading, Storage, and File Formats](https://wesmckinney.com/book/accessing-data.html)
-
+- [Project Structure](https://djnavarro.net/slides-project-structure/#1), file naming, folders, etc... by Danielle Navarro
