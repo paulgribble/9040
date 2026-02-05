@@ -1,0 +1,27 @@
+---
+title: Object Oriented Programming (OOP)
+format:
+  html:
+    toc: true
+    toc-expand: 3
+---
+
+## Concepts
+
+- why not lists and dictionaries?
+- encapsulation (bundling data and methods that operate on the data)
+- classes and objects
+- attributes (instance variables)
+- methods (like functions)
+- special methods: `__init__`, `__str__`, `__repr__`
+- inheritance: `super().__init__()`
+- operator overloading: e.g. `__add__`, `__eq__`
+
+## Resources on OOP
+
+- [CS50P](https://cs50.harvard.edu/python/2022/weeks/8/) (Harvard online course)
+  - [notes](https://cs50.harvard.edu/python/2022/notes/8/)
+  - [video](https://youtu.be/e4fwY9ZsxPw)
+- [Classes and Objects --- the Basics](https://openbookproject.net/thinkcs/python/english3e/classes_and_objects_I.html)
+- [Classes and Objects --- Digging a little deeper](https://openbookproject.net/thinkcs/python/english3e/classes_and_objects_II.html)
+
