@@ -27,7 +27,7 @@ format:
 - [The way of the program](https://openbookproject.net/thinkcs/python/english3e/way_of_the_program.html)
 - [Variables, expressions, and statements](https://greenteapress.com/thinkpython2/html/thinkpython2003.html)
 - [Python Language Basics](https://wesmckinney.com/book/python-basics.html#tut_basics)
-- [Files & the File System](https://mptc.io/slides/01b-slides.html#/title-slide) by Kieran Healy
+- [Files & the File System](https://mptc.io/content/03-content-shell.html) by Kieran Healy
 - [How to Name Files](https://youtu.be/ES1LTlnpLMk) video by Jenny Bryan
 
 ### Conditionals, Iteration, & Control Flow
