@@ -32,3 +32,4 @@ It doesn't much matter if the version number isn't identical to the one above.
 - [hello world](https://docs.github.com/en/get-started/start-your-journey/hello-world) by GitHub docs
 - [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) by GitHub Education
 - [Git](https://git-scm.com/) project page
+- [Version Control and Git](https://mptc.io/content/08-content-git.html) by Kieran Healy
