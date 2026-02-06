@@ -1,0 +1,17 @@
+---
+title: Homework 5
+---
+
+---
+
+Due: Feb 15 by 11:59 pm eastern standard time
+
+Submit a single file called `name_05.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_05.py`
+
+---
+
+Write a Python program to complete the [XOR Decryption](https://gribblelab.org/coding/challenges/xor_decryption.html) exercise.
+
+**Hint**: the plaintext message contains the words `the`, `and`, and `that`
+
+

@@ -41,7 +41,7 @@ format:
 | Jan 19/22    | [Fundamentals](fundamentals.qmd) (loops & conditionals)                   | [HW02](hw/hw02.qmd) |
 | Jan 26/29    | [Fundamentals](fundamentals.qmd) (data structures & functions)            | [HW03](hw/hw03.qmd) |
 | Feb 2/5      | [Fundamentals](fundamentals.qmd) (NumPy & File i/o)                       | [HW04](hw/hw04.qmd) |
-| Feb 9/12     | [Object Oriented Programming (OOP)](oop.qmd)                              |        HW05         |
+| Feb 9/12     | [Object Oriented Programming (OOP)](oop.qmd)                              | [HW05](hw/hw05.qmd) |
 | Feb 16/19    | *no class* (reading week)                                                 |          -          |
 | Feb 23/26    | Graphical Displays of Data                                                |        HW06         |
 | Mar 2/5      | Reproducibility & Replicability                                           |        HW07         |
