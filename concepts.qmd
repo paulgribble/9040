@@ -78,4 +78,21 @@ format:
   - using numpy to read and write binary bytes by specifying dtype
 - file input & output: high-level using NumPy & pandas
 
+## Week 6
+
+- procedural programming: functions acting on data structures
+- object-oriented programming (OOP): classes & objects encapsulate attributes & methods
+- hierarchical organization of Classes (and superclasses and subclasses)
+- attributes (data)
+- methods (functions)
+- the `__init__()` method and the `self` variable
+- inheritance
+- overriding inherited methods
+- polymorphism
+- `super().__init__()`
+- special methods: `__str__()` and `__repr__()`
+- copying objects
+  - shallow copy using the `copy` module `copy.copy()`
+  - deep copy using `copy.deepcopy()`
+- operator overloading, e.g. `__eq()__`, `__lt__()`, `__gt__()`
 

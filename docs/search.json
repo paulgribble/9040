@@ -224,6 +224,13 @@
     "text": "Week 5\n\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays\nfile input & output: low-level\n\nall files are binary, a series of 8-bit bytes\nASCII encoding (and utf-8 more modern version)\nusing hex editor to view a file as hexadecimal bytes\nPython defaults: 32-bit int, 64-bit float, 8-bit char\nlittle-endian vs big-endian byte ordering (sys.byteorder to check)\nusing numpy to read and write binary bytes by specifying dtype\n\nfile input & output: high-level using NumPy & pandas"
   },
   {
+    "objectID": "concepts.html#week-6",
+    "href": "concepts.html#week-6",
+    "title": "Concepts",
+    "section": "Week 6",
+    "text": "Week 6\n\nprocedural programming: functions acting on data structures\nobject-oriented programming (OOP): classes & objects encapsulate attributes & methods\nhierarchical organization of Classes (and superclasses and subclasses)\nattributes (data)\nmethods (functions)\nthe __init__() method and the self variable\ninheritance\noverriding inherited methods\npolymorphism\nsuper().__init__()\nspecial methods: __str__() and __repr__()\ncopying objects\n\nshallow copy using the copy module copy.copy()\ndeep copy using copy.deepcopy()\n\noperator overloading, e.g. __eq()__, __lt__(), __gt__()"
+  },
+  {
     "objectID": "code.html",
     "href": "code.html",
     "title": "Sample Code",
