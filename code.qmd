@@ -10,3 +10,4 @@ format:
 - [is_it_prime.py](code/is_it_prime.py)
 - [p092.py](code/p092.py)
 - [fileio.py](code/fileio.py)
+- [shapes.py](code/shapes.py)
