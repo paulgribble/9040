@@ -6,16 +6,448 @@ format:
     toc-expand: 3
 ---
 
-## Concepts
+## What is Object-Oriented Programming?
 
-- why not lists and dictionaries?
-- encapsulation (bundling data and methods that operate on the data)
-- classes and objects
-- attributes (instance variables)
-- methods (like functions)
-- special methods: `__init__`, `__str__`, `__repr__`
-- inheritance: `super().__init__()`
-- operator overloading: e.g. `__add__`, `__eq__`
+So far in this course, we've been writing code as a sequence of instructions — define a variable, call a function, loop over a list. This style works great for small tasks, but as programs grow, it sometimes helps to organize code around **objects**: bundles of related data and behavior that model things in the world. These could be experimental participants, they could be datasets of specific types (EEG dataset, or fMRI dataset), they could be computational models (recurrent neural networks) or they could be statistical models (data + parameter estimates). It is not always better to use OOP but when it is, it's often a lot better.
+
+Object-Oriented Programming (OOP) lets us define our own **types** (called **classes**) that combine:
+
+- **Attributes** — the data an object holds (e.g., a circle's radius)
+- **Methods** — the functions an object can perform (e.g., calculating area)
+
+Think of a class as a blueprint and an object as a specific instance built from that blueprint. A class `Circle` describes what circles are; a particular circle with radius 5 is an **instance** of that class.
+
+---
+
+## Our First Class: `Circle`
+
+```python
+import math
+
+class Circle:
+    """A circle defined by its radius."""
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+```
+
+Let's unpack this piece by piece.
+
+### The `__init__` Method (The Initializer)
+
+`__init__` is a special method that Python calls automatically when you create a new object. Its job is to set up the object's initial state by assigning **attributes**.
+
+```python
+def __init__(self, radius):
+    self.radius = radius
+```
+
+- `self` refers to the specific object being created. Every method in a class receives `self` as its first argument — it's how the object refers to itself.
+- `self.radius = radius` stores the value you pass in as an attribute on the object.
+
+Creating an instance looks like a function call:
+
+```python
+c = Circle(5)
+print(c.radius)  # 5
+```
+
+### Attributes
+
+Attributes are variables that belong to an object. You access them with dot notation:
+
+```python
+c = Circle(3)
+print(c.radius)       # 3
+c.radius = 10         # you can change attributes too
+print(c.radius)       # 10
+```
+
+### Methods
+
+Methods are functions defined inside a class. They always take `self` as the first parameter, which gives them access to the object's attributes.
+
+```python
+c = Circle(5)
+print(c.area())       # 78.539...
+print(c.perimeter())  # 31.415...
+```
+
+Notice that when you *call* a method, you don't pass `self` — Python handles that for you.
+
+---
+
+## Built-in Special Methods
+
+Python has a set of "magic" or "dunder" (double-underscore) methods that let your objects work with built-in Python features like `print()`, `==`, `<`, and more.
+
+### `__str__` — Human-Readable Display
+
+`__str__` controls what `print()` shows:
+
+```python
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+    def __str__(self):
+        return f"Circle(radius={self.radius})"
+```
+
+```python
+c = Circle(5)
+print(c)  # Circle(radius=5)
+```
+
+Without `__str__`, printing an object gives you something unhelpful like `<__main__.Circle object at 0x7f3b...>`.
+
+### `__repr__` — Developer-Friendly Display
+
+`__repr__` is meant to give an unambiguous representation, often one you could paste back into Python to recreate the object. It's what you see when you type a variable name in the interactive console:
+
+```python
+def __repr__(self):
+    return f"Circle({self.radius})"
+```
+
+```python
+c = Circle(5)
+c          # In a notebook or REPL, this shows: Circle(5)
+print(c)   # This still uses __str__:       Circle(radius=5)
+```
+
+> **Rule of thumb:** `__str__` is for users, `__repr__` is for developers. If you only define one, define `__repr__` — Python will fall back to it when `__str__` is missing.
+
+---
+
+## Comparison Operators
+
+What if we want to compare two circles? We can define what `<`, `>`, and `==` mean for our class. A natural choice is to compare by **area**.
+
+```python
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+    def __str__(self):
+        return f"Circle(radius={self.radius})"
+
+    def __repr__(self):
+        return f"Circle({self.radius})"
+
+    def __eq__(self, other):
+        return self.area() == other.area()
+
+    def __lt__(self, other):
+        return self.area() < other.area()
+
+    def __gt__(self, other):
+        return self.area() > other.area()
+```
+
+```python
+small = Circle(2)
+big = Circle(7)
+
+print(small == big)   # False
+print(small < big)    # True
+print(small > big)    # False
+```
+
+A bonus: once you define `__lt__`, you can use `sorted()` on a list of circles!
+
+```python
+circles = [Circle(5), Circle(1), Circle(3)]
+sorted_circles = sorted(circles)
+print(sorted_circles)  # [Circle(1), Circle(3), Circle(5)]
+```
+
+---
+
+## Inheritance: Building on Existing Classes
+
+Inheritance lets you create a new class based on an existing one. The new class (the **child** or **subclass**) inherits all the attributes and methods of the original (the **parent** or **superclass**), and can add or change behavior.
+
+Let's create a base class `Shape` and build specific shapes from it.
+
+```python
+class Shape:
+    """Base class for all shapes."""
+
+    def __init__(self, name):
+        self.name = name
+
+    def area(self):
+        raise NotImplementedError("Subclasses must implement area()")
+
+    def perimeter(self):
+        raise NotImplementedError("Subclasses must implement perimeter()")
+
+    def __str__(self):
+        return f"{self.name} with area {self.area():.2f}"
+
+    def __repr__(self):
+        return f"{self.name}()"
+
+    def __eq__(self, other):
+        return self.area() == other.area()
+
+    def __lt__(self, other):
+        return self.area() < other.area()
+
+    def __gt__(self, other):
+        return self.area() > other.area()
+```
+
+A few things to notice:
+
+- `Shape` is not meant to be used directly — it's a **template**. Calling `area()` on a plain `Shape` raises an error on purpose, reminding us that each specific shape must provide its own version.
+- The comparison methods and `__str__` are defined here once and **inherited** by all subclasses, so we don't have to rewrite them.
+
+### Defining Subclasses
+
+A subclass is defined by putting the parent class name in parentheses:
+
+```python
+class Circle(Shape):
+    def __init__(self, name, radius):
+        super().__init__(name)  # call the parent's __init__
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+    def __repr__(self):
+        return f"Circle('{self.name}', radius={self.radius})"
+
+
+class Square(Shape):
+    def __init__(self, name, side):
+        super().__init__(name)
+        self.side = side
+
+    def area(self):
+        return self.side ** 2
+
+    def perimeter(self):
+        return 4 * self.side
+
+    def __repr__(self):
+        return f"Square('{self.name}', side={self.side})"
+
+
+class Rectangle(Shape):
+    def __init__(self, name, width, height):
+        super().__init__(name)
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+    def __repr__(self):
+        return f"Rectangle('{self.name}', width={self.width}, height={self.height})"
+```
+
+### `super()` — Calling the Parent
+
+`super().__init__(name)` calls the `Shape.__init__` method, which sets `self.name`. This way we reuse the parent's setup logic instead of duplicating it. Now each shape can have a descriptive name: `Circle("pizza", 10.5)` or `Square("window", 3)`.
+
+### Overriding Methods
+
+When a subclass defines a method that already exists in the parent, the subclass version **overrides** it. Each shape above overrides `area()`, `perimeter()`, and `__repr__()` to provide its own behavior, while `__str__`, `__eq__`, `__lt__`, and `__gt__` are inherited as-is from `Shape`.
+
+---
+
+## Polymorphism: Same Interface, Different Behavior
+
+Polymorphism means "many forms." Because every shape implements `area()` and `perimeter()`, we can write code that works with **any** shape without knowing which specific type it is:
+
+```python
+shapes = [Circle("pizza", 5), Square("window", 4), Rectangle("desk", 3, 6)]
+
+for shape in shapes:
+    print(f"{shape.name}: area = {shape.area():.2f}, perimeter = {shape.perimeter():.2f}")
+```
+
+Output:
+
+```
+pizza: area = 78.54, perimeter = 31.42
+window: area = 16.00, perimeter = 16.00
+desk: area = 18.00, perimeter = 18.00
+```
+
+The loop doesn't care whether it's dealing with a circle, square, or rectangle. It just calls `.area()` and `.perimeter()`, and each object responds with its own version. That's polymorphism.
+
+We can also compare shapes of completely different types, because comparison is based on area:
+
+```python
+c = Circle("frisbee", 3)       # area ≈ 28.27
+s = Square("coaster", 6)       # area = 36.00
+r = Rectangle("postcard", 5, 4) # area = 20.00
+
+print(c > r)         # True  — circle has more area than rectangle
+print(s > c)         # True  — square has more area than circle
+
+# Sort a mixed list of shapes by area
+all_shapes = [s, c, r]
+print(sorted(all_shapes))
+# [Rectangle('postcard', width=5, height=4), Circle('frisbee', radius=3), Square('coaster', side=6)]
+```
+
+---
+
+## Putting It All Together
+
+Here's the complete code in one block for reference:
+
+```python
+import math
+
+
+class Shape:
+    """Base class for all shapes."""
+
+    def __init__(self, name):
+        self.name = name
+
+    def area(self):
+        raise NotImplementedError("Subclasses must implement area()")
+
+    def perimeter(self):
+        raise NotImplementedError("Subclasses must implement perimeter()")
+
+    def __str__(self):
+        return f"{self.name} with area {self.area():.2f}"
+
+    def __repr__(self):
+        return f"{self.name}()"
+
+    def __eq__(self, other):
+        return self.area() == other.area()
+
+    def __lt__(self, other):
+        return self.area() < other.area()
+
+    def __gt__(self, other):
+        return self.area() > other.area()
+
+
+class Circle(Shape):
+    def __init__(self, name, radius):
+        super().__init__(name)
+        self.radius = radius
+
+    def area(self):
+        return math.pi * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+    def __repr__(self):
+        return f"Circle('{self.name}', radius={self.radius})"
+
+
+class Square(Shape):
+    def __init__(self, name, side):
+        super().__init__(name)
+        self.side = side
+
+    def area(self):
+        return self.side ** 2
+
+    def perimeter(self):
+        return 4 * self.side
+
+    def __repr__(self):
+        return f"Square('{self.name}', side={self.side})"
+
+
+class Rectangle(Shape):
+    def __init__(self, name, width, height):
+        super().__init__(name)
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+    def __repr__(self):
+        return f"Rectangle('{self.name}', width={self.width}, height={self.height})"
+
+
+# --- Demo ---
+shapes = [Circle("pizza", 5), Square("window", 4), Rectangle("desk", 3, 6)]
+
+for shape in shapes:
+    print(shape)
+
+print()
+print("Sorted by area:")
+for shape in sorted(shapes):
+    print(f"{repr(shape):>36s}  ->  area = {shape.area():.2f}")
+```
+
+Output:
+
+```
+pizza with area 78.54
+window with area 16.00
+desk with area 18.00
+
+Sorted by area:
+            Square('window', side=4)  ->  area = 16.00
+Rectangle('desk', width=3, height=6)  ->  area = 18.00
+           Circle('pizza', radius=5)  ->  area = 78.54
+```
+
+---
+
+## Quick Reference
+
+| Concept | What It Means | Where We Saw It |
+|---|---|---|
+| **Class** | A blueprint for creating objects | `class Shape:` |
+| **Instance** | A specific object created from a class | `c = Circle("pizza", 5)` |
+| **Attribute** | Data stored on an object | `self.radius` |
+| **Method** | A function that belongs to an object | `def area(self):` |
+| **`__init__`** | Sets up a new object's initial state | `def __init__(self, name, radius):` |
+| **`__str__`** | Controls what `print()` displays | `"pizza with area 78.54"` |
+| **`__repr__`** | Developer-friendly representation | `"Circle('pizza', radius=5)"` |
+| **`__eq__`, `__lt__`, `__gt__`** | Define `==`, `<`, `>` for your objects | Comparing shapes by area |
+| **Inheritance** | A child class reuses a parent's code | `class Circle(Shape):` |
+| **`super()`** | Calls a method from the parent class | `super().__init__(name)` |
+| **Overriding** | A child replaces a parent's method | Each shape defines its own `area()` |
+| **Polymorphism** | Same method name, different behavior per type | Looping over mixed shapes |
+
 
 ## Resources on OOP
 
