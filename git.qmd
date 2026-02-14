@@ -33,3 +33,4 @@ It doesn't much matter if the version number isn't identical to the one above.
 - [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf) by GitHub Education
 - [Git](https://git-scm.com/) project page
 - [Version Control and Git](https://mptc.io/content/08-content-git.html) by Kieran Healy
+- [The Version Control Book](https://lennartwittkuhn.com/version-control-book/): Track, organize and share your work: An introduction to Git for research
