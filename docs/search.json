@@ -105,25 +105,32 @@
     "text": "Readings\n\nPython for Data Analysis by Wes McKinney\nThe Curious Coder’s Guide to Git by Matthew Brett\nBetter Code, Better Science by Russ Poldrack"
   },
   {
-    "objectID": "hw/hw04.html",
-    "href": "hw/hw04.html",
-    "title": "Homework 4",
+    "objectID": "hw/hw05.html",
+    "href": "hw/hw05.html",
+    "title": "Homework 5",
     "section": "",
-    "text": "Due: Feb 8 by 11:59 pm eastern standard time\nSubmit a single file called name_04.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_04.py\n\nChoose any one of the “Slighly more challenging problems” listed in the Advent of Code coding exercises. Write a Python script to complete both part 1 and part 2 of the problem you choose. Submit only your code, you don’t need to submit your puzzle input.\nIf you are already Python experienced and you want to try one of the “more challenging problems” instead, that would be fine as well.\nIf you have never programmed anything before this course and you wish to choose one of the “Easiest problems” that would be ok as well."
+    "text": "Due: Feb 15 by 11:59 pm eastern standard time\nSubmit a single file called name_05.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_05.py\n\nWrite a Python program to complete the XOR Decryption exercise.\nHint: the plaintext message contains the words the, and, and that"
   },
   {
-    "objectID": "hw/hw02.html",
-    "href": "hw/hw02.html",
-    "title": "Homework 2",
+    "objectID": "hw/hw03.html",
+    "href": "hw/hw03.html",
+    "title": "Homework 3",
     "section": "",
-    "text": "Due: Jan 25 by 11:59 pm eastern standard time\nSubmit a single file called name_02.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_02.py\n\nWrite a Python program to complete the Nth Prime number exercise.\nMake sure it produces the correct output given the example inputs."
+    "text": "Due: Feb 1 by 11:59 pm eastern standard time\nSubmit a single file called name_03.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_03.py\n\nWrite a Python program to complete the Square Digit Chains exercise.\nHint: the answer is a 7 digit number starting with 8 and ending in 6 … and if you add all the digits up you get 33."
   },
   {
-    "objectID": "homeworks.html",
-    "href": "homeworks.html",
-    "title": "A Note about Homeworks",
+    "objectID": "hw/hw01.html",
+    "href": "hw/hw01.html",
+    "title": "Homework 1",
     "section": "",
-    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—P"
+    "text": "Due: Jan 18 by 11:59 pm eastern standard time\nSubmit a single file called name_01.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_01.py\n\nWrite some code to complete the Parabolic Flight coding exercise. Make sure it produces the correct output given the example inputs, including the same number of decimal places."
+  },
+  {
+    "objectID": "graphics.html",
+    "href": "graphics.html",
+    "title": "Graphics & Figures",
+    "section": "",
+    "text": "Python has several libraries that can be used for generating graphics. The most popular ones are matplotlib and seaborn.\n\nMatplotlib\n\nMatplotlib: tutorials\nThe Python Graph Gallery\n\nMatplotlib is more or less a copy of MATLAB’s plotting capabilities, so if you are familiar with MATLAB, you will feel at home with matplotlib. Seaborn is a high-level interface for drawing attractive and informative statistical graphics. It’s a little bit like ggplot2 in R.\n\nmatplotlib tutorials\nseaborn\n\nread: Chapter 9, Plotting and Visualization of Python for Data Analysis by Wes McKinney\n\n\nAlso worth looking at: Seaborn\n\nSeaborn: statistical data visualization"
   },
   {
     "objectID": "fundamentals.html",
@@ -343,25 +350,39 @@
     "text": "Tutorials / Intros\n\nabout GitHub and Git by GitHub docs\ngit-novice by software carpentry\nhello world by GitHub docs\nGit Cheat Sheet by GitHub Education\nGit project page\nVersion Control and Git by Kieran Healy\nThe Version Control Book: Track, organize and share your work: An introduction to Git for research"
   },
   {
-    "objectID": "hw/hw01.html",
-    "href": "hw/hw01.html",
-    "title": "Homework 1",
+    "objectID": "homeworks.html",
+    "href": "homeworks.html",
+    "title": "A Note about Homeworks",
     "section": "",
-    "text": "Due: Jan 18 by 11:59 pm eastern standard time\nSubmit a single file called name_01.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_01.py\n\nWrite some code to complete the Parabolic Flight coding exercise. Make sure it produces the correct output given the example inputs, including the same number of decimal places."
+    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—P"
   },
   {
-    "objectID": "hw/hw03.html",
-    "href": "hw/hw03.html",
-    "title": "Homework 3",
+    "objectID": "hw/hw02.html",
+    "href": "hw/hw02.html",
+    "title": "Homework 2",
     "section": "",
-    "text": "Due: Feb 1 by 11:59 pm eastern standard time\nSubmit a single file called name_03.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_03.py\n\nWrite a Python program to complete the Square Digit Chains exercise.\nHint: the answer is a 7 digit number starting with 8 and ending in 6 … and if you add all the digits up you get 33."
+    "text": "Due: Jan 25 by 11:59 pm eastern standard time\nSubmit a single file called name_02.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_02.py\n\nWrite a Python program to complete the Nth Prime number exercise.\nMake sure it produces the correct output given the example inputs."
   },
   {
-    "objectID": "hw/hw05.html",
-    "href": "hw/hw05.html",
-    "title": "Homework 5",
+    "objectID": "hw/hw04.html",
+    "href": "hw/hw04.html",
+    "title": "Homework 4",
     "section": "",
-    "text": "Due: Feb 15 by 11:59 pm eastern standard time\nSubmit a single file called name_05.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_05.py\n\nWrite a Python program to complete the XOR Decryption exercise.\nHint: the plaintext message contains the words the, and, and that"
+    "text": "Due: Feb 8 by 11:59 pm eastern standard time\nSubmit a single file called name_04.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_04.py\n\nChoose any one of the “Slighly more challenging problems” listed in the Advent of Code coding exercises. Write a Python script to complete both part 1 and part 2 of the problem you choose. Submit only your code, you don’t need to submit your puzzle input.\nIf you are already Python experienced and you want to try one of the “more challenging problems” instead, that would be fine as well.\nIf you have never programmed anything before this course and you wish to choose one of the “Easiest problems” that would be ok as well."
+  },
+  {
+    "objectID": "hw/hw06.html",
+    "href": "hw/hw06.html",
+    "title": "Homework 6",
+    "section": "",
+    "text": "Due: Mar 1 by 11:59 pm eastern standard time\nSubmit a single file called name_06.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_06.py"
+  },
+  {
+    "objectID": "hw/hw06.html#matplotlib-exercises",
+    "href": "hw/hw06.html#matplotlib-exercises",
+    "title": "Homework 6",
+    "section": "Matplotlib exercises",
+    "text": "Matplotlib exercises\n\nDefine a 1D array x containing 10 values starting at 0, ending at 0.9, in increments of 0.1. Define a vector y that is equal to np.sin(2 * np.pi * x). Generate a line plot with x on the horizontal axis and y on the vertical axis. Use blue circles at each data point (markersize of 8.0), connected by blue solid lines, with a linewidth of 2.0. Label the horizontal axis x and the vertical axis y. Set the range on the horizontal axis so it goes from 0 to 0.9 in steps of 0.1, and on the vertical axis so it goes from -1 to 1 in steps of 0.2.\n\n\n\n\n\n\n\n\n\nDefine 1D arrays y1 equal to [1,2,3,4,4], y2 equal to [1,5,6,8,10], and y3 equal to [5,4,2,1,1]. Generate a multi-line plot using squares (markersize 6.0) connected with solid lines (linewidth 1.0). Label the axes as shown, and set axis limits and axis ticks as shown. Add a legend as shown. The y1 colour is blue, the y2 colour is red, and the y3 colour is magenta.\n\n\n\n\n\n\n\n\n\nDefine a 100-length 1D array x starting at 1 and ending at 100 in increments of 1. Define y equal to (x * 0.15) + N where N is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 0.5. Let z be equal to ((x * 0.05) + 2) + N2 where N2 is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 2.0. Generate a scatterplot as shown below, using filled circles (markersize 3.0). The y colour is blue and the z colour is red. Pay attention to the axis labels, tick marks, and ranges. At the beginning of your answer set the random seed (once) to be equal to 9040 so that we all get the same random values, using np.random.seed(9040).\n\n\n\n\n\n\n\n\n\nRe-plot the data from Question 3 using subplots, as shown below. Try to replicate the axis limits, and axis labeling. Use boldface font to add a title to each subplot (A, B, and C, aligned to the left of each subplot as shown below).\nHint: adjust the hspace parameter for subplots so that the subplots don’t overlap, e.g. plt.subplots_adjust(hspace=0.6).\nHint: ax.spines[\"top\"].set_visible(False) will turn off the top part of the box outlining each plot.\nHint: fig = plt.figure() and then ax1 = fig.add_subplot(2,2,(1,2)) will generate a subplot that spans cells 1 and 2 (the top row) of the 2x2 grid. Then ax2 = fig.add_subplot(2,2,3) and ax3 = fig.add_subplot(2,2,4) will define the lower two sublots.\nHint: the legend() method of an axis has an option that will remove the frame outline: frameon=False\n\n\n\n\n\n\n\n\n\n\nDo your best to replicate all of the elements of the Figure. If you can’t replicate every little part of it don’t worry, but challenge yourself to try to get as close as you can. I will post a sample solution after the deadline."
   },
   {
     "objectID": "intro.html",
