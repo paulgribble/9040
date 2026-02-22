@@ -15,9 +15,6 @@ Python has several libraries that can be used for generating graphics. The most 
 
 Matplotlib is more or less a copy of MATLAB's plotting capabilities, so if you are familiar with MATLAB, you will feel at home with matplotlib. Seaborn is a high-level interface for drawing attractive and informative statistical graphics. It's a little bit like `ggplot2` in R.
 
-- [matplotlib tutorials](https://matplotlib.org/stable/tutorials/index)
-- [seaborn](https://seaborn.pydata.org/)
-
 read: [Chapter 9, Plotting and Visualization](https://wesmckinney.com/book/plotting-and-visualization) of Python for Data Analysis by Wes McKinney
 
 # Also worth looking at: Seaborn
