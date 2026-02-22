@@ -1,0 +1,138 @@
+---
+title: Homework 6
+---
+
+---
+
+Due: Mar 1 by 11:59 pm eastern standard time
+
+Submit a single file called `name_06.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_06.py`
+
+---
+## Matplotlib exercises
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+```
+
+1.  Define a 1D array `x` containing 10 values starting at 0, ending at 0.9, in increments of 0.1. Define a vector `y` that is equal to `np.sin(2 * np.pi * x)`. Generate a line plot with `x` on the horizontal axis and `y` on the vertical axis. Use blue circles at each data point (markersize of 8.0), connected by blue solid lines, with a linewidth of 2.0. Label the horizontal axis `x` and the vertical axis `y`. Set the range on the horizontal axis so it goes from 0 to 0.9 in steps of 0.1, and on the vertical axis so it goes from -1 to 1 in steps of 0.2.
+
+    ```{python}
+    #| echo: false
+    x = np.arange(0,1,.1)
+    y = np.sin(2*np.pi*x)
+    fig = plt.figure()
+    ax = fig.add_subplot(1,1,1)
+    ax.plot(x, y, 'bo-', linewidth=2, markersize=8)
+    ax.set_xticks(np.arange(0,1,.1))
+    ax.set_yticks(np.arange(-1,1.1,.2))
+    ax.set_xlabel("x")
+    _ = ax.set_ylabel("y") # _ is a dummy variable to suppress unnecessary output
+    ```
+
+2.  Define 1D arrays `y1` equal to `[1,2,3,4,4]`, `y2` equal to `[1,5,6,8,10]`, and `y3` equal to `[5,4,2,1,1]`. Generate a multi-line plot using squares (markersize 6.0) connected with solid lines (linewidth 1.0). Label the axes as shown, and set axis limits and axis ticks as shown. Add a legend as shown. The `y1` colour is blue, the `y2` colour is red, and the `y3` colour is magenta.
+
+    ```{python}
+    #| echo: false
+    x = np.array([1,2,3,4,5])
+    y1 = np.array([1,2,3,4,4])
+    y2 = np.array([1,5,6,8,10])
+    y3 = np.array([5,4,2,1,1])
+    fig = plt.figure()
+    ax = fig.add_subplot(1,1,1)
+    ax.plot(x, y1, 'bs-', linewidth=1, markersize=6, label="y1")
+    ax.plot(x, y2, 'rs-', linewidth=1, markersize=6, label="y2")
+    ax.plot(x, y3, 'ms-', linewidth=1, markersize=6, label="y3")
+    ax.set_xticks([1,2,3,4,5])
+    ax.set_yticks([1,2,3,4,5,6,7,8,9,10])
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    _ = ax.legend() # this is a hack to suppress the output of the legend function
+    ```
+
+3.  Define a 100-length 1D array `x` starting at 1 and ending at 100 in increments of 1. Define `y` equal to `(x * 0.15) + N` where N is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 0.5. Let `z` be equal to `((x * 0.05) + 2) + N2` where `N2` is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 2.0. Generate a scatterplot as shown below, using filled circles (markersize 3.0). The `y` colour is blue and the `z` colour is red. Pay attention to the axis labels, tick marks, and ranges. At the beginning of your answer set the random seed (once) to be equal to `9040` so that we all get the same random values, using `np.random.seed(9040)`.
+
+    ```{python}
+    #| echo: false
+    x = np.arange(1,101,1)
+    np.random.seed(9040)
+    N = np.random.randn(100) * 0.5
+    y = (x * 0.15) + N
+    N2 = np.random.randn(100) * 1.5
+    z = ((x * 0.05) + 2) + N2  
+    fig = plt.figure()
+    ax = fig.add_subplot(1,1,1)
+    ax.plot(x, y, 'bo', markersize=3, label="y")
+    ax.plot(x, z, 'ro', markersize=3, label="z")
+    ax.set_xlim([0,110])
+    ax.set_ylim([0,15])
+    ax.set_xticks(np.arange(0,120,10))
+    ax.set_yticks(np.arange(0,20,5))
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.set_xlabel("X")
+    ax.set_ylabel("VALUES")
+    _ = ax.legend() # this is a hack to suppress the output of the legend function
+    ```
+
+4.  Re-plot the data from Question 3 using subplots, as shown below. Try to replicate the axis limits, and axis labeling. Use boldface font to add a title to each subplot (A, B, and C, aligned to the left of each subplot as shown below).
+
+    Hint: adjust the `hspace` parameter for subplots so that the subplots don't overlap, e.g. `plt.subplots_adjust(hspace=0.6)`.
+
+    Hint: `ax.spines["top"].set_visible(False)` will turn off the top part of the box outlining each plot.
+
+    Hint: `fig = plt.figure()` and then `ax1 = fig.add_subplot(2,2,(1,2))` will generate a subplot that spans cells 1 and 2 (the top row) of the 2x2 grid. Then `ax2 = fig.add_subplot(2,2,3)` and `ax3 = fig.add_subplot(2,2,4)` will define the lower two sublots.
+    
+    Hint: the `legend()` method of an axis has an option that will remove the frame outline: `frameon=False`
+
+    ```{python}
+    #| echo: false
+    fig = plt.figure()
+    ax = fig.add_subplot(2,2,(1,2))
+    ax.plot(x, y, 'bo', markersize=3, label="y")
+    ax.plot(x, z, 'ro', markersize=3, label="z")
+    ax.set_xlim([0,105])
+    ax.set_ylim([0,20])
+    ax.set_xticks(np.arange(0,120,15))
+    ax.set_yticks(np.arange(0,25,5))
+    ax.set_xlabel("x")
+    ax.set_ylabel("Data")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.legend(frameon=False)
+    ax.set_title("A", loc='left', fontweight='bold')
+    ax = fig.add_subplot(2,2,3)
+    ax.plot(x, y, 'bo', markersize=3, label="y")
+    ax.set_xlim([0,105])
+    ax.set_ylim([0,20])
+    ax.set_xticks(np.arange(0,120,15))
+    ax.set_yticks(np.arange(0,25,5))
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.set_title("B", loc='left', fontweight='bold')
+    ax = fig.add_subplot(2,2,4)
+    ax.plot(x, z, 'ro', markersize=3, label="z")
+    ax.set_xlim([0,105])
+    ax.set_ylim([0,20])
+    ax.set_xticks(np.arange(0,120,15))
+    ax.set_yticks(np.arange(0,25,5))
+    ax.set_xlabel("x")
+    ax.set_ylabel("z")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.set_title("C", loc='left', fontweight='bold')
+    plt.subplots_adjust(hspace=0.6)
+    ```
+
+Do your best to replicate all of the elements of the Figure. If you can't replicate every little part of it don't worry, but challenge yourself to try to get as close as you can. I will post a sample solution after the deadline.
+
+
+
+
+
+
+
