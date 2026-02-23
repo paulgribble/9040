@@ -130,7 +130,7 @@
     "href": "graphics.html",
     "title": "Graphics & Figures",
     "section": "",
-    "text": "Python has several libraries that can be used for generating graphics. The most popular ones are matplotlib and seaborn.\n\nMatplotlib\n\nMatplotlib: tutorials\nThe Python Graph Gallery\n\nMatplotlib is more or less a copy of MATLAB’s plotting capabilities, so if you are familiar with MATLAB, you will feel at home with matplotlib. Seaborn is a high-level interface for drawing attractive and informative statistical graphics. It’s a little bit like ggplot2 in R.\nread: Chapter 9, Plotting and Visualization of Python for Data Analysis by Wes McKinney\n\n\nAlso worth looking at: Seaborn\n\nSeaborn: statistical data visualization"
+    "text": "Read Chapter 9, Plotting and Visualization of Python for Data Analysis by Wes McKinney, for a great introduction to the kinds of plots you can make, and a basic subset of plotting commands. It’s a great place to start.\nPython has several libraries that can be used for generating graphics. The most popular ones are matplotlib and seaborn.\n\nMatplotlib: tutorials\nThe Python Graph Gallery\nSeaborn: statistical data visualization\n\nMatplotlib is more or less a copy of MATLAB’s plotting capabilities, so if you are familiar with MATLAB, you will feel at home with matplotlib.\nSeaborn is a high-level interface for drawing attractive and informative statistical graphics. It’s a little bit like ggplot2 in R. It’s great for plotting data that’s in a tabular format."
   },
   {
     "objectID": "fundamentals.html",
