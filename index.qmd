@@ -44,7 +44,7 @@ format:
 | Feb 9/12     | [Object Oriented Programming (OOP)](oop.qmd)                                             | [HW05](hw/hw05.qmd) |
 | Feb 16/19    | *no classes* (reading week)                                                              |          -          |
 | Feb 23/26    | [Graphical Displays of Data](graphics.qmd)                                               | [HW06](hw/hw06.qmd) |
-| Mar 2/5      | Reproducibility/Replicability I: [plaintext authoring](plaintext-authoring.qmd)          |        HW07         |
+| Mar 2/5      | Reproducibility/Replicability I: [plaintext authoring](plaintext-authoring.qmd)          | [HW07](hw/hw07.qmd) |
 | Mar 9/12     | *no classes* (Paul away)  Reproducibility/Replicability II: [clean code](clean_code.qmd) |          -          |
 | Mar 16/19    | Sampling, Signal Processing, & Filtering Data                                            |        HW08         |
 | Mar 23/26    | Statistical Thinking & Inferential Statistical Tests                                     |        HW09         |

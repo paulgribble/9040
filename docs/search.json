@@ -217,165 +217,95 @@
     "text": "Topics\nIn the first part of the course you will learn how to write code. The topics we will cover are common to any high-level language including Python, MATLAB, R, Javascript, C, Julia, Go, Swift, etc. All high level languages have things like numbers, strings, arrays, loops, if-statements. Languages differ in their syntax, in the names of common functions, and sometimes in some other subtle ways (e.g. passing by reference vs passing by value) but otherwise, all high-level languages basically work in the same way. Learning these fundamental concepts of high-level programming languages using one language will enable you to learn other languages as well in the future.\nThe other aspect of programming that you will learn is how to think algorithmically about solving problems and completing tasks with computers. In general there are two reasons to use a computer to perform a given task, (1) because the task would take too long by hand (e.g. churning through processing a huge amount of data), and (2) because the computer can do something clever that you cannot do yourself (e.g. applying complex algorithms to a dataset).\nIn learning the fundamentals of high-level programming languages (data types, loops, conditionals, etc) we will sometimes practice writing code to solve little toy problems. This will start to teach you how to think algorithmically. Think about it like learning to play a musical instrument. You don’t start by learining to play Beethoven. You start learning basic skills by playing scales, arpeggios, different key signatures, etc. Building up basic skills using toy problems is a convenient path towards using coding skills to solve real-world programming problems in the context of your own thesis research.\nWe will also practice and learn by using code to answer questions about data. Some of the data will be from real experiments and some will be fictitious. The goal will be to answer a series of questions by writing code that performs operations on the data (reorganization, summarising, counting, calculating, processing, plotting, etc) and writing a short summary of your findings. This mimics how you will be using your coding skills in your own research going forward.\n\nFundamentals of Coding\n\ndigital representation of data\nbasic data types, operators, & expressions\ncontrol flow & conditionals\nfunctions\ncomplex data types\nfile input & output\ngraphical displays of data\nobject oriented programming (OOP)\n\n\n\nReproducibility & Replicability\n\nPython venvs (virtual environments)\nCode versioning using Git & GitHub\norganization of code and data\ndata analysis workflow\n\n\n\nTopics in Data Analysis\n\nsampling, signal processing, & filtering data\nstatistical tests (parametric vs resampling/boostrapping/randomization)\nfitting models to data\nsimulating dynamical systems\n\nBy building upon the foundational knowledge and skills you have acquired in this course, you will be able to learn other techniques in programming and in data analysis as your scientific research progresses."
   },
   {
-    "objectID": "hw/hw06.html",
-    "href": "hw/hw06.html",
-    "title": "Homework 6",
+    "objectID": "hw/hw07.html",
+    "href": "hw/hw07.html",
+    "title": "Homework 7",
     "section": "",
-    "text": "Due: Mar 1 by 11:59 pm eastern standard time\nSubmit a single file called name_06.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_06.py"
+    "text": "Due: Mar 8 by 11:59 pm eastern standard time\nSubmit your source file (paper.md or paper.tex), your refs.bib file, and the compiled PDF to Brightspace/OWL."
   },
   {
-    "objectID": "hw/hw06.html#matplotlib-exercises",
-    "href": "hw/hw06.html#matplotlib-exercises",
-    "title": "Homework 6",
-    "section": "Matplotlib exercises",
-    "text": "Matplotlib exercises\n\nDefine a 1D array x containing 10 values starting at 0, ending at 0.9, in increments of 0.1. Define a vector y that is equal to np.sin(2 * np.pi * x). Generate a line plot with x on the horizontal axis and y on the vertical axis. Use blue circles at each data point (markersize of 8.0), connected by blue solid lines, with a linewidth of 2.0. Label the horizontal axis x and the vertical axis y. Set the range on the horizontal axis so it goes from 0 to 0.9 in steps of 0.1, and on the vertical axis so it goes from -1 to 1 in steps of 0.2.\n\n\n\n\n\n\n\n\n\nDefine 1D arrays y1 equal to [1,2,3,4,4], y2 equal to [1,5,6,8,10], and y3 equal to [5,4,2,1,1]. Generate a multi-line plot using squares (markersize 6.0) connected with solid lines (linewidth 1.0). Label the axes as shown, and set axis limits and axis ticks as shown. Add a legend as shown. The y1 colour is blue, the y2 colour is red, and the y3 colour is magenta.\n\n\n\n\n\n\n\n\n\nDefine a 100-length 1D array x starting at 1 and ending at 100 in increments of 1. Define y equal to (x * 0.15) + N where N is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 0.5. Let z be equal to ((x * 0.05) + 2) + N2 where N2 is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 2.0. Generate a scatterplot as shown below, using filled circles (markersize 3.0). The y colour is blue and the z colour is red. Pay attention to the axis labels, tick marks, and ranges. At the beginning of your answer set the random seed (once) to be equal to 9040 so that we all get the same random values, using np.random.seed(9040).\n\n\n\n\n\n\n\n\n\nRe-plot the data from Question 3 using subplots, as shown below. Try to replicate the axis limits, and axis labeling. Use boldface font to add a title to each subplot (A, B, and C, aligned to the left of each subplot as shown below).\nHint: adjust the hspace parameter for subplots so that the subplots don’t overlap, e.g. plt.subplots_adjust(hspace=0.6).\nHint: ax.spines[\"top\"].set_visible(False) will turn off the top part of the box outlining each plot.\nHint: fig = plt.figure() and then ax1 = fig.add_subplot(2,2,(1,2)) will generate a subplot that spans cells 1 and 2 (the top row) of the 2x2 grid. Then ax2 = fig.add_subplot(2,2,3) and ax3 = fig.add_subplot(2,2,4) will define the lower two sublots.\nHint: the legend() method of an axis has an option that will remove the frame outline: frameon=False\n\n\n\n\n\n\n\n\n\n\nDo your best to replicate all of the elements of the Figure. If you can’t replicate every little part of it don’t worry, but challenge yourself to try to get as close as you can. I will post a sample solution after the deadline."
+    "objectID": "hw/hw07.html#background",
+    "href": "hw/hw07.html#background",
+    "title": "Homework 7",
+    "section": "Background",
+    "text": "Background\nYou have been given a Word document (convert_this.docx) containing a short scientific paper about sleep restriction and postural sway. It’s the kind of document a student might produce in Word: functional, but fragile.\nOpen it in Word, LibreOffice, or Google Docs and take a look. Then examine it critically. You’ll notice several problems that are typical of Word-based scientific writing:\n\nHeadings are faked with bold/large text rather than structural heading styles\nCitations are manually typed strings, not linked to a reference manager\nThe equation is typed as plain monospaced text, not a real equation\nThe reference list is typed by hand with inconsistent formatting across entries (some have DOIs, some don’t; one uses Vancouver style instead of APA; one is missing the hanging indent; one is missing a period)\nThe table uses heavy gridlines rather than clean formatting\n\nNone of these would survive a format change, a journal resubmission, or the passage of time particularly well."
   },
   {
-    "objectID": "hw/hw04.html",
-    "href": "hw/hw04.html",
-    "title": "Homework 4",
+    "objectID": "hw/hw07.html#your-task",
+    "href": "hw/hw07.html#your-task",
+    "title": "Homework 7",
+    "section": "Your Task",
+    "text": "Your Task\nRecreate this document, either in Markdown+Pandoc, or in LaTeX (your choice), fixing all of the problems above along the way.\nSpecifically, your converted document must include:\n\n1. Proper structure\n\nUse real headings (# / ## in Markdown, or \\section{} / \\subsection{} in LaTeX)\nInclude YAML metadata (Markdown) or a proper preamble (LaTeX) with title, author, and date\n\n\n\n2. Real citations and bibliography\n\nCreate a refs.bib file containing all five references from the paper\nReplace every manually typed citation with a proper citation key (e.g., [@cappuccio2010sleep] in Markdown or \\citep{cappuccio2010sleep} in LaTeX)\nThe bibliography should be generated automatically in APA format\n\n\nTip: You can find BibTeX entries on Google Scholar → click Cite → click BibTeX. Or search for the paper on https://scholar.google.com and export the entry.\n\n\n\n3. Proper equations\nReplace the plain-text equation with real LaTeX math. The document contains:\n\nCohen’s d (display equation)\nThe pooled standard deviation formula (inline)\n\nThese should become something like:\n$$d = \\frac{M_1 - M_2}{SD_{\\text{pooled}}}$$\nand\n$SD_{\\text{pooled}} = \\sqrt{\\frac{SD_1^2 + SD_2^2}{2}}$\n\n\n4. A clean table\nRecreate the results table using proper markup:\n\nIn Markdown: a pipe table with a caption\nIn LaTeX: a tabular inside a table environment with booktabs rules (\\toprule, \\midrule, \\bottomrule — no vertical lines)\n\n\n\n5. Compile to PDF\n\nMarkdown: pandoc paper.md --citeproc -o paper.pdf\nLaTeX: latexmk -pdf paper.tex"
+  },
+  {
+    "objectID": "hw/hw07.html#what-to-submit",
+    "href": "hw/hw07.html#what-to-submit",
+    "title": "Homework 7",
+    "section": "What to Submit",
+    "text": "What to Submit\n\nYour source file (paper.md or paper.tex)\nYour bibliography file (refs.bib)\nYour compiled output (paper.pdf)"
+  },
+  {
+    "objectID": "hw/hw07.html#grading",
+    "href": "hw/hw07.html#grading",
+    "title": "Homework 7",
+    "section": "Grading",
+    "text": "Grading\nThis is a completion-based assignment. Full marks if:\n\nThe document compiles to PDF without errors\nHeadings are structurally correct (not faked with bold text)\nAll five citations use BibTeX keys and the bibliography is auto-generated\nThe equations are rendered in LaTeX math\nThe table is well formatted"
+  },
+  {
+    "objectID": "hw/hw07.html#hints",
+    "href": "hw/hw07.html#hints",
+    "title": "Homework 7",
+    "section": "Hints",
+    "text": "Hints\n\nYou do not need to match the Word document’s appearance exactly. The point is to produce a better version using plaintext tools.\nIf using Markdown+Pandoc, remember to include --citeproc and to specify bibliography: refs.bib and csl: apa.csl in your YAML header.\nIf using LaTeX, biblatex with biber and style=apa will handle APA formatting.\nThe APA CSL file can be downloaded from https://www.zotero.org/styles/apa.\nIf you are skilled with these kinds of tools this assignment should take you about 15 minutes. If you’re spending much longer, ask for help. If you haven’t read through the course notes on (plaintext authoring) and completed the exercises, do that first."
+  },
+  {
+    "objectID": "hw/hw05.html",
+    "href": "hw/hw05.html",
+    "title": "Homework 5",
     "section": "",
-    "text": "Due: Feb 8 by 11:59 pm eastern standard time\nSubmit a single file called name_04.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_04.py\n\nChoose any one of the “Slighly more challenging problems” listed in the Advent of Code coding exercises. Write a Python script to complete both part 1 and part 2 of the problem you choose. Submit only your code, you don’t need to submit your puzzle input.\nIf you are already Python experienced and you want to try one of the “more challenging problems” instead, that would be fine as well.\nIf you have never programmed anything before this course and you wish to choose one of the “Easiest problems” that would be ok as well."
+    "text": "Due: Feb 15 by 11:59 pm eastern standard time\nSubmit a single file called name_05.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_05.py\n\nWrite a Python program to complete the XOR Decryption exercise.\nHint: the plaintext message contains the words the, and, and that"
   },
   {
-    "objectID": "hw/hw02.html",
-    "href": "hw/hw02.html",
-    "title": "Homework 2",
+    "objectID": "hw/hw03.html",
+    "href": "hw/hw03.html",
+    "title": "Homework 3",
     "section": "",
-    "text": "Due: Jan 25 by 11:59 pm eastern standard time\nSubmit a single file called name_02.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_02.py\n\nWrite a Python program to complete the Nth Prime number exercise.\nMake sure it produces the correct output given the example inputs."
+    "text": "Due: Feb 1 by 11:59 pm eastern standard time\nSubmit a single file called name_03.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_03.py\n\nWrite a Python program to complete the Square Digit Chains exercise.\nHint: the answer is a 7 digit number starting with 8 and ending in 6 … and if you add all the digits up you get 33."
   },
   {
-    "objectID": "homeworks.html",
-    "href": "homeworks.html",
-    "title": "A Note about Homeworks",
+    "objectID": "hw/hw01.html",
+    "href": "hw/hw01.html",
+    "title": "Homework 1",
     "section": "",
-    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—P"
+    "text": "Due: Jan 18 by 11:59 pm eastern standard time\nSubmit a single file called name_01.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_01.py\n\nWrite some code to complete the Parabolic Flight coding exercise. Make sure it produces the correct output given the example inputs, including the same number of decimal places."
   },
   {
-    "objectID": "git.html",
-    "href": "git.html",
-    "title": "Git & GitHub",
+    "objectID": "graphics.html",
+    "href": "graphics.html",
+    "title": "Graphics & Figures",
     "section": "",
-    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+    "text": "Read Chapter 9, Plotting and Visualization of Python for Data Analysis by Wes McKinney, for a great introduction to the kinds of plots you can make, and a basic subset of plotting commands. It’s a great place to start.\nPython has several libraries that can be used for generating graphics. The most popular ones are matplotlib and seaborn.\n\nMatplotlib: tutorials\nThe Python Graph Gallery\nSeaborn: statistical data visualization\n\nMatplotlib is more or less a copy of MATLAB’s plotting capabilities, so if you are familiar with MATLAB, you will feel at home with matplotlib.\nSeaborn is a high-level interface for drawing attractive and informative statistical graphics. It’s a little bit like ggplot2 in R. It’s great for plotting data that’s in a tabular format."
   },
   {
-    "objectID": "git.html#setup",
-    "href": "git.html#setup",
-    "title": "Git & GitHub",
+    "objectID": "fundamentals.html",
+    "href": "fundamentals.html",
+    "title": "Fundamentals",
     "section": "",
-    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+    "text": "Digital representation of data\nControl flow & Complex data types\nFunctions, File input & output"
   },
   {
-    "objectID": "git.html#tutorials-intros",
-    "href": "git.html#tutorials-intros",
-    "title": "Git & GitHub",
-    "section": "Tutorials / Intros",
-    "text": "Tutorials / Intros\n\nabout GitHub and Git by GitHub docs\ngit-novice by software carpentry\nhello world by GitHub docs\nGit Cheat Sheet by GitHub Education\nGit project page\nVersion Control and Git by Kieran Healy\nThe Version Control Book: Track, organize and share your work: An introduction to Git for research"
-  },
-  {
-    "objectID": "functions_file_io.html",
-    "href": "functions_file_io.html",
-    "title": "Functions, File input & output",
+    "objectID": "fundamentals.html#pauls-notes",
+    "href": "fundamentals.html#pauls-notes",
+    "title": "Fundamentals",
     "section": "",
-    "text": "Learning with Python 3 chapter 4: Functions\nThink Python Chapter 3\nPython for Data Analysis chapter 3.2: Functions\nPython for Data Analysis chapter 3.3: Files and the Operating System\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
+    "text": "Digital representation of data\nControl flow & Complex data types\nFunctions, File input & output"
   },
   {
-    "objectID": "functions_file_io.html#readings",
-    "href": "functions_file_io.html#readings",
-    "title": "Functions, File input & output",
-    "section": "",
-    "text": "Learning with Python 3 chapter 4: Functions\nThink Python Chapter 3\nPython for Data Analysis chapter 3.2: Functions\nPython for Data Analysis chapter 3.3: Files and the Operating System\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
-  },
-  {
-    "objectID": "control_flow_and_complex_data_types.html",
-    "href": "control_flow_and_complex_data_types.html",
-    "title": "Control Flow & Complex data types",
-    "section": "",
-    "text": "Here we will learn above several ways to specify the flow of information as your code gets executed. We will learn about loops, which are constructs that allow you to repeat blocks of code multiple times, typically while changing the values of variables inside the repeating block. We will learn about conditionals, which allow you to execute different branches of code depending on the values of variables.\n\n\n\nLearning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow\n\n\n\n\nLoops are used when you have a chunk of code that you need to repeat over and over again, each time changing one (or more) parameters.\nThere are two kinds of loops: a for loop and a while loop. A for loop is used when you (or your code) know in advance of starting the loop, how many iterations to run through. A while loop is used when the number of iterations is not known in advance of starting the loop. You might use a for loop to load in a list of data files. You might use a while loop to iterate through an EEG waveform over samples (time) to search for the first value that exceeds some baseline threshold.\nHere is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named data1.txt, data2.txt, …, data5.txt. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:\n\n\n\nd1 = load(\"data1.txt\")\nd1m = mean(d1)\nd2 = load(\"data2.txt\")\nd2m = mean(d2)\nd3 = load(\"data3.txt\")\nd3m = mean(d3)\nd4 = load(\"data4.txt\")\nd4m = mean(d4)\nd5 = load(\"data5.txt\")\nd5m = mean(d5)\n\n# report overall mean and overall variance of 5 data file means\nalldata = [d1m, d2m, d3m, d4m, d5m]\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nYou can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a for loop. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a for loop:\n\nnfiles = 1000\nalldata = np.zeros(1000)\nfor i in range(nfiles):\n    d = load(\"data\" + str(i) + \".txt\")\n    alldata[i] = mean(d)\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nNow all we would need to change if we have 1000 data files (or one million) is the value of our variable nfiles=1000 or nfiles=1e6—nothing else in the code would have to change. This makes our code much more resilient against programming errors.\nYou can see a for loop begins with the keyword for followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word in followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using indentation. Python is very fussy indeed about indentation.\n\nfor i in range(1,15,3):\n    print(f\"i={i}\")\n\ni=1\ni=4\ni=7\ni=10\ni=13\n\n\nFor loops are executed in a serial fashion, one repetition after another.\n\n\n\nThere is a second sort of loop called a while loop. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:\n\ni = 1\nwhile (i &lt; 9):\n    print(f\"i={i}\")\n    i = i + 1\n\ni=1\ni=2\ni=3\ni=4\ni=5\ni=6\ni=7\ni=8\n\n\nThe expression that determines whether a while loop will continue repeating can be any valid Python expression that evaluates to a boolean (true or false).\nFor both for loops and while loops, there are two keywords to know about that can break you out of a loop (break) and can move you to the next iteration of the loop (continue). I tend not to use these, but some people find them useful."
-  },
-  {
-    "objectID": "control_flow_and_complex_data_types.html#readings",
-    "href": "control_flow_and_complex_data_types.html#readings",
-    "title": "Control Flow & Complex data types",
-    "section": "",
-    "text": "Learning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow"
-  },
-  {
-    "objectID": "control_flow_and_complex_data_types.html#loops",
-    "href": "control_flow_and_complex_data_types.html#loops",
-    "title": "Control Flow & Complex data types",
-    "section": "",
-    "text": "Loops are used when you have a chunk of code that you need to repeat over and over again, each time changing one (or more) parameters.\nThere are two kinds of loops: a for loop and a while loop. A for loop is used when you (or your code) know in advance of starting the loop, how many iterations to run through. A while loop is used when the number of iterations is not known in advance of starting the loop. You might use a for loop to load in a list of data files. You might use a while loop to iterate through an EEG waveform over samples (time) to search for the first value that exceeds some baseline threshold.\nHere is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named data1.txt, data2.txt, …, data5.txt. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:\n\n\n\nd1 = load(\"data1.txt\")\nd1m = mean(d1)\nd2 = load(\"data2.txt\")\nd2m = mean(d2)\nd3 = load(\"data3.txt\")\nd3m = mean(d3)\nd4 = load(\"data4.txt\")\nd4m = mean(d4)\nd5 = load(\"data5.txt\")\nd5m = mean(d5)\n\n# report overall mean and overall variance of 5 data file means\nalldata = [d1m, d2m, d3m, d4m, d5m]\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nYou can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a for loop. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a for loop:\n\nnfiles = 1000\nalldata = np.zeros(1000)\nfor i in range(nfiles):\n    d = load(\"data\" + str(i) + \".txt\")\n    alldata[i] = mean(d)\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nNow all we would need to change if we have 1000 data files (or one million) is the value of our variable nfiles=1000 or nfiles=1e6—nothing else in the code would have to change. This makes our code much more resilient against programming errors.\nYou can see a for loop begins with the keyword for followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word in followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using indentation. Python is very fussy indeed about indentation.\n\nfor i in range(1,15,3):\n    print(f\"i={i}\")\n\ni=1\ni=4\ni=7\ni=10\ni=13\n\n\nFor loops are executed in a serial fashion, one repetition after another.\n\n\n\nThere is a second sort of loop called a while loop. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:\n\ni = 1\nwhile (i &lt; 9):\n    print(f\"i={i}\")\n    i = i + 1\n\ni=1\ni=2\ni=3\ni=4\ni=5\ni=6\ni=7\ni=8\n\n\nThe expression that determines whether a while loop will continue repeating can be any valid Python expression that evaluates to a boolean (true or false).\nFor both for loops and while loops, there are two keywords to know about that can break you out of a loop (break) and can move you to the next iteration of the loop (continue). I tend not to use these, but some people find them useful."
-  },
-  {
-    "objectID": "code.html",
-    "href": "code.html",
-    "title": "Sample Code",
-    "section": "",
-    "text": "fizzbuzz.py\nis_it_prime.py\np092.py\nfileio.py\nshapes.py"
-  },
-  {
-    "objectID": "clean_code.html",
-    "href": "clean_code.html",
-    "title": "Reproducibility & Replicability II: clean code",
-    "section": "",
-    "text": "Writing small scripts to solve toy programming puzzles is one thing, but writing a large amount of inter-connected code to analyse a dataset is quite another. What’s more organizing the data itself is something that can have a big impact on the organization and clarity of the code. It’s worth talking about and thinking about some basic principles for organizing data and code for realistic scenarios such as scientific experiments and data analysis work.\nI want you to read the following:\n\nWriting clean code guide from the Jörn Diedrichsen lab blog\n\n\n\n\n\ncode should work with zero (or extremely minimal) configuration by a newcomer\nit should be clear how to run the code, how the pieces of the code work together, and what the results are\nthe more dependencies that exist in your code, the higher the probability that it will not work in the future. For Python, the uv or venv tools can help with this by allowing you to specify version numbers for all libraries that you use with your code, and it lets you package that specification (a pyproject.toml or requirements.txt file) together with your code itself.\ncode and the data it operates on should be packaged together and should “just work”\ndata should be organized in files and folders with informative filenames and rational folder structures\ncode should be clear so that others can understand how it works (and “others” includes you in the future)\n\n\n\n\nThink about the stages of processing between raw data, intermediate data structures, and “final” data used for figures and statistical analyses.\n\n\n\nfrom the Writing clean code guide by Jörn Diedrichsen\n\n\nIt should be crystal clear how to get each Figure or statistical analysis from data + code. Jörn suggests it and I agree: write out on a piece of paper what this directed graph looks like for your paper/project.\n\n\n\n\ncode should reside in a publicly accessible repository (e.g. on GitHub)\neach Figure and each statistical analysis should be reproducible by running a single script/function without changes\ndata should accompany the code\n\n\n\n\nGitHub is a version control system and code-sharing platform that allows you to track changes to your code over time and collaborate with others. You can use GitHub to store and manage your code, data analysis notebooks, and even data (though not gigantic amounts of data), ensuring you can revert to previous versions if needed. GitHub works well with a number of other useful programs like Visual Studio Code and the online LaTeX document system Overleaf.\n\nGet Started with GitHub\nGitHub Skills\n\n\n\n\nOther resources include:\n\nbook: Clean Code: A Handbook of Agile Software Craftsmanship by Robert Martin\na shorter book: A philosophy of software design by John Ousterhout, (and an accompanying website)"
-  },
-  {
-    "objectID": "clean_code.html#principles-of-clean-code",
-    "href": "clean_code.html#principles-of-clean-code",
-    "title": "Reproducibility & Replicability II: clean code",
-    "section": "",
-    "text": "Writing small scripts to solve toy programming puzzles is one thing, but writing a large amount of inter-connected code to analyse a dataset is quite another. What’s more organizing the data itself is something that can have a big impact on the organization and clarity of the code. It’s worth talking about and thinking about some basic principles for organizing data and code for realistic scenarios such as scientific experiments and data analysis work.\nI want you to read the following:\n\nWriting clean code guide from the Jörn Diedrichsen lab blog\n\n\n\n\n\ncode should work with zero (or extremely minimal) configuration by a newcomer\nit should be clear how to run the code, how the pieces of the code work together, and what the results are\nthe more dependencies that exist in your code, the higher the probability that it will not work in the future. For Python, the uv or venv tools can help with this by allowing you to specify version numbers for all libraries that you use with your code, and it lets you package that specification (a pyproject.toml or requirements.txt file) together with your code itself.\ncode and the data it operates on should be packaged together and should “just work”\ndata should be organized in files and folders with informative filenames and rational folder structures\ncode should be clear so that others can understand how it works (and “others” includes you in the future)\n\n\n\n\nThink about the stages of processing between raw data, intermediate data structures, and “final” data used for figures and statistical analyses.\n\n\n\nfrom the Writing clean code guide by Jörn Diedrichsen\n\n\nIt should be crystal clear how to get each Figure or statistical analysis from data + code. Jörn suggests it and I agree: write out on a piece of paper what this directed graph looks like for your paper/project.\n\n\n\n\ncode should reside in a publicly accessible repository (e.g. on GitHub)\neach Figure and each statistical analysis should be reproducible by running a single script/function without changes\ndata should accompany the code\n\n\n\n\nGitHub is a version control system and code-sharing platform that allows you to track changes to your code over time and collaborate with others. You can use GitHub to store and manage your code, data analysis notebooks, and even data (though not gigantic amounts of data), ensuring you can revert to previous versions if needed. GitHub works well with a number of other useful programs like Visual Studio Code and the online LaTeX document system Overleaf.\n\nGet Started with GitHub\nGitHub Skills\n\n\n\n\nOther resources include:\n\nbook: Clean Code: A Handbook of Agile Software Craftsmanship by Robert Martin\na shorter book: A philosophy of software design by John Ousterhout, (and an accompanying website)"
-  },
-  {
-    "objectID": "concepts.html",
-    "href": "concepts.html",
-    "title": "Concepts",
-    "section": "",
-    "text": "installing our development environment"
-  },
-  {
-    "objectID": "concepts.html#week-1",
-    "href": "concepts.html#week-1",
-    "title": "Concepts",
-    "section": "",
-    "text": "installing our development environment"
-  },
-  {
-    "objectID": "concepts.html#week-2",
-    "href": "concepts.html#week-2",
-    "title": "Concepts",
-    "section": "Week 2",
-    "text": "Week 2\n\nediting a .py Python program and executing it in the shell\nthe iPython REPL\nuv add ipython to install; and then uv run ipython to launch\nexpressions, operators, values, & variables\noperator precedence\nusing brackets ( and ) to override operator precedence\nnumeric vs character string data types\nvariables: str, int, float, bool, inspect using type()\nconversion: str(), int(), float()\noperators: + - * /, **, modulus %\nlogical operators &lt; &gt; == &gt;= &lt;= != and or not True False\nimport statements—for example, from math import cos\nprint() and formatted output using f-strings\ngetting input from the user using input()\ncommenting code using #\nreserved keywords in Python (e.g. for, return, etc)\ngetting help using help()\nVisual Studio Code"
-  },
-  {
-    "objectID": "concepts.html#week-3",
-    "href": "concepts.html#week-3",
-    "title": "Concepts",
-    "section": "Week 3",
-    "text": "Week 3\n\nconditionals if elif else\nloops using while and for\nrange() versus list types\n\n“range objects are a specific type of sequence in Python, they behave similarly to lists or tuples but are immutable and lazy”\n\nthe FizzBuzz coding exercise\nzero-based indexing in Python\nputting it all together: testing primeness of integers"
-  },
-  {
-    "objectID": "concepts.html#week-4",
-    "href": "concepts.html#week-4",
-    "title": "Concepts",
-    "section": "Week 4",
-    "text": "Week 4\n\nlists in Python\nlist comprehensions e.g. five_odd_numbers = [i for i in range(1,11,2)]\nin Python list variables are pointers\nb = a vs b = a.copy()\nb == a vs b is a\nother complex data types in Python: tuples, ranges, dictionaries, and sets\nwriting your own functions in Python\n\ndefining a function\nfunction header\ninput arguments\nthe work\nreturning output(s)\nvariable scope\nnamed inputs\ndefault values\n\nthe idea of modularity of code"
-  },
-  {
-    "objectID": "concepts.html#week-5",
-    "href": "concepts.html#week-5",
-    "title": "Concepts",
-    "section": "Week 5",
-    "text": "Week 5\n\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays\nfile input & output: low-level\n\nall files are binary, a series of 8-bit bytes\nASCII encoding (and utf-8 more modern version)\nusing hex editor to view a file as hexadecimal bytes\nPython defaults: 32-bit int, 64-bit float, 8-bit char\nlittle-endian vs big-endian byte ordering (sys.byteorder to check)\nusing numpy to read and write binary bytes by specifying dtype\n\nfile input & output: high-level using NumPy & pandas"
-  },
-  {
-    "objectID": "concepts.html#week-6",
-    "href": "concepts.html#week-6",
-    "title": "Concepts",
-    "section": "Week 6",
-    "text": "Week 6\n\nprocedural programming: functions acting on data structures\nobject-oriented programming (OOP): classes & objects encapsulate attributes & methods\nhierarchical organization of Classes (and superclasses and subclasses)\nattributes (data)\nmethods (functions)\nthe __init__() method and the self variable\ninheritance\noverriding inherited methods\npolymorphism\nsuper().__init__()\nspecial methods: __str__() and __repr__()\ncopying objects\n\nshallow copy using the copy module copy.copy()\ndeep copy using copy.deepcopy()\n\noperator overloading, e.g. __eq()__, __lt__(), __gt__()"
+    "objectID": "fundamentals.html#python-fundamentals",
+    "href": "fundamentals.html#python-fundamentals",
+    "title": "Fundamentals",
+    "section": "Python Fundamentals",
+    "text": "Python Fundamentals\n\nLearning with Python 3 chapter 1: The way of the program\nLearning with Python 3 chapter 2: Variables, expressions and statements\nPython for Data Analysis chapter 1: Preliminaries\nPython for Data Analysis chapter 2: Python Language Basics, iPython, and Jupyter Notebooks\nNumPy: the absolute basics for beginners\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\na fun coding challenge: Advent of Code 2015, Day 6 (hint: use a 1000x1000 2D array)\n\n\nother useful readings\n\nThe way of the program\nVariables, expressions, and statements\nPython Language Basics\nFiles & the File System by Kieran Healy\nHow to Name Files video by Jenny Bryan\n\n\n\nConditionals, Iteration, & Control Flow\n\nLearning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow\n\n\n\nFile i/o\n\nNumPy reading & writing files\nNumPy data types\npandas IO tools\nPython reading and writing files\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats\nProject Structure, file naming, folders, etc… by Danielle Navarro"
   },
   {
     "objectID": "digital_representation_of_data.html",
@@ -462,53 +392,165 @@
     "text": "Unicode\nThe ASCII codes only represent a limited number of characters that are useful mostly in the English language. Starting in the 1980s, Xerox, Apple, and others began work on a new variable-length encoding scheme that could represent a much larger number of characters that would be useful for the world’s languages (and now even for emoji). This is called Unicode and includes the most common standard on the web, UTF-8, which can encode more than a million different characters and symbols.\nHere is a website where you can view and search the Unicode character table.\nFor example, in Unicode the smiling face emoji 😀 is encoded using hexadecimal value 1F600:\n\nprint(f\"Unicode (hex) 1f600 is {chr(0x1f600)}\")\n\nUnicode (hex) 1f600 is 😀"
   },
   {
-    "objectID": "fundamentals.html",
-    "href": "fundamentals.html",
-    "title": "Fundamentals",
+    "objectID": "concepts.html",
+    "href": "concepts.html",
+    "title": "Concepts",
     "section": "",
-    "text": "Digital representation of data\nControl flow & Complex data types\nFunctions, File input & output"
+    "text": "installing our development environment"
   },
   {
-    "objectID": "fundamentals.html#pauls-notes",
-    "href": "fundamentals.html#pauls-notes",
-    "title": "Fundamentals",
+    "objectID": "concepts.html#week-1",
+    "href": "concepts.html#week-1",
+    "title": "Concepts",
     "section": "",
-    "text": "Digital representation of data\nControl flow & Complex data types\nFunctions, File input & output"
+    "text": "installing our development environment"
   },
   {
-    "objectID": "fundamentals.html#python-fundamentals",
-    "href": "fundamentals.html#python-fundamentals",
-    "title": "Fundamentals",
-    "section": "Python Fundamentals",
-    "text": "Python Fundamentals\n\nLearning with Python 3 chapter 1: The way of the program\nLearning with Python 3 chapter 2: Variables, expressions and statements\nPython for Data Analysis chapter 1: Preliminaries\nPython for Data Analysis chapter 2: Python Language Basics, iPython, and Jupyter Notebooks\nNumPy: the absolute basics for beginners\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\na fun coding challenge: Advent of Code 2015, Day 6 (hint: use a 1000x1000 2D array)\n\n\nother useful readings\n\nThe way of the program\nVariables, expressions, and statements\nPython Language Basics\nFiles & the File System by Kieran Healy\nHow to Name Files video by Jenny Bryan\n\n\n\nConditionals, Iteration, & Control Flow\n\nLearning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow\n\n\n\nFile i/o\n\nNumPy reading & writing files\nNumPy data types\npandas IO tools\nPython reading and writing files\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats\nProject Structure, file naming, folders, etc… by Danielle Navarro"
+    "objectID": "concepts.html#week-2",
+    "href": "concepts.html#week-2",
+    "title": "Concepts",
+    "section": "Week 2",
+    "text": "Week 2\n\nediting a .py Python program and executing it in the shell\nthe iPython REPL\nuv add ipython to install; and then uv run ipython to launch\nexpressions, operators, values, & variables\noperator precedence\nusing brackets ( and ) to override operator precedence\nnumeric vs character string data types\nvariables: str, int, float, bool, inspect using type()\nconversion: str(), int(), float()\noperators: + - * /, **, modulus %\nlogical operators &lt; &gt; == &gt;= &lt;= != and or not True False\nimport statements—for example, from math import cos\nprint() and formatted output using f-strings\ngetting input from the user using input()\ncommenting code using #\nreserved keywords in Python (e.g. for, return, etc)\ngetting help using help()\nVisual Studio Code"
   },
   {
-    "objectID": "graphics.html",
-    "href": "graphics.html",
-    "title": "Graphics & Figures",
-    "section": "",
-    "text": "Read Chapter 9, Plotting and Visualization of Python for Data Analysis by Wes McKinney, for a great introduction to the kinds of plots you can make, and a basic subset of plotting commands. It’s a great place to start.\nPython has several libraries that can be used for generating graphics. The most popular ones are matplotlib and seaborn.\n\nMatplotlib: tutorials\nThe Python Graph Gallery\nSeaborn: statistical data visualization\n\nMatplotlib is more or less a copy of MATLAB’s plotting capabilities, so if you are familiar with MATLAB, you will feel at home with matplotlib.\nSeaborn is a high-level interface for drawing attractive and informative statistical graphics. It’s a little bit like ggplot2 in R. It’s great for plotting data that’s in a tabular format."
+    "objectID": "concepts.html#week-3",
+    "href": "concepts.html#week-3",
+    "title": "Concepts",
+    "section": "Week 3",
+    "text": "Week 3\n\nconditionals if elif else\nloops using while and for\nrange() versus list types\n\n“range objects are a specific type of sequence in Python, they behave similarly to lists or tuples but are immutable and lazy”\n\nthe FizzBuzz coding exercise\nzero-based indexing in Python\nputting it all together: testing primeness of integers"
   },
   {
-    "objectID": "hw/hw01.html",
-    "href": "hw/hw01.html",
-    "title": "Homework 1",
-    "section": "",
-    "text": "Due: Jan 18 by 11:59 pm eastern standard time\nSubmit a single file called name_01.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_01.py\n\nWrite some code to complete the Parabolic Flight coding exercise. Make sure it produces the correct output given the example inputs, including the same number of decimal places."
+    "objectID": "concepts.html#week-4",
+    "href": "concepts.html#week-4",
+    "title": "Concepts",
+    "section": "Week 4",
+    "text": "Week 4\n\nlists in Python\nlist comprehensions e.g. five_odd_numbers = [i for i in range(1,11,2)]\nin Python list variables are pointers\nb = a vs b = a.copy()\nb == a vs b is a\nother complex data types in Python: tuples, ranges, dictionaries, and sets\nwriting your own functions in Python\n\ndefining a function\nfunction header\ninput arguments\nthe work\nreturning output(s)\nvariable scope\nnamed inputs\ndefault values\n\nthe idea of modularity of code"
   },
   {
-    "objectID": "hw/hw03.html",
-    "href": "hw/hw03.html",
-    "title": "Homework 3",
-    "section": "",
-    "text": "Due: Feb 1 by 11:59 pm eastern standard time\nSubmit a single file called name_03.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_03.py\n\nWrite a Python program to complete the Square Digit Chains exercise.\nHint: the answer is a 7 digit number starting with 8 and ending in 6 … and if you add all the digits up you get 33."
+    "objectID": "concepts.html#week-5",
+    "href": "concepts.html#week-5",
+    "title": "Concepts",
+    "section": "Week 5",
+    "text": "Week 5\n\nNumPy arrays\ncreating arrays\nnp.zeros() and np.ones()\nshape of arrays using np.shape()\nmultidimensional arrays\nvectorized operations on arrays\nslicing & indexing into arrays\nfile input & output: low-level\n\nall files are binary, a series of 8-bit bytes\nASCII encoding (and utf-8 more modern version)\nusing hex editor to view a file as hexadecimal bytes\nPython defaults: 32-bit int, 64-bit float, 8-bit char\nlittle-endian vs big-endian byte ordering (sys.byteorder to check)\nusing numpy to read and write binary bytes by specifying dtype\n\nfile input & output: high-level using NumPy & pandas"
   },
   {
-    "objectID": "hw/hw05.html",
-    "href": "hw/hw05.html",
-    "title": "Homework 5",
+    "objectID": "concepts.html#week-6",
+    "href": "concepts.html#week-6",
+    "title": "Concepts",
+    "section": "Week 6",
+    "text": "Week 6\n\nprocedural programming: functions acting on data structures\nobject-oriented programming (OOP): classes & objects encapsulate attributes & methods\nhierarchical organization of Classes (and superclasses and subclasses)\nattributes (data)\nmethods (functions)\nthe __init__() method and the self variable\ninheritance\noverriding inherited methods\npolymorphism\nsuper().__init__()\nspecial methods: __str__() and __repr__()\ncopying objects\n\nshallow copy using the copy module copy.copy()\ndeep copy using copy.deepcopy()\n\noperator overloading, e.g. __eq()__, __lt__(), __gt__()"
+  },
+  {
+    "objectID": "clean_code.html",
+    "href": "clean_code.html",
+    "title": "Reproducibility & Replicability II: clean code",
     "section": "",
-    "text": "Due: Feb 15 by 11:59 pm eastern standard time\nSubmit a single file called name_05.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_05.py\n\nWrite a Python program to complete the XOR Decryption exercise.\nHint: the plaintext message contains the words the, and, and that"
+    "text": "Writing small scripts to solve toy programming puzzles is one thing, but writing a large amount of inter-connected code to analyse a dataset is quite another. What’s more organizing the data itself is something that can have a big impact on the organization and clarity of the code. It’s worth talking about and thinking about some basic principles for organizing data and code for realistic scenarios such as scientific experiments and data analysis work.\nI want you to read the following:\n\nWriting clean code guide from the Jörn Diedrichsen lab blog\n\n\n\n\n\ncode should work with zero (or extremely minimal) configuration by a newcomer\nit should be clear how to run the code, how the pieces of the code work together, and what the results are\nthe more dependencies that exist in your code, the higher the probability that it will not work in the future. For Python, the uv or venv tools can help with this by allowing you to specify version numbers for all libraries that you use with your code, and it lets you package that specification (a pyproject.toml or requirements.txt file) together with your code itself.\ncode and the data it operates on should be packaged together and should “just work”\ndata should be organized in files and folders with informative filenames and rational folder structures\ncode should be clear so that others can understand how it works (and “others” includes you in the future)\n\n\n\n\nThink about the stages of processing between raw data, intermediate data structures, and “final” data used for figures and statistical analyses.\n\n\n\nfrom the Writing clean code guide by Jörn Diedrichsen\n\n\nIt should be crystal clear how to get each Figure or statistical analysis from data + code. Jörn suggests it and I agree: write out on a piece of paper what this directed graph looks like for your paper/project.\n\n\n\n\ncode should reside in a publicly accessible repository (e.g. on GitHub)\neach Figure and each statistical analysis should be reproducible by running a single script/function without changes\ndata should accompany the code\n\n\n\n\nGitHub is a version control system and code-sharing platform that allows you to track changes to your code over time and collaborate with others. You can use GitHub to store and manage your code, data analysis notebooks, and even data (though not gigantic amounts of data), ensuring you can revert to previous versions if needed. GitHub works well with a number of other useful programs like Visual Studio Code and the online LaTeX document system Overleaf.\n\nGet Started with GitHub\nGitHub Skills\n\n\n\n\nOther resources include:\n\nbook: Clean Code: A Handbook of Agile Software Craftsmanship by Robert Martin\na shorter book: A philosophy of software design by John Ousterhout, (and an accompanying website)"
+  },
+  {
+    "objectID": "clean_code.html#principles-of-clean-code",
+    "href": "clean_code.html#principles-of-clean-code",
+    "title": "Reproducibility & Replicability II: clean code",
+    "section": "",
+    "text": "Writing small scripts to solve toy programming puzzles is one thing, but writing a large amount of inter-connected code to analyse a dataset is quite another. What’s more organizing the data itself is something that can have a big impact on the organization and clarity of the code. It’s worth talking about and thinking about some basic principles for organizing data and code for realistic scenarios such as scientific experiments and data analysis work.\nI want you to read the following:\n\nWriting clean code guide from the Jörn Diedrichsen lab blog\n\n\n\n\n\ncode should work with zero (or extremely minimal) configuration by a newcomer\nit should be clear how to run the code, how the pieces of the code work together, and what the results are\nthe more dependencies that exist in your code, the higher the probability that it will not work in the future. For Python, the uv or venv tools can help with this by allowing you to specify version numbers for all libraries that you use with your code, and it lets you package that specification (a pyproject.toml or requirements.txt file) together with your code itself.\ncode and the data it operates on should be packaged together and should “just work”\ndata should be organized in files and folders with informative filenames and rational folder structures\ncode should be clear so that others can understand how it works (and “others” includes you in the future)\n\n\n\n\nThink about the stages of processing between raw data, intermediate data structures, and “final” data used for figures and statistical analyses.\n\n\n\nfrom the Writing clean code guide by Jörn Diedrichsen\n\n\nIt should be crystal clear how to get each Figure or statistical analysis from data + code. Jörn suggests it and I agree: write out on a piece of paper what this directed graph looks like for your paper/project.\n\n\n\n\ncode should reside in a publicly accessible repository (e.g. on GitHub)\neach Figure and each statistical analysis should be reproducible by running a single script/function without changes\ndata should accompany the code\n\n\n\n\nGitHub is a version control system and code-sharing platform that allows you to track changes to your code over time and collaborate with others. You can use GitHub to store and manage your code, data analysis notebooks, and even data (though not gigantic amounts of data), ensuring you can revert to previous versions if needed. GitHub works well with a number of other useful programs like Visual Studio Code and the online LaTeX document system Overleaf.\n\nGet Started with GitHub\nGitHub Skills\n\n\n\n\nOther resources include:\n\nbook: Clean Code: A Handbook of Agile Software Craftsmanship by Robert Martin\na shorter book: A philosophy of software design by John Ousterhout, (and an accompanying website)"
+  },
+  {
+    "objectID": "code.html",
+    "href": "code.html",
+    "title": "Sample Code",
+    "section": "",
+    "text": "fizzbuzz.py\nis_it_prime.py\np092.py\nfileio.py\nshapes.py"
+  },
+  {
+    "objectID": "control_flow_and_complex_data_types.html",
+    "href": "control_flow_and_complex_data_types.html",
+    "title": "Control Flow & Complex data types",
+    "section": "",
+    "text": "Here we will learn above several ways to specify the flow of information as your code gets executed. We will learn about loops, which are constructs that allow you to repeat blocks of code multiple times, typically while changing the values of variables inside the repeating block. We will learn about conditionals, which allow you to execute different branches of code depending on the values of variables.\n\n\n\nLearning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow\n\n\n\n\nLoops are used when you have a chunk of code that you need to repeat over and over again, each time changing one (or more) parameters.\nThere are two kinds of loops: a for loop and a while loop. A for loop is used when you (or your code) know in advance of starting the loop, how many iterations to run through. A while loop is used when the number of iterations is not known in advance of starting the loop. You might use a for loop to load in a list of data files. You might use a while loop to iterate through an EEG waveform over samples (time) to search for the first value that exceeds some baseline threshold.\nHere is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named data1.txt, data2.txt, …, data5.txt. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:\n\n\n\nd1 = load(\"data1.txt\")\nd1m = mean(d1)\nd2 = load(\"data2.txt\")\nd2m = mean(d2)\nd3 = load(\"data3.txt\")\nd3m = mean(d3)\nd4 = load(\"data4.txt\")\nd4m = mean(d4)\nd5 = load(\"data5.txt\")\nd5m = mean(d5)\n\n# report overall mean and overall variance of 5 data file means\nalldata = [d1m, d2m, d3m, d4m, d5m]\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nYou can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a for loop. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a for loop:\n\nnfiles = 1000\nalldata = np.zeros(1000)\nfor i in range(nfiles):\n    d = load(\"data\" + str(i) + \".txt\")\n    alldata[i] = mean(d)\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nNow all we would need to change if we have 1000 data files (or one million) is the value of our variable nfiles=1000 or nfiles=1e6—nothing else in the code would have to change. This makes our code much more resilient against programming errors.\nYou can see a for loop begins with the keyword for followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word in followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using indentation. Python is very fussy indeed about indentation.\n\nfor i in range(1,15,3):\n    print(f\"i={i}\")\n\ni=1\ni=4\ni=7\ni=10\ni=13\n\n\nFor loops are executed in a serial fashion, one repetition after another.\n\n\n\nThere is a second sort of loop called a while loop. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:\n\ni = 1\nwhile (i &lt; 9):\n    print(f\"i={i}\")\n    i = i + 1\n\ni=1\ni=2\ni=3\ni=4\ni=5\ni=6\ni=7\ni=8\n\n\nThe expression that determines whether a while loop will continue repeating can be any valid Python expression that evaluates to a boolean (true or false).\nFor both for loops and while loops, there are two keywords to know about that can break you out of a loop (break) and can move you to the next iteration of the loop (continue). I tend not to use these, but some people find them useful."
+  },
+  {
+    "objectID": "control_flow_and_complex_data_types.html#readings",
+    "href": "control_flow_and_complex_data_types.html#readings",
+    "title": "Control Flow & Complex data types",
+    "section": "",
+    "text": "Learning with Python 3 chapter 5: Conditionals\nLearning with Python 3 chapter 7: Iteration\nPython for Data Analysis chapter 3: Built-in Data Structures, Functions, and Files\nPython for Data Analysis chapter 4: NumPy Basics: Arrays and Vectorized Computation\nPython for Data Analysis chapter 5: Getting Started with pandas\nConditionals and recursion (you can ignore for now the section on recursion)\nControl Flow"
+  },
+  {
+    "objectID": "control_flow_and_complex_data_types.html#loops",
+    "href": "control_flow_and_complex_data_types.html#loops",
+    "title": "Control Flow & Complex data types",
+    "section": "",
+    "text": "Loops are used when you have a chunk of code that you need to repeat over and over again, each time changing one (or more) parameters.\nThere are two kinds of loops: a for loop and a while loop. A for loop is used when you (or your code) know in advance of starting the loop, how many iterations to run through. A while loop is used when the number of iterations is not known in advance of starting the loop. You might use a for loop to load in a list of data files. You might use a while loop to iterate through an EEG waveform over samples (time) to search for the first value that exceeds some baseline threshold.\nHere is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named data1.txt, data2.txt, …, data5.txt. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:\n\n\n\nd1 = load(\"data1.txt\")\nd1m = mean(d1)\nd2 = load(\"data2.txt\")\nd2m = mean(d2)\nd3 = load(\"data3.txt\")\nd3m = mean(d3)\nd4 = load(\"data4.txt\")\nd4m = mean(d4)\nd5 = load(\"data5.txt\")\nd5m = mean(d5)\n\n# report overall mean and overall variance of 5 data file means\nalldata = [d1m, d2m, d3m, d4m, d5m]\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nYou can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a for loop. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a for loop:\n\nnfiles = 1000\nalldata = np.zeros(1000)\nfor i in range(nfiles):\n    d = load(\"data\" + str(i) + \".txt\")\n    alldata[i] = mean(d)\ndatamean = mean(alldata)\ndatavar = var(alldata)\nprint(f\"mean={datamean:.3f} and variance={datavar:.3f}\")\n\nNow all we would need to change if we have 1000 data files (or one million) is the value of our variable nfiles=1000 or nfiles=1e6—nothing else in the code would have to change. This makes our code much more resilient against programming errors.\nYou can see a for loop begins with the keyword for followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word in followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using indentation. Python is very fussy indeed about indentation.\n\nfor i in range(1,15,3):\n    print(f\"i={i}\")\n\ni=1\ni=4\ni=7\ni=10\ni=13\n\n\nFor loops are executed in a serial fashion, one repetition after another.\n\n\n\nThere is a second sort of loop called a while loop. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:\n\ni = 1\nwhile (i &lt; 9):\n    print(f\"i={i}\")\n    i = i + 1\n\ni=1\ni=2\ni=3\ni=4\ni=5\ni=6\ni=7\ni=8\n\n\nThe expression that determines whether a while loop will continue repeating can be any valid Python expression that evaluates to a boolean (true or false).\nFor both for loops and while loops, there are two keywords to know about that can break you out of a loop (break) and can move you to the next iteration of the loop (continue). I tend not to use these, but some people find them useful."
+  },
+  {
+    "objectID": "functions_file_io.html",
+    "href": "functions_file_io.html",
+    "title": "Functions, File input & output",
+    "section": "",
+    "text": "Learning with Python 3 chapter 4: Functions\nThink Python Chapter 3\nPython for Data Analysis chapter 3.2: Functions\nPython for Data Analysis chapter 3.3: Files and the Operating System\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
+  },
+  {
+    "objectID": "functions_file_io.html#readings",
+    "href": "functions_file_io.html#readings",
+    "title": "Functions, File input & output",
+    "section": "",
+    "text": "Learning with Python 3 chapter 4: Functions\nThink Python Chapter 3\nPython for Data Analysis chapter 3.2: Functions\nPython for Data Analysis chapter 3.3: Files and the Operating System\nPython for Data Analysis chapter 6: Data Loading, Storage, and File Formats"
+  },
+  {
+    "objectID": "git.html",
+    "href": "git.html",
+    "title": "Git & GitHub",
+    "section": "",
+    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+  },
+  {
+    "objectID": "git.html#setup",
+    "href": "git.html#setup",
+    "title": "Git & GitHub",
+    "section": "",
+    "text": "First, if you don’t have a GitHub account already, go and sign up for a (free) GitHub account.\nThen, double-check that you have installed git as part of the setup instructions. Open up a terminal and type:\ngit --version\nand you should get something like:\ngit version 2.34.0\nIt doesn’t much matter if the version number isn’t identical to the one above."
+  },
+  {
+    "objectID": "git.html#tutorials-intros",
+    "href": "git.html#tutorials-intros",
+    "title": "Git & GitHub",
+    "section": "Tutorials / Intros",
+    "text": "Tutorials / Intros\n\nabout GitHub and Git by GitHub docs\ngit-novice by software carpentry\nhello world by GitHub docs\nGit Cheat Sheet by GitHub Education\nGit project page\nVersion Control and Git by Kieran Healy\nThe Version Control Book: Track, organize and share your work: An introduction to Git for research"
+  },
+  {
+    "objectID": "homeworks.html",
+    "href": "homeworks.html",
+    "title": "A Note about Homeworks",
+    "section": "",
+    "text": "The reason I assign homework to you each week is not because I want to see the code that you write.\nThe purpose of homework is for you to do the intellectual work required to write the code.\nIf you choose to use an AI tool (e.g. ChatGPT) to write your homework code then you will probably get a very good grade in this course but you will not have done the intellectual work.\nIn my experience (more than three decades in a university environment), reading other people’s code (or code that an AI tool wrote) is not a substitute for doing the intellectual work required to produce your own code.\nIt simply isn’t.\nIf you take this course, and you get a good grade, your supervisors / bosses / collaborators will expect you to have mastered the material and skills that are advertised in the (public) course outline, and that are reflected in the homework assignments that you hand in.\nYour grade in this course is not the goal. The intellectual work is the goal. If you don’t want to do the intellectual work, don’t take the course. It would be a waste of your time and mine.\nIf you are having difficulty with the work, come and see me or the TA, we will be absolutely pleased to help!\n—P"
+  },
+  {
+    "objectID": "hw/hw02.html",
+    "href": "hw/hw02.html",
+    "title": "Homework 2",
+    "section": "",
+    "text": "Due: Jan 25 by 11:59 pm eastern standard time\nSubmit a single file called name_02.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_02.py\n\nWrite a Python program to complete the Nth Prime number exercise.\nMake sure it produces the correct output given the example inputs."
+  },
+  {
+    "objectID": "hw/hw04.html",
+    "href": "hw/hw04.html",
+    "title": "Homework 4",
+    "section": "",
+    "text": "Due: Feb 8 by 11:59 pm eastern standard time\nSubmit a single file called name_04.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_04.py\n\nChoose any one of the “Slighly more challenging problems” listed in the Advent of Code coding exercises. Write a Python script to complete both part 1 and part 2 of the problem you choose. Submit only your code, you don’t need to submit your puzzle input.\nIf you are already Python experienced and you want to try one of the “more challenging problems” instead, that would be fine as well.\nIf you have never programmed anything before this course and you wish to choose one of the “Easiest problems” that would be ok as well."
+  },
+  {
+    "objectID": "hw/hw06.html",
+    "href": "hw/hw06.html",
+    "title": "Homework 6",
+    "section": "",
+    "text": "Due: Mar 1 by 11:59 pm eastern standard time\nSubmit a single file called name_06.py to Brightspace/OWL where name is replaced with your last name, e.g. gribble_06.py"
+  },
+  {
+    "objectID": "hw/hw06.html#matplotlib-exercises",
+    "href": "hw/hw06.html#matplotlib-exercises",
+    "title": "Homework 6",
+    "section": "Matplotlib exercises",
+    "text": "Matplotlib exercises\n\nDefine a 1D array x containing 10 values starting at 0, ending at 0.9, in increments of 0.1. Define a vector y that is equal to np.sin(2 * np.pi * x). Generate a line plot with x on the horizontal axis and y on the vertical axis. Use blue circles at each data point (markersize of 8.0), connected by blue solid lines, with a linewidth of 2.0. Label the horizontal axis x and the vertical axis y. Set the range on the horizontal axis so it goes from 0 to 0.9 in steps of 0.1, and on the vertical axis so it goes from -1 to 1 in steps of 0.2.\n\n\n\n\n\n\n\n\n\nDefine 1D arrays y1 equal to [1,2,3,4,4], y2 equal to [1,5,6,8,10], and y3 equal to [5,4,2,1,1]. Generate a multi-line plot using squares (markersize 6.0) connected with solid lines (linewidth 1.0). Label the axes as shown, and set axis limits and axis ticks as shown. Add a legend as shown. The y1 colour is blue, the y2 colour is red, and the y3 colour is magenta.\n\n\n\n\n\n\n\n\n\nDefine a 100-length 1D array x starting at 1 and ending at 100 in increments of 1. Define y equal to (x * 0.15) + N where N is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 0.5. Let z be equal to ((x * 0.05) + 2) + N2 where N2 is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 2.0. Generate a scatterplot as shown below, using filled circles (markersize 3.0). The y colour is blue and the z colour is red. Pay attention to the axis labels, tick marks, and ranges. At the beginning of your answer set the random seed (once) to be equal to 9040 so that we all get the same random values, using np.random.seed(9040).\n\n\n\n\n\n\n\n\n\nRe-plot the data from Question 3 using subplots, as shown below. Try to replicate the axis limits, and axis labeling. Use boldface font to add a title to each subplot (A, B, and C, aligned to the left of each subplot as shown below).\nHint: adjust the hspace parameter for subplots so that the subplots don’t overlap, e.g. plt.subplots_adjust(hspace=0.6).\nHint: ax.spines[\"top\"].set_visible(False) will turn off the top part of the box outlining each plot.\nHint: fig = plt.figure() and then ax1 = fig.add_subplot(2,2,(1,2)) will generate a subplot that spans cells 1 and 2 (the top row) of the 2x2 grid. Then ax2 = fig.add_subplot(2,2,3) and ax3 = fig.add_subplot(2,2,4) will define the lower two sublots.\nHint: the legend() method of an axis has an option that will remove the frame outline: frameon=False\n\n\n\n\n\n\n\n\n\n\nDo your best to replicate all of the elements of the Figure. If you can’t replicate every little part of it don’t worry, but challenge yourself to try to get as close as you can. I will post a sample solution after the deadline."
   },
   {
     "objectID": "index.html",

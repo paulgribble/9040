@@ -1,0 +1,107 @@
+---
+title: Homework 7
+---
+
+---
+
+Due: Mar 8 by 11:59 pm eastern standard time
+
+Submit your source file (`paper.md` or `paper.tex`), your `refs.bib` file, and the compiled PDF to Brightspace/OWL.
+
+---
+
+## Background
+
+You have been given a Word document ([`convert_this.docx`](convert_this.docx)) containing a short
+scientific paper about sleep restriction and postural sway. It's the kind of
+document a student might produce in Word: functional, but fragile.
+
+Open it in Word, LibreOffice, or Google Docs and take a look. Then examine it
+critically. You'll notice several problems that are typical of Word-based
+scientific writing:
+
+- **Headings** are faked with bold/large text rather than structural heading styles
+- **Citations** are manually typed strings, not linked to a reference manager
+- **The equation** is typed as plain monospaced text, not a real equation
+- **The reference list** is typed by hand with inconsistent formatting across entries
+  (some have DOIs, some don't; one uses Vancouver style instead of APA; one is
+  missing the hanging indent; one is missing a period)
+- **The table** uses heavy gridlines rather than clean formatting
+
+None of these would survive a format change, a journal resubmission, or the
+passage of time particularly well.
+
+## Your Task
+
+Recreate this document, either in Markdown+Pandoc, or in LaTeX (your choice),
+fixing all of the problems above along the way.
+
+Specifically, your converted document must include:
+
+### 1. Proper structure
+- Use real headings (`#` / `##` in Markdown, or `\section{}` / `\subsection{}` in LaTeX)
+- Include YAML metadata (Markdown) or a proper preamble (LaTeX) with title, author, and date
+
+### 2. Real citations and bibliography
+- Create a `refs.bib` file containing all five references from the paper
+- Replace every manually typed citation with a proper citation key
+  (e.g., `[@cappuccio2010sleep]` in Markdown or `\citep{cappuccio2010sleep}` in LaTeX)
+- The bibliography should be generated automatically in APA format
+
+> **Tip**: You can find BibTeX entries on Google Scholar → click Cite → click BibTeX.
+> Or search for the paper on <https://scholar.google.com> and export the entry.
+
+### 3. Proper equations
+Replace the plain-text equation with real LaTeX math. The document contains:
+
+- Cohen's d (display equation)
+- The pooled standard deviation formula (inline)
+
+These should become something like:
+
+```
+$$d = \frac{M_1 - M_2}{SD_{\text{pooled}}}$$
+```
+
+and
+
+```
+$SD_{\text{pooled}} = \sqrt{\frac{SD_1^2 + SD_2^2}{2}}$
+```
+
+### 4. A clean table
+Recreate the results table using proper markup:
+
+- In Markdown: a pipe table with a caption
+- In LaTeX: a `tabular` inside a `table` environment with `booktabs` rules
+  (`\toprule`, `\midrule`, `\bottomrule` — no vertical lines)
+
+### 5. Compile to PDF
+- **Markdown**: `pandoc paper.md --citeproc -o paper.pdf`
+- **LaTeX**: `latexmk -pdf paper.tex`
+
+## What to Submit
+
+1. Your source file (`paper.md` or `paper.tex`)
+2. Your bibliography file (`refs.bib`)
+3. Your compiled output (`paper.pdf`)
+
+## Grading
+
+This is a completion-based assignment. Full marks if:
+
+- [ ] The document compiles to PDF without errors
+- [ ] Headings are structurally correct (not faked with bold text)
+- [ ] All five citations use BibTeX keys and the bibliography is auto-generated
+- [ ] The equations are rendered in LaTeX math
+- [ ] The table is well formatted
+
+## Hints
+
+- You do **not** need to match the Word document's appearance exactly. The point is
+  to produce a *better* version using plaintext tools.
+- If using Markdown+Pandoc, remember to include `--citeproc` and to specify
+  `bibliography: refs.bib` and `csl: apa.csl` in your YAML header.
+- If using LaTeX, `biblatex` with `biber` and `style=apa` will handle APA formatting.
+- The APA CSL file can be downloaded from <https://www.zotero.org/styles/apa>.
+- If you are skilled with these kinds of tools this assignment should take you about 15 minutes. If you're spending much longer, ask for help. If you haven't read through the course notes on ([plaintext authoring](../plaintext-authoring.qmd)) and completed the exercises, do that first.
