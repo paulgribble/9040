@@ -3,12 +3,13 @@ title: Plaintext Authoring
 format:
   html:
     toc: true
-    toc-expand: 3
+    toc-expand: 2
+    number-sections: true
 ---
 
-# Part 1: Why Plaintext? Markdown and Pandoc
+# Plaintext
 
-## What Is a Scientific Document
+## Scientific Documents
 
 What does a thesis or a paper consist of, structurally?
 
@@ -24,21 +25,22 @@ How much of that is formatting, and how much is content?
 
 A scientific document is structured text and data. The formatting, like fonts, margins, and line spacing, is something a template or style can handle. It's a nuisance and a time-waster to fiddle with that stuff by hand. The principle of separation of content and style is one of the main rationales of plaintext authoring.
 
-### The Word Processor Model
+## Word Processors
 
 In Microsoft Word or Google Docs, content and formatting are entangled. You write a heading by selecting text and making it bold and 14pt. You don't *declare* it as a heading in any structural sense (unless you use Styles, which almost nobody does consistently). The file format (`.docx`) is a zipped bundle of XML that is not human-readable. If Word (or Google) changes how it handles that format, or if you don't have Word, you may not be able to open your own file in 10 years. If something goes wrong with the document you may not be able to "see" what changed because formatting and other things are hidden within menus and preferences settings.
 
-### The Plaintext Model
+## Plaintext
 
-In a plaintext workflow, you write your content in a simple text file, which is something you can open in Notepad, TextEdit, VS Code, or any other text editor on any computer, today or in 50 years. You mark up structure with lightweight, readable syntax (more on this later). Then a separate tool converts that source file into a PDF, HTML page, or even a Word document.
+In a plaintext workflow, you write your content in a simple text file, which is something you can open in Notepad, TextEdit, VS Code, or any other text editor on any computer, today or in 50 years. You mark up structure with lightweight, readable syntax (e.g. [Markdown](https://www.markdownguide.org/) or [LaTeX](https://www.latex-project.org/)). Then a separate tool converts that source file into a PDF, HTML page, or even a Word document.
 
 In the plaintext authoring model your document is:
+
 - portable
 - archivable
 - version-controllable
 - platform-independent
 
-### "But Journals Want a Word Doc"
+## Journals
 
 Here's the situation:
 
@@ -52,7 +54,7 @@ Here's the situation:
 
 5. Google Docs solves the collaboration and platform-independence problems nicely, and for short, simple documents it's fine. But it shares Word's limitation of entangling content and style, it has very limited equation support, it handles citations through third-party add-ons (Zotero, Paperpile), and try reformatting a 200-page Google Doc to a different journal's style. You'll also notice that Google Docs has no real support for cross-references, numbered equations, or figure captions that update automatically.
 
-### Summary of Benefits
+## Summary
 
 |            Feature            | Word / Google Docs |   Plaintext (Markdown / LaTeX)    |
 | ----------------------------- | ------------------ | --------------------------------- |
@@ -67,13 +69,12 @@ Here's the situation:
 | Archival / portability        | Format-dependent   | Plain text lasts forever          |
 | Typographic quality           | Acceptable         | Superior (LaTeX)                  |
 
----
 
-## Markdown: The Simplest Plaintext Markup
+# Markdown
 
-Markdown is a lightweight markup language created by John Gruber in 2004. It was designed to be readable as-is. The idea is that you shouldn't need to "compile" it to understand what the author meant.
+Markdown is a lightweight markup language created by [John Gruber](https://daringfireball.net/projects/markdown/) in 2004. It was designed to be readable as-is. The idea is that you shouldn't need to "compile" it to understand what the author meant.
 
-### Basic Syntax
+## Syntax
 
 Here is what a Markdown document looks like:
 
@@ -113,7 +114,7 @@ Reaction times are shown in Table 1 and Figure 1.
 
 That's it. It's just text with some punctuation conventions.
 
-### Key Markdown Elements
+## Key Elements
 
 | Element | Syntax | Renders as |
 |---|---|---|
@@ -128,7 +129,7 @@ That's it. It's just text with some punctuation conventions.
 | Blockquote | `> quoted text` | indented quote |
 | Horizontal rule | `---` | divider line |
 
-### Pandoc-Flavored Markdown Extensions
+## Extensions
 
 Pandoc (which we'll meet next) extends basic Markdown with features essential for academic writing:
 
@@ -140,7 +141,7 @@ Pandoc (which we'll meet next) extends basic Markdown with features essential fo
 - **Cross-references** (with filters like pandoc-crossref)
 - **YAML metadata blocks** for title, author, date, and formatting options
 
-### Resources
+## Resources
 
 - Markdown basics: <https://www.markdownguide.org/basic-syntax/>
 - Pandoc's Markdown extensions: <https://pandoc.org/MANUAL.html#pandocs-markdown>
@@ -148,13 +149,13 @@ Pandoc (which we'll meet next) extends basic Markdown with features essential fo
 
 ---
 
-## Pandoc: The Universal Document Converter
+# Pandoc
 
 [Pandoc](https://pandoc.org/) is a command-line tool created by Professor or Philosophy (and programmer) [John MacFarlane](https://johnmacfarlane.net). It converts between dozens of document formats, e.g.:
 
 Markdown → PDF, Word, HTML, LaTeX (and back)
 
-### Installing Pandoc
+## Installation
 
 - macOS: `brew install pandoc` (via Homebrew) or download from <https://pandoc.org/installing.html>
 - Windows (WSL/Ubuntu): `sudo apt install pandoc`
@@ -167,7 +168,7 @@ You also need a LaTeX distribution for PDF output (Pandoc uses LaTeX under the h
 
 A lightweight alternative to a full LaTeX install is [Tectonic](https://tectonic-typesetting.github.io/), which auto-downloads only the packages it needs.
 
-### Basic Usage
+## Usage
 
 ```bash
 # Markdown to PDF
@@ -185,7 +186,7 @@ pandoc paper.md -o paper.tex
 
 Pandoc infers the output format from the file extension.
 
-### Adding Metadata with YAML
+## YAML Metadata
 
 At the top of your Markdown file, you can add a [YAML](https://en.wikipedia.org/wiki/YAML) metadata block:
 
@@ -206,7 +207,7 @@ fontsize: 12pt
 
 This tells Pandoc the title, author, which bibliography file to use, which citation style (CSL) to apply, and basic page geometry — all without touching a GUI.
 
-### Citations with Pandoc
+## Citations
 
 Pandoc uses a `.bib` file (BibTeX format) for references. You can export `.bib` files from Zotero, Mendeley, Google Scholar, or write them by hand.
 
@@ -234,16 +235,14 @@ pandoc paper.md --citeproc -o paper.pdf
 
 The `--citeproc` flag tells Pandoc to process citations. The citation style is controlled by the `csl:` field in your YAML header. You can download thousands of CSL styles from <https://www.zotero.org/styles> (APA, Vancouver, Harvard, Nature, IEEE, etc.).
 
-### Resources
+## Resources
 
 - Pandoc user's guide: <https://pandoc.org/MANUAL.html>
 - Pandoc getting started: <https://pandoc.org/getting-started.html>
 - Citation Style Language styles: <https://www.zotero.org/styles>
 - BibTeX entry types: <https://www.bibtex.com/e/entry-types/>
 
----
-
-## Exercise 1: Your First Pandoc Markdown Document
+## Exercise 1 {#sec-exercise1}
 
 ### Setup
 
@@ -317,7 +316,9 @@ You are given a starter file `exercise1.md` (see below). Your tasks:
 
 **Hint**: writing equations in LaTeX can be strange at first, they have a syntax/grammar all their own, but once you get the hang of it, it's actually pretty easy and very efficient. Here is some documentation: [LaTeX Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics).
 
-### Starter File: `exercise1.md`
+### Starter File
+
+`exercise1.md`
 
 ```markdown
 ---
@@ -397,11 +398,9 @@ on grip strength, consistent with @warren2010effect.
 - How easy is it to add a citation compared to using a Word plugin?
 - What happens when you make a typo in the citation key?
 
----
-
 ## Summary
 
-Today we learned:
+We learned about:
 
 - Why plaintext is a compelling choice for scientific writing
 - The basics of Markdown syntax
@@ -418,45 +417,46 @@ For next time:
 
 ---
 
-# Part 2: LaTeX for Scientific Documents (60 minutes)
+# LaTeX
 
-## 2.1 — What Is LaTeX and Why Does It Exist? (8 min)
+## What/Why?
 
 LaTeX (pronounced "LAH-tek" or "LAY-tek") is a typesetting system created by Leslie Lamport in 1984, built on top of Donald Knuth's TeX (1978). Knuth, a computer scientist, created TeX because he was unhappy with the typographic quality of his textbooks. LaTeX adds a layer of convenience on top of TeX.
 
-When you compile a LaTeX document, the system makes thousands of micro-decisions about line breaks, hyphenation, spacing, and page layout. The result is typographically excellent output — the kind of polished, professional look you see in textbooks and journal articles.
+When you compile a LaTeX document, the system makes thousands of micro-decisions about line breaks, hyphenation, spacing, and page layout. The result is typographically excellent output, the kind of polished, professional look you see in textbooks and journal articles.
 
-### How Markdown + Pandoc Relates to LaTeX
+Word processors like Microsoft Word, or Google Docs, or Apple's Pages, are written to make some typographic "decisions" but the truth is that they pale in comparison to the polished professional look you get using LaTeX.
 
-When you ran `pandoc paper.md -o paper.pdf` in Lecture 1, Pandoc actually:
+### Pandoc & LaTeX
+
+When you ran `pandoc paper.md -o paper.pdf` above, Pandoc actually:
 
 1. Converted your Markdown to LaTeX behind the scenes
 2. Called `pdflatex` (or `xelatex`) to compile the LaTeX to PDF
 
-So you've already been using LaTeX — you just had Pandoc as a middleman. Learning LaTeX directly gives you much finer control when you need it.
+So you've already been using LaTeX. You just had Pandoc as a middleman. Learning LaTeX directly gives you much finer control when you need it. It also removes one layer of dependency/complexity from the process.
 
-### When to Use Markdown+Pandoc vs. LaTeX Directly
+### Which one?
 
-| Scenario | Recommendation |
-|---|---|
-| Short paper, simple structure | Markdown + Pandoc |
-| Blog post, course notes, README | Markdown + Pandoc |
-| Thesis or dissertation | LaTeX directly (or Markdown for drafting, LaTeX for final) |
-| Paper with complex equations | LaTeX directly |
-| Paper with precise figure placement | LaTeX directly |
-| Journal provides a LaTeX template | LaTeX directly |
-| Need Word output for a journal | Markdown + Pandoc (convert to .docx) |
-| Quick first draft | Markdown + Pandoc |
+|              Scenario               |                       Recommendation                       |
+| ----------------------------------- | ---------------------------------------------------------- |
+| Short paper, simple structure       | Markdown + Pandoc                                          |
+| Blog post, course notes, README     | Markdown + Pandoc                                          |
+| Thesis or dissertation              | LaTeX directly (or Markdown for drafting, LaTeX for final) |
+| complex equations                   | LaTeX directly                                             |
+| precise figure placement            | LaTeX directly                                             |
+| numbered figures, equations, tables | LaTeX directly                                             |
+| Journal provides a LaTeX template   | LaTeX directly                                             |
+| Need Word output for a journal      | Markdown + Pandoc (convert to .docx)                       |
+| Quick first draft                   | Markdown + Pandoc                                          |
 
 Many working scientists use a hybrid: draft quickly in Markdown, then move to LaTeX when the document matures and needs fine-tuning.
 
----
-
-## 2.2 — LaTeX Document Structure (10 min)
+## Document Structure
 
 A LaTeX document has two parts: the **preamble** (setup and configuration) and the **document body** (your content).
 
-### Minimal Example
+### Minimal Example {#sec-minimal-example}
 
 ```latex
 \documentclass[12pt]{article}
@@ -527,7 +527,7 @@ of caffeine on grip strength \citep{warren2010effect}.
 **Environments** are blocks delimited by `\begin{...}` and `\end{...}`:
 `\begin{abstract}...\end{abstract}`, `\begin{figure}...\end{figure}`
 
-**Packages** extend LaTeX's capabilities. You load them in the preamble with `\usepackage{...}`. Think of them like Python libraries.
+**Packages** extend LaTeX's capabilities. You load them in the preamble with `\usepackage{...}`. It's a similar idea to Python libraries.
 
 **Comments** start with `%` and are ignored by the compiler.
 
@@ -549,9 +549,7 @@ latexmk -pdf paper.tex
 
 The multiple passes are needed because LaTeX resolves cross-references and citations iteratively. `latexmk` handles this automatically and is the recommended way to compile.
 
----
-
-## 2.3 — Equations (8 min)
+## Equations
 
 This is where LaTeX truly shines. The equation syntax is the same whether you're writing in LaTeX or in Markdown+Pandoc (because Pandoc passes math through to LaTeX).
 
@@ -563,9 +561,9 @@ Surround with single dollar signs:
 The sample mean is $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$.
 ```
 
-### Display Math (Numbered)
+### Display Math
 
-Use the `equation` environment:
+Use the `equation` environment for numbered equations:
 
 ```latex
 \begin{equation}
@@ -576,7 +574,7 @@ Use the `equation` environment:
 
 You can then refer to it with `Equation~\ref{eq:ttest}`.
 
-### Display Math (Unnumbered)
+For unnumbered equations use `\[` and `\]` brackets:
 
 ```latex
 \[
@@ -584,7 +582,7 @@ You can then refer to it with `Equation~\ref{eq:ttest}`.
 \]
 ```
 
-### Aligned Multi-Line Equations
+### Multi-Line Equations
 
 ```latex
 \begin{align}
@@ -595,31 +593,29 @@ You can then refer to it with `Equation~\ref{eq:ttest}`.
 \end{align}
 ```
 
-### Common Symbols Quick Reference
+### Quick Reference
 
-| What you want | LaTeX code | Renders as |
-|---|---|---|
-| Greek letters | `\alpha, \beta, \mu, \sigma` | α, β, μ, σ |
-| Subscript | `x_{i}` | xᵢ |
-| Superscript | `x^{2}` | x² |
-| Fraction | `\frac{a}{b}` | a/b (stacked) |
-| Square root | `\sqrt{n}` | √n |
-| Sum | `\sum_{i=1}^{n}` | Σ |
-| Integral | `\int_{0}^{\infty}` | ∫ |
-| Hat/bar | `\hat{\beta}, \bar{x}` | β̂, x̄ |
-| Approximately | `\approx` | ≈ |
-| Less/greater or equal | `\leq, \geq` | ≤, ≥ |
-| Partial derivative | `\frac{\partial f}{\partial x}` | ∂f/∂x |
+|     What you want     |           LaTeX code            |  Renders as   |
+| --------------------- | ------------------------------- | ------------- |
+| Greek letters         | `\alpha, \beta, \mu, \sigma`    | α, β, μ, σ    |
+| Subscript             | `x_{i}`                         | xᵢ            |
+| Superscript           | `x^{2}`                         | x²            |
+| Fraction              | `\frac{a}{b}`                   | a/b (stacked) |
+| Square root           | `\sqrt{n}`                      | √n            |
+| Sum                   | `\sum_{i=1}^{n}`                | Σ             |
+| Integral              | `\int_{0}^{\infty}`             | ∫             |
+| Hat/bar               | `\hat{\beta}, \bar{x}`          | β̂, x̄          |
+| Approximately         | `\approx`                       | ≈             |
+| Less/greater or equal | `\leq, \geq`                    | ≤, ≥          |
+| Partial derivative    | `\frac{\partial f}{\partial x}` | ∂f/∂x         |
 
 ### Resources
 
 - Detexify — draw a symbol and it tells you the LaTeX code: <https://detexify.kirelabs.org/>
 - LaTeX math cheat sheet: <https://katex.org/docs/supported>
-- The `amsmath` package documentation covers everything: search "amsmath documentation CTAN"
+- The `amsmath` package documentation covers everything: <https://mirrors.ctan.org/macros/latex/required/amsmath/amsldoc.pdf>
 
----
-
-## 2.4 — Figures and Tables (8 min)
+## Figures & Tables
 
 ### Figures
 
@@ -635,9 +631,9 @@ You can then refer to it with `Equation~\ref{eq:ttest}`.
 
 Key points:
 
-- `[htbp]` = placement preference: **h**ere, **t**op of page, **b**ottom, separate **p**age. LaTeX decides the best placement. (This is a feature, not a bug — LaTeX optimizes page layout globally.)
-- Use PDF or PNG for figures. PDF is preferred for vector graphics (plots), PNG for raster images (photos, microscopy).
-- Reference with `Figure~\ref{fig:grip}` — the number updates automatically.
+- `[htbp]` = placement preference: **h**ere, **t**op of page, **b**ottom, separate **p**age. LaTeX decides the best placement. (This is a feature, not a bug; LaTeX optimizes page layout globally.)
+- Use PDF or PNG for figures. PDF is preferred for vector graphics (plots), PNG for raster images (e.g. photos, microscopy).
+- Reference with `Figure~\ref{fig:grip}` ; the number updates automatically.
 - The tilde `~` prevents a line break between "Figure" and the number.
 
 ### Tables
@@ -664,8 +660,6 @@ Key points:
 - `\toprule`, `\midrule`, `\bottomrule` come from the `booktabs` package and produce clean, professional horizontal rules (no vertical lines — this is a typographic best practice).
 - Reference with `Table~\ref{tab:results}`.
 
-### Tables in Markdown+Pandoc
-
 Pandoc Markdown tables are simpler but less flexible:
 
 ```markdown
@@ -679,13 +673,21 @@ Pandoc Markdown tables are simpler but less flexible:
 
 ---
 
-## 2.5 — Breakout Exercise 2: Building a LaTeX Document (15 min)
+## Exercise 2
 
-### Option A: Using Overleaf (Recommended for First-Timers)
+In this exercise you will practice building a LaTeX document.
+
+Make sure you have completed the setup described in @sec-exercise1. 
+
+For this exercise we will be using the files in the `exercise2/` directory:
+
+### Option A: Overleaf
+
+(Recommended for First-Timers)
 
 1. Go to <https://www.overleaf.com/> and log in.
 2. Create a new blank project.
-3. Start with the minimal template from Section 2.2 above.
+3. Start with the minimal template from @sec-minimal-example above.
 4. **Complete these tasks:**
 
 **Task 1 — Equations**: Add a "Data Analysis" subsection under Methods. Include the formula for Pearson's correlation coefficient as a numbered equation:
@@ -700,23 +702,24 @@ Then reference it in the text ("... as shown in Equation 1").
 
 **Task 4 — Citation**: Add a new entry to `refs.bib` and cite it somewhere in the text. Verify it appears in the bibliography.
 
-### Option B: Local Compilation
+### Option B: Locally
 
 Same tasks, but compile locally:
 
 ```bash
-latexmk -pdf paper.tex
+latexmk -pdf exercise2.tex
 ```
 
 If you don't have `latexmk`, use:
 
 ```bash
-pdflatex paper.tex && biber paper && pdflatex paper.tex && pdflatex paper.tex
+pdflatex exercise2.tex
+biber exercise2
+pdflatex exercise2.tex
+pdflatex exercise2.tex
 ```
 
 ### Debrief
-
-After the exercise, discuss:
 
 - How did the equation-writing experience compare to Word's equation editor?
 - What happened when you changed the placement hint on your figure from `[h]` to `[t]`?
@@ -724,9 +727,9 @@ After the exercise, discuss:
 
 ---
 
-## 2.6 — Overleaf: Collaborative LaTeX in the Browser (5 min)
+## Overleaf
 
-[Overleaf](https://www.overleaf.com/) deserves special mention because it addresses the most common objection to LaTeX: collaboration.
+[Overleaf](https://www.overleaf.com/) deserves special mention because it addresses the most common objection to LaTeX: collaboration. Overleas is a collaborative LaTeX in the browser much like Google Docs.
 
 - **Real-time collaboration** like Google Docs — multiple people can edit simultaneously
 - **No local installation required** — everything compiles in the cloud
@@ -735,20 +738,13 @@ After the exercise, discuss:
 - **Track changes and comments** — familiar to Word users
 - **Free tier** is generous for individual use; paid plans add more collaborators
 
-Many universities provide institutional Overleaf subscriptions — check with your library.
+Many universities provide institutional Overleaf subscriptions. Unfortunately at present Western does not.
 
-For students in neuroscience, psychology, kinesiology, and biology who may not write LaTeX daily, Overleaf significantly lowers the barrier to entry. You get the typographic quality and structural rigor of LaTeX with a Google Docs-like editing experience.
+For students who may not write LaTeX daily, Overleaf significantly lowers the barrier to entry. You get the typographic quality and structural rigor of LaTeX with a Google Docs-like editing experience.
 
-### Other Online LaTeX Editors
+## A Workflow
 
-- [CoCalc](https://cocalc.com/) — includes LaTeX, Jupyter, and a terminal
-- [Papeeria](https://papeeria.com/) — lightweight alternative to Overleaf
-
----
-
-## 2.7 — Putting It All Together: Choosing Your Workflow (4 min)
-
-Here are three practical workflows you might adopt as a graduate student:
+Here are three practical workflows you might adopt:
 
 ### Workflow 1: Markdown + Pandoc (Simplest)
 
@@ -786,21 +782,26 @@ draft.md → pandoc → paper.tex → edit in LaTeX → paper.pdf
 
 All four approaches keep your source as plaintext. All four let you use Git. All four separate content from presentation.
 
----
 
-## 2.8 — Breakout Exercise 3: The Full Pipeline (10 min)
+## Exercise 3
 
-### Task: From Markdown Draft to Polished Outputs
+A Full Pipeline
+
+### Task
+
+From a Markdown draft to polished output documents.
 
 You are given a Markdown file representing a short paper. Your tasks:
 
 1. **Compile to PDF** with Pandoc. Inspect the output.
-2. **Compile to Word** with Pandoc. Open in Word or LibreOffice. Confirm it looks reasonable.
-3. **Compile to LaTeX** with `pandoc paper.md -o paper.tex`. Open the `.tex` file and look at what Pandoc generated.
+2. **Compile to Word** with Pandoc. Open in Word. Confirm it looks reasonable.
+3. **Compile to LaTeX** with `pandoc exercise3.md -o exercise3.tex`. Open the `.tex` file and look at what Pandoc generated.
 4. **Edit the `.tex` file**: adjust figure placement, tweak table formatting, or add a LaTeX-specific feature like `\pagebreak`.
-5. **Compile the edited `.tex` to PDF**: `latexmk -pdf paper.tex`
+5. **Compile the edited `.tex` to PDF**: `latexmk -pdf exercise3.tex`
 
-### Starter File: `exercise3.md`
+### Starter File
+
+`exercise3.md`
 
 ```markdown
 ---
@@ -873,13 +874,13 @@ Our findings replicate the threat superiority effect
 
 - You just went from one source file to three output formats in about 60 seconds of terminal commands.
 - You then had the option to "eject" to LaTeX for fine-tuning. No information was lost.
-- Ask yourself: could you do this in Word?
+- Ask yourself: what would it be like to do this in MS Word?
 
 ---
 
-## 2.9 — Quick Reference Card and Resources (2 min)
+## Quick Reference Summary
 
-### Essential Terminal Commands
+### Terminal Commands
 
 ```bash
 # Pandoc: Markdown to PDF
@@ -898,19 +899,19 @@ latexmk -pdf paper.tex
 latexmk -c
 ```
 
-### Recommended Tools
+### Tools
 
-| Tool | What it does | Link |
-|---|---|---|
-| Pandoc | Universal document converter | <https://pandoc.org/> |
-| TeX Live | Full LaTeX distribution (Linux/Windows) | <https://tug.org/texlive/> |
-| MacTeX | TeX Live for macOS | <https://tug.org/mactex/> |
-| Overleaf | Collaborative LaTeX editor in the browser | <https://www.overleaf.com/> |
-| Zotero | Reference manager (exports .bib) | <https://www.zotero.org/> |
-| Better BibTeX | Zotero plugin for clean .bib export | <https://retorque.re/zotero-better-bibtex/> |
-| Detexify | Draw a symbol → get LaTeX code | <https://detexify.kirelabs.org/> |
-| TeXstudio | Local LaTeX editor with preview | <https://www.texstudio.org/> |
-| VS Code + LaTeX Workshop | LaTeX editing in VS Code | <https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop> |
+|           Tool           |               What it does                |                                     Link                                      |
+| ------------------------ | ----------------------------------------- | ----------------------------------------------------------------------------- |
+| Pandoc                   | Universal document converter              | <https://pandoc.org/>                                                         |
+| TeX Live                 | Full LaTeX distribution (Linux/Windows)   | <https://tug.org/texlive/>                                                    |
+| MacTeX                   | TeX Live for macOS                        | <https://tug.org/mactex/>                                                     |
+| Overleaf                 | Collaborative LaTeX editor in the browser | <https://www.overleaf.com/>                                                   |
+| Zotero                   | Reference manager (exports .bib)          | <https://www.zotero.org/>                                                     |
+| Better BibTeX            | Zotero plugin for clean .bib export       | <https://retorque.re/zotero-better-bibtex/>                                   |
+| Detexify                 | Draw a symbol → get LaTeX code            | <https://detexify.kirelabs.org/>                                              |
+| TeXstudio                | Local LaTeX editor with preview           | <https://www.texstudio.org/>                                                  |
+| VS Code + LaTeX Workshop | LaTeX editing in VS Code                  | <https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop> |
 
 ### Further Learning
 
@@ -921,18 +922,3 @@ latexmk -c
 - **LaTeX StackExchange** (Q&A community): <https://tex.stackexchange.com/>
 - **BibTeX entry types and fields**: <https://www.bibtex.com/e/entry-types/>
 
----
-
-## Summary: What You Can Now Do
-
-After these two lectures, you should be able to:
-
-1. **Explain** why plaintext authoring is valuable for reproducibility, portability, and archival.
-2. **Write** a scientific document in Markdown with sections, citations, equations, and figures.
-3. **Use Pandoc** to convert that document to PDF, Word, or HTML.
-4. **Write** a LaTeX document directly, with equations, figures, tables, and a bibliography.
-5. **Use Overleaf** for collaborative LaTeX editing.
-6. **Choose** the right workflow for a given writing task.
-7. **Convert** between formats as needed — including generating a `.docx` when a journal requires it.
-
-The key takeaway: your source of truth should be **plaintext**. Everything else — PDF, Word, HTML — is an output format that you generate from that source. This gives you control, longevity, and quality.
