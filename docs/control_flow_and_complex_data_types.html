@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Here is a simple example for the purposes of demonstration. Let’s say you want to load data from 5 files, named <code>data1.txt</code>, <code>data2.txt</code>, …, <code>data5.txt</code>. Let’s say each file contains a one-dimensional array of 10 values. Let’s say you want to take the average of each data file and then report the overall mean and overall variance of those values. Here’s one way to do it:</p>
 <section id="for-loops" class="level3">
 <h3 class="anchored" data-anchor-id="for-loops">For loops</h3>
-<div id="8732aef6" class="cell" data-execution_count="1">
+<div id="2c53dda6" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">=</span> load(<span class="st">"data1.txt"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>d1m <span class="op">=</span> mean(d1)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>d2 <span class="op">=</span> load(<span class="st">"data2.txt"</span>)</span>
@@ -238,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mean=</span><span class="sc">{</span>datamean<span class="sc">:.3f}</span><span class="ss"> and variance=</span><span class="sc">{</span>datavar<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You can see that there is a lot of repetition in this code. What if we had to load data from 1000 data files? There would be a lot of copying and pasting of code chunks. This is error prone and inefficient. Instead let’s use a <strong>for loop</strong>. A for loop allows you to repeat a block of code some predetermined number of times, and includes a counter so that you know which iteration of the loop is currently running. Here is what the code above would look like if we used a <strong>for loop</strong>:</p>
-<div id="a012c30b" class="cell" data-execution_count="2">
+<div id="d8ed3dff" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nfiles <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>alldata <span class="op">=</span> np.zeros(<span class="dv">1000</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(nfiles):</span>
@@ -250,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Now all we would need to change if we have 1000 data files (or one million) is the value of our variable <code>nfiles=1000</code> or <code>nfiles=1e6</code>—nothing else in the code would have to change. This makes our code much more resilient against programming errors.</p>
 <p>You can see a for loop begins with the keyword <code>for</code> followed by a name of a variable (your choice) that will keep track of which iteration of the loop is currently running. Then for word <code>in</code> followed by a list of values to be iterated through. Next is the block of code to be repeated. Note that in Python, blocks of code like this are denoted using <strong>indentation</strong>. Python is very fussy indeed about indentation.</p>
-<div id="27e29e31" class="cell" data-execution_count="3">
+<div id="3696ef06" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">15</span>,<span class="dv">3</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"i=</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -266,7 +266,7 @@ i=13</code></pre>
 <section id="while-loops" class="level3">
 <h3 class="anchored" data-anchor-id="while-loops">While loops</h3>
 <p>There is a second sort of loop called a <strong>while loop</strong>. This kind of loop is typically used when the number of iterations is not known in advance. A while loop keeps repeating until the value of a logical expression changes from TRUE to FALSE (changes from 1 to 0). As a little demo, here is an example of a while loop that prints out successive integers starting from 1, until they exceed a critical value, in this case 10:</p>
-<div id="fad8d874" class="cell" data-execution_count="4">
+<div id="2f300f40" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="op">&lt;</span> <span class="dv">9</span>):</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"i=</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -291,7 +291,7 @@ i=8</code></pre>
 <h1>Conditionals</h1>
 <p>So far we have seen how to use loops to repeat sections of code over and over again as needed. The other major control flow mechanism in high-level languages is the <em>conditional</em>, which allows you to specify how code branches in one direction or another depending on some logical condition.</p>
 <p>So for example let’s say you ask the user to enter a number, and if the number is even you output “The number is even.” and if the number is odd you output “The number is odd.”:</p>
-<div id="565cd4c5" class="cell" data-execution_count="5">
+<div id="6e40074d" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number: "</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> ((x <span class="op">%</span> <span class="dv">2</span>) <span class="op">==</span> <span class="dv">0</span>):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is even"</span>)</span>
@@ -305,7 +305,7 @@ The number is odd</code></pre>
 <pre><code>Enter a number: 12
 The number is even</code></pre>
 <p>In general one can string together any number of <code>elif</code> branches (including none of them). For example:</p>
-<div id="a17a1235" class="cell" data-execution_count="6">
+<div id="8b5291ba" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number: "</span>))</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">10</span>):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"The number is less than 10"</span>)</span>
@@ -317,7 +317,7 @@ The number is even</code></pre>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"I don't have anything to say"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You don’t need any <code>else</code> statements at all if is suits your needs:</p>
-<div id="9832489d" class="cell" data-execution_count="7">
+<div id="15b6c0da" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">"Enter a number: "</span>))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="op">&lt;</span> <span class="dv">0</span>):</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"That is a negative number"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

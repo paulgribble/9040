@@ -5,76 +5,80 @@
     <lastmod>2026-01-05T20:57:58.587Z</lastmod>
   </url>
   <url>
-    <loc>https://gribblelab.org/9040/oop.html</loc>
-    <lastmod>2026-02-12T12:56:43.908Z</lastmod>
+    <loc>https://gribblelab.org/9040/plaintext-authoring.html</loc>
+    <lastmod>2026-02-27T16:16:23.029Z</lastmod>
   </url>
   <url>
-    <loc>https://gribblelab.org/9040/index.html</loc>
-    <lastmod>2026-02-19T20:55:22.459Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/hw/hw05.html</loc>
-    <lastmod>2026-02-09T12:52:45.031Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/hw/hw03.html</loc>
-    <lastmod>2026-01-28T12:52:29.246Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/hw/hw01.html</loc>
-    <lastmod>2026-01-12T12:58:46.950Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/graphics.html</loc>
-    <lastmod>2026-02-23T11:48:45.407Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/fundamentals.html</loc>
-    <lastmod>2026-02-05T12:48:55.009Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/digital_representation_of_data.html</loc>
-    <lastmod>2026-01-05T20:57:58.581Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/concepts.html</loc>
-    <lastmod>2026-02-09T12:53:24.428Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/code.html</loc>
-    <lastmod>2026-02-12T12:40:42.070Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/control_flow_and_complex_data_types.html</loc>
-    <lastmod>2026-01-05T20:57:58.581Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/functions_file_io.html</loc>
-    <lastmod>2026-01-05T20:57:58.585Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/git.html</loc>
-    <lastmod>2026-02-14T15:46:13.770Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/homeworks.html</loc>
-    <lastmod>2025-12-29T12:34:17.481Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/hw/hw02.html</loc>
-    <lastmod>2026-01-28T12:52:29.246Z</lastmod>
-  </url>
-  <url>
-    <loc>https://gribblelab.org/9040/hw/hw04.html</loc>
-    <lastmod>2026-02-05T00:54:05.145Z</lastmod>
+    <loc>https://gribblelab.org/9040/intro.html</loc>
+    <lastmod>2026-01-05T20:57:58.586Z</lastmod>
   </url>
   <url>
     <loc>https://gribblelab.org/9040/hw/hw06.html</loc>
     <lastmod>2026-02-19T20:56:20.471Z</lastmod>
   </url>
   <url>
-    <loc>https://gribblelab.org/9040/intro.html</loc>
-    <lastmod>2026-01-05T20:57:58.586Z</lastmod>
+    <loc>https://gribblelab.org/9040/hw/hw04.html</loc>
+    <lastmod>2026-02-05T00:54:05.145Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/hw/hw02.html</loc>
+    <lastmod>2026-01-28T12:52:29.246Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/homeworks.html</loc>
+    <lastmod>2025-12-29T12:34:17.481Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/git.html</loc>
+    <lastmod>2026-02-14T15:46:13.770Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/functions_file_io.html</loc>
+    <lastmod>2026-01-05T20:57:58.585Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/control_flow_and_complex_data_types.html</loc>
+    <lastmod>2026-01-05T20:57:58.581Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/code.html</loc>
+    <lastmod>2026-02-12T12:40:42.070Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/concepts.html</loc>
+    <lastmod>2026-02-09T12:53:24.428Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/digital_representation_of_data.html</loc>
+    <lastmod>2026-01-05T20:57:58.581Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/fundamentals.html</loc>
+    <lastmod>2026-02-05T12:48:55.009Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/graphics.html</loc>
+    <lastmod>2026-02-23T11:48:45.407Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/hw/hw01.html</loc>
+    <lastmod>2026-01-12T12:58:46.950Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/hw/hw03.html</loc>
+    <lastmod>2026-01-28T12:52:29.246Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/hw/hw05.html</loc>
+    <lastmod>2026-02-09T12:52:45.031Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/index.html</loc>
+    <lastmod>2026-02-27T16:17:03.269Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gribblelab.org/9040/oop.html</loc>
+    <lastmod>2026-02-12T12:56:43.908Z</lastmod>
   </url>
   <url>
     <loc>https://gribblelab.org/9040/setup.html</loc>

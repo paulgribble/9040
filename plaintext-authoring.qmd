@@ -1,0 +1,946 @@
+---
+title: Plaintext Authoring
+format:
+  html:
+    toc: true
+    toc-expand: 3
+---
+
+# Part 1: Why Plaintext? Markdown and Pandoc
+
+## What Is a Scientific Document
+
+What does a thesis or a paper consist of, structurally?
+
+- Sections and subsections with headings
+- Body text (paragraphs of prose)
+- Equations (inline and display)
+- Figures with captions and cross-references
+- Tables
+- Citations and a bibliography
+- Maybe an abstract, appendices, acknowledgements
+
+How much of that is formatting, and how much is content?
+
+A scientific document is structured text and data. The formatting, like fonts, margins, and line spacing, is something a template or style can handle. It's a nuisance and a time-waster to fiddle with that stuff by hand. The principle of separation of content and style is one of the main rationales of plaintext authoring.
+
+### The Word Processor Model
+
+In Microsoft Word or Google Docs, content and formatting are entangled. You write a heading by selecting text and making it bold and 14pt. You don't *declare* it as a heading in any structural sense (unless you use Styles, which almost nobody does consistently). The file format (`.docx`) is a zipped bundle of XML that is not human-readable. If Word (or Google) changes how it handles that format, or if you don't have Word, you may not be able to open your own file in 10 years. If something goes wrong with the document you may not be able to "see" what changed because formatting and other things are hidden within menus and preferences settings.
+
+### The Plaintext Model
+
+In a plaintext workflow, you write your content in a simple text file, which is something you can open in Notepad, TextEdit, VS Code, or any other text editor on any computer, today or in 50 years. You mark up structure with lightweight, readable syntax (more on this later). Then a separate tool converts that source file into a PDF, HTML page, or even a Word document.
+
+In the plaintext authoring model your document is:
+- portable
+- archivable
+- version-controllable
+- platform-independent
+
+### "But Journals Want a Word Doc"
+
+Here's the situation:
+
+1. Many journals accept LaTeX submissions directly. In physics, math, CS, and economics, LaTeX is the expected format. In neuroscience, biology, and psychology, it varies, but many journals do accept LaTeX (e.g., Nature, Nature Neuroscience, Science, PNAS, Cell, Neuron, eLife, J Neurosci, J Cogn Neurosci, all the APA journals, SAGE journals, Elsevier journals, Springer journals).
+
+2. Pandoc can convert your Markdown or LaTeX source to `.docx` in one command. You write in plaintext, and when a journal demands Word, you generate a Word file at the end.
+
+3. The real question is: where do you want to spend your time? Formatting in Word, or writing? Chasing down a reference that didn't update, or trusting BibTeX? Emailing `thesis_v3_FINAL_revised_FINAL2.docx` back and forth, or using Git?
+
+4. Your thesis is long. Word can struggle with documents over ~50 pages that contain many figures and cross-references.
+
+5. Google Docs solves the collaboration and platform-independence problems nicely, and for short, simple documents it's fine. But it shares Word's limitation of entangling content and style, it has very limited equation support, it handles citations through third-party add-ons (Zotero, Paperpile), and try reformatting a 200-page Google Doc to a different journal's style. You'll also notice that Google Docs has no real support for cross-references, numbered equations, or figure captions that update automatically.
+
+### Summary of Benefits
+
+|            Feature            | Word / Google Docs |   Plaintext (Markdown / LaTeX)    |
+| ----------------------------- | ------------------ | --------------------------------- |
+| Human-readable source         | No (binary/XML)    | Yes                               |
+| Version control (Git)         | Difficult          | Natural                           |
+| Separation of content & style | Weak (manual)      | Strong (by design)                |
+| Equation support              | Cumbersome         | Excellent (LaTeX math)            |
+| Citation management           | Plugin-dependent   | Built-in (BibTeX/CSL)             |
+| Long document stability       | Degrades           | Robust                            |
+| Collaboration                 | Good (Google Docs) | Git + plain text diffs / Overleaf |
+| Output flexibility            | One format         | PDF, HTML, Word, slides, ...      |
+| Archival / portability        | Format-dependent   | Plain text lasts forever          |
+| Typographic quality           | Acceptable         | Superior (LaTeX)                  |
+
+---
+
+## Markdown: The Simplest Plaintext Markup
+
+Markdown is a lightweight markup language created by John Gruber in 2004. It was designed to be readable as-is. The idea is that you shouldn't need to "compile" it to understand what the author meant.
+
+### Basic Syntax
+
+Here is what a Markdown document looks like:
+
+```markdown
+# My Research Paper
+
+## Introduction
+
+This is a paragraph of text. You can make words **bold** or *italic*.
+You can also include `inline code` for variable names or filenames.
+
+Here is a list of things:
+
+- First item
+- Second item
+- Third item
+
+And a numbered list:
+
+1. Do the experiment
+2. Analyze the data
+3. Write it up
+
+## Methods
+
+We recruited 24 participants (12 female, mean age = 22.3 years).
+Stimuli were presented using PsychoPy [@peirce2019psychopy].
+
+### Apparatus
+
+The display was a 24-inch monitor at 60 Hz.
+
+## Results
+
+Reaction times are shown in Table 1 and Figure 1.
+```
+
+That's it. It's just text with some punctuation conventions.
+
+### Key Markdown Elements
+
+| Element | Syntax | Renders as |
+|---|---|---|
+| Heading 1 | `# Title` | Large heading |
+| Heading 2 | `## Section` | Section heading |
+| Heading 3 | `### Subsection` | Subsection heading |
+| Bold | `**bold**` | **bold** |
+| Italic | `*italic*` | *italic* |
+| Inline code | `` `code` `` | `code` |
+| Link | `[text](url)` | clickable link |
+| Image | `![caption](path.png)` | embedded image |
+| Blockquote | `> quoted text` | indented quote |
+| Horizontal rule | `---` | divider line |
+
+### Pandoc-Flavored Markdown Extensions
+
+Pandoc (which we'll meet next) extends basic Markdown with features essential for academic writing:
+
+- **Citations**: `[@smith2020]` or `@smith2020` 
+- **Footnotes**: `^[This is a footnote.]`
+- **Math**: `$E = mc^2$` for inline, `$$\sum_{i=1}^n x_i$$` for display
+- **Figure captions**: `![Caption text](figure.png){width=80%}`
+- **Tables with captions**
+- **Cross-references** (with filters like pandoc-crossref)
+- **YAML metadata blocks** for title, author, date, and formatting options
+
+### Resources
+
+- Markdown basics: <https://www.markdownguide.org/basic-syntax/>
+- Pandoc's Markdown extensions: <https://pandoc.org/MANUAL.html#pandocs-markdown>
+- Practice: <https://www.markdowntutorial.com/> (interactive, takes ~15 minutes)
+
+---
+
+## Pandoc: The Universal Document Converter
+
+[Pandoc](https://pandoc.org/) is a command-line tool created by Professor or Philosophy (and programmer) [John MacFarlane](https://johnmacfarlane.net). It converts between dozens of document formats, e.g.:
+
+Markdown → PDF, Word, HTML, LaTeX (and back)
+
+### Installing Pandoc
+
+- macOS: `brew install pandoc` (via Homebrew) or download from <https://pandoc.org/installing.html>
+- Windows (WSL/Ubuntu): `sudo apt install pandoc`
+- Or download the latest release directly: <https://github.com/jgc/pandoc/releases> → actually: <https://github.com/jgc/pandoc/releases> — use <https://pandoc.org/installing.html>
+
+You also need a LaTeX distribution for PDF output (Pandoc uses LaTeX under the hood to make PDFs):
+
+- macOS: `brew install --cask mactex` or the smaller `brew install --cask basictex`
+- WSL/Ubuntu: `sudo apt install texlive-full` (large, ~5 GB) or `sudo apt install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra` (smaller)
+
+A lightweight alternative to a full LaTeX install is [Tectonic](https://tectonic-typesetting.github.io/), which auto-downloads only the packages it needs.
+
+### Basic Usage
+
+```bash
+# Markdown to PDF
+pandoc paper.md -o paper.pdf
+
+# Markdown to Word
+pandoc paper.md -o paper.docx
+
+# Markdown to HTML
+pandoc paper.md -o paper.html
+
+# Markdown to LaTeX (to inspect or edit the .tex source)
+pandoc paper.md -o paper.tex
+```
+
+Pandoc infers the output format from the file extension.
+
+### Adding Metadata with YAML
+
+At the top of your Markdown file, you can add a [YAML](https://en.wikipedia.org/wiki/YAML) metadata block:
+
+```yaml
+---
+title: "Reaction Time Effects of Sleep Deprivation"
+author: "Jane Smith"
+date: "2025-01-15"
+abstract: |
+  We investigated the effects of 24 hours of sleep deprivation
+  on simple and choice reaction times in 48 participants ...
+bibliography: references.bib
+csl: apa.csl
+geometry: margin=1in
+fontsize: 12pt
+---
+```
+
+This tells Pandoc the title, author, which bibliography file to use, which citation style (CSL) to apply, and basic page geometry — all without touching a GUI.
+
+### Citations with Pandoc
+
+Pandoc uses a `.bib` file (BibTeX format) for references. You can export `.bib` files from Zotero, Mendeley, Google Scholar, or write them by hand.
+
+A `.bib` entry looks like this:
+
+```bibtex
+@article{smith2020sleep,
+  author  = {Smith, Jane and Doe, John},
+  title   = {Sleep deprivation and reaction time},
+  journal = {Journal of Sleep Research},
+  year    = {2020},
+  volume  = {29},
+  pages   = {e13045},
+  doi     = {10.1111/jsr.13045}
+}
+```
+
+In your Markdown, you cite it as `[@smith2020sleep]`, and Pandoc replaces that with a formatted citation (e.g., "(Smith & Doe, 2020)") and generates the bibliography automatically.
+
+To compile with citations:
+
+```bash
+pandoc paper.md --citeproc -o paper.pdf
+```
+
+The `--citeproc` flag tells Pandoc to process citations. The citation style is controlled by the `csl:` field in your YAML header. You can download thousands of CSL styles from <https://www.zotero.org/styles> (APA, Vancouver, Harvard, Nature, IEEE, etc.).
+
+### Resources
+
+- Pandoc user's guide: <https://pandoc.org/MANUAL.html>
+- Pandoc getting started: <https://pandoc.org/getting-started.html>
+- Citation Style Language styles: <https://www.zotero.org/styles>
+- BibTeX entry types: <https://www.bibtex.com/e/entry-types/>
+
+---
+
+## Exercise 1: Your First Pandoc Markdown Document
+
+### Setup
+
+Make sure you have Pandoc and a LaTeX distribution installed (see above).
+
+Download the [files/plaintext-exercises.tgz](files/plaintext-exercises.tgz) archive and then unpack it:
+
+```{bash}
+$ curl -O https://www.gribblelab.org/9040/files/plaintext-exercises.tgz
+```
+
+```
+
+```
+
+```{bash}
+$ tar -xvzf plaintext-exercises.tgz
+```
+
+This is what it looks like:
+
+```{bash}
+$ tree -F plaintext-exercises
+```
+
+```
+plaintext-exercises/
+├── exercise1/
+│   ├── exercise1.md
+│   ├── refs.bib
+│   └── TASKS.md
+├── exercise2/
+│   ├── exercise2.tex
+│   ├── refs.bib
+│   ├── sample_figure.pdf
+│   ├── sample_figure.png
+│   └── TASKS.md
+├── exercise3/
+│   ├── exercise3.md
+│   ├── refs.bib
+│   ├── search_figure.pdf
+│   ├── search_figure.png
+│   └── TASKS.md
+├── README.md
+└── setup.sh
+```
+
+Now run the `setup.sh` script which downloads a `.csl` file that will be used for APA-style citations:
+
+```{bash}
+$ bash setup.sh
+```
+
+```
+Downloading APA 7th edition citation style...
+Copying apa.csl into exercise folders...
+  → exercise1/apa.csl
+  → exercise2/apa.csl
+  → exercise3/apa.csl
+
+Done! You're ready for the exercises.
+```
+
+For this exercise we will be using the files in the `exercise1/` directory:
+
+### Task
+
+You are given a starter file `exercise1.md` (see below). Your tasks:
+
+1. **Read** the file in a text editor. Notice how readable it is even as raw text.
+2. **Compile** it to PDF: `pandoc exercise1.md --citeproc -o exercise1.pdf`
+3. **Compile** it to Word: `pandoc exercise1.md --citeproc -o exercise1.docx`
+4. Open both outputs. Compare them to the source.
+5. **Add the following to the document:**
+   - A new subsection under Methods called `### Data Analysis`
+   - A sentence describing the analysis, citing a new reference (add it to the `.bib` file)
+   - An inline equation: the formula for a t-statistic, $t = \frac{\bar{X} - \mu}{s / \sqrt{n}}$
+   - Recompile to PDF and verify your additions appear correctly.
+
+**Hint**: writing equations in LaTeX can be strange at first, they have a syntax/grammar all their own, but once you get the hang of it, it's actually pretty easy and very efficient. Here is some documentation: [LaTeX Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics).
+
+### Starter File: `exercise1.md`
+
+```markdown
+---
+title: "Effects of Caffeine on Grip Strength"
+author: "A. Student"
+date: "2025-02-01"
+bibliography: refs.bib
+csl: apa.csl
+geometry: margin=1in
+fontsize: 12pt
+---
+
+# Introduction
+
+Caffeine is the most widely consumed psychoactive substance in the
+world [@fredholm1999actions]. Its effects on cognitive performance
+are well-documented, but effects on motor performance are less clear.
+
+# Methods
+
+## Participants
+
+We recruited 30 healthy adults (15 female, mean age = 23.1 years,
+SD = 3.4) from the university community.
+
+## Procedure
+
+Participants completed a maximal grip strength test using a hand
+dynamometer before and 45 minutes after consuming either 200 mg
+caffeine or placebo in a double-blind design.
+
+# Results
+
+Mean grip strength increased by 2.3 N (SD = 4.1) in the caffeine
+condition and 0.4 N (SD = 3.8) in the placebo condition.
+
+# Discussion
+
+These preliminary results suggest a small positive effect of caffeine
+on grip strength, consistent with @warren2010effect.
+
+# References
+```
+
+### Starter File: `refs.bib`
+
+```bibtex
+@article{fredholm1999actions,
+  author  = {Fredholm, Bertil B and Bättig, Karl and Holmén, Janet
+             and Nehlig, Astrid and Zvartau, Edwin E},
+  title   = {Actions of caffeine in the brain with special reference
+             to factors that contribute to its widespread use},
+  journal = {Pharmacological Reviews},
+  year    = {1999},
+  volume  = {51},
+  number  = {1},
+  pages   = {83--133}
+}
+
+@article{warren2010effect,
+  author  = {Warren, Gregory L and Park, Nicole D and Maresca,
+             Robert D and McKibans, Kimberly I and Millard-Stafford,
+             Mindy L},
+  title   = {Effect of caffeine ingestion on muscular strength and
+             endurance},
+  journal = {Medicine and Science in Sports and Exercise},
+  year    = {2010},
+  volume  = {42},
+  number  = {7},
+  pages   = {1375--1387}
+}
+```
+
+### Debrief
+
+- How does the PDF compare to the Word output?
+- How easy is it to add a citation compared to using a Word plugin?
+- What happens when you make a typo in the citation key?
+
+---
+
+## Summary
+
+Today we learned:
+
+- Why plaintext is a compelling choice for scientific writing
+- The basics of Markdown syntax
+- How Pandoc converts Markdown to PDF, Word, and other formats
+- How to handle citations with BibTeX and CSL
+
+In the next section we will dive into LaTeX, which is the typesetting system that pandoc uses under the hood. We will look at how to write LaTeX directly (useful for when you need fine-grained control), how to handle equations, figures, tables, and cross-references, and how to use Overleaf for collaborative LaTeX editing. Many people write LaTeX directly, bypassing Markdown and Pandoc altogether. Historical note: I wrote my very first journal article in LaTeX back in 1994, and today it is still viewable, editable, and compiles to pdf, using free and open source tools.
+
+For next time:
+
+1. Verify that your LaTeX distribution is working: try `pdflatex --version` in your terminal.
+2. Create a free account on [Overleaf](https://www.overleaf.com/), we will use it for an exercise.
+3. (Optional) Work through the interactive Markdown tutorial: <https://www.markdowntutorial.com/>
+
+---
+
+# Part 2: LaTeX for Scientific Documents (60 minutes)
+
+## 2.1 — What Is LaTeX and Why Does It Exist? (8 min)
+
+LaTeX (pronounced "LAH-tek" or "LAY-tek") is a typesetting system created by Leslie Lamport in 1984, built on top of Donald Knuth's TeX (1978). Knuth, a computer scientist, created TeX because he was unhappy with the typographic quality of his textbooks. LaTeX adds a layer of convenience on top of TeX.
+
+When you compile a LaTeX document, the system makes thousands of micro-decisions about line breaks, hyphenation, spacing, and page layout. The result is typographically excellent output — the kind of polished, professional look you see in textbooks and journal articles.
+
+### How Markdown + Pandoc Relates to LaTeX
+
+When you ran `pandoc paper.md -o paper.pdf` in Lecture 1, Pandoc actually:
+
+1. Converted your Markdown to LaTeX behind the scenes
+2. Called `pdflatex` (or `xelatex`) to compile the LaTeX to PDF
+
+So you've already been using LaTeX — you just had Pandoc as a middleman. Learning LaTeX directly gives you much finer control when you need it.
+
+### When to Use Markdown+Pandoc vs. LaTeX Directly
+
+| Scenario | Recommendation |
+|---|---|
+| Short paper, simple structure | Markdown + Pandoc |
+| Blog post, course notes, README | Markdown + Pandoc |
+| Thesis or dissertation | LaTeX directly (or Markdown for drafting, LaTeX for final) |
+| Paper with complex equations | LaTeX directly |
+| Paper with precise figure placement | LaTeX directly |
+| Journal provides a LaTeX template | LaTeX directly |
+| Need Word output for a journal | Markdown + Pandoc (convert to .docx) |
+| Quick first draft | Markdown + Pandoc |
+
+Many working scientists use a hybrid: draft quickly in Markdown, then move to LaTeX when the document matures and needs fine-tuning.
+
+---
+
+## 2.2 — LaTeX Document Structure (10 min)
+
+A LaTeX document has two parts: the **preamble** (setup and configuration) and the **document body** (your content).
+
+### Minimal Example
+
+```latex
+\documentclass[12pt]{article}
+
+% --- Preamble: load packages and configure ---
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}          % better equation support
+\usepackage{graphicx}         % for including figures
+\usepackage{booktabs}         % for professional tables
+\usepackage[
+  backend=biber,
+  style=apa,
+  natbib=true
+]{biblatex}                   % citation management
+\addbibresource{refs.bib}
+
+\title{Effects of Caffeine on Grip Strength}
+\author{A.\ Student}
+\date{February 2025}
+
+% --- Document body ---
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We investigated the effect of 200\,mg caffeine on maximal
+grip strength in a double-blind placebo-controlled design.
+\end{abstract}
+
+\section{Introduction}
+
+Caffeine is the most widely consumed psychoactive substance
+in the world \citep{fredholm1999actions}. Its effects on
+cognitive performance are well-documented, but effects on
+motor performance are less clear.
+
+\section{Methods}
+
+\subsection{Participants}
+
+We recruited 30 healthy adults (15 female, mean age = 23.1
+years, SD = 3.4) from the university community.
+
+\subsection{Procedure}
+
+Participants completed a maximal grip strength test before
+and 45 minutes after consuming caffeine or placebo.
+
+\section{Results}
+
+The results are presented in Table~\ref{tab:results} and
+Figure~\ref{fig:grip}.
+
+\section{Discussion}
+
+These preliminary results suggest a small positive effect
+of caffeine on grip strength \citep{warren2010effect}.
+
+\printbibliography
+
+\end{document}
+```
+
+### Key Concepts
+
+**Commands** start with a backslash: `\section{...}`, `\textbf{...}`, `\citep{...}`
+
+**Environments** are blocks delimited by `\begin{...}` and `\end{...}`:
+`\begin{abstract}...\end{abstract}`, `\begin{figure}...\end{figure}`
+
+**Packages** extend LaTeX's capabilities. You load them in the preamble with `\usepackage{...}`. Think of them like Python libraries.
+
+**Comments** start with `%` and are ignored by the compiler.
+
+### Compiling
+
+```bash
+# Basic compilation
+pdflatex paper.tex
+
+# With bibliography (requires multiple passes)
+pdflatex paper.tex
+biber paper
+pdflatex paper.tex
+pdflatex paper.tex
+
+# Or use latexmk, which automates the multiple passes:
+latexmk -pdf paper.tex
+```
+
+The multiple passes are needed because LaTeX resolves cross-references and citations iteratively. `latexmk` handles this automatically and is the recommended way to compile.
+
+---
+
+## 2.3 — Equations (8 min)
+
+This is where LaTeX truly shines. The equation syntax is the same whether you're writing in LaTeX or in Markdown+Pandoc (because Pandoc passes math through to LaTeX).
+
+### Inline Math
+
+Surround with single dollar signs:
+
+```latex
+The sample mean is $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$.
+```
+
+### Display Math (Numbered)
+
+Use the `equation` environment:
+
+```latex
+\begin{equation}
+  t = \frac{\bar{X} - \mu_0}{s / \sqrt{n}}
+  \label{eq:ttest}
+\end{equation}
+```
+
+You can then refer to it with `Equation~\ref{eq:ttest}`.
+
+### Display Math (Unnumbered)
+
+```latex
+\[
+  \chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+\]
+```
+
+### Aligned Multi-Line Equations
+
+```latex
+\begin{align}
+  \text{SS}_{\text{total}} &= \text{SS}_{\text{between}}
+                              + \text{SS}_{\text{within}} \\
+  F &= \frac{\text{MS}_{\text{between}}}
+             {\text{MS}_{\text{within}}}
+\end{align}
+```
+
+### Common Symbols Quick Reference
+
+| What you want | LaTeX code | Renders as |
+|---|---|---|
+| Greek letters | `\alpha, \beta, \mu, \sigma` | α, β, μ, σ |
+| Subscript | `x_{i}` | xᵢ |
+| Superscript | `x^{2}` | x² |
+| Fraction | `\frac{a}{b}` | a/b (stacked) |
+| Square root | `\sqrt{n}` | √n |
+| Sum | `\sum_{i=1}^{n}` | Σ |
+| Integral | `\int_{0}^{\infty}` | ∫ |
+| Hat/bar | `\hat{\beta}, \bar{x}` | β̂, x̄ |
+| Approximately | `\approx` | ≈ |
+| Less/greater or equal | `\leq, \geq` | ≤, ≥ |
+| Partial derivative | `\frac{\partial f}{\partial x}` | ∂f/∂x |
+
+### Resources
+
+- Detexify — draw a symbol and it tells you the LaTeX code: <https://detexify.kirelabs.org/>
+- LaTeX math cheat sheet: <https://katex.org/docs/supported>
+- The `amsmath` package documentation covers everything: search "amsmath documentation CTAN"
+
+---
+
+## 2.4 — Figures and Tables (8 min)
+
+### Figures
+
+```latex
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/grip_strength.pdf}
+  \caption{Mean grip strength (N) by condition. Error bars show
+           $\pm 1$ SE.}
+  \label{fig:grip}
+\end{figure}
+```
+
+Key points:
+
+- `[htbp]` = placement preference: **h**ere, **t**op of page, **b**ottom, separate **p**age. LaTeX decides the best placement. (This is a feature, not a bug — LaTeX optimizes page layout globally.)
+- Use PDF or PNG for figures. PDF is preferred for vector graphics (plots), PNG for raster images (photos, microscopy).
+- Reference with `Figure~\ref{fig:grip}` — the number updates automatically.
+- The tilde `~` prevents a line break between "Figure" and the number.
+
+### Tables
+
+```latex
+\begin{table}[htbp]
+  \centering
+  \caption{Mean grip strength (N) by condition and time point.}
+  \label{tab:results}
+  \begin{tabular}{lcc}
+    \toprule
+    Condition & Pre & Post \\
+    \midrule
+    Caffeine  & 38.2 (5.1) & 40.5 (5.3) \\
+    Placebo   & 37.9 (4.8) & 38.3 (5.0) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+```
+
+Key points:
+
+- `{lcc}` = three columns: left-aligned, center, center.
+- `\toprule`, `\midrule`, `\bottomrule` come from the `booktabs` package and produce clean, professional horizontal rules (no vertical lines — this is a typographic best practice).
+- Reference with `Table~\ref{tab:results}`.
+
+### Tables in Markdown+Pandoc
+
+Pandoc Markdown tables are simpler but less flexible:
+
+```markdown
+| Condition | Pre        | Post       |
+|-----------|------------|------------|
+| Caffeine  | 38.2 (5.1) | 40.5 (5.3) |
+| Placebo   | 37.9 (4.8) | 38.3 (5.0) |
+
+: Mean grip strength (N) by condition and time point. {#tbl:results}
+```
+
+---
+
+## 2.5 — Breakout Exercise 2: Building a LaTeX Document (15 min)
+
+### Option A: Using Overleaf (Recommended for First-Timers)
+
+1. Go to <https://www.overleaf.com/> and log in.
+2. Create a new blank project.
+3. Start with the minimal template from Section 2.2 above.
+4. **Complete these tasks:**
+
+**Task 1 — Equations**: Add a "Data Analysis" subsection under Methods. Include the formula for Pearson's correlation coefficient as a numbered equation:
+
+$$r = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2 \sum_{i=1}^n (y_i - \bar{y})^2}}$$
+
+Then reference it in the text ("... as shown in Equation 1").
+
+**Task 2 — Table**: Add a Results table with three columns (Measure, Caffeine, Placebo) and at least two rows. Use `booktabs` rules. Add a caption and label, and reference the table in the text.
+
+**Task 3 — Figure**: Download any plot image (or use a placeholder) and include it as a figure with a caption. Reference it in the text. (On Overleaf, use the upload button to add an image file.)
+
+**Task 4 — Citation**: Add a new entry to `refs.bib` and cite it somewhere in the text. Verify it appears in the bibliography.
+
+### Option B: Local Compilation
+
+Same tasks, but compile locally:
+
+```bash
+latexmk -pdf paper.tex
+```
+
+If you don't have `latexmk`, use:
+
+```bash
+pdflatex paper.tex && biber paper && pdflatex paper.tex && pdflatex paper.tex
+```
+
+### Debrief
+
+After the exercise, discuss:
+
+- How did the equation-writing experience compare to Word's equation editor?
+- What happened when you changed the placement hint on your figure from `[h]` to `[t]`?
+- How did adding a citation and recompiling feel compared to managing references in a GUI?
+
+---
+
+## 2.6 — Overleaf: Collaborative LaTeX in the Browser (5 min)
+
+[Overleaf](https://www.overleaf.com/) deserves special mention because it addresses the most common objection to LaTeX: collaboration.
+
+- **Real-time collaboration** like Google Docs — multiple people can edit simultaneously
+- **No local installation required** — everything compiles in the cloud
+- **Rich library of templates** for journals, theses, CVs, posters: <https://www.overleaf.com/latex/templates>
+- **Git integration** on paid plans — you can push/pull your Overleaf project to a Git repo
+- **Track changes and comments** — familiar to Word users
+- **Free tier** is generous for individual use; paid plans add more collaborators
+
+Many universities provide institutional Overleaf subscriptions — check with your library.
+
+For students in neuroscience, psychology, kinesiology, and biology who may not write LaTeX daily, Overleaf significantly lowers the barrier to entry. You get the typographic quality and structural rigor of LaTeX with a Google Docs-like editing experience.
+
+### Other Online LaTeX Editors
+
+- [CoCalc](https://cocalc.com/) — includes LaTeX, Jupyter, and a terminal
+- [Papeeria](https://papeeria.com/) — lightweight alternative to Overleaf
+
+---
+
+## 2.7 — Putting It All Together: Choosing Your Workflow (4 min)
+
+Here are three practical workflows you might adopt as a graduate student:
+
+### Workflow 1: Markdown + Pandoc (Simplest)
+
+Best for: drafts, short papers, course assignments, people who want minimal setup.
+
+```
+paper.md + refs.bib → pandoc → paper.pdf or paper.docx
+```
+
+### Workflow 2: LaTeX on Overleaf (Collaborative)
+
+Best for: thesis chapters, papers with co-authors, when a journal provides a LaTeX template.
+
+```
+paper.tex + refs.bib → Overleaf (cloud) → paper.pdf
+```
+
+### Workflow 3: LaTeX Locally with Git (Maximum Control)
+
+Best for: advanced users, large projects, integration with data analysis pipelines.
+
+```
+paper.tex + refs.bib → latexmk → paper.pdf
+         ↑
+    version controlled with Git
+```
+
+### Workflow 4: Hybrid (Common in Practice)
+
+Draft in Markdown (fast, low friction), then convert to LaTeX when the paper matures and you need fine-tuned formatting or a journal template.
+
+```
+draft.md → pandoc → paper.tex → edit in LaTeX → paper.pdf
+```
+
+All four approaches keep your source as plaintext. All four let you use Git. All four separate content from presentation.
+
+---
+
+## 2.8 — Breakout Exercise 3: The Full Pipeline (10 min)
+
+### Task: From Markdown Draft to Polished Outputs
+
+You are given a Markdown file representing a short paper. Your tasks:
+
+1. **Compile to PDF** with Pandoc. Inspect the output.
+2. **Compile to Word** with Pandoc. Open in Word or LibreOffice. Confirm it looks reasonable.
+3. **Compile to LaTeX** with `pandoc paper.md -o paper.tex`. Open the `.tex` file and look at what Pandoc generated.
+4. **Edit the `.tex` file**: adjust figure placement, tweak table formatting, or add a LaTeX-specific feature like `\pagebreak`.
+5. **Compile the edited `.tex` to PDF**: `latexmk -pdf paper.tex`
+
+### Starter File: `exercise3.md`
+
+```markdown
+---
+title: "Visual Search Asymmetry in Threat Detection"
+author: "A. Student"
+date: "2025-02-15"
+abstract: |
+  We tested whether threatening stimuli (snakes) are detected
+  faster than non-threatening stimuli (flowers) in a visual
+  search task. Results supported the threat superiority effect.
+bibliography: refs3.bib
+csl: apa.csl
+geometry: margin=1in
+fontsize: 12pt
+---
+
+# Introduction
+
+The threat superiority effect refers to the faster detection of
+threatening stimuli in visual search [@ohman2001fears]. This has
+been demonstrated for snakes [@ohman2001fears], spiders
+[@rakison2009does], and angry faces [@fox2000facial].
+
+# Methods
+
+## Participants
+
+Forty undergraduate students (28 female, mean age = 19.8,
+SD = 1.2) participated for course credit.
+
+## Stimuli and Design
+
+Search displays contained 8 items arranged in a circle. On
+target-present trials, one item was the target (snake or flower)
+among 7 distractors (mushrooms). We used a 2 (target: snake,
+flower) × 2 (target presence: present, absent) design.
+
+## Data Analysis
+
+Reaction times shorter than 200 ms or longer than 2000 ms were
+excluded (1.8% of trials). We computed mean RTs for correct
+responses and analyzed them with a repeated-measures ANOVA:
+
+$$F = \frac{MS_{between}}{MS_{within}}$$
+
+# Results
+
+Mean reaction times are shown in Table 1.
+
+| Target  | Present     | Absent      |
+|---------|-------------|-------------|
+| Snake   | 612 (89)    | 831 (102)   |
+| Flower  | 698 (94)    | 854 (110)   |
+
+: Mean reaction times in ms (SD in parentheses). {#tbl:rts}
+
+There was a significant main effect of target type,
+$F(1, 39) = 14.2$, $p < .001$, $\eta_p^2 = .27$.
+
+# Discussion
+
+Our findings replicate the threat superiority effect
+[@ohman2001fears]. Snake targets were detected approximately
+86 ms faster than flower targets.
+
+# References
+```
+
+### Debrief
+
+- You just went from one source file to three output formats in about 60 seconds of terminal commands.
+- You then had the option to "eject" to LaTeX for fine-tuning. No information was lost.
+- Ask yourself: could you do this in Word?
+
+---
+
+## 2.9 — Quick Reference Card and Resources (2 min)
+
+### Essential Terminal Commands
+
+```bash
+# Pandoc: Markdown to PDF
+pandoc paper.md --citeproc -o paper.pdf
+
+# Pandoc: Markdown to Word
+pandoc paper.md --citeproc -o paper.docx
+
+# Pandoc: Markdown to LaTeX
+pandoc paper.md -s -o paper.tex
+
+# LaTeX: compile with automatic re-runs
+latexmk -pdf paper.tex
+
+# LaTeX: clean up auxiliary files
+latexmk -c
+```
+
+### Recommended Tools
+
+| Tool | What it does | Link |
+|---|---|---|
+| Pandoc | Universal document converter | <https://pandoc.org/> |
+| TeX Live | Full LaTeX distribution (Linux/Windows) | <https://tug.org/texlive/> |
+| MacTeX | TeX Live for macOS | <https://tug.org/mactex/> |
+| Overleaf | Collaborative LaTeX editor in the browser | <https://www.overleaf.com/> |
+| Zotero | Reference manager (exports .bib) | <https://www.zotero.org/> |
+| Better BibTeX | Zotero plugin for clean .bib export | <https://retorque.re/zotero-better-bibtex/> |
+| Detexify | Draw a symbol → get LaTeX code | <https://detexify.kirelabs.org/> |
+| TeXstudio | Local LaTeX editor with preview | <https://www.texstudio.org/> |
+| VS Code + LaTeX Workshop | LaTeX editing in VS Code | <https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop> |
+
+### Further Learning
+
+- **Overleaf's LaTeX tutorials** (excellent for beginners): <https://www.overleaf.com/learn>
+- **The Not So Short Introduction to LaTeX2e** (classic free guide): search CTAN for "lshort"
+- **LaTeX Wikibook**: <https://en.wikibooks.org/wiki/LaTeX>
+- **Pandoc User's Guide**: <https://pandoc.org/MANUAL.html>
+- **LaTeX StackExchange** (Q&A community): <https://tex.stackexchange.com/>
+- **BibTeX entry types and fields**: <https://www.bibtex.com/e/entry-types/>
+
+---
+
+## Summary: What You Can Now Do
+
+After these two lectures, you should be able to:
+
+1. **Explain** why plaintext authoring is valuable for reproducibility, portability, and archival.
+2. **Write** a scientific document in Markdown with sections, citations, equations, and figures.
+3. **Use Pandoc** to convert that document to PDF, Word, or HTML.
+4. **Write** a LaTeX document directly, with equations, figures, tables, and a bibliography.
+5. **Use Overleaf** for collaborative LaTeX editing.
+6. **Choose** the right workflow for a given writing task.
+7. **Convert** between formats as needed — including generating a `.docx` when a journal requires it.
+
+The key takeaway: your source of truth should be **plaintext**. Everything else — PDF, Word, HTML — is an output format that you generate from that source. This gives you control, longevity, and quality.

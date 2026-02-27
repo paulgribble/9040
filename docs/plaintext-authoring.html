@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Plaintext Authoring – Psychology 9040B FW25</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/hmc_t_square.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c403d798273eef921068aca0a4124571.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta http-equiv="cache-control" content="no-cache"> 
+<meta http-equiv="expires" content="0"> 
+<meta http-equiv="pragma" content="no-cache">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo light-content">
+    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Psychology 9040B FW25</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.pdf"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://westernu.brightspace.com/d2l/home/163612"> 
+<span class="menu-text">OWL/Brightspace</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gribblelab.org/coding"> 
+<span class="menu-text">Exercises</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#part-1-why-plaintext-markdown-and-pandoc" id="toc-part-1-why-plaintext-markdown-and-pandoc" class="nav-link active" data-scroll-target="#part-1-why-plaintext-markdown-and-pandoc">Part 1: Why Plaintext? Markdown and Pandoc</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-scientific-document" id="toc-what-is-a-scientific-document" class="nav-link" data-scroll-target="#what-is-a-scientific-document">What Is a Scientific Document</a>
+  <ul class="collapse">
+  <li><a href="#the-word-processor-model" id="toc-the-word-processor-model" class="nav-link" data-scroll-target="#the-word-processor-model">The Word Processor Model</a></li>
+  <li><a href="#the-plaintext-model" id="toc-the-plaintext-model" class="nav-link" data-scroll-target="#the-plaintext-model">The Plaintext Model</a></li>
+  <li><a href="#but-journals-want-a-word-doc" id="toc-but-journals-want-a-word-doc" class="nav-link" data-scroll-target="#but-journals-want-a-word-doc">“But Journals Want a Word Doc”</a></li>
+  <li><a href="#summary-of-benefits" id="toc-summary-of-benefits" class="nav-link" data-scroll-target="#summary-of-benefits">Summary of Benefits</a></li>
+  </ul></li>
+  <li><a href="#markdown-the-simplest-plaintext-markup" id="toc-markdown-the-simplest-plaintext-markup" class="nav-link" data-scroll-target="#markdown-the-simplest-plaintext-markup">Markdown: The Simplest Plaintext Markup</a>
+  <ul class="collapse">
+  <li><a href="#basic-syntax" id="toc-basic-syntax" class="nav-link" data-scroll-target="#basic-syntax">Basic Syntax</a></li>
+  <li><a href="#key-markdown-elements" id="toc-key-markdown-elements" class="nav-link" data-scroll-target="#key-markdown-elements">Key Markdown Elements</a></li>
+  <li><a href="#pandoc-flavored-markdown-extensions" id="toc-pandoc-flavored-markdown-extensions" class="nav-link" data-scroll-target="#pandoc-flavored-markdown-extensions">Pandoc-Flavored Markdown Extensions</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul></li>
+  <li><a href="#pandoc-the-universal-document-converter" id="toc-pandoc-the-universal-document-converter" class="nav-link" data-scroll-target="#pandoc-the-universal-document-converter">Pandoc: The Universal Document Converter</a>
+  <ul class="collapse">
+  <li><a href="#installing-pandoc" id="toc-installing-pandoc" class="nav-link" data-scroll-target="#installing-pandoc">Installing Pandoc</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link" data-scroll-target="#basic-usage">Basic Usage</a></li>
+  <li><a href="#adding-metadata-with-yaml" id="toc-adding-metadata-with-yaml" class="nav-link" data-scroll-target="#adding-metadata-with-yaml">Adding Metadata with YAML</a></li>
+  <li><a href="#citations-with-pandoc" id="toc-citations-with-pandoc" class="nav-link" data-scroll-target="#citations-with-pandoc">Citations with Pandoc</a></li>
+  <li><a href="#resources-1" id="toc-resources-1" class="nav-link" data-scroll-target="#resources-1">Resources</a></li>
+  </ul></li>
+  <li><a href="#exercise-1-your-first-pandoc-markdown-document" id="toc-exercise-1-your-first-pandoc-markdown-document" class="nav-link" data-scroll-target="#exercise-1-your-first-pandoc-markdown-document">Exercise 1: Your First Pandoc Markdown Document</a>
+  <ul class="collapse">
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#task" id="toc-task" class="nav-link" data-scroll-target="#task">Task</a></li>
+  <li><a href="#starter-file-exercise1.md" id="toc-starter-file-exercise1.md" class="nav-link" data-scroll-target="#starter-file-exercise1.md">Starter File: <code>exercise1.md</code></a></li>
+  <li><a href="#starter-file-refs.bib" id="toc-starter-file-refs.bib" class="nav-link" data-scroll-target="#starter-file-refs.bib">Starter File: <code>refs.bib</code></a></li>
+  <li><a href="#debrief" id="toc-debrief" class="nav-link" data-scroll-target="#debrief">Debrief</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul></li>
+  <li><a href="#part-2-latex-for-scientific-documents-60-minutes" id="toc-part-2-latex-for-scientific-documents-60-minutes" class="nav-link" data-scroll-target="#part-2-latex-for-scientific-documents-60-minutes">Part 2: LaTeX for Scientific Documents (60 minutes)</a>
+  <ul class="collapse">
+  <li><a href="#what-is-latex-and-why-does-it-exist-8-min" id="toc-what-is-latex-and-why-does-it-exist-8-min" class="nav-link" data-scroll-target="#what-is-latex-and-why-does-it-exist-8-min">2.1 — What Is LaTeX and Why Does It Exist? (8 min)</a>
+  <ul class="collapse">
+  <li><a href="#how-markdown-pandoc-relates-to-latex" id="toc-how-markdown-pandoc-relates-to-latex" class="nav-link" data-scroll-target="#how-markdown-pandoc-relates-to-latex">How Markdown + Pandoc Relates to LaTeX</a></li>
+  <li><a href="#when-to-use-markdownpandoc-vs.-latex-directly" id="toc-when-to-use-markdownpandoc-vs.-latex-directly" class="nav-link" data-scroll-target="#when-to-use-markdownpandoc-vs.-latex-directly">When to Use Markdown+Pandoc vs.&nbsp;LaTeX Directly</a></li>
+  </ul></li>
+  <li><a href="#latex-document-structure-10-min" id="toc-latex-document-structure-10-min" class="nav-link" data-scroll-target="#latex-document-structure-10-min">2.2 — LaTeX Document Structure (10 min)</a>
+  <ul class="collapse">
+  <li><a href="#minimal-example" id="toc-minimal-example" class="nav-link" data-scroll-target="#minimal-example">Minimal Example</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts</a></li>
+  <li><a href="#compiling" id="toc-compiling" class="nav-link" data-scroll-target="#compiling">Compiling</a></li>
+  </ul></li>
+  <li><a href="#equations-8-min" id="toc-equations-8-min" class="nav-link" data-scroll-target="#equations-8-min">2.3 — Equations (8 min)</a>
+  <ul class="collapse">
+  <li><a href="#inline-math" id="toc-inline-math" class="nav-link" data-scroll-target="#inline-math">Inline Math</a></li>
+  <li><a href="#display-math-numbered" id="toc-display-math-numbered" class="nav-link" data-scroll-target="#display-math-numbered">Display Math (Numbered)</a></li>
+  <li><a href="#display-math-unnumbered" id="toc-display-math-unnumbered" class="nav-link" data-scroll-target="#display-math-unnumbered">Display Math (Unnumbered)</a></li>
+  <li><a href="#aligned-multi-line-equations" id="toc-aligned-multi-line-equations" class="nav-link" data-scroll-target="#aligned-multi-line-equations">Aligned Multi-Line Equations</a></li>
+  <li><a href="#common-symbols-quick-reference" id="toc-common-symbols-quick-reference" class="nav-link" data-scroll-target="#common-symbols-quick-reference">Common Symbols Quick Reference</a></li>
+  <li><a href="#resources-2" id="toc-resources-2" class="nav-link" data-scroll-target="#resources-2">Resources</a></li>
+  </ul></li>
+  <li><a href="#figures-and-tables-8-min" id="toc-figures-and-tables-8-min" class="nav-link" data-scroll-target="#figures-and-tables-8-min">2.4 — Figures and Tables (8 min)</a>
+  <ul class="collapse">
+  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures">Figures</a></li>
+  <li><a href="#tables" id="toc-tables" class="nav-link" data-scroll-target="#tables">Tables</a></li>
+  <li><a href="#tables-in-markdownpandoc" id="toc-tables-in-markdownpandoc" class="nav-link" data-scroll-target="#tables-in-markdownpandoc">Tables in Markdown+Pandoc</a></li>
+  </ul></li>
+  <li><a href="#breakout-exercise-2-building-a-latex-document-15-min" id="toc-breakout-exercise-2-building-a-latex-document-15-min" class="nav-link" data-scroll-target="#breakout-exercise-2-building-a-latex-document-15-min">2.5 — Breakout Exercise 2: Building a LaTeX Document (15 min)</a>
+  <ul class="collapse">
+  <li><a href="#option-a-using-overleaf-recommended-for-first-timers" id="toc-option-a-using-overleaf-recommended-for-first-timers" class="nav-link" data-scroll-target="#option-a-using-overleaf-recommended-for-first-timers">Option A: Using Overleaf (Recommended for First-Timers)</a></li>
+  <li><a href="#option-b-local-compilation" id="toc-option-b-local-compilation" class="nav-link" data-scroll-target="#option-b-local-compilation">Option B: Local Compilation</a></li>
+  <li><a href="#debrief-1" id="toc-debrief-1" class="nav-link" data-scroll-target="#debrief-1">Debrief</a></li>
+  </ul></li>
+  <li><a href="#overleaf-collaborative-latex-in-the-browser-5-min" id="toc-overleaf-collaborative-latex-in-the-browser-5-min" class="nav-link" data-scroll-target="#overleaf-collaborative-latex-in-the-browser-5-min">2.6 — Overleaf: Collaborative LaTeX in the Browser (5 min)</a>
+  <ul class="collapse">
+  <li><a href="#other-online-latex-editors" id="toc-other-online-latex-editors" class="nav-link" data-scroll-target="#other-online-latex-editors">Other Online LaTeX Editors</a></li>
+  </ul></li>
+  <li><a href="#putting-it-all-together-choosing-your-workflow-4-min" id="toc-putting-it-all-together-choosing-your-workflow-4-min" class="nav-link" data-scroll-target="#putting-it-all-together-choosing-your-workflow-4-min">2.7 — Putting It All Together: Choosing Your Workflow (4 min)</a>
+  <ul class="collapse">
+  <li><a href="#workflow-1-markdown-pandoc-simplest" id="toc-workflow-1-markdown-pandoc-simplest" class="nav-link" data-scroll-target="#workflow-1-markdown-pandoc-simplest">Workflow 1: Markdown + Pandoc (Simplest)</a></li>
+  <li><a href="#workflow-2-latex-on-overleaf-collaborative" id="toc-workflow-2-latex-on-overleaf-collaborative" class="nav-link" data-scroll-target="#workflow-2-latex-on-overleaf-collaborative">Workflow 2: LaTeX on Overleaf (Collaborative)</a></li>
+  <li><a href="#workflow-3-latex-locally-with-git-maximum-control" id="toc-workflow-3-latex-locally-with-git-maximum-control" class="nav-link" data-scroll-target="#workflow-3-latex-locally-with-git-maximum-control">Workflow 3: LaTeX Locally with Git (Maximum Control)</a></li>
+  <li><a href="#workflow-4-hybrid-common-in-practice" id="toc-workflow-4-hybrid-common-in-practice" class="nav-link" data-scroll-target="#workflow-4-hybrid-common-in-practice">Workflow 4: Hybrid (Common in Practice)</a></li>
+  </ul></li>
+  <li><a href="#breakout-exercise-3-the-full-pipeline-10-min" id="toc-breakout-exercise-3-the-full-pipeline-10-min" class="nav-link" data-scroll-target="#breakout-exercise-3-the-full-pipeline-10-min">2.8 — Breakout Exercise 3: The Full Pipeline (10 min)</a>
+  <ul class="collapse">
+  <li><a href="#task-from-markdown-draft-to-polished-outputs" id="toc-task-from-markdown-draft-to-polished-outputs" class="nav-link" data-scroll-target="#task-from-markdown-draft-to-polished-outputs">Task: From Markdown Draft to Polished Outputs</a></li>
+  <li><a href="#starter-file-exercise3.md" id="toc-starter-file-exercise3.md" class="nav-link" data-scroll-target="#starter-file-exercise3.md">Starter File: <code>exercise3.md</code></a></li>
+  <li><a href="#debrief-2" id="toc-debrief-2" class="nav-link" data-scroll-target="#debrief-2">Debrief</a></li>
+  </ul></li>
+  <li><a href="#quick-reference-card-and-resources-2-min" id="toc-quick-reference-card-and-resources-2-min" class="nav-link" data-scroll-target="#quick-reference-card-and-resources-2-min">2.9 — Quick Reference Card and Resources (2 min)</a>
+  <ul class="collapse">
+  <li><a href="#essential-terminal-commands" id="toc-essential-terminal-commands" class="nav-link" data-scroll-target="#essential-terminal-commands">Essential Terminal Commands</a></li>
+  <li><a href="#recommended-tools" id="toc-recommended-tools" class="nav-link" data-scroll-target="#recommended-tools">Recommended Tools</a></li>
+  <li><a href="#further-learning" id="toc-further-learning" class="nav-link" data-scroll-target="#further-learning">Further Learning</a></li>
+  </ul></li>
+  <li><a href="#summary-what-you-can-now-do" id="toc-summary-what-you-can-now-do" class="nav-link" data-scroll-target="#summary-what-you-can-now-do">Summary: What You Can Now Do</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Plaintext Authoring</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="part-1-why-plaintext-markdown-and-pandoc" class="level1">
+<h1>Part 1: Why Plaintext? Markdown and Pandoc</h1>
+<section id="what-is-a-scientific-document" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-scientific-document">What Is a Scientific Document</h2>
+<p>What does a thesis or a paper consist of, structurally?</p>
+<ul>
+<li>Sections and subsections with headings</li>
+<li>Body text (paragraphs of prose)</li>
+<li>Equations (inline and display)</li>
+<li>Figures with captions and cross-references</li>
+<li>Tables</li>
+<li>Citations and a bibliography</li>
+<li>Maybe an abstract, appendices, acknowledgements</li>
+</ul>
+<p>How much of that is formatting, and how much is content?</p>
+<p>A scientific document is structured text and data. The formatting, like fonts, margins, and line spacing, is something a template or style can handle. It’s a nuisance and a time-waster to fiddle with that stuff by hand. The principle of separation of content and style is one of the main rationales of plaintext authoring.</p>
+<section id="the-word-processor-model" class="level3">
+<h3 class="anchored" data-anchor-id="the-word-processor-model">The Word Processor Model</h3>
+<p>In Microsoft Word or Google Docs, content and formatting are entangled. You write a heading by selecting text and making it bold and 14pt. You don’t <em>declare</em> it as a heading in any structural sense (unless you use Styles, which almost nobody does consistently). The file format (<code>.docx</code>) is a zipped bundle of XML that is not human-readable. If Word (or Google) changes how it handles that format, or if you don’t have Word, you may not be able to open your own file in 10 years. If something goes wrong with the document you may not be able to “see” what changed because formatting and other things are hidden within menus and preferences settings.</p>
+</section>
+<section id="the-plaintext-model" class="level3">
+<h3 class="anchored" data-anchor-id="the-plaintext-model">The Plaintext Model</h3>
+<p>In a plaintext workflow, you write your content in a simple text file, which is something you can open in Notepad, TextEdit, VS Code, or any other text editor on any computer, today or in 50 years. You mark up structure with lightweight, readable syntax (more on this later). Then a separate tool converts that source file into a PDF, HTML page, or even a Word document.</p>
+<p>In the plaintext authoring model your document is: - portable - archivable - version-controllable - platform-independent</p>
+</section>
+<section id="but-journals-want-a-word-doc" class="level3">
+<h3 class="anchored" data-anchor-id="but-journals-want-a-word-doc">“But Journals Want a Word Doc”</h3>
+<p>Here’s the situation:</p>
+<ol type="1">
+<li><p>Many journals accept LaTeX submissions directly. In physics, math, CS, and economics, LaTeX is the expected format. In neuroscience, biology, and psychology, it varies, but many journals do accept LaTeX (e.g., Nature, Nature Neuroscience, Science, PNAS, Cell, Neuron, eLife, J Neurosci, J Cogn Neurosci, all the APA journals, SAGE journals, Elsevier journals, Springer journals).</p></li>
+<li><p>Pandoc can convert your Markdown or LaTeX source to <code>.docx</code> in one command. You write in plaintext, and when a journal demands Word, you generate a Word file at the end.</p></li>
+<li><p>The real question is: where do you want to spend your time? Formatting in Word, or writing? Chasing down a reference that didn’t update, or trusting BibTeX? Emailing <code>thesis_v3_FINAL_revised_FINAL2.docx</code> back and forth, or using Git?</p></li>
+<li><p>Your thesis is long. Word can struggle with documents over ~50 pages that contain many figures and cross-references.</p></li>
+<li><p>Google Docs solves the collaboration and platform-independence problems nicely, and for short, simple documents it’s fine. But it shares Word’s limitation of entangling content and style, it has very limited equation support, it handles citations through third-party add-ons (Zotero, Paperpile), and try reformatting a 200-page Google Doc to a different journal’s style. You’ll also notice that Google Docs has no real support for cross-references, numbered equations, or figure captions that update automatically.</p></li>
+</ol>
+</section>
+<section id="summary-of-benefits" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-benefits">Summary of Benefits</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 22%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Word / Google Docs</th>
+<th>Plaintext (Markdown / LaTeX)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Human-readable source</td>
+<td>No (binary/XML)</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Version control (Git)</td>
+<td>Difficult</td>
+<td>Natural</td>
+</tr>
+<tr class="odd">
+<td>Separation of content &amp; style</td>
+<td>Weak (manual)</td>
+<td>Strong (by design)</td>
+</tr>
+<tr class="even">
+<td>Equation support</td>
+<td>Cumbersome</td>
+<td>Excellent (LaTeX math)</td>
+</tr>
+<tr class="odd">
+<td>Citation management</td>
+<td>Plugin-dependent</td>
+<td>Built-in (BibTeX/CSL)</td>
+</tr>
+<tr class="even">
+<td>Long document stability</td>
+<td>Degrades</td>
+<td>Robust</td>
+</tr>
+<tr class="odd">
+<td>Collaboration</td>
+<td>Good (Google Docs)</td>
+<td>Git + plain text diffs / Overleaf</td>
+</tr>
+<tr class="even">
+<td>Output flexibility</td>
+<td>One format</td>
+<td>PDF, HTML, Word, slides, …</td>
+</tr>
+<tr class="odd">
+<td>Archival / portability</td>
+<td>Format-dependent</td>
+<td>Plain text lasts forever</td>
+</tr>
+<tr class="even">
+<td>Typographic quality</td>
+<td>Acceptable</td>
+<td>Superior (LaTeX)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="markdown-the-simplest-plaintext-markup" class="level2">
+<h2 class="anchored" data-anchor-id="markdown-the-simplest-plaintext-markup">Markdown: The Simplest Plaintext Markup</h2>
+<p>Markdown is a lightweight markup language created by John Gruber in 2004. It was designed to be readable as-is. The idea is that you shouldn’t need to “compile” it to understand what the author meant.</p>
+<section id="basic-syntax" class="level3">
+<h3 class="anchored" data-anchor-id="basic-syntax">Basic Syntax</h3>
+<p>Here is what a Markdown document looks like:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># My Research Paper</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>This is a paragraph of text. You can make words **bold** or *italic*.</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>You can also include <span class="in">`inline code`</span> for variable names or filenames.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Here is a list of things:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>First item</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Second item</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Third item</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>And a numbered list:</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Do the experiment</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Analyze the data</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Write it up</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Methods</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>We recruited 24 participants (12 female, mean age = 22.3 years).</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>Stimuli were presented using PsychoPy <span class="co">[</span><span class="ot">@peirce2019psychopy</span><span class="co">]</span>.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">### Apparatus</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>The display was a 24-inch monitor at 60 Hz.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Results</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Reaction times are shown in Table 1 and Figure 1.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>That’s it. It’s just text with some punctuation conventions.</p>
+</section>
+<section id="key-markdown-elements" class="level3">
+<h3 class="anchored" data-anchor-id="key-markdown-elements">Key Markdown Elements</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Element</th>
+<th>Syntax</th>
+<th>Renders as</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Heading 1</td>
+<td><code># Title</code></td>
+<td>Large heading</td>
+</tr>
+<tr class="even">
+<td>Heading 2</td>
+<td><code>## Section</code></td>
+<td>Section heading</td>
+</tr>
+<tr class="odd">
+<td>Heading 3</td>
+<td><code>### Subsection</code></td>
+<td>Subsection heading</td>
+</tr>
+<tr class="even">
+<td>Bold</td>
+<td><code>**bold**</code></td>
+<td><strong>bold</strong></td>
+</tr>
+<tr class="odd">
+<td>Italic</td>
+<td><code>*italic*</code></td>
+<td><em>italic</em></td>
+</tr>
+<tr class="even">
+<td>Inline code</td>
+<td><code>`code`</code></td>
+<td><code>code</code></td>
+</tr>
+<tr class="odd">
+<td>Link</td>
+<td><code>[text](url)</code></td>
+<td>clickable link</td>
+</tr>
+<tr class="even">
+<td>Image</td>
+<td><code>![caption](path.png)</code></td>
+<td>embedded image</td>
+</tr>
+<tr class="odd">
+<td>Blockquote</td>
+<td><code>&gt; quoted text</code></td>
+<td>indented quote</td>
+</tr>
+<tr class="even">
+<td>Horizontal rule</td>
+<td><code>---</code></td>
+<td>divider line</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pandoc-flavored-markdown-extensions" class="level3">
+<h3 class="anchored" data-anchor-id="pandoc-flavored-markdown-extensions">Pandoc-Flavored Markdown Extensions</h3>
+<p>Pandoc (which we’ll meet next) extends basic Markdown with features essential for academic writing:</p>
+<ul>
+<li><strong>Citations</strong>: <code>[@smith2020]</code> or <code>@smith2020</code></li>
+<li><strong>Footnotes</strong>: <code>^[This is a footnote.]</code></li>
+<li><strong>Math</strong>: <code>$E = mc^2$</code> for inline, <code>$$\sum_{i=1}^n x_i$$</code> for display</li>
+<li><strong>Figure captions</strong>: <code>![Caption text](figure.png){width=80%}</code></li>
+<li><strong>Tables with captions</strong></li>
+<li><strong>Cross-references</strong> (with filters like pandoc-crossref)</li>
+<li><strong>YAML metadata blocks</strong> for title, author, date, and formatting options</li>
+</ul>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+<ul>
+<li>Markdown basics: <a href="https://www.markdownguide.org/basic-syntax/" class="uri">https://www.markdownguide.org/basic-syntax/</a></li>
+<li>Pandoc’s Markdown extensions: <a href="https://pandoc.org/MANUAL.html#pandocs-markdown" class="uri">https://pandoc.org/MANUAL.html#pandocs-markdown</a></li>
+<li>Practice: <a href="https://www.markdowntutorial.com/" class="uri">https://www.markdowntutorial.com/</a> (interactive, takes ~15 minutes)</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="pandoc-the-universal-document-converter" class="level2">
+<h2 class="anchored" data-anchor-id="pandoc-the-universal-document-converter">Pandoc: The Universal Document Converter</h2>
+<p><a href="https://pandoc.org/">Pandoc</a> is a command-line tool created by Professor or Philosophy (and programmer) <a href="https://johnmacfarlane.net">John MacFarlane</a>. It converts between dozens of document formats, e.g.:</p>
+<p>Markdown → PDF, Word, HTML, LaTeX (and back)</p>
+<section id="installing-pandoc" class="level3">
+<h3 class="anchored" data-anchor-id="installing-pandoc">Installing Pandoc</h3>
+<ul>
+<li>macOS: <code>brew install pandoc</code> (via Homebrew) or download from <a href="https://pandoc.org/installing.html" class="uri">https://pandoc.org/installing.html</a></li>
+<li>Windows (WSL/Ubuntu): <code>sudo apt install pandoc</code></li>
+<li>Or download the latest release directly: <a href="https://github.com/jgc/pandoc/releases" class="uri">https://github.com/jgc/pandoc/releases</a> → actually: <a href="https://github.com/jgc/pandoc/releases" class="uri">https://github.com/jgc/pandoc/releases</a> — use <a href="https://pandoc.org/installing.html" class="uri">https://pandoc.org/installing.html</a></li>
+</ul>
+<p>You also need a LaTeX distribution for PDF output (Pandoc uses LaTeX under the hood to make PDFs):</p>
+<ul>
+<li>macOS: <code>brew install --cask mactex</code> or the smaller <code>brew install --cask basictex</code></li>
+<li>WSL/Ubuntu: <code>sudo apt install texlive-full</code> (large, ~5 GB) or <code>sudo apt install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra</code> (smaller)</li>
+</ul>
+<p>A lightweight alternative to a full LaTeX install is <a href="https://tectonic-typesetting.github.io/">Tectonic</a>, which auto-downloads only the packages it needs.</p>
+</section>
+<section id="basic-usage" class="level3">
+<h3 class="anchored" data-anchor-id="basic-usage">Basic Usage</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Markdown to PDF</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">-o</span> paper.pdf</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Markdown to Word</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">-o</span> paper.docx</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Markdown to HTML</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">-o</span> paper.html</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Markdown to LaTeX (to inspect or edit the .tex source)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">-o</span> paper.tex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Pandoc infers the output format from the file extension.</p>
+</section>
+<section id="adding-metadata-with-yaml" class="level3">
+<h3 class="anchored" data-anchor-id="adding-metadata-with-yaml">Adding Metadata with YAML</h3>
+<p>At the top of your Markdown file, you can add a <a href="https://en.wikipedia.org/wiki/YAML">YAML</a> metadata block:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Reaction Time Effects of Sleep Deprivation"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jane Smith"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2025-01-15"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abstract</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  We investigated the effects of 24 hours of sleep deprivation</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  on simple and choice reaction times in 48 participants ...</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> apa.csl</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">geometry</span><span class="kw">:</span><span class="at"> margin=1in</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 12pt</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This tells Pandoc the title, author, which bibliography file to use, which citation style (CSL) to apply, and basic page geometry — all without touching a GUI.</p>
+</section>
+<section id="citations-with-pandoc" class="level3">
+<h3 class="anchored" data-anchor-id="citations-with-pandoc">Citations with Pandoc</h3>
+<p>Pandoc uses a <code>.bib</code> file (BibTeX format) for references. You can export <code>.bib</code> files from Zotero, Mendeley, Google Scholar, or write them by hand.</p>
+<p>A <code>.bib</code> entry looks like this:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">smith2020sleep</span>,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>  = {Smith, Jane and Doe, John},</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>   = {Sleep deprivation and reaction time},</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span> = {Journal of Sleep Research},</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>    = {2020},</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>  = {29},</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>   = {e13045},</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">doi</span>     = {10.1111/jsr.13045}</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In your Markdown, you cite it as <code>[@smith2020sleep]</code>, and Pandoc replaces that with a formatted citation (e.g., “(Smith &amp; Doe, 2020)”) and generates the bibliography automatically.</p>
+<p>To compile with citations:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">--citeproc</span> <span class="at">-o</span> paper.pdf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>--citeproc</code> flag tells Pandoc to process citations. The citation style is controlled by the <code>csl:</code> field in your YAML header. You can download thousands of CSL styles from <a href="https://www.zotero.org/styles" class="uri">https://www.zotero.org/styles</a> (APA, Vancouver, Harvard, Nature, IEEE, etc.).</p>
+</section>
+<section id="resources-1" class="level3">
+<h3 class="anchored" data-anchor-id="resources-1">Resources</h3>
+<ul>
+<li>Pandoc user’s guide: <a href="https://pandoc.org/MANUAL.html" class="uri">https://pandoc.org/MANUAL.html</a></li>
+<li>Pandoc getting started: <a href="https://pandoc.org/getting-started.html" class="uri">https://pandoc.org/getting-started.html</a></li>
+<li>Citation Style Language styles: <a href="https://www.zotero.org/styles" class="uri">https://www.zotero.org/styles</a></li>
+<li>BibTeX entry types: <a href="https://www.bibtex.com/e/entry-types/" class="uri">https://www.bibtex.com/e/entry-types/</a></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="exercise-1-your-first-pandoc-markdown-document" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1-your-first-pandoc-markdown-document">Exercise 1: Your First Pandoc Markdown Document</h2>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">Setup</h3>
+<p>Make sure you have Pandoc and a LaTeX distribution installed (see above).</p>
+<p>Download the <a href="files/plaintext-exercises.tgz">files/plaintext-exercises.tgz</a> archive and then unpack it:</p>
+<pre class="{bash}"><code>$ curl -O https://www.gribblelab.org/9040/files/plaintext-exercises.tgz</code></pre>
+<pre><code></code></pre>
+<pre class="{bash}"><code>$ tar -xvzf plaintext-exercises.tgz</code></pre>
+<p>This is what it looks like:</p>
+<pre class="{bash}"><code>$ tree -F plaintext-exercises</code></pre>
+<pre><code>plaintext-exercises/
+├── exercise1/
+│&nbsp;&nbsp; ├── exercise1.md
+│&nbsp;&nbsp; ├── refs.bib
+│&nbsp;&nbsp; └── TASKS.md
+├── exercise2/
+│&nbsp;&nbsp; ├── exercise2.tex
+│&nbsp;&nbsp; ├── refs.bib
+│&nbsp;&nbsp; ├── sample_figure.pdf
+│&nbsp;&nbsp; ├── sample_figure.png
+│&nbsp;&nbsp; └── TASKS.md
+├── exercise3/
+│&nbsp;&nbsp; ├── exercise3.md
+│&nbsp;&nbsp; ├── refs.bib
+│&nbsp;&nbsp; ├── search_figure.pdf
+│&nbsp;&nbsp; ├── search_figure.png
+│&nbsp;&nbsp; └── TASKS.md
+├── README.md
+└── setup.sh</code></pre>
+<p>Now run the <code>setup.sh</code> script which downloads a <code>.csl</code> file that will be used for APA-style citations:</p>
+<pre class="{bash}"><code>$ bash setup.sh</code></pre>
+<pre><code>Downloading APA 7th edition citation style...
+Copying apa.csl into exercise folders...
+  → exercise1/apa.csl
+  → exercise2/apa.csl
+  → exercise3/apa.csl
+
+Done! You're ready for the exercises.</code></pre>
+<p>For this exercise we will be using the files in the <code>exercise1/</code> directory:</p>
+</section>
+<section id="task" class="level3">
+<h3 class="anchored" data-anchor-id="task">Task</h3>
+<p>You are given a starter file <code>exercise1.md</code> (see below). Your tasks:</p>
+<ol type="1">
+<li><strong>Read</strong> the file in a text editor. Notice how readable it is even as raw text.</li>
+<li><strong>Compile</strong> it to PDF: <code>pandoc exercise1.md --citeproc -o exercise1.pdf</code></li>
+<li><strong>Compile</strong> it to Word: <code>pandoc exercise1.md --citeproc -o exercise1.docx</code></li>
+<li>Open both outputs. Compare them to the source.</li>
+<li><strong>Add the following to the document:</strong>
+<ul>
+<li>A new subsection under Methods called <code>### Data Analysis</code></li>
+<li>A sentence describing the analysis, citing a new reference (add it to the <code>.bib</code> file)</li>
+<li>An inline equation: the formula for a t-statistic, <span class="math inline">t = \frac{\bar{X} - \mu}{s / \sqrt{n}}</span></li>
+<li>Recompile to PDF and verify your additions appear correctly.</li>
+</ul></li>
+</ol>
+<p><strong>Hint</strong>: writing equations in LaTeX can be strange at first, they have a syntax/grammar all their own, but once you get the hang of it, it’s actually pretty easy and very efficient. Here is some documentation: <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">LaTeX Mathematics</a>.</p>
+</section>
+<section id="starter-file-exercise1.md" class="level3">
+<h3 class="anchored" data-anchor-id="starter-file-exercise1.md">Starter File: <code>exercise1.md</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Effects of Caffeine on Grip Strength"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "A. Student"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025-02-01"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> refs.bib</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> apa.csl</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="an">geometry:</span><span class="co"> margin=1in</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="an">fontsize:</span><span class="co"> 12pt</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>Caffeine is the most widely consumed psychoactive substance in the</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>world <span class="co">[</span><span class="ot">@fredholm1999actions</span><span class="co">]</span>. Its effects on cognitive performance</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>are well-documented, but effects on motor performance are less clear.</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Methods</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## Participants</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>We recruited 30 healthy adults (15 female, mean age = 23.1 years,</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>SD = 3.4) from the university community.</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Procedure</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>Participants completed a maximal grip strength test using a hand</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>dynamometer before and 45 minutes after consuming either 200 mg</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>caffeine or placebo in a double-blind design.</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>Mean grip strength increased by 2.3 N (SD = 4.1) in the caffeine</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>condition and 0.4 N (SD = 3.8) in the placebo condition.</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="fu"># Discussion</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>These preliminary results suggest a small positive effect of caffeine</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>on grip strength, consistent with @warren2010effect.</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="starter-file-refs.bib" class="level3">
+<h3 class="anchored" data-anchor-id="starter-file-refs.bib">Starter File: <code>refs.bib</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">fredholm1999actions</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>  = {Fredholm, Bertil B and Bättig, Karl and Holmén, Janet</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             and Nehlig, Astrid and Zvartau, Edwin E},</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>   = {Actions of caffeine in the brain with special reference</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             to factors that contribute to its widespread use},</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span> = {Pharmacological Reviews},</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>    = {1999},</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>  = {51},</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>  = {1},</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>   = {83--133}</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">warren2010effect</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>  = {Warren, Gregory L and Park, Nicole D and Maresca,</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>             Robert D and McKibans, Kimberly I and Millard-Stafford,</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>             Mindy L},</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>   = {Effect of caffeine ingestion on muscular strength and</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>             endurance},</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span> = {Medicine and Science in Sports and Exercise},</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>    = {2010},</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>  = {42},</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>  = {7},</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>   = {1375--1387}</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="debrief" class="level3">
+<h3 class="anchored" data-anchor-id="debrief">Debrief</h3>
+<ul>
+<li>How does the PDF compare to the Word output?</li>
+<li>How easy is it to add a citation compared to using a Word plugin?</li>
+<li>What happens when you make a typo in the citation key?</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Today we learned:</p>
+<ul>
+<li>Why plaintext is a compelling choice for scientific writing</li>
+<li>The basics of Markdown syntax</li>
+<li>How Pandoc converts Markdown to PDF, Word, and other formats</li>
+<li>How to handle citations with BibTeX and CSL</li>
+</ul>
+<p>In the next section we will dive into LaTeX, which is the typesetting system that pandoc uses under the hood. We will look at how to write LaTeX directly (useful for when you need fine-grained control), how to handle equations, figures, tables, and cross-references, and how to use Overleaf for collaborative LaTeX editing. Many people write LaTeX directly, bypassing Markdown and Pandoc altogether. Historical note: I wrote my very first journal article in LaTeX back in 1994, and today it is still viewable, editable, and compiles to pdf, using free and open source tools.</p>
+<p>For next time:</p>
+<ol type="1">
+<li>Verify that your LaTeX distribution is working: try <code>pdflatex --version</code> in your terminal.</li>
+<li>Create a free account on <a href="https://www.overleaf.com/">Overleaf</a>, we will use it for an exercise.</li>
+<li>(Optional) Work through the interactive Markdown tutorial: <a href="https://www.markdowntutorial.com/" class="uri">https://www.markdowntutorial.com/</a></li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="part-2-latex-for-scientific-documents-60-minutes" class="level1">
+<h1>Part 2: LaTeX for Scientific Documents (60 minutes)</h1>
+<section id="what-is-latex-and-why-does-it-exist-8-min" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-latex-and-why-does-it-exist-8-min">2.1 — What Is LaTeX and Why Does It Exist? (8 min)</h2>
+<p>LaTeX (pronounced “LAH-tek” or “LAY-tek”) is a typesetting system created by Leslie Lamport in 1984, built on top of Donald Knuth’s TeX (1978). Knuth, a computer scientist, created TeX because he was unhappy with the typographic quality of his textbooks. LaTeX adds a layer of convenience on top of TeX.</p>
+<p>When you compile a LaTeX document, the system makes thousands of micro-decisions about line breaks, hyphenation, spacing, and page layout. The result is typographically excellent output — the kind of polished, professional look you see in textbooks and journal articles.</p>
+<section id="how-markdown-pandoc-relates-to-latex" class="level3">
+<h3 class="anchored" data-anchor-id="how-markdown-pandoc-relates-to-latex">How Markdown + Pandoc Relates to LaTeX</h3>
+<p>When you ran <code>pandoc paper.md -o paper.pdf</code> in Lecture 1, Pandoc actually:</p>
+<ol type="1">
+<li>Converted your Markdown to LaTeX behind the scenes</li>
+<li>Called <code>pdflatex</code> (or <code>xelatex</code>) to compile the LaTeX to PDF</li>
+</ol>
+<p>So you’ve already been using LaTeX — you just had Pandoc as a middleman. Learning LaTeX directly gives you much finer control when you need it.</p>
+</section>
+<section id="when-to-use-markdownpandoc-vs.-latex-directly" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-markdownpandoc-vs.-latex-directly">When to Use Markdown+Pandoc vs.&nbsp;LaTeX Directly</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Scenario</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Short paper, simple structure</td>
+<td>Markdown + Pandoc</td>
+</tr>
+<tr class="even">
+<td>Blog post, course notes, README</td>
+<td>Markdown + Pandoc</td>
+</tr>
+<tr class="odd">
+<td>Thesis or dissertation</td>
+<td>LaTeX directly (or Markdown for drafting, LaTeX for final)</td>
+</tr>
+<tr class="even">
+<td>Paper with complex equations</td>
+<td>LaTeX directly</td>
+</tr>
+<tr class="odd">
+<td>Paper with precise figure placement</td>
+<td>LaTeX directly</td>
+</tr>
+<tr class="even">
+<td>Journal provides a LaTeX template</td>
+<td>LaTeX directly</td>
+</tr>
+<tr class="odd">
+<td>Need Word output for a journal</td>
+<td>Markdown + Pandoc (convert to .docx)</td>
+</tr>
+<tr class="even">
+<td>Quick first draft</td>
+<td>Markdown + Pandoc</td>
+</tr>
+</tbody>
+</table>
+<p>Many working scientists use a hybrid: draft quickly in Markdown, then move to LaTeX when the document matures and needs fine-tuning.</p>
+<hr>
+</section>
+</section>
+<section id="latex-document-structure-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="latex-document-structure-10-min">2.2 — LaTeX Document Structure (10 min)</h2>
+<p>A LaTeX document has two parts: the <strong>preamble</strong> (setup and configuration) and the <strong>document body</strong> (your content).</p>
+<section id="minimal-example" class="level3">
+<h3 class="anchored" data-anchor-id="minimal-example">Minimal Example</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>[12pt]{<span class="ex">article</span>}</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">% --- Preamble: load packages and configure ---</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[margin=1in]{<span class="ex">geometry</span>}</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}          <span class="co">% better equation support</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">graphicx</span>}         <span class="co">% for including figures</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">booktabs</span>}         <span class="co">% for professional tables</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  backend=biber,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  style=apa,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  natbib=true</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>]{<span class="ex">biblatex</span>}                   <span class="co">% citation management</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">\addbibresource</span>{refs.bib}</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\title</span>{Effects of Caffeine on Grip Strength}</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="fu">\author</span>{A.<span class="fu">\ </span>Student}</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="fu">\date</span>{February 2025}</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">% --- Document body ---</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="fu">\maketitle</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">abstract</span>}</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>We investigated the effect of 200<span class="fu">\,</span>mg caffeine on maximal</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>grip strength in a double-blind placebo-controlled design.</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">abstract</span>}</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="kw">\section</span>{Introduction}</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>Caffeine is the most widely consumed psychoactive substance</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>in the world <span class="kw">\citep</span>{<span class="ex">fredholm1999actions</span>}. Its effects on</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>cognitive performance are well-documented, but effects on</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>motor performance are less clear.</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="kw">\section</span>{Methods}</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a><span class="kw">\subsection</span>{Participants}</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>We recruited 30 healthy adults (15 female, mean age = 23.1</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>years, SD = 3.4) from the university community.</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a><span class="kw">\subsection</span>{Procedure}</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>Participants completed a maximal grip strength test before</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>and 45 minutes after consuming caffeine or placebo.</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a><span class="kw">\section</span>{Results}</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>The results are presented in Table~<span class="kw">\ref</span>{<span class="ex">tab:results</span>} and</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>Figure~<span class="kw">\ref</span>{<span class="ex">fig:grip</span>}.</span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a><span class="kw">\section</span>{Discussion}</span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a>These preliminary results suggest a small positive effect</span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a>of caffeine on grip strength <span class="kw">\citep</span>{<span class="ex">warren2010effect</span>}.</span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a><span class="fu">\printbibliography</span></span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="key-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts">Key Concepts</h3>
+<p><strong>Commands</strong> start with a backslash: <code>\section{...}</code>, <code>\textbf{...}</code>, <code>\citep{...}</code></p>
+<p><strong>Environments</strong> are blocks delimited by <code>\begin{...}</code> and <code>\end{...}</code>: <code>\begin{abstract}...\end{abstract}</code>, <code>\begin{figure}...\end{figure}</code></p>
+<p><strong>Packages</strong> extend LaTeX’s capabilities. You load them in the preamble with <code>\usepackage{...}</code>. Think of them like Python libraries.</p>
+<p><strong>Comments</strong> start with <code>%</code> and are ignored by the compiler.</p>
+</section>
+<section id="compiling" class="level3">
+<h3 class="anchored" data-anchor-id="compiling">Compiling</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic compilation</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pdflatex</span> paper.tex</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># With bibliography (requires multiple passes)</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pdflatex</span> paper.tex</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ex">biber</span> paper</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ex">pdflatex</span> paper.tex</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pdflatex</span> paper.tex</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Or use latexmk, which automates the multiple passes:</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-pdf</span> paper.tex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The multiple passes are needed because LaTeX resolves cross-references and citations iteratively. <code>latexmk</code> handles this automatically and is the recommended way to compile.</p>
+<hr>
+</section>
+</section>
+<section id="equations-8-min" class="level2">
+<h2 class="anchored" data-anchor-id="equations-8-min">2.3 — Equations (8 min)</h2>
+<p>This is where LaTeX truly shines. The equation syntax is the same whether you’re writing in LaTeX or in Markdown+Pandoc (because Pandoc passes math through to LaTeX).</p>
+<section id="inline-math" class="level3">
+<h3 class="anchored" data-anchor-id="inline-math">Inline Math</h3>
+<p>Surround with single dollar signs:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>The sample mean is <span class="ss">$</span><span class="sc">\bar</span><span class="ss">{x} = </span><span class="sc">\frac</span><span class="ss">{1}{n}</span><span class="sc">\sum</span><span class="ss">_{i=1}^{n} x_i$</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="display-math-numbered" class="level3">
+<h3 class="anchored" data-anchor-id="display-math-numbered">Display Math (Numbered)</h3>
+<p>Use the <code>equation</code> environment:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">equation</span>}</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  t = </span><span class="sc">\frac</span><span class="ss">{</span><span class="sc">\bar</span><span class="ss">{X} - </span><span class="sc">\mu</span><span class="ss">_0}{s / </span><span class="sc">\sqrt</span><span class="ss">{n}}</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\label</span><span class="ss">{eq:ttest}</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">equation</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You can then refer to it with <code>Equation~\ref{eq:ttest}</code>.</p>
+</section>
+<section id="display-math-unnumbered" class="level3">
+<h3 class="anchored" data-anchor-id="display-math-unnumbered">Display Math (Unnumbered)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ss">\[</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\chi</span><span class="ss">^2 = </span><span class="sc">\sum</span><span class="ss"> </span><span class="sc">\frac</span><span class="ss">{(O_i - E_i)^2}{E_i}</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ss">\]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="aligned-multi-line-equations" class="level3">
+<h3 class="anchored" data-anchor-id="aligned-multi-line-equations">Aligned Multi-Line Equations</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">align</span>}</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  </span><span class="sc">\text</span>{SS}<span class="ss">_{</span><span class="sc">\text</span>{total}<span class="ss">} &amp;= </span><span class="sc">\text</span>{SS}<span class="ss">_{</span><span class="sc">\text</span>{between}<span class="ss">}</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ss">                              + </span><span class="sc">\text</span>{SS}<span class="ss">_{</span><span class="sc">\text</span>{within}<span class="ss">} </span><span class="sc">\\</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ss">  F &amp;= </span><span class="sc">\frac</span><span class="ss">{</span><span class="sc">\text</span>{MS}<span class="ss">_{</span><span class="sc">\text</span>{between}<span class="ss">}}</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ss">             {</span><span class="sc">\text</span>{MS}<span class="ss">_{</span><span class="sc">\text</span>{within}<span class="ss">}}</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">align</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="common-symbols-quick-reference" class="level3">
+<h3 class="anchored" data-anchor-id="common-symbols-quick-reference">Common Symbols Quick Reference</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>What you want</th>
+<th>LaTeX code</th>
+<th>Renders as</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Greek letters</td>
+<td><code>\alpha, \beta, \mu, \sigma</code></td>
+<td>α, β, μ, σ</td>
+</tr>
+<tr class="even">
+<td>Subscript</td>
+<td><code>x_{i}</code></td>
+<td>xᵢ</td>
+</tr>
+<tr class="odd">
+<td>Superscript</td>
+<td><code>x^{2}</code></td>
+<td>x²</td>
+</tr>
+<tr class="even">
+<td>Fraction</td>
+<td><code>\frac{a}{b}</code></td>
+<td>a/b (stacked)</td>
+</tr>
+<tr class="odd">
+<td>Square root</td>
+<td><code>\sqrt{n}</code></td>
+<td>√n</td>
+</tr>
+<tr class="even">
+<td>Sum</td>
+<td><code>\sum_{i=1}^{n}</code></td>
+<td>Σ</td>
+</tr>
+<tr class="odd">
+<td>Integral</td>
+<td><code>\int_{0}^{\infty}</code></td>
+<td>∫</td>
+</tr>
+<tr class="even">
+<td>Hat/bar</td>
+<td><code>\hat{\beta}, \bar{x}</code></td>
+<td>β̂, x̄</td>
+</tr>
+<tr class="odd">
+<td>Approximately</td>
+<td><code>\approx</code></td>
+<td>≈</td>
+</tr>
+<tr class="even">
+<td>Less/greater or equal</td>
+<td><code>\leq, \geq</code></td>
+<td>≤, ≥</td>
+</tr>
+<tr class="odd">
+<td>Partial derivative</td>
+<td><code>\frac{\partial f}{\partial x}</code></td>
+<td>∂f/∂x</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="resources-2" class="level3">
+<h3 class="anchored" data-anchor-id="resources-2">Resources</h3>
+<ul>
+<li>Detexify — draw a symbol and it tells you the LaTeX code: <a href="https://detexify.kirelabs.org/" class="uri">https://detexify.kirelabs.org/</a></li>
+<li>LaTeX math cheat sheet: <a href="https://katex.org/docs/supported" class="uri">https://katex.org/docs/supported</a></li>
+<li>The <code>amsmath</code> package documentation covers everything: search “amsmath documentation CTAN”</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="figures-and-tables-8-min" class="level2">
+<h2 class="anchored" data-anchor-id="figures-and-tables-8-min">2.4 — Figures and Tables (8 min)</h2>
+<section id="figures" class="level3">
+<h3 class="anchored" data-anchor-id="figures">Figures</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">figure</span>}[htbp]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\centering</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">\includegraphics</span>[width=0.8<span class="fu">\textwidth</span>]{<span class="ex">figures/grip_strength.pdf</span>}</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\caption</span>{Mean grip strength (N) by condition. Error bars show</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>           <span class="ss">$</span><span class="sc">\pm</span><span class="ss"> 1$</span> SE.}</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\label</span>{<span class="ex">fig:grip</span>}</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">figure</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Key points:</p>
+<ul>
+<li><code>[htbp]</code> = placement preference: <strong>h</strong>ere, <strong>t</strong>op of page, <strong>b</strong>ottom, separate <strong>p</strong>age. LaTeX decides the best placement. (This is a feature, not a bug — LaTeX optimizes page layout globally.)</li>
+<li>Use PDF or PNG for figures. PDF is preferred for vector graphics (plots), PNG for raster images (photos, microscopy).</li>
+<li>Reference with <code>Figure~\ref{fig:grip}</code> — the number updates automatically.</li>
+<li>The tilde <code>~</code> prevents a line break between “Figure” and the number.</li>
+</ul>
+</section>
+<section id="tables" class="level3">
+<h3 class="anchored" data-anchor-id="tables">Tables</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">table</span>}[htbp]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\centering</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">\caption</span>{Mean grip strength (N) by condition and time point.}</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\label</span>{<span class="ex">tab:results</span>}</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\begin</span>{<span class="ex">tabular</span>}{lcc}</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\toprule</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    Condition <span class="op">&amp;</span> Pre <span class="op">&amp;</span> Post <span class="fu">\\</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\midrule</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    Caffeine  <span class="op">&amp;</span> 38.2 (5.1) <span class="op">&amp;</span> 40.5 (5.3) <span class="fu">\\</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    Placebo   <span class="op">&amp;</span> 37.9 (4.8) <span class="op">&amp;</span> 38.3 (5.0) <span class="fu">\\</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">\bottomrule</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">\end</span>{<span class="ex">tabular</span>}</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">table</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Key points:</p>
+<ul>
+<li><code>{lcc}</code> = three columns: left-aligned, center, center.</li>
+<li><code>\toprule</code>, <code>\midrule</code>, <code>\bottomrule</code> come from the <code>booktabs</code> package and produce clean, professional horizontal rules (no vertical lines — this is a typographic best practice).</li>
+<li>Reference with <code>Table~\ref{tab:results}</code>.</li>
+</ul>
+</section>
+<section id="tables-in-markdownpandoc" class="level3">
+<h3 class="anchored" data-anchor-id="tables-in-markdownpandoc">Tables in Markdown+Pandoc</h3>
+<p>Pandoc Markdown tables are simpler but less flexible:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Condition <span class="pp">|</span> Pre        <span class="pp">|</span> Post       <span class="pp">|</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------|------------|------------|</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Caffeine  <span class="pp">|</span> 38.2 (5.1) <span class="pp">|</span> 40.5 (5.3) <span class="pp">|</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Placebo   <span class="pp">|</span> 37.9 (4.8) <span class="pp">|</span> 38.3 (5.0) <span class="pp">|</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>: Mean grip strength (N) by condition and time point. {#tbl:results}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="breakout-exercise-2-building-a-latex-document-15-min" class="level2">
+<h2 class="anchored" data-anchor-id="breakout-exercise-2-building-a-latex-document-15-min">2.5 — Breakout Exercise 2: Building a LaTeX Document (15 min)</h2>
+<section id="option-a-using-overleaf-recommended-for-first-timers" class="level3">
+<h3 class="anchored" data-anchor-id="option-a-using-overleaf-recommended-for-first-timers">Option A: Using Overleaf (Recommended for First-Timers)</h3>
+<ol type="1">
+<li>Go to <a href="https://www.overleaf.com/" class="uri">https://www.overleaf.com/</a> and log in.</li>
+<li>Create a new blank project.</li>
+<li>Start with the minimal template from Section 2.2 above.</li>
+<li><strong>Complete these tasks:</strong></li>
+</ol>
+<p><strong>Task 1 — Equations</strong>: Add a “Data Analysis” subsection under Methods. Include the formula for Pearson’s correlation coefficient as a numbered equation:</p>
+<p><span class="math display">r = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2 \sum_{i=1}^n (y_i - \bar{y})^2}}</span></p>
+<p>Then reference it in the text (“… as shown in Equation 1”).</p>
+<p><strong>Task 2 — Table</strong>: Add a Results table with three columns (Measure, Caffeine, Placebo) and at least two rows. Use <code>booktabs</code> rules. Add a caption and label, and reference the table in the text.</p>
+<p><strong>Task 3 — Figure</strong>: Download any plot image (or use a placeholder) and include it as a figure with a caption. Reference it in the text. (On Overleaf, use the upload button to add an image file.)</p>
+<p><strong>Task 4 — Citation</strong>: Add a new entry to <code>refs.bib</code> and cite it somewhere in the text. Verify it appears in the bibliography.</p>
+</section>
+<section id="option-b-local-compilation" class="level3">
+<h3 class="anchored" data-anchor-id="option-b-local-compilation">Option B: Local Compilation</h3>
+<p>Same tasks, but compile locally:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-pdf</span> paper.tex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you don’t have <code>latexmk</code>, use:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdflatex</span> paper.tex <span class="kw">&amp;&amp;</span> <span class="ex">biber</span> paper <span class="kw">&amp;&amp;</span> <span class="ex">pdflatex</span> paper.tex <span class="kw">&amp;&amp;</span> <span class="ex">pdflatex</span> paper.tex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="debrief-1" class="level3">
+<h3 class="anchored" data-anchor-id="debrief-1">Debrief</h3>
+<p>After the exercise, discuss:</p>
+<ul>
+<li>How did the equation-writing experience compare to Word’s equation editor?</li>
+<li>What happened when you changed the placement hint on your figure from <code>[h]</code> to <code>[t]</code>?</li>
+<li>How did adding a citation and recompiling feel compared to managing references in a GUI?</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="overleaf-collaborative-latex-in-the-browser-5-min" class="level2">
+<h2 class="anchored" data-anchor-id="overleaf-collaborative-latex-in-the-browser-5-min">2.6 — Overleaf: Collaborative LaTeX in the Browser (5 min)</h2>
+<p><a href="https://www.overleaf.com/">Overleaf</a> deserves special mention because it addresses the most common objection to LaTeX: collaboration.</p>
+<ul>
+<li><strong>Real-time collaboration</strong> like Google Docs — multiple people can edit simultaneously</li>
+<li><strong>No local installation required</strong> — everything compiles in the cloud</li>
+<li><strong>Rich library of templates</strong> for journals, theses, CVs, posters: <a href="https://www.overleaf.com/latex/templates" class="uri">https://www.overleaf.com/latex/templates</a></li>
+<li><strong>Git integration</strong> on paid plans — you can push/pull your Overleaf project to a Git repo</li>
+<li><strong>Track changes and comments</strong> — familiar to Word users</li>
+<li><strong>Free tier</strong> is generous for individual use; paid plans add more collaborators</li>
+</ul>
+<p>Many universities provide institutional Overleaf subscriptions — check with your library.</p>
+<p>For students in neuroscience, psychology, kinesiology, and biology who may not write LaTeX daily, Overleaf significantly lowers the barrier to entry. You get the typographic quality and structural rigor of LaTeX with a Google Docs-like editing experience.</p>
+<section id="other-online-latex-editors" class="level3">
+<h3 class="anchored" data-anchor-id="other-online-latex-editors">Other Online LaTeX Editors</h3>
+<ul>
+<li><a href="https://cocalc.com/">CoCalc</a> — includes LaTeX, Jupyter, and a terminal</li>
+<li><a href="https://papeeria.com/">Papeeria</a> — lightweight alternative to Overleaf</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="putting-it-all-together-choosing-your-workflow-4-min" class="level2">
+<h2 class="anchored" data-anchor-id="putting-it-all-together-choosing-your-workflow-4-min">2.7 — Putting It All Together: Choosing Your Workflow (4 min)</h2>
+<p>Here are three practical workflows you might adopt as a graduate student:</p>
+<section id="workflow-1-markdown-pandoc-simplest" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-1-markdown-pandoc-simplest">Workflow 1: Markdown + Pandoc (Simplest)</h3>
+<p>Best for: drafts, short papers, course assignments, people who want minimal setup.</p>
+<pre><code>paper.md + refs.bib → pandoc → paper.pdf or paper.docx</code></pre>
+</section>
+<section id="workflow-2-latex-on-overleaf-collaborative" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-2-latex-on-overleaf-collaborative">Workflow 2: LaTeX on Overleaf (Collaborative)</h3>
+<p>Best for: thesis chapters, papers with co-authors, when a journal provides a LaTeX template.</p>
+<pre><code>paper.tex + refs.bib → Overleaf (cloud) → paper.pdf</code></pre>
+</section>
+<section id="workflow-3-latex-locally-with-git-maximum-control" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-3-latex-locally-with-git-maximum-control">Workflow 3: LaTeX Locally with Git (Maximum Control)</h3>
+<p>Best for: advanced users, large projects, integration with data analysis pipelines.</p>
+<pre><code>paper.tex + refs.bib → latexmk → paper.pdf
+         ↑
+    version controlled with Git</code></pre>
+</section>
+<section id="workflow-4-hybrid-common-in-practice" class="level3">
+<h3 class="anchored" data-anchor-id="workflow-4-hybrid-common-in-practice">Workflow 4: Hybrid (Common in Practice)</h3>
+<p>Draft in Markdown (fast, low friction), then convert to LaTeX when the paper matures and you need fine-tuned formatting or a journal template.</p>
+<pre><code>draft.md → pandoc → paper.tex → edit in LaTeX → paper.pdf</code></pre>
+<p>All four approaches keep your source as plaintext. All four let you use Git. All four separate content from presentation.</p>
+<hr>
+</section>
+</section>
+<section id="breakout-exercise-3-the-full-pipeline-10-min" class="level2">
+<h2 class="anchored" data-anchor-id="breakout-exercise-3-the-full-pipeline-10-min">2.8 — Breakout Exercise 3: The Full Pipeline (10 min)</h2>
+<section id="task-from-markdown-draft-to-polished-outputs" class="level3">
+<h3 class="anchored" data-anchor-id="task-from-markdown-draft-to-polished-outputs">Task: From Markdown Draft to Polished Outputs</h3>
+<p>You are given a Markdown file representing a short paper. Your tasks:</p>
+<ol type="1">
+<li><strong>Compile to PDF</strong> with Pandoc. Inspect the output.</li>
+<li><strong>Compile to Word</strong> with Pandoc. Open in Word or LibreOffice. Confirm it looks reasonable.</li>
+<li><strong>Compile to LaTeX</strong> with <code>pandoc paper.md -o paper.tex</code>. Open the <code>.tex</code> file and look at what Pandoc generated.</li>
+<li><strong>Edit the <code>.tex</code> file</strong>: adjust figure placement, tweak table formatting, or add a LaTeX-specific feature like <code>\pagebreak</code>.</li>
+<li><strong>Compile the edited <code>.tex</code> to PDF</strong>: <code>latexmk -pdf paper.tex</code></li>
+</ol>
+</section>
+<section id="starter-file-exercise3.md" class="level3">
+<h3 class="anchored" data-anchor-id="starter-file-exercise3.md">Starter File: <code>exercise3.md</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Visual Search Asymmetry in Threat Detection"</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "A. Student"</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "2025-02-15"</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> |</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">  We tested whether threatening stimuli (snakes) are detected</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co">  faster than non-threatening stimuli (flowers) in a visual</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co">  search task. Results supported the threat superiority effect.</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> refs3.bib</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> apa.csl</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="an">geometry:</span><span class="co"> margin=1in</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="an">fontsize:</span><span class="co"> 12pt</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>The threat superiority effect refers to the faster detection of</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>threatening stimuli in visual search <span class="co">[</span><span class="ot">@ohman2001fears</span><span class="co">]</span>. This has</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>been demonstrated for snakes <span class="co">[</span><span class="ot">@ohman2001fears</span><span class="co">]</span>, spiders</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@rakison2009does</span><span class="co">]</span>, and angry faces <span class="co">[</span><span class="ot">@fox2000facial</span><span class="co">]</span>.</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a><span class="fu"># Methods</span></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Participants</span></span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>Forty undergraduate students (28 female, mean age = 19.8,</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>SD = 1.2) participated for course credit.</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stimuli and Design</span></span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>Search displays contained 8 items arranged in a circle. On</span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>target-present trials, one item was the target (snake or flower)</span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>among 7 distractors (mushrooms). We used a 2 (target: snake,</span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>flower) × 2 (target presence: present, absent) design.</span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Analysis</span></span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a>Reaction times shorter than 200 ms or longer than 2000 ms were</span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>excluded (1.8% of trials). We computed mean RTs for correct</span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>responses and analyzed them with a repeated-measures ANOVA:</span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a>$$F = \frac{MS_{between}}{MS_{within}}$$</span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a><span class="fu"># Results</span></span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a>Mean reaction times are shown in Table 1.</span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Target  <span class="pp">|</span> Present     <span class="pp">|</span> Absent      <span class="pp">|</span></span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|-------------|-------------|</span></span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Snake   <span class="pp">|</span> 612 (89)    <span class="pp">|</span> 831 (102)   <span class="pp">|</span></span>
+<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Flower  <span class="pp">|</span> 698 (94)    <span class="pp">|</span> 854 (110)   <span class="pp">|</span></span>
+<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a>: Mean reaction times in ms (SD in parentheses). {#tbl:rts}</span>
+<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a>There was a significant main effect of target type,</span>
+<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a>$F(1, 39) = 14.2$, $p &lt; .001$, $\eta_p^2 = .27$.</span>
+<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a><span class="fu"># Discussion</span></span>
+<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>Our findings replicate the threat superiority effect</span>
+<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">@ohman2001fears</span><span class="co">]</span>. Snake targets were detected approximately</span>
+<span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a>86 ms faster than flower targets.</span>
+<span id="cb30-63"><a href="#cb30-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-64"><a href="#cb30-64" aria-hidden="true" tabindex="-1"></a><span class="fu"># References</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="debrief-2" class="level3">
+<h3 class="anchored" data-anchor-id="debrief-2">Debrief</h3>
+<ul>
+<li>You just went from one source file to three output formats in about 60 seconds of terminal commands.</li>
+<li>You then had the option to “eject” to LaTeX for fine-tuning. No information was lost.</li>
+<li>Ask yourself: could you do this in Word?</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="quick-reference-card-and-resources-2-min" class="level2">
+<h2 class="anchored" data-anchor-id="quick-reference-card-and-resources-2-min">2.9 — Quick Reference Card and Resources (2 min)</h2>
+<section id="essential-terminal-commands" class="level3">
+<h3 class="anchored" data-anchor-id="essential-terminal-commands">Essential Terminal Commands</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to PDF</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">--citeproc</span> <span class="at">-o</span> paper.pdf</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to Word</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">--citeproc</span> <span class="at">-o</span> paper.docx</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to LaTeX</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">-s</span> <span class="at">-o</span> paper.tex</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># LaTeX: compile with automatic re-runs</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-pdf</span> paper.tex</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co"># LaTeX: clean up auxiliary files</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-c</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="recommended-tools" class="level3">
+<h3 class="anchored" data-anchor-id="recommended-tools">Recommended Tools</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>What it does</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pandoc</td>
+<td>Universal document converter</td>
+<td><a href="https://pandoc.org/" class="uri">https://pandoc.org/</a></td>
+</tr>
+<tr class="even">
+<td>TeX Live</td>
+<td>Full LaTeX distribution (Linux/Windows)</td>
+<td><a href="https://tug.org/texlive/" class="uri">https://tug.org/texlive/</a></td>
+</tr>
+<tr class="odd">
+<td>MacTeX</td>
+<td>TeX Live for macOS</td>
+<td><a href="https://tug.org/mactex/" class="uri">https://tug.org/mactex/</a></td>
+</tr>
+<tr class="even">
+<td>Overleaf</td>
+<td>Collaborative LaTeX editor in the browser</td>
+<td><a href="https://www.overleaf.com/" class="uri">https://www.overleaf.com/</a></td>
+</tr>
+<tr class="odd">
+<td>Zotero</td>
+<td>Reference manager (exports .bib)</td>
+<td><a href="https://www.zotero.org/" class="uri">https://www.zotero.org/</a></td>
+</tr>
+<tr class="even">
+<td>Better BibTeX</td>
+<td>Zotero plugin for clean .bib export</td>
+<td><a href="https://retorque.re/zotero-better-bibtex/" class="uri">https://retorque.re/zotero-better-bibtex/</a></td>
+</tr>
+<tr class="odd">
+<td>Detexify</td>
+<td>Draw a symbol → get LaTeX code</td>
+<td><a href="https://detexify.kirelabs.org/" class="uri">https://detexify.kirelabs.org/</a></td>
+</tr>
+<tr class="even">
+<td>TeXstudio</td>
+<td>Local LaTeX editor with preview</td>
+<td><a href="https://www.texstudio.org/" class="uri">https://www.texstudio.org/</a></td>
+</tr>
+<tr class="odd">
+<td>VS Code + LaTeX Workshop</td>
+<td>LaTeX editing in VS Code</td>
+<td><a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop" class="uri">https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="further-learning" class="level3">
+<h3 class="anchored" data-anchor-id="further-learning">Further Learning</h3>
+<ul>
+<li><strong>Overleaf’s LaTeX tutorials</strong> (excellent for beginners): <a href="https://www.overleaf.com/learn" class="uri">https://www.overleaf.com/learn</a></li>
+<li><strong>The Not So Short Introduction to LaTeX2e</strong> (classic free guide): search CTAN for “lshort”</li>
+<li><strong>LaTeX Wikibook</strong>: <a href="https://en.wikibooks.org/wiki/LaTeX" class="uri">https://en.wikibooks.org/wiki/LaTeX</a></li>
+<li><strong>Pandoc User’s Guide</strong>: <a href="https://pandoc.org/MANUAL.html" class="uri">https://pandoc.org/MANUAL.html</a></li>
+<li><strong>LaTeX StackExchange</strong> (Q&amp;A community): <a href="https://tex.stackexchange.com/" class="uri">https://tex.stackexchange.com/</a></li>
+<li><strong>BibTeX entry types and fields</strong>: <a href="https://www.bibtex.com/e/entry-types/" class="uri">https://www.bibtex.com/e/entry-types/</a></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="summary-what-you-can-now-do" class="level2">
+<h2 class="anchored" data-anchor-id="summary-what-you-can-now-do">Summary: What You Can Now Do</h2>
+<p>After these two lectures, you should be able to:</p>
+<ol type="1">
+<li><strong>Explain</strong> why plaintext authoring is valuable for reproducibility, portability, and archival.</li>
+<li><strong>Write</strong> a scientific document in Markdown with sections, citations, equations, and figures.</li>
+<li><strong>Use Pandoc</strong> to convert that document to PDF, Word, or HTML.</li>
+<li><strong>Write</strong> a LaTeX document directly, with equations, figures, tables, and a bibliography.</li>
+<li><strong>Use Overleaf</strong> for collaborative LaTeX editing.</li>
+<li><strong>Choose</strong> the right workflow for a given writing task.</li>
+<li><strong>Convert</strong> between formats as needed — including generating a <code>.docx</code> when a journal requires it.</li>
+</ol>
+<p>The key takeaway: your source of truth should be <strong>plaintext</strong>. Everything else — PDF, Word, HTML — is an output format that you generate from that source. This gives you control, longevity, and quality.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/gribblelab\.org\/9040");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
