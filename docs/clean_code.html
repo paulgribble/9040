@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing FW25 (Jan-Apr 2026) – Psychology 9040B FW25</title>
+<title>Reproducibility &amp; Replicability II: clean code – Psychology 9040B FW25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
@@ -122,13 +122,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="3">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#principles-of-clean-code" id="toc-principles-of-clean-code" class="nav-link active" data-scroll-target="#principles-of-clean-code">Principles of Clean Code</a>
+  <ul class="collapse">
+  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">Why</a></li>
+  <li><a href="#principles" id="toc-principles" class="nav-link" data-scroll-target="#principles">Principles</a></li>
+  <li><a href="#stages-of-data-processing" id="toc-stages-of-data-processing" class="nav-link" data-scroll-target="#stages-of-data-processing">Stages of Data Processing</a></li>
+  <li><a href="#code-accompanying-a-paper" id="toc-code-accompanying-a-paper" class="nav-link" data-scroll-target="#code-accompanying-a-paper">Code Accompanying a Paper</a></li>
+  <li><a href="#code-sharing-versioning-control-github" id="toc-code-sharing-versioning-control-github" class="nav-link" data-scroll-target="#code-sharing-versioning-control-github">Code Sharing &amp; Versioning Control (GitHub)</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scientific Computing FW25 (Jan-Apr 2026)</h1>
+<h1 class="title">Reproducibility &amp; Replicability II: clean code</h1>
 </div>
 
 
@@ -145,160 +161,64 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="info">
-<tbody><tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>URL</strong>
-</td>
-<td>
-<a href="https://gribblelab.org/9040">www.gribblelab.org/9040</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>Instructor</strong>
-</td>
-<td>
-Paul Gribble (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#112;&#x67;&#114;&#x69;&#98;&#98;&#108;&#x65;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>pgribble at uwo dot ca</noscript>)
-</td>
-</tr>
-<tr>
-<td style="text-align:right; padding: 7px;">
-<strong>Classes</strong>
-</td>
-<td>
-Mondays &amp; Thursdays, 9:30 am - 11:00 am in <a href="https://wts.uwo.ca/ctg/classrooms/western_interdisciplinary_research_building/wirb_1110.html">WIRB 1110</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>TA</strong>
-</td>
-<td>
-Anthony Cruz (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#x61;&#x63;&#114;&#x75;&#122;&#50;&#x37;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>acruz27 at uwo dot ca</noscript>)
-</td>
-</tr>
-</tbody></table>
-<hr>
+<section id="principles-of-clean-code" class="level2">
+<h2 class="anchored" data-anchor-id="principles-of-clean-code">Principles of Clean Code</h2>
+<section id="why" class="level3">
+<h3 class="anchored" data-anchor-id="why">Why</h3>
+<p>Writing small scripts to solve toy programming puzzles is one thing, but writing a large amount of inter-connected code to analyse a dataset is quite another. What’s more organizing the data itself is something that can have a big impact on the organization and clarity of the code. It’s worth talking about and thinking about some basic principles for organizing data and code for realistic scenarios such as scientific experiments and data analysis work.</p>
+<p>I want you to read the following:</p>
 <ul>
-<li><a href="./homeworks.html">A note about homeworks</a></li>
-</ul>
-<hr>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<div class="mt-4 table-bordered">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 75%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>Topic / Notes</th>
-<th style="text-align: center;">Homework</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan 5/8</td>
-<td><a href="./intro.html">Intro</a> ; <a href="./setup.html">Setup</a> ; <a href="./git.html">Git</a> ; <a href="./uv.html">uv</a></td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Jan 12/15</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (expressions &amp; variables)</td>
-<td style="text-align: center;"><a href="./hw/hw01.html">HW01</a></td>
-</tr>
-<tr class="odd">
-<td>Jan 19/22</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (loops &amp; conditionals)</td>
-<td style="text-align: center;"><a href="./hw/hw02.html">HW02</a></td>
-</tr>
-<tr class="even">
-<td>Jan 26/29</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (data structures &amp; functions)</td>
-<td style="text-align: center;"><a href="./hw/hw03.html">HW03</a></td>
-</tr>
-<tr class="odd">
-<td>Feb 2/5</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (NumPy &amp; File i/o)</td>
-<td style="text-align: center;"><a href="./hw/hw04.html">HW04</a></td>
-</tr>
-<tr class="even">
-<td>Feb 9/12</td>
-<td><a href="./oop.html">Object Oriented Programming (OOP)</a></td>
-<td style="text-align: center;"><a href="./hw/hw05.html">HW05</a></td>
-</tr>
-<tr class="odd">
-<td>Feb 16/19</td>
-<td><em>no classes</em> (reading week)</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Feb 23/26</td>
-<td><a href="./graphics.html">Graphical Displays of Data</a></td>
-<td style="text-align: center;"><a href="./hw/hw06.html">HW06</a></td>
-</tr>
-<tr class="odd">
-<td>Mar 2/5</td>
-<td>Reproducibility/Replicability I: <a href="">plaintext authoring</a></td>
-<td style="text-align: center;">HW07</td>
-</tr>
-<tr class="even">
-<td>Mar 9/12</td>
-<td><em>no classes</em> (Paul away) Reproducibility/Replicability II: <a href="./clean_code.html">clean code</a></td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td>Mar 16/19</td>
-<td>Sampling, Signal Processing, &amp; Filtering Data</td>
-<td style="text-align: center;">HW08</td>
-</tr>
-<tr class="even">
-<td>Mar 23/26</td>
-<td>Statistical Thinking &amp; Inferential Statistical Tests</td>
-<td style="text-align: center;">HW09</td>
-</tr>
-<tr class="odd">
-<td>Mar 30/Apr 2</td>
-<td>Fitting Models to Data</td>
-<td style="text-align: center;">HW10</td>
-</tr>
-<tr class="even">
-<td>Apr 6/Apr 9</td>
-<td>Simulating Dynamical Systems</td>
-<td style="text-align: center;">-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<ul>
-<li><a href="./concepts.html">concepts</a> covered each week</li>
-<li><a href="./code.html">sample code</a> produced in class</li>
+<li><a href="https://diedrichsenlab.github.io/guides/04_clean_code.html">Writing clean code</a> guide from the Jörn Diedrichsen lab blog</li>
 </ul>
 </section>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings">Readings</h2>
+<section id="principles" class="level3">
+<h3 class="anchored" data-anchor-id="principles">Principles</h3>
 <ul>
-<li><a href="https://wesmckinney.com/book/">Python for Data Analysis</a> by Wes McKinney</li>
-<li><a href="https://matthew-brett.github.io/curious-git/index.html">The Curious Coder’s Guide to Git</a> by Matthew Brett</li>
-<li><a href="https://poldrack.github.io/BetterCodeBetterScience/">Better Code, Better Science</a> by Russ Poldrack</li>
+<li>code should work with zero (or extremely minimal) configuration by a newcomer</li>
+<li>it should be clear how to run the code, how the pieces of the code work together, and what the results are</li>
+<li>the more dependencies that exist in your code, the higher the probability that it will not work in the future. For Python, the <code>uv</code> or <code>venv</code> tools can help with this by allowing you to specify version numbers for all libraries that you use with your code, and it lets you package that specification (a <code>pyproject.toml</code> or <code>requirements.txt</code> file) together with your code itself.</li>
+<li>code and the data it operates on should be packaged together and should “just work”</li>
+<li>data should be organized in files and folders with informative filenames and rational folder structures</li>
+<li>code should be clear so that others can understand how it works (and “others” includes you in the future)</li>
+</ul>
+</section>
+<section id="stages-of-data-processing" class="level3">
+<h3 class="anchored" data-anchor-id="stages-of-data-processing">Stages of Data Processing</h3>
+<p>Think about the stages of processing between raw data, intermediate data structures, and “final” data used for figures and statistical analyses.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/coding_datastructs.png" class="img-fluid figure-img"></p>
+<figcaption>from the <a href="https://diedrichsenlab.github.io/guides/04_clean_code.html">Writing clean code</a> guide by Jörn Diedrichsen</figcaption>
+</figure>
+</div>
+<p>It should be crystal clear how to get each Figure or statistical analysis from data + code. Jörn suggests it and I agree: write out on a piece of paper what this directed graph looks like for your paper/project.</p>
+</section>
+<section id="code-accompanying-a-paper" class="level3">
+<h3 class="anchored" data-anchor-id="code-accompanying-a-paper">Code Accompanying a Paper</h3>
+<ul>
+<li>code should reside in a publicly accessible repository (e.g.&nbsp;on GitHub)</li>
+<li>each Figure and each statistical analysis should be reproducible by running a single script/function without changes</li>
+<li>data should accompany the code</li>
+</ul>
+</section>
+<section id="code-sharing-versioning-control-github" class="level3">
+<h3 class="anchored" data-anchor-id="code-sharing-versioning-control-github">Code Sharing &amp; Versioning Control (GitHub)</h3>
+<p><a href="https://github.com">GitHub</a> is a version control system and code-sharing platform that allows you to track changes to your code over time and collaborate with others. You can use GitHub to store and manage your code, data analysis notebooks, and even data (though not gigantic amounts of data), ensuring you can revert to previous versions if needed. GitHub works well with a number of other useful programs like <a href="https://vscode.github.com">Visual Studio Code</a> and the online LaTeX document system <a href="https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization">Overleaf</a>.</p>
+<ul>
+<li><a href="https://docs.github.com/en/get-started/start-your-journey/hello-world">Get Started</a> with GitHub</li>
+<li><a href="https://github.com/skills">GitHub Skills</a></li>
+</ul>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+<p>Other resources include:</p>
+<ul>
+<li>book: <a href="https://www.amazon.ca/dp/0132350882">Clean Code: A Handbook of Agile Software Craftsmanship</a> by Robert Martin</li>
+<li>a shorter book: <a href="https://www.amazon.com/dp/173210221X">A philosophy of software design</a> by John Ousterhout, (and an accompanying <a href="https://web.stanford.edu/~ouster/cgi-bin/book.php">website</a>)</li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

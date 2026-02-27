@@ -1,0 +1,54 @@
+---
+title: "Reproducibility & Replicability II: clean code"
+format:
+  html:
+    toc: true
+    toc-expand: 3
+---
+
+## Principles of Clean Code
+
+### Why
+
+Writing small scripts to solve toy programming puzzles is one thing, but writing a large amount of inter-connected code to analyse a dataset is quite another. What's more organizing the data itself is something that can have a big impact on the organization and clarity of the code. It's worth talking about and thinking about some basic principles for organizing data and code for realistic scenarios such as scientific experiments and data analysis work.
+
+I want you to read the following:
+
+- [Writing clean code](https://diedrichsenlab.github.io/guides/04_clean_code.html) guide from the Jörn Diedrichsen lab blog
+
+### Principles
+
+- code should work with zero (or extremely minimal) configuration by a newcomer
+- it should be clear how to run the code, how the pieces of the code work together, and what the results are
+- the more dependencies that exist in your code, the higher the probability that it will not work in the future. For Python, the `uv` or `venv` tools can help with this by allowing you to specify version numbers for all libraries that you use with your code, and it lets you package that specification (a `pyproject.toml` or `requirements.txt` file) together with your code itself.
+- code and the data it operates on should be packaged together and should "just work"
+- data should be organized in files and folders with informative filenames and rational folder structures
+- code should be clear so that others can understand how it works (and "others" includes you in the future)
+
+### Stages of Data Processing
+
+Think about the stages of processing between raw data, intermediate data structures, and "final" data used for figures and statistical analyses.
+
+![from the [Writing clean code](https://diedrichsenlab.github.io/guides/04_clean_code.html) guide by Jörn Diedrichsen](images/coding_datastructs.png){fig-align="left"}
+
+It should be crystal clear how to get each Figure or statistical analysis from data + code. Jörn suggests it and I agree: write out on a piece of paper what this directed graph looks like for your paper/project.
+
+### Code Accompanying a Paper
+- code should reside in a publicly accessible repository (e.g. on GitHub)
+- each Figure and each statistical analysis should be reproducible by running a single script/function without changes
+- data should accompany the code
+
+### Code Sharing & Versioning Control (GitHub)
+
+[GitHub](https://github.com) is a version control system and code-sharing platform that allows you to track changes to your code over time and collaborate with others. You can use GitHub to store and manage your code, data analysis notebooks, and even data (though not gigantic amounts of data), ensuring you can revert to previous versions if needed. GitHub works well with a number of other useful programs like [Visual Studio Code](https://vscode.github.com) and the online LaTeX document system [Overleaf](https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization).
+
+  - [Get Started](https://docs.github.com/en/get-started/start-your-journey/hello-world) with GitHub
+  - [GitHub Skills](https://github.com/skills)
+
+### Resources
+
+Other resources include:
+
+- book: [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.ca/dp/0132350882) by Robert Martin
+- a shorter book: [A philosophy of software design](https://www.amazon.com/dp/173210221X) by John Ousterhout, (and an accompanying [website](https://web.stanford.edu/~ouster/cgi-bin/book.php))
+

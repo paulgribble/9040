@@ -249,15 +249,7 @@ The `--citeproc` flag tells Pandoc to process citations. The citation style is c
 
 Make sure you have Pandoc and a LaTeX distribution installed (see above).
 
-Download the [files/plaintext-exercises.tgz](files/plaintext-exercises.tgz) archive and then unpack it:
-
-```{bash}
-$ curl -O https://www.gribblelab.org/9040/files/plaintext-exercises.tgz
-```
-
-```
-
-```
+Download the [files/plaintext-exercises.tgz](files/plaintext-exercises.tgz) archive, move it to your `Psych_9040/` directory, and then unpack it:
 
 ```{bash}
 $ tar -xvzf plaintext-exercises.tgz

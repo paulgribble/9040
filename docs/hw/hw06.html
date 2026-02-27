@@ -153,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="matplotlib-exercises">Matplotlib exercises</h2>
 <ol type="1">
 <li><p>Define a 1D array <code>x</code> containing 10 values starting at 0, ending at 0.9, in increments of 0.1. Define a vector <code>y</code> that is equal to <code>np.sin(2 * np.pi * x)</code>. Generate a line plot with <code>x</code> on the horizontal axis and <code>y</code> on the vertical axis. Use blue circles at each data point (markersize of 8.0), connected by blue solid lines, with a linewidth of 2.0. Label the horizontal axis <code>x</code> and the vertical axis <code>y</code>. Set the range on the horizontal axis so it goes from 0 to 0.9 in steps of 0.1, and on the vertical axis so it goes from -1 to 1 in steps of 0.2.</p>
-<div id="1e48faee" class="cell" data-execution_count="2">
+<div id="0178447f" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -163,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div></li>
 <li><p>Define 1D arrays <code>y1</code> equal to <code>[1,2,3,4,4]</code>, <code>y2</code> equal to <code>[1,5,6,8,10]</code>, and <code>y3</code> equal to <code>[5,4,2,1,1]</code>. Generate a multi-line plot using squares (markersize 6.0) connected with solid lines (linewidth 1.0). Label the axes as shown, and set axis limits and axis ticks as shown. Add a legend as shown. The <code>y1</code> colour is blue, the <code>y2</code> colour is red, and the <code>y3</code> colour is magenta.</p>
-<div id="47ae5585" class="cell" data-execution_count="3">
+<div id="e3bcf5b6" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -173,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div></li>
 <li><p>Define a 100-length 1D array <code>x</code> starting at 1 and ending at 100 in increments of 1. Define <code>y</code> equal to <code>(x * 0.15) + N</code> where N is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 0.5. Let <code>z</code> be equal to <code>((x * 0.05) + 2) + N2</code> where <code>N2</code> is a 100 element 1D array of random values chosen from a gaussian distribution with mean 0.0 and standard deviation 2.0. Generate a scatterplot as shown below, using filled circles (markersize 3.0). The <code>y</code> colour is blue and the <code>z</code> colour is red. Pay attention to the axis labels, tick marks, and ranges. At the beginning of your answer set the random seed (once) to be equal to <code>9040</code> so that we all get the same random values, using <code>np.random.seed(9040)</code>.</p>
-<div id="d7302428" class="cell" data-execution_count="4">
+<div id="d84aab04" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -187,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Hint: <code>ax.spines["top"].set_visible(False)</code> will turn off the top part of the box outlining each plot.</p>
 <p>Hint: <code>fig = plt.figure()</code> and then <code>ax1 = fig.add_subplot(2,2,(1,2))</code> will generate a subplot that spans cells 1 and 2 (the top row) of the 2x2 grid. Then <code>ax2 = fig.add_subplot(2,2,3)</code> and <code>ax3 = fig.add_subplot(2,2,4)</code> will define the lower two sublots.</p>
 <p>Hint: the <code>legend()</code> method of an axis has an option that will remove the frame outline: <code>frameon=False</code></p>
-<div id="161f27b8" class="cell" data-execution_count="5">
+<div id="ce8a81cf" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">

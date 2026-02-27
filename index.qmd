@@ -34,22 +34,22 @@ format:
 
 <div class="mt-4 table-bordered">
 
-|     Date     |                                  Topic / Notes                                  |      Homework       |
-| ------------ | ------------------------------------------------------------------------------- | :-----------------: |
-| Jan 5/8      | [Intro](intro.qmd)  ;  [Setup](setup.qmd) ; [Git](git.qmd) ; [uv](uv.qmd)       |          -          |
-| Jan 12/15    | [Fundamentals](fundamentals.qmd) (expressions & variables)                      | [HW01](hw/hw01.qmd) |
-| Jan 19/22    | [Fundamentals](fundamentals.qmd) (loops & conditionals)                         | [HW02](hw/hw02.qmd) |
-| Jan 26/29    | [Fundamentals](fundamentals.qmd) (data structures & functions)                  | [HW03](hw/hw03.qmd) |
-| Feb 2/5      | [Fundamentals](fundamentals.qmd) (NumPy & File i/o)                             | [HW04](hw/hw04.qmd) |
-| Feb 9/12     | [Object Oriented Programming (OOP)](oop.qmd)                                    | [HW05](hw/hw05.qmd) |
-| Feb 16/19    | *no class* (reading week)                                                       |          -          |
-| Feb 23/26    | [Graphical Displays of Data](graphics.qmd)                                      | [HW06](hw/hw06.qmd) |
-| Mar 2/5      | Reproducibility/Replicability I: plaintext authoring |        HW07         |
-| Mar 9/12     | *no class* (Paul away)                                                          |          -          |
-| Mar 16/19    | Sampling, Signal Processing, & Filtering Data                                   |        HW08         |
-| Mar 23/26    | Statistical Thinking & Inferential Statistical Tests                            |        HW09         |
-| Mar 30/Apr 2 | Fitting Models to Data                                                          |        HW10         |
-| Apr 6/Apr 9  | Simulating Dynamical Systems                                                    |          -          |
+|     Date     |                                      Topic / Notes                                       |      Homework       |
+| ------------ | ---------------------------------------------------------------------------------------- | :-----------------: |
+| Jan 5/8      | [Intro](intro.qmd)  ;  [Setup](setup.qmd) ; [Git](git.qmd) ; [uv](uv.qmd)                |          -          |
+| Jan 12/15    | [Fundamentals](fundamentals.qmd) (expressions & variables)                               | [HW01](hw/hw01.qmd) |
+| Jan 19/22    | [Fundamentals](fundamentals.qmd) (loops & conditionals)                                  | [HW02](hw/hw02.qmd) |
+| Jan 26/29    | [Fundamentals](fundamentals.qmd) (data structures & functions)                           | [HW03](hw/hw03.qmd) |
+| Feb 2/5      | [Fundamentals](fundamentals.qmd) (NumPy & File i/o)                                      | [HW04](hw/hw04.qmd) |
+| Feb 9/12     | [Object Oriented Programming (OOP)](oop.qmd)                                             | [HW05](hw/hw05.qmd) |
+| Feb 16/19    | *no classes* (reading week)                                                              |          -          |
+| Feb 23/26    | [Graphical Displays of Data](graphics.qmd)                                               | [HW06](hw/hw06.qmd) |
+| Mar 2/5      | Reproducibility/Replicability I: [plaintext authoring]()          |        HW07         |
+| Mar 9/12     | *no classes* (Paul away)  Reproducibility/Replicability II: [clean code](clean_code.qmd) |          -          |
+| Mar 16/19    | Sampling, Signal Processing, & Filtering Data                                            |        HW08         |
+| Mar 23/26    | Statistical Thinking & Inferential Statistical Tests                                     |        HW09         |
+| Mar 30/Apr 2 | Fitting Models to Data                                                                   |        HW10         |
+| Apr 6/Apr 9  | Simulating Dynamical Systems                                                             |          -          |
 
 : {tbl-colwidths="[15,75,10]"}
 </div>
