@@ -1,5 +1,9 @@
 ---
 title: "uv"
+format:
+  html:
+    toc: true
+    toc-expand: 3
 ---
 
 ## The Problem uv Solves
