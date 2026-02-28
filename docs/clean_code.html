@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -129,12 +164,39 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#principles-of-clean-code" id="toc-principles-of-clean-code" class="nav-link active" data-scroll-target="#principles-of-clean-code">Principles of Clean Code</a>
   <ul class="collapse">
-  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">Why</a></li>
-  <li><a href="#principles" id="toc-principles" class="nav-link" data-scroll-target="#principles">Principles</a></li>
-  <li><a href="#stages-of-data-processing" id="toc-stages-of-data-processing" class="nav-link" data-scroll-target="#stages-of-data-processing">Stages of Data Processing</a></li>
-  <li><a href="#code-accompanying-a-paper" id="toc-code-accompanying-a-paper" class="nav-link" data-scroll-target="#code-accompanying-a-paper">Code Accompanying a Paper</a></li>
-  <li><a href="#code-sharing-versioning-control-github" id="toc-code-sharing-versioning-control-github" class="nav-link" data-scroll-target="#code-sharing-versioning-control-github">Code Sharing &amp; Versioning Control (GitHub)</a></li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">1 Why</a></li>
+  <li><a href="#naming" id="toc-naming" class="nav-link" data-scroll-target="#naming">2 Naming</a>
+  <ul class="collapse">
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables">2.1 Variables</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">2.2 Functions</a></li>
+  <li><a href="#files-directories" id="toc-files-directories" class="nav-link" data-scroll-target="#files-directories">2.3 Files &amp; directories</a></li>
+  </ul></li>
+  <li><a href="#modularity" id="toc-modularity" class="nav-link" data-scroll-target="#modularity">3 Modularity</a>
+  <ul class="collapse">
+  <li><a href="#a-messy-script" id="toc-a-messy-script" class="nav-link" data-scroll-target="#a-messy-script">3.1 A messy script</a></li>
+  <li><a href="#a-clean-version" id="toc-a-clean-version" class="nav-link" data-scroll-target="#a-clean-version">3.2 A clean version</a></li>
+  <li><a href="#key-principles" id="toc-key-principles" class="nav-link" data-scroll-target="#key-principles">3.3 Key principles</a></li>
+  </ul></li>
+  <li><a href="#comments-docstrings" id="toc-comments-docstrings" class="nav-link" data-scroll-target="#comments-docstrings">4 Comments &amp; Docstrings</a>
+  <ul class="collapse">
+  <li><a href="#when-comments-help" id="toc-when-comments-help" class="nav-link" data-scroll-target="#when-comments-help">4.1 When comments help</a></li>
+  <li><a href="#unnecessary-comments" id="toc-unnecessary-comments" class="nav-link" data-scroll-target="#unnecessary-comments">4.2 Unnecessary comments</a></li>
+  <li><a href="#docstrings" id="toc-docstrings" class="nav-link" data-scroll-target="#docstrings">4.3 Docstrings</a></li>
+  </ul></li>
+  <li><a href="#project-organization" id="toc-project-organization" class="nav-link" data-scroll-target="#project-organization">5 Project Organization</a>
+  <ul class="collapse">
+  <li><a href="#data-processing-stages" id="toc-data-processing-stages" class="nav-link" data-scroll-target="#data-processing-stages">5.1 Data Processing Stages</a></li>
+  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">5.2 Directory structure</a></li>
+  <li><a href="#code-paper" id="toc-code-paper" class="nav-link" data-scroll-target="#code-paper">5.3 Code + Paper</a></li>
+  <li><a href="#code-sharing-github" id="toc-code-sharing-github" class="nav-link" data-scroll-target="#code-sharing-github">5.4 Code sharing (GitHub)</a></li>
+  </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">6 Exercises</a>
+  <ul class="collapse">
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">6.1 Setup</a></li>
+  <li><a href="#sec-exercise1" id="toc-sec-exercise1" class="nav-link" data-scroll-target="#sec-exercise1">6.2 Exercise 1</a></li>
+  <li><a href="#sec-exercise2" id="toc-sec-exercise2" class="nav-link" data-scroll-target="#sec-exercise2">6.3 Exercise 2</a></li>
+  </ul></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">7 Resources</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -161,60 +223,445 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="principles-of-clean-code" class="level2">
-<h2 class="anchored" data-anchor-id="principles-of-clean-code">Principles of Clean Code</h2>
-<section id="why" class="level3">
-<h3 class="anchored" data-anchor-id="why">Why</h3>
-<p>Writing small scripts to solve toy programming puzzles is one thing, but writing a large amount of inter-connected code to analyse a dataset is quite another. What’s more organizing the data itself is something that can have a big impact on the organization and clarity of the code. It’s worth talking about and thinking about some basic principles for organizing data and code for realistic scenarios such as scientific experiments and data analysis work.</p>
+<section id="principles-of-clean-code" class="level1">
+<h1>Principles of Clean Code</h1>
+<section id="why" class="level2">
+<h2 class="anchored" data-anchor-id="why">1 Why</h2>
+<p>Writing small scripts to solve toy programming puzzles is one thing, but writing a large amount of inter-connected code to analyse a dataset is quite another. What’s more, organizing the data itself is something that can have a big impact on the organization and clarity of the code. It’s worth talking about and thinking about some basic principles for organizing data and code for realistic scenarios such as scientific experiments and data analysis work.</p>
+<p>Before we get into principles, here is a cautionary tale.</p>
+<p><a href="https://doi.org/10.1126/science.314.5807.1856">A Scientist’s Nightmare: Software Problem Leads to Five Retractions</a></p>
+<p>In 2007, Geoffrey Chang, a rising star in structural biology, had to retract five papers (three from <em>Science</em>, one from <em>PNAS</em> and one from <em>J Mol Biol</em>). The reason? A bug in a data-processing script had flipped two columns of data, inverting the electron-density map from which his team had derived protein structures. The code ran without errors. The results looked plausible. The bug hid in plain sight for years because the code was written in a way that made it very difficult for anyone, including Chang himself, to verify what it was actually doing.</p>
+<p>This is not an isolated incident. Researchers in genomics, economics, and psychology have all experienced retractions or corrections traced back to code errors that might have been caught earlier if the code had been written more carefully.</p>
+<p>The point is: <strong>your analysis code is a methods section</strong>. If nobody can read it, nobody can reproduce your results, and nobody, including future-you, can catch mistakes. Clean code is not about aesthetics. It is about scientific integrity.</p>
 <p>I want you to read the following:</p>
 <ul>
 <li><a href="https://diedrichsenlab.github.io/guides/04_clean_code.html">Writing clean code</a> guide from the Jörn Diedrichsen lab blog</li>
 </ul>
+<p>This guide is excellent and covers a lot of ground. What follows below expands on several of its key ideas with worked examples in Python, using the kinds of data and analyses you’ve been working with this semester.</p>
 </section>
-<section id="principles" class="level3">
-<h3 class="anchored" data-anchor-id="principles">Principles</h3>
+<section id="naming" class="level2">
+<h2 class="anchored" data-anchor-id="naming">2 Naming</h2>
+<p>The single easiest thing you can do to improve your code is to name things well (variables, functions, files, directories). Good names make comments unnecessary. Bad names make even simple code confusing.</p>
+<section id="variables" class="level3">
+<h3 class="anchored" data-anchor-id="variables">2.1 Variables</h3>
+<p>Consider this snippet:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> np.loadtxt(<span class="st">"data.csv"</span>, delimiter<span class="op">=</span><span class="st">","</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> d[:, <span class="dv">2</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.mean(x[x <span class="op">&lt;</span> <span class="fl">1.5</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It runs. It produces a number. But what is <code>d</code>? What is column 2? What does <code>1.5</code> mean? Now compare:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>grip_data <span class="op">=</span> np.loadtxt(<span class="st">"grip_strength_data.csv"</span>, delimiter<span class="op">=</span><span class="st">","</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>post_grip_force <span class="op">=</span> grip_data[:, <span class="dv">2</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>max_force_cutoff <span class="op">=</span> <span class="fl">1.5</span>  <span class="co"># exclude trials above 1.5 N/kg (equipment ceiling)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>mean_force <span class="op">=</span> np.mean(post_grip_force[post_grip_force <span class="op">&lt;</span> max_force_cutoff])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Same computation. But now the code tells you what it is doing. A reader does not need to cross-reference a data dictionary to figure out what column 2 contains.</p>
+<p>Some guidelines:</p>
 <ul>
-<li>code should work with zero (or extremely minimal) configuration by a newcomer</li>
-<li>it should be clear how to run the code, how the pieces of the code work together, and what the results are</li>
-<li>the more dependencies that exist in your code, the higher the probability that it will not work in the future. For Python, the <code>uv</code> or <code>venv</code> tools can help with this by allowing you to specify version numbers for all libraries that you use with your code, and it lets you package that specification (a <code>pyproject.toml</code> or <code>requirements.txt</code> file) together with your code itself.</li>
-<li>code and the data it operates on should be packaged together and should “just work”</li>
-<li>data should be organized in files and folders with informative filenames and rational folder structures</li>
-<li>code should be clear so that others can understand how it works (and “others” includes you in the future)</li>
+<li><strong>Use descriptive nouns for variables</strong>: <code>reaction_times</code>, <code>participant_ids</code>, <code>mean_rt_caffeine</code>. Not <code>d</code>, <code>x</code>, <code>m</code>.</li>
+<li><strong>Be consistent</strong>: if you abbreviate “reaction time” as <code>rt</code>, use <code>rt</code> everywhere. Don’t mix <code>rt</code>, <code>react_time</code>, <code>RT</code>, and <code>reaction_t</code> in the same project.</li>
+<li><strong>Single-letter names are fine in small scopes</strong>: <code>for i in range(n_trials)</code> is perfectly clear. A loop index does not need to be called <code>trial_index</code> unless the loop body is very long.</li>
+<li><strong>Name magic numbers</strong>: if <code>200</code> appears in a line of code, nobody knows why. <code>min_rt_ms = 200</code> makes the intent obvious.</li>
 </ul>
 </section>
-<section id="stages-of-data-processing" class="level3">
-<h3 class="anchored" data-anchor-id="stages-of-data-processing">Stages of Data Processing</h3>
-<p>Think about the stages of processing between raw data, intermediate data structures, and “final” data used for figures and statistical analyses.</p>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="images/coding_datastructs.png" class="img-fluid figure-img"></p>
-<figcaption>from the <a href="https://diedrichsenlab.github.io/guides/04_clean_code.html">Writing clean code</a> guide by Jörn Diedrichsen</figcaption>
-</figure>
-</div>
+<section id="functions" class="level3">
+<h3 class="anchored" data-anchor-id="functions">2.2 Functions</h3>
+<p>Where variable names are nouns, function names should be <strong>verbs</strong> (or verb phrases). They should say what the function <em>does</em>:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Bad</th>
+<th>Better</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>func1()</code></td>
+<td><code>load_participant_data()</code></td>
+</tr>
+<tr class="even">
+<td><code>process()</code></td>
+<td><code>exclude_outlier_trials()</code></td>
+</tr>
+<tr class="odd">
+<td><code>do_stats()</code></td>
+<td><code>run_paired_ttest()</code></td>
+</tr>
+<tr class="even">
+<td><code>my_plot()</code></td>
+<td><code>plot_condition_means()</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="files-directories" class="level3">
+<h3 class="anchored" data-anchor-id="files-directories">2.3 Files &amp; directories</h3>
+<p>The same principle applies to file names:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Bad</th>
+<th>Better</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>data.csv</code></td>
+<td><code>grip_strength_raw.csv</code></td>
+</tr>
+<tr class="even">
+<td><code>analysis.py</code></td>
+<td><code>01_preprocess.py</code> or <code>analyze_grip_strength.py</code></td>
+</tr>
+<tr class="odd">
+<td><code>fig1.png</code></td>
+<td><code>figure_grip_by_condition.png</code></td>
+</tr>
+<tr class="even">
+<td><code>Untitled3.py</code></td>
+<td><em>(delete it)</em> 😜</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="modularity" class="level2">
+<h2 class="anchored" data-anchor-id="modularity">3 Modularity</h2>
+<p>When you first start writing analysis code, the natural thing to do is to write a script: a long sequence of steps, from loading data to producing a figure, all in one file. This works fine for short tasks. But as your analysis grows, a single long script becomes hard to read, hard to debug, and hard to reuse.</p>
+<p>The remedy is to modularize your code by breaking it up into <strong>functions</strong>, each of which does one specific thing.</p>
+<section id="a-messy-script" class="level3">
+<h3 class="anchored" data-anchor-id="a-messy-script">3.1 A messy script</h3>
+<p>Here is a working script that analyses a small grip strength experiment. It loads data, excludes outlier trials, computes condition means for each participant, runs a paired t-test, and makes a bar chart. The code is realistic, and it produces the correct result. But it is hard to read. Go through it line by line with an eye towards trying to understand what it does (and remember, this could be <em>your</em> code, being read by future-you):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> np.loadtxt(<span class="st">"grip_strength_data.csv"</span>, delimiter<span class="op">=</span><span class="st">","</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># col 0 = subj, col 1 = condition (0=placebo,1=caffeine), col 2 = force</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.unique(d[:, <span class="dv">0</span>])</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>m1 <span class="op">=</span> []</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>m2 <span class="op">=</span> []</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> s:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    tmp <span class="op">=</span> d[d[:, <span class="dv">0</span>] <span class="op">==</span> i]</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    tmp1 <span class="op">=</span> tmp[tmp[:, <span class="dv">1</span>] <span class="op">==</span> <span class="dv">0</span>]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    vals1 <span class="op">=</span> tmp1[:, <span class="dv">2</span>]</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    vals1 <span class="op">=</span> vals1[(vals1 <span class="op">&gt;</span> <span class="dv">5</span>) <span class="op">&amp;</span> (vals1 <span class="op">&lt;</span> <span class="dv">80</span>)]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    m1.append(np.mean(vals1))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    tmp2 <span class="op">=</span> tmp[tmp[:, <span class="dv">1</span>] <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    vals2 <span class="op">=</span> tmp2[:, <span class="dv">2</span>]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    vals2 <span class="op">=</span> vals2[(vals2 <span class="op">&gt;</span> <span class="dv">5</span>) <span class="op">&amp;</span> (vals2 <span class="op">&lt;</span> <span class="dv">80</span>)]</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    m2.append(np.mean(vals2))</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>m1 <span class="op">=</span> np.array(m1)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>m2 <span class="op">=</span> np.array(m2)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>t, p <span class="op">=</span> stats.ttest_rel(m2, m1)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"t = </span><span class="sc">{</span>t<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>means <span class="op">=</span> [np.mean(m1), np.mean(m2)]</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>sems <span class="op">=</span> [stats.sem(m1), stats.sem(m2)]</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>ax.bar([<span class="dv">0</span>, <span class="dv">1</span>], means, yerr<span class="op">=</span>sems, capsize<span class="op">=</span><span class="dv">5</span>, color<span class="op">=</span>[<span class="st">"#4e79a7"</span>, <span class="st">"#e15759"</span>])</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">"Placebo"</span>, <span class="st">"Caffeine"</span>])</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Grip Force (N)"</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Grip Strength by Condition"</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"fig.png"</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>What’s wrong with this code? It works, but:</p>
+<ul>
+<li>Variable names like <code>d</code>, <code>s</code>, <code>m1</code>, <code>m2</code>, <code>tmp</code>, <code>tmp1</code>, <code>tmp2</code>, <code>vals1</code>, <code>vals2</code> say nothing about what they contain</li>
+<li>The magic numbers <code>5</code> and <code>80</code> appear without explanation</li>
+<li>The block that computes means for placebo is nearly identical to the block for caffeine (copy-paste code, a classic no-no)</li>
+<li>There are no functions, so nothing is reusable or independently testable</li>
+<li>It is 30+ lines with no structure; to understand the flow you must read every line</li>
+</ul>
+</section>
+<section id="a-clean-version" class="level3">
+<h3 class="anchored" data-anchor-id="a-clean-version">3.2 A clean version</h3>
+<p>Here is the same analysis, refactored. Read through it with an eye towards understanding what is happening and how it works:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>MIN_FORCE_N <span class="op">=</span>  <span class="dv">5</span>   <span class="co"># below this = no grip detected</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>MAX_FORCE_N <span class="op">=</span> <span class="dv">80</span>   <span class="co"># above this = equipment ceiling</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>CONDITION_PLACEBO  <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>CONDITION_CAFFEINE <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_grip_data(filepath):</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Load grip strength data from a CSV file.</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co">        filepath: Path to CSV with columns [subject_id, condition, force_n].</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">        NumPy array with shape (n_trials, 3).</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.loadtxt(filepath, delimiter<span class="op">=</span><span class="st">","</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_subject_means(data, condition):</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Compute mean grip force per subject for a given condition.</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co">    Trials with force outside (MIN_FORCE_N, MAX_FORCE_N) are excluded.</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="co">        data: Array with columns [subject_id, condition, force_n].</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co">        condition: Condition code to select (0 or 1).</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">        Array of per-subject mean forces.</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    subject_ids <span class="op">=</span> np.unique(data[:, <span class="dv">0</span>])</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    subject_means <span class="op">=</span> np.zeros(<span class="bu">len</span>(subject_ids))</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, subj <span class="kw">in</span> <span class="bu">enumerate</span>(subject_ids):</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        subj_trials <span class="op">=</span> data[(data[:, <span class="dv">0</span>] <span class="op">==</span> subj) <span class="op">&amp;</span> (data[:, <span class="dv">1</span>] <span class="op">==</span> condition)]</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>        forces <span class="op">=</span> subj_trials[:, <span class="dv">2</span>]</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>        valid <span class="op">=</span> forces[(forces <span class="op">&gt;</span> MIN_FORCE_N) <span class="op">&amp;</span> (forces <span class="op">&lt;</span> MAX_FORCE_N)]</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>        subject_means[i] <span class="op">=</span> np.mean(valid)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> subject_means</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_condition_means(means_placebo, means_caffeine, output_path):</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Create a bar chart comparing grip force between conditions.</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="co">        means_placebo: Array of per-subject means for placebo.</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="co">        means_caffeine: Array of per-subject means for caffeine.</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a><span class="co">        output_path: Filepath for the saved figure.</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    group_means <span class="op">=</span> [np.mean(means_placebo), np.mean(means_caffeine)]</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>    group_sems <span class="op">=</span> [stats.sem(means_placebo), stats.sem(means_caffeine)]</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>    ax.bar([<span class="dv">0</span>, <span class="dv">1</span>], group_means, yerr<span class="op">=</span>group_sems, capsize<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>           color<span class="op">=</span>[<span class="st">"#4e79a7"</span>, <span class="st">"#e15759"</span>])</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    ax.set_xticklabels([<span class="st">"Placebo"</span>, <span class="st">"Caffeine"</span>])</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">"Grip Force (N)"</span>)</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="st">"Grip Strength by Condition"</span>)</span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>    plt.savefig(output_path, dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Main analysis ---</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    grip_data <span class="op">=</span> load_grip_data(<span class="st">"grip_strength_data.csv"</span>)</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    means_placebo  <span class="op">=</span> compute_subject_means(grip_data, CONDITION_PLACEBO)</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    means_caffeine <span class="op">=</span> compute_subject_means(grip_data, CONDITION_CAFFEINE)</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>    t_stat, p_value <span class="op">=</span> stats.ttest_rel(means_caffeine, means_placebo)</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Paired t-test: t = </span><span class="sc">{</span>t_stat<span class="sc">:.3f}</span><span class="ss">, p = </span><span class="sc">{</span>p_value<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>    plot_condition_means(means_placebo, means_caffeine, <span class="st">"figure_grip_by_condition.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>What changed?</p>
+<p>The main thing is that the overall structure of the python script changed so that we have variables with important values defined at the top, then a series of functions defined in the body, and at the bottom the <code>if __name__ == "__main__":</code> “main” section defined.</p>
+<p>Recall when a Python script has a <code>if __name__ == "__main__":</code> section defined, that code is executed when the script is executed (e.g.&nbsp;from a terminal with <code>python3 myscript.py</code>). When the script is imported by other python code (e.g.&nbsp;<code>import myscript</code>) then the variables and functions are imported but the “main” part is not executed.</p>
+<p>Other things that are different in the refactored code:</p>
+<ul>
+<li><strong>Magic numbers are named constants</strong> at the top of the file. If the cutoff changes, you change one line, not two (or four, or six).</li>
+<li><strong>The copy-pasted blocks are now one function</strong> (<code>compute_subject_means</code>) called twice with different arguments. If you need to change the outlier logic, you change it in one place.</li>
+<li><strong>Each function has a docstring</strong> that says what it does, what it takes, and what it returns.</li>
+<li><strong>The main analysis reads like an outline</strong>: load data, compute means, run test, make figure. You can understand the flow without reading the details of each step.</li>
+<li><strong>Each function is independently testable</strong>: you could call <code>compute_subject_means</code> on a small hand-crafted array and verify it gives the right answer.</li>
+</ul>
+<p>The code is longer, but it is not more complex. In fact it is <em>less</em> complex because the structure is explicit rather than implicit.</p>
+</section>
+<section id="key-principles" class="level3">
+<h3 class="anchored" data-anchor-id="key-principles">3.3 Key principles</h3>
+<ul>
+<li><strong>Functions should do one thing, and do it well.</strong></li>
+<li><strong>Functions should only receive the information they need</strong></li>
+<li><strong>Your top-level script should read like a table of contents</strong>: load, process, analyze, plot.</li>
+<li><strong>Aim for shallow call depth</strong>: ideally you have <em>elemental functions</em> (do one operation), <em>process functions</em> (chain several elemental functions), and <em>scripts</em> (call process functions). Three levels is usually enough.</li>
+</ul>
+</section>
+</section>
+<section id="comments-docstrings" class="level2">
+<h2 class="anchored" data-anchor-id="comments-docstrings">4 Comments &amp; Docstrings</h2>
+<p>There is a saying (I think from the <em>Code Complete</em> book by Steve McConnell) that good code is its own best documentation.</p>
+<p>If you have to write very long comments to explain how your code works, it may be because your code is not very clean. Ideally, code should be self-explanatory.</p>
+<section id="when-comments-help" class="level3">
+<h3 class="anchored" data-anchor-id="when-comments-help">4.1 When comments help</h3>
+<p>Good comments explain <strong>why</strong>, not <strong>what</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exclude the first 5 trials per block (practice trials, not analyzed)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>valid_trials <span class="op">=</span> all_trials[all_trials[<span class="st">"trial_num"</span>] <span class="op">&gt;</span> <span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The code already says <em>what</em> it does (select trials with <code>trial_num &gt; 5</code>). The comment says <em>why</em> (they are practice trials).</p>
+</section>
+<section id="unnecessary-comments" class="level3">
+<h3 class="anchored" data-anchor-id="unnecessary-comments">4.2 Unnecessary comments</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the mean</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.mean(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This comment adds nothing. The code is already clear (well, it would be clearer if <code>x</code> had a better name).</p>
+</section>
+<section id="docstrings" class="level3">
+<h3 class="anchored" data-anchor-id="docstrings">4.3 Docstrings</h3>
+<p>Every function you write for a project should have a docstring. It doesn’t need to be long. A good convention to follow is Google-style (<a href="https://google.github.io/styleguide/pyguide.html#383-functions-and-methods">Google Python Style Guide: Functions and Methods</a>).</p>
+<p>At a minimum a good docstring should contain:</p>
+<ul>
+<li>a short description of what the function does</li>
+<li><strong>Args</strong>: what the input arguments are and default values if they exist</li>
+<li><strong>Returns</strong>: what the output argument is</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> exclude_outlier_trials(reaction_times, min_ms<span class="op">=</span><span class="dv">200</span>, max_ms<span class="op">=</span><span class="dv">2000</span>):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Remove trials with reaction times outside a valid range.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">        reaction_times: 1D array of RTs in milliseconds.</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">        min_ms: Lower cutoff (default 200 ms).</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">        max_ms: Upper cutoff (default 2000 ms).</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">        1D array with outlier trials removed.</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> reaction_times[(reaction_times <span class="op">&gt;=</span> min_ms) <span class="op">&amp;</span> (reaction_times <span class="op">&lt;=</span> max_ms)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Notice that with a descriptive function name and a good docstring, the function body barely needs any inline comments.</p>
+</section>
+</section>
+<section id="project-organization" class="level2">
+<h2 class="anchored" data-anchor-id="project-organization">5 Project Organization</h2>
+<section id="data-processing-stages" class="level3">
+<h3 class="anchored" data-anchor-id="data-processing-stages">5.1 Data Processing Stages</h3>
+<p>It is useful to think about the life cycle of data as we move from “raw” data files all the way to publication-quality figures and statistical tests.</p>
+<p>In data oriented scientific research we often start with one or more “<strong>raw</strong>” data files. These can be generated by pieces of laboratory equipment (e.g.&nbsp;EEG, fMRI, EMG, RTs from a keyboard, participant responses, etc) or they may be provided by others.</p>
+<p>Typically there is a need to process, or filter, or slice, or perform other operations on raw data before we reach the stage where we can perform statistical analyses or plot summary figures. It is useful to think about a first stage of data processing whereby we load in raw data files and generate “processed” or “<strong>analysed</strong>” data files that store a more useful component or product of the raw data files. Often the analysed data files are much smaller (e.g.&nbsp;orders of magnitude smaller) than the raw data files. For example we may have 100 raw data files, one for each participant, and after filtering, slicing, and separating out the most important components, we may end up with 100 <em>analysed</em> data files, one for each participant, that are each 10x smaller than the raw data files.</p>
+<p>Then there may be one or more kinds of analyses, and/or plots, that one wishes to perform, and instead of loading raw data files from scratch and performing the filtering/processing steps above, again, instead we operate directly on the <em>analysed</em> data files. This saves time (faster to load) and it also separates out the first stage of data processing from the second stage of summary analyses, plots, etc.</p>
+<p>Then often we can think of a third step, whereby we want to combine or summarize the analysed data files (e.g.&nbsp;one per participant) into group-level analyses. Perhaps from each participant’s <em>analysed</em> data file, we extract key dependent measures, and collect them together, for all participants, into a single tabular file (e.g.&nbsp;a <code>.csv</code> or <code>.tsv</code>), what we might call a <strong>summary</strong> file. Then all statistical analyses, group-level plots, can operate directly from the <em>summary</em> files, without having to load the <em>analysed</em> files or the <em>raw</em> files.</p>
+<p>One great advantage of thinking about the workflow in this way is that each stage of data analysis is kept perfectly modular, and only depends upon the data files a the level “below”. You can pass summary data to a colleague and only need to give them the code a the top level, which operates on the summary data. Code and data organized together this way is extremely portable, understandable, debuggable, and shareable.</p>
+<p>In your own research, think about the stages of processing between raw data, intermediate data structures, and “final” data used for figures and statistical analyses.</p>
+<p><img src="images/coding_datastructs.png" class="img-fluid"></p>
+<p>from the <a href="https://diedrichsenlab.github.io/guides/04_clean_code.html">Writing clean code</a> guide by Jörn Diedrichsen; go and read the section in his blog post titled “Data Structures”</p>
 <p>It should be crystal clear how to get each Figure or statistical analysis from data + code. Jörn suggests it and I agree: write out on a piece of paper what this directed graph looks like for your paper/project.</p>
 </section>
-<section id="code-accompanying-a-paper" class="level3">
-<h3 class="anchored" data-anchor-id="code-accompanying-a-paper">Code Accompanying a Paper</h3>
+<section id="directory-structure" class="level3">
+<h3 class="anchored" data-anchor-id="directory-structure">5.2 Directory structure</h3>
+<p>Here is a sensible layout for a small research project:</p>
+<pre><code>grip_strength_study/
+├── README.md
+├── requirements.txt
+├── data/
+│   └── grip_strength_raw.csv
+├── scripts/
+│   ├── 01_preprocess.py
+│   └── 02_analyze.py
+├── figures/
+│   └── figure_grip_by_condition.png
+└── results/
+    └── stats_output.txt</code></pre>
+<p>A few principles:</p>
 <ul>
-<li>code should reside in a publicly accessible repository (e.g.&nbsp;on GitHub)</li>
-<li>each Figure and each statistical analysis should be reproducible by running a single script/function without changes</li>
-<li>data should accompany the code</li>
+<li><strong>Raw data is read-only.</strong> Never modify your original data files. If you need to preprocess, write a script that reads the raw data and writes processed data to a separate file or directory.</li>
+<li><strong>Separate code from data from outputs.</strong> This makes it obvious what is source material, what is code, and what is generated.</li>
+<li><strong>Include a <code>README.md</code></strong> that says what the project is, how to run the analysis, and what the dependencies are.</li>
+<li><strong>Include a <code>requirements.txt</code></strong> (or <code>pyproject.toml</code>) listing your Python dependencies and their version numbers, so someone else can recreate your environment. If you are using <code>uv</code>, a <code>pyproject.toml</code> file will be created for you.</li>
+</ul>
+<p>If you end up with a large number of data files and distinct “raw”, “processed” and “summary” levels of data structures, put them in distinct directories, e.g.&nbsp;<code>data/raw/</code>, <code>data/processed/</code> and <code>data/summary/</code>.</p>
+</section>
+<section id="code-paper" class="level3">
+<h3 class="anchored" data-anchor-id="code-paper">5.3 Code + Paper</h3>
+<ul>
+<li>Code should reside in a publicly accessible repository (e.g.&nbsp;on GitHub)</li>
+<li>Each Figure and each statistical analysis should be reproducible by running a single script/function without changes</li>
+<li>Data should accompany the code (GitHub is not the place to store very large data files, but files at the <em>summary</em> level, e.g.&nbsp;<code>.csv</code> tabular files are likely fine)</li>
 </ul>
 </section>
-<section id="code-sharing-versioning-control-github" class="level3">
-<h3 class="anchored" data-anchor-id="code-sharing-versioning-control-github">Code Sharing &amp; Versioning Control (GitHub)</h3>
+<section id="code-sharing-github" class="level3">
+<h3 class="anchored" data-anchor-id="code-sharing-github">5.4 Code sharing (GitHub)</h3>
 <p><a href="https://github.com">GitHub</a> is a version control system and code-sharing platform that allows you to track changes to your code over time and collaborate with others. You can use GitHub to store and manage your code, data analysis notebooks, and even data (though not gigantic amounts of data), ensuring you can revert to previous versions if needed. GitHub works well with a number of other useful programs like <a href="https://vscode.github.com">Visual Studio Code</a> and the online LaTeX document system <a href="https://www.overleaf.com/learn/how-to/Git_Integration_and_GitHub_Synchronization">Overleaf</a>.</p>
 <ul>
 <li><a href="https://docs.github.com/en/get-started/start-your-journey/hello-world">Get Started</a> with GitHub</li>
 <li><a href="https://github.com/skills">GitHub Skills</a></li>
 </ul>
 </section>
-<section id="resources" class="level3">
-<h3 class="anchored" data-anchor-id="resources">Resources</h3>
-<p>Other resources include:</p>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">6 Exercises</h2>
+<section id="setup" class="level3">
+<h3 class="anchored" data-anchor-id="setup">6.1 Setup</h3>
+<p>Download the <a href="files/clean-code-exercises.tgz">clean-code-exercises.tgz</a> archive, move it to your <code>Psych_9040/</code> directory, and unpack it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-xvzf</span> clean-code-exercises.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This is what it looks like:</p>
+<pre><code>$ tree -F clean-code-exercises</code></pre>
+<pre><code>clean-code-exercises/
+├── exercise1/
+│   ├── messy_analysis.py
+│   ├── data/
+│   │   └── rt_experiment_data.csv
+│   └── TASKS.md
+├── exercise2/
+│   ├── analyze_data.py
+│   ├── experiment_data.csv
+│   ├── make_figure.py
+│   ├── test.py
+│   ├── Untitled1.py
+│   ├── fig1.png
+│   └── TASKS.md
+└── README.md</code></pre>
+</section>
+<section id="sec-exercise1" class="level3">
+<h3 class="anchored" data-anchor-id="sec-exercise1">6.2 Exercise 1</h3>
+<p>Refactor a messy script.</p>
+<section id="task" class="level4">
+<h4 class="anchored" data-anchor-id="task">Task</h4>
+<p>In the <code>exercise1/</code> directory you will find a script called <code>messy_analysis.py</code> and a data file <code>data/rt_experiment_data.csv</code>. The data file contains simulated reaction time data from a visual search experiment with two conditions (feature search and conjunction search). The script loads the data, excludes outlier trials, computes per-subject condition means, runs a paired t-test, and makes a bar chart.</p>
+<p><strong>The script works.</strong> Run it and confirm you get a t-statistic, a p-value, and a figure.</p>
+<p>Your task is to <strong>refactor</strong> the script so that:</p>
+<ol type="1">
+<li>Variable names are descriptive</li>
+<li>Magic numbers are replaced with named constants</li>
+<li>Repeated code is eliminated using functions</li>
+<li>Each function has a Google-style docstring</li>
+<li>The main analysis reads like a short outline</li>
+</ol>
+<p><strong>Your refactored script must produce the same numerical output and the same figure.</strong></p>
+<p>Submit: your refactored <code>.py</code> file.</p>
+</section>
+<section id="debrief" class="level4">
+<h4 class="anchored" data-anchor-id="debrief">Debrief</h4>
 <ul>
+<li>How many functions did you end up with?</li>
+<li>Which parts of the original script were hardest to clean up?</li>
+<li>Could someone unfamiliar with the experiment understand your refactored code without additional explanation?</li>
+</ul>
+</section>
+</section>
+<section id="sec-exercise2" class="level3">
+<h3 class="anchored" data-anchor-id="sec-exercise2">6.3 Exercise 2</h3>
+<p>Organize a messy project.</p>
+<section id="task-1" class="level4">
+<h4 class="anchored" data-anchor-id="task-1">Task</h4>
+<p>The <code>exercise2/</code> directory contains a small “project” — a handful of scripts, a data file, and an output figure, all dumped flat in one directory. Some files are useful. Some are not. There is no README.</p>
+<p>Examine the files and figure out what the project does. Then:</p>
+<ol type="1">
+<li><strong>Reorganize</strong> the project into a clean directory structure (e.g.&nbsp;<code>data/</code>, <code>scripts/</code>, <code>figures/</code>).</li>
+<li><strong>Delete</strong> files that are clearly junk (scratch files, unnamed files).</li>
+<li><strong>Rename</strong> files to be descriptive.</li>
+<li><strong>Write a <code>README.md</code></strong> that describes: what this project does, what the data file contains, how to run the analysis, and what packages are needed.</li>
+<li><strong>Create a <code>requirements.txt</code></strong> listing the Python dependencies.</li>
+<li><em>(Optional)</em> Initialize a git repository (<code>git init</code>), add your files, and make a first commit.</li>
+</ol>
+<p>Submit: your reorganized project directory (as a <code>.zip</code> or <code>.tgz</code>), including the README.</p>
+</section>
+<section id="debrief-1" class="level4">
+<h4 class="anchored" data-anchor-id="debrief-1">Debrief</h4>
+<ul>
+<li>What directory structure did you choose and why?</li>
+<li>What did you put in the README?</li>
+<li>If you came back to this project in a year, would you know what to do?</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">7 Resources</h2>
+<ul>
+<li><a href="https://diedrichsenlab.github.io/guides/04_clean_code.html">Writing clean code</a> guide from Jörn Diedrichsen’s lab</li>
+<li><a href="https://bettercodebetterscience.github.io/book/">Better Code, Better Science</a> by Russ Poldrack — especially the <a href="https://bettercodebetterscience.github.io/book/software-engineering">Principles of software engineering</a> and <a href="https://bettercodebetterscience.github.io/book/project-organization">Project structure and management</a> chapters</li>
 <li>book: <a href="https://www.amazon.ca/dp/0132350882">Clean Code: A Handbook of Agile Software Craftsmanship</a> by Robert Martin</li>
 <li>a shorter book: <a href="https://www.amazon.com/dp/173210221X">A philosophy of software design</a> by John Ousterhout, (and an accompanying <a href="https://web.stanford.edu/~ouster/cgi-bin/book.php">website</a>)</li>
+<li><a href="https://peps.python.org/pep-0008/">PEP 8</a> — Python’s official style guide</li>
 </ul>
 
 
