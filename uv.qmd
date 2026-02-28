@@ -1,15 +1,198 @@
 ---
-title: uv
-format:
-  html:
-    toc: true
-    toc-expand: 1
-#    page-layout: full
+title: "uv"
 ---
+
+## The Problem uv Solves
+
+When you write Python code, you will almost always rely on **packages**---code that other people have written and shared, so you don't have to reinvent the wheel. For example, [NumPy](https://numpy.org/) gives you fast array math, [SciPy](https://scipy.org/) gives you signal processing and statistics, and [Matplotlib](https://matplotlib.org/) gives you plotting.
+
+But different projects may need different packages, or even different *versions* of the same package. If you just install everything globally on your computer, things can conflict and break in confusing ways. Imagine you have one project that needs version 1.x of a package and another that needs version 2.x---they can't both be installed at the same time in the same place.
+
+The solution is to give each project its own **isolated environment** with its own set of packages. This is what `uv` helps you do.
 
 ## What is uv?
 
-The uv program is a Python package and project manager. It is like pip or virtualenv (sort of like conda) but it is much faster and more modern. We will be using uv in the course to demo code and you will be using uv for your homework assignments.
+`uv` is a Python **package and project manager** made by a company called [Astral](https://astral.sh/). It handles three things for you:
 
-- a uv guide: [working on projects](https://docs.astral.sh/uv/guides/projects/)
-- [project concepts](https://docs.astral.sh/uv/concepts/projects/) in uv
+1. **Installing Python itself** --- you can use `uv` to install and manage different Python versions.
+2. **Creating isolated project environments** --- each project gets its own private set of packages that won't interfere with anything else on your computer.
+3. **Installing and managing packages** --- adding, removing, and updating the packages your project depends on.
+
+You may have heard of other tools like `pip`, `virtualenv`, or `conda` that do similar things. `uv` is a newer, faster, and simpler alternative that combines several of these tools into one. It is the tool we will use throughout this course.
+
+::: {.callout-note}
+You should already have `uv` installed from the [Setup](setup.html) page. If not, go back and follow those instructions first.
+:::
+
+## The Basic Workflow
+
+Here is the core workflow you will use over and over in this course. Every time you start a new assignment or project, you will follow roughly these steps:
+
+### 1. Create a project folder and initialize it
+
+Open your terminal, navigate to wherever you want to work (e.g. your `Psych_9040` folder), and run:
+
+```bash
+mkdir my_project
+cd my_project
+uv init --python 3.12
+```
+
+The `uv init` command sets up a new project. The `--python 3.12` flag tells `uv` which version of Python to use. After running this, you will see several new files in the folder:
+
+```
+my_project/
+├── .gitignore
+├── .python-version
+├── main.py
+├── pyproject.toml
+└── README.md
+```
+
+Don't worry about all of these right now. The two important ones are:
+
+- **`pyproject.toml`** --- this is the "recipe card" for your project. It lists your project's name, version, and most importantly, what packages it depends on.
+- **`main.py`** --- a starter Python file with a simple "Hello world" program in it.
+
+### 2. Add packages your project needs
+
+Let's say your project needs NumPy (for numerical computing) and Matplotlib (for plotting). You add them with:
+
+```bash
+uv add numpy matplotlib
+```
+
+`uv` will download and install these packages (and anything *they* depend on) into a private environment just for this project. It will also update your `pyproject.toml` to record that your project depends on these packages.
+
+If you look at `pyproject.toml` afterwards, you'll see something like:
+
+```toml
+[project]
+name = "my-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+dependencies = [
+    "matplotlib",
+    "numpy",
+]
+```
+
+### 3. Write your Python code
+
+Open `main.py` in VS Code (or create a new `.py` file), and write your code. For example:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2 * np.pi, 100)
+y = np.sin(x)
+
+plt.plot(x, y)
+plt.title("A Sine Wave")
+plt.xlabel("x")
+plt.ylabel("sin(x)")
+plt.savefig("sine_wave.png")
+print("Plot saved to sine_wave.png")
+```
+
+### 4. Run your code with `uv run`
+
+Instead of typing `python main.py`, you use:
+
+```bash
+uv run python main.py
+```
+
+Why the extra `uv run` in front? Because `uv run` makes sure your code runs inside the project's isolated environment, with all the correct packages available. If you just typed `python main.py`, your system might use a different Python that doesn't have NumPy or Matplotlib installed, and you'd get an error.
+
+::: {.callout-tip}
+Every time you run a Python script for this course, use `uv run python your_script.py`. It will become second nature quickly.
+:::
+
+Same thing for running **ipython**: launch it from the terminal using `uv run ipython`.
+
+## Quick Reference
+
+Here is a summary of the `uv` commands you will use most often:
+
+| Command | What it does |
+|---|---|
+| `uv init --python 3.12` | Initialize a new project in the current folder |
+| `uv add numpy` | Add a package (e.g. numpy) to your project |
+| `uv add numpy scipy matplotlib` | Add multiple packages at once |
+| `uv remove numpy` | Remove a package from your project |
+| `uv run python my_script.py` | Run a Python script inside the project environment |
+
+## What are all these files?
+
+After you have initialized a project and run some code, your project folder will contain several files and folders that `uv` manages. Here is what each one is for:
+
+| File / Folder | What it is |
+|---|---|
+| `pyproject.toml` | Your project's configuration and list of dependencies. You can edit this by hand or use `uv add` / `uv remove`. |
+| `.python-version` | A tiny file that records which Python version the project uses. |
+| `uv.lock` | A detailed "snapshot" of every package and exact version installed. You don't need to edit this---`uv` manages it automatically. |
+| `.venv/` | The virtual environment folder. This is where all the packages actually live on disk. You never need to look inside it. |
+| `main.py` | The starter Python file that `uv init` creates. You can rename, edit, or delete it. |
+| `.gitignore` | Tells Git which files to ignore (like `.venv/`). More on this when we learn about Git. |
+
+::: {.callout-important}
+You should **never** manually edit `uv.lock` or anything inside `.venv/`. Let `uv` manage those for you.
+:::
+
+## A Common Beginner Mistake
+
+A very common mistake is to run your script like this:
+
+```bash
+python my_script.py
+```
+
+and get an error like:
+
+```
+ModuleNotFoundError: No module named 'numpy'
+```
+
+This happens because the plain `python` command is using your system Python, which doesn't know about the packages you installed with `uv add`. The fix is always to use:
+
+```bash
+uv run python my_script.py
+```
+
+## A Complete Example: Start to Finish
+
+Here is the full sequence of commands for starting a brand new assignment. Let's say the assignment is called `assignment_01`:
+
+```bash
+# Navigate into your course folder
+cd Psych_9040
+
+# Create and enter the assignment folder
+mkdir assignment_01
+cd assignment_01
+
+# Initialize the project
+uv init --python 3.12
+
+# Add any packages you need
+uv add numpy
+
+# Open the folder in VS Code
+code .
+```
+
+Then in VS Code, edit `main.py` (or create a new file), write your code, save it, and go back to the terminal to run it:
+
+```bash
+uv run python main.py
+```
+
+That's it. This is the workflow you will repeat throughout the course.
+
+## Further Reading
+
+- [uv: Working on Projects](https://docs.astral.sh/uv/guides/projects/) --- the official guide
+- [uv: Project Concepts](https://docs.astral.sh/uv/concepts/projects/) --- more detailed explanations

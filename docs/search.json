@@ -4,14 +4,63 @@
     "href": "uv.html",
     "title": "uv",
     "section": "",
-    "text": "The uv program is a Python package and project manager. It is like pip or virtualenv (sort of like conda) but it is much faster and more modern. We will be using uv in the course to demo code and you will be using uv for your homework assignments.\n\na uv guide: working on projects\nproject concepts in uv"
+    "text": "When you write Python code, you will almost always rely on packages—code that other people have written and shared, so you don’t have to reinvent the wheel. For example, NumPy gives you fast array math, SciPy gives you signal processing and statistics, and Matplotlib gives you plotting.\nBut different projects may need different packages, or even different versions of the same package. If you just install everything globally on your computer, things can conflict and break in confusing ways. Imagine you have one project that needs version 1.x of a package and another that needs version 2.x—they can’t both be installed at the same time in the same place.\nThe solution is to give each project its own isolated environment with its own set of packages. This is what uv helps you do."
+  },
+  {
+    "objectID": "uv.html#the-problem-uv-solves",
+    "href": "uv.html#the-problem-uv-solves",
+    "title": "uv",
+    "section": "",
+    "text": "When you write Python code, you will almost always rely on packages—code that other people have written and shared, so you don’t have to reinvent the wheel. For example, NumPy gives you fast array math, SciPy gives you signal processing and statistics, and Matplotlib gives you plotting.\nBut different projects may need different packages, or even different versions of the same package. If you just install everything globally on your computer, things can conflict and break in confusing ways. Imagine you have one project that needs version 1.x of a package and another that needs version 2.x—they can’t both be installed at the same time in the same place.\nThe solution is to give each project its own isolated environment with its own set of packages. This is what uv helps you do."
   },
   {
     "objectID": "uv.html#what-is-uv",
     "href": "uv.html#what-is-uv",
     "title": "uv",
-    "section": "",
-    "text": "The uv program is a Python package and project manager. It is like pip or virtualenv (sort of like conda) but it is much faster and more modern. We will be using uv in the course to demo code and you will be using uv for your homework assignments.\n\na uv guide: working on projects\nproject concepts in uv"
+    "section": "What is uv?",
+    "text": "What is uv?\nuv is a Python package and project manager made by a company called Astral. It handles three things for you:\n\nInstalling Python itself — you can use uv to install and manage different Python versions.\nCreating isolated project environments — each project gets its own private set of packages that won’t interfere with anything else on your computer.\nInstalling and managing packages — adding, removing, and updating the packages your project depends on.\n\nYou may have heard of other tools like pip, virtualenv, or conda that do similar things. uv is a newer, faster, and simpler alternative that combines several of these tools into one. It is the tool we will use throughout this course.\n\n\n\n\n\n\nNote\n\n\n\nYou should already have uv installed from the Setup page. If not, go back and follow those instructions first."
+  },
+  {
+    "objectID": "uv.html#the-basic-workflow",
+    "href": "uv.html#the-basic-workflow",
+    "title": "uv",
+    "section": "The Basic Workflow",
+    "text": "The Basic Workflow\nHere is the core workflow you will use over and over in this course. Every time you start a new assignment or project, you will follow roughly these steps:\n\n1. Create a project folder and initialize it\nOpen your terminal, navigate to wherever you want to work (e.g. your Psych_9040 folder), and run:\nmkdir my_project\ncd my_project\nuv init --python 3.12\nThe uv init command sets up a new project. The --python 3.12 flag tells uv which version of Python to use. After running this, you will see several new files in the folder:\nmy_project/\n├── .gitignore\n├── .python-version\n├── main.py\n├── pyproject.toml\n└── README.md\nDon’t worry about all of these right now. The two important ones are:\n\npyproject.toml — this is the “recipe card” for your project. It lists your project’s name, version, and most importantly, what packages it depends on.\nmain.py — a starter Python file with a simple “Hello world” program in it.\n\n\n\n2. Add packages your project needs\nLet’s say your project needs NumPy (for numerical computing) and Matplotlib (for plotting). You add them with:\nuv add numpy matplotlib\nuv will download and install these packages (and anything they depend on) into a private environment just for this project. It will also update your pyproject.toml to record that your project depends on these packages.\nIf you look at pyproject.toml afterwards, you’ll see something like:\n[project]\nname = \"my-project\"\nversion = \"0.1.0\"\ndescription = \"Add your description here\"\nreadme = \"README.md\"\ndependencies = [\n    \"matplotlib\",\n    \"numpy\",\n]\n\n\n3. Write your Python code\nOpen main.py in VS Code (or create a new .py file), and write your code. For example:\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nx = np.linspace(0, 2 * np.pi, 100)\ny = np.sin(x)\n\nplt.plot(x, y)\nplt.title(\"A Sine Wave\")\nplt.xlabel(\"x\")\nplt.ylabel(\"sin(x)\")\nplt.savefig(\"sine_wave.png\")\nprint(\"Plot saved to sine_wave.png\")\n\n\n4. Run your code with uv run\nInstead of typing python main.py, you use:\nuv run python main.py\nWhy the extra uv run in front? Because uv run makes sure your code runs inside the project’s isolated environment, with all the correct packages available. If you just typed python main.py, your system might use a different Python that doesn’t have NumPy or Matplotlib installed, and you’d get an error.\n\n\n\n\n\n\nTip\n\n\n\nEvery time you run a Python script for this course, use uv run python your_script.py. It will become second nature quickly.\n\n\nSame thing for running ipython: launch it from the terminal using uv run ipython."
+  },
+  {
+    "objectID": "uv.html#quick-reference",
+    "href": "uv.html#quick-reference",
+    "title": "uv",
+    "section": "Quick Reference",
+    "text": "Quick Reference\nHere is a summary of the uv commands you will use most often:\n\n\n\n\n\n\n\nCommand\nWhat it does\n\n\n\n\nuv init --python 3.12\nInitialize a new project in the current folder\n\n\nuv add numpy\nAdd a package (e.g. numpy) to your project\n\n\nuv add numpy scipy matplotlib\nAdd multiple packages at once\n\n\nuv remove numpy\nRemove a package from your project\n\n\nuv run python my_script.py\nRun a Python script inside the project environment"
+  },
+  {
+    "objectID": "uv.html#what-are-all-these-files",
+    "href": "uv.html#what-are-all-these-files",
+    "title": "uv",
+    "section": "What are all these files?",
+    "text": "What are all these files?\nAfter you have initialized a project and run some code, your project folder will contain several files and folders that uv manages. Here is what each one is for:\n\n\n\n\n\n\n\nFile / Folder\nWhat it is\n\n\n\n\npyproject.toml\nYour project’s configuration and list of dependencies. You can edit this by hand or use uv add / uv remove.\n\n\n.python-version\nA tiny file that records which Python version the project uses.\n\n\nuv.lock\nA detailed “snapshot” of every package and exact version installed. You don’t need to edit this—uv manages it automatically.\n\n\n.venv/\nThe virtual environment folder. This is where all the packages actually live on disk. You never need to look inside it.\n\n\nmain.py\nThe starter Python file that uv init creates. You can rename, edit, or delete it.\n\n\n.gitignore\nTells Git which files to ignore (like .venv/). More on this when we learn about Git.\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nYou should never manually edit uv.lock or anything inside .venv/. Let uv manage those for you."
+  },
+  {
+    "objectID": "uv.html#a-common-beginner-mistake",
+    "href": "uv.html#a-common-beginner-mistake",
+    "title": "uv",
+    "section": "A Common Beginner Mistake",
+    "text": "A Common Beginner Mistake\nA very common mistake is to run your script like this:\npython my_script.py\nand get an error like:\nModuleNotFoundError: No module named 'numpy'\nThis happens because the plain python command is using your system Python, which doesn’t know about the packages you installed with uv add. The fix is always to use:\nuv run python my_script.py"
+  },
+  {
+    "objectID": "uv.html#a-complete-example-start-to-finish",
+    "href": "uv.html#a-complete-example-start-to-finish",
+    "title": "uv",
+    "section": "A Complete Example: Start to Finish",
+    "text": "A Complete Example: Start to Finish\nHere is the full sequence of commands for starting a brand new assignment. Let’s say the assignment is called assignment_01:\n# Navigate into your course folder\ncd Psych_9040\n\n# Create and enter the assignment folder\nmkdir assignment_01\ncd assignment_01\n\n# Initialize the project\nuv init --python 3.12\n\n# Add any packages you need\nuv add numpy\n\n# Open the folder in VS Code\ncode .\nThen in VS Code, edit main.py (or create a new file), write your code, save it, and go back to the terminal to run it:\nuv run python main.py\nThat’s it. This is the workflow you will repeat throughout the course."
+  },
+  {
+    "objectID": "uv.html#further-reading",
+    "href": "uv.html#further-reading",
+    "title": "uv",
+    "section": "Further Reading",
+    "text": "Further Reading\n\nuv: Working on Projects — the official guide\nuv: Project Concepts — more detailed explanations"
   },
   {
     "objectID": "plaintext-authoring.html",
@@ -606,7 +655,7 @@
     "href": "index.html#schedule",
     "title": "Scientific Computing FW25 (Jan-Apr 2026)",
     "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\n\n\nDate\nTopic / Notes\nHomework\n\n\n\n\nJan 5/8\nIntro ; Setup ; Git ; uv\n-\n\n\nJan 12/15\nFundamentals (expressions & variables)\nHW01\n\n\nJan 19/22\nFundamentals (loops & conditionals)\nHW02\n\n\nJan 26/29\nFundamentals (data structures & functions)\nHW03\n\n\nFeb 2/5\nFundamentals (NumPy & File i/o)\nHW04\n\n\nFeb 9/12\nObject Oriented Programming (OOP)\nHW05\n\n\nFeb 16/19\nno classes (reading week)\n-\n\n\nFeb 23/26\nGraphical Displays of Data\nHW06\n\n\nMar 2/5\nReproducibility/Replicability I: plaintext authoring\nHW07\n\n\nMar 9/12\nno classes (Paul away) Reproducibility/Replicability II: clean code\n-\n\n\nMar 16/19\nSampling, Signal Processing, & Filtering Data\nHW08\n\n\nMar 23/26\nStatistical Thinking & Inferential Statistical Tests\nHW09\n\n\nMar 30/Apr 2\nFitting Models to Data\nHW10\n\n\nApr 6/Apr 9\nSimulating Dynamical Systems\n-\n\n\n\n\n\n\nconcepts covered each week\nsample code produced in class"
+    "text": "Schedule\n\n\n\n\n\n\n\n\n\nDate\nTopic / Notes\nHomework\n\n\n\n\nJan 5/8\nIntro ; Setup ; uv ; Git\n-\n\n\nJan 12/15\nFundamentals (expressions & variables)\nHW01\n\n\nJan 19/22\nFundamentals (loops & conditionals)\nHW02\n\n\nJan 26/29\nFundamentals (data structures & functions)\nHW03\n\n\nFeb 2/5\nFundamentals (NumPy & File i/o)\nHW04\n\n\nFeb 9/12\nObject Oriented Programming (OOP)\nHW05\n\n\nFeb 16/19\nno classes (reading week)\n-\n\n\nFeb 23/26\nGraphical Displays of Data\nHW06\n\n\nMar 2/5\nReproducibility/Replicability I: plaintext authoring\nHW07\n\n\nMar 9/12\nno classes (Paul away) Reproducibility/Replicability II: clean code\n-\n\n\nMar 16/19\nSampling, Signal Processing, & Filtering Data\nHW08\n\n\nMar 23/26\nStatistical Thinking & Inferential Statistical Tests\nHW09\n\n\nMar 30/Apr 2\nFitting Models to Data\nHW10\n\n\nApr 6/Apr 9\nSimulating Dynamical Systems\n-\n\n\n\n\n\n\nconcepts covered each week\nsample code produced in class"
   },
   {
     "objectID": "index.html#readings",
