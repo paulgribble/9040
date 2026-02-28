@@ -166,15 +166,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-is-uv" id="toc-what-is-uv" class="nav-link" data-scroll-target="#what-is-uv">What is uv?</a></li>
   <li><a href="#the-basic-workflow" id="toc-the-basic-workflow" class="nav-link" data-scroll-target="#the-basic-workflow">The Basic Workflow</a>
   <ul class="collapse">
-  <li><a href="#create-a-project-folder-and-initialize-it" id="toc-create-a-project-folder-and-initialize-it" class="nav-link" data-scroll-target="#create-a-project-folder-and-initialize-it">1. Create a project folder and initialize it</a></li>
-  <li><a href="#add-packages-your-project-needs" id="toc-add-packages-your-project-needs" class="nav-link" data-scroll-target="#add-packages-your-project-needs">2. Add packages your project needs</a></li>
+  <li><a href="#initialize-a-new-project" id="toc-initialize-a-new-project" class="nav-link" data-scroll-target="#initialize-a-new-project">1. Initialize a new project</a></li>
+  <li><a href="#add-packages" id="toc-add-packages" class="nav-link" data-scroll-target="#add-packages">2. Add packages</a></li>
   <li><a href="#write-your-python-code" id="toc-write-your-python-code" class="nav-link" data-scroll-target="#write-your-python-code">3. Write your Python code</a></li>
   <li><a href="#run-your-code-with-uv-run" id="toc-run-your-code-with-uv-run" class="nav-link" data-scroll-target="#run-your-code-with-uv-run">4. Run your code with <code>uv run</code></a></li>
   </ul></li>
   <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference">Quick Reference</a></li>
   <li><a href="#what-are-all-these-files" id="toc-what-are-all-these-files" class="nav-link" data-scroll-target="#what-are-all-these-files">What are all these files?</a></li>
   <li><a href="#a-common-beginner-mistake" id="toc-a-common-beginner-mistake" class="nav-link" data-scroll-target="#a-common-beginner-mistake">A Common Beginner Mistake</a></li>
-  <li><a href="#a-complete-example-start-to-finish" id="toc-a-complete-example-start-to-finish" class="nav-link" data-scroll-target="#a-complete-example-start-to-finish">A Complete Example: Start to Finish</a></li>
+  <li><a href="#a-worked-example" id="toc-a-worked-example" class="nav-link" data-scroll-target="#a-worked-example">A Worked Example</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
   </ul>
 </nav>
@@ -233,8 +233,8 @@ Note
 <section id="the-basic-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="the-basic-workflow">The Basic Workflow</h2>
 <p>Here is the core workflow you will use over and over in this course. Every time you start a new assignment or project, you will follow roughly these steps:</p>
-<section id="create-a-project-folder-and-initialize-it" class="level3">
-<h3 class="anchored" data-anchor-id="create-a-project-folder-and-initialize-it">1. Create a project folder and initialize it</h3>
+<section id="initialize-a-new-project" class="level3">
+<h3 class="anchored" data-anchor-id="initialize-a-new-project">1. Initialize a new project</h3>
 <p>Open your terminal, navigate to wherever you want to work (e.g.&nbsp;your <code>Psych_9040</code> folder), and run:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my_project</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my_project</span>
@@ -252,8 +252,8 @@ Note
 <li><strong><code>main.py</code></strong> — a starter Python file with a simple “Hello world” program in it.</li>
 </ul>
 </section>
-<section id="add-packages-your-project-needs" class="level3">
-<h3 class="anchored" data-anchor-id="add-packages-your-project-needs">2. Add packages your project needs</h3>
+<section id="add-packages" class="level3">
+<h3 class="anchored" data-anchor-id="add-packages">2. Add packages</h3>
 <p>Let’s say your project needs NumPy (for numerical computing) and Matplotlib (for plotting). You add them with:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add numpy matplotlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>uv</code> will download and install these packages (and anything <em>they</em> depend on) into a private environment just for this project. It will also update your <code>pyproject.toml</code> to record that your project depends on these packages.</p>
@@ -407,8 +407,8 @@ Important
 <p>This happens because the plain <code>python</code> command is using your system Python, which doesn’t know about the packages you installed with <code>uv add</code>. The fix is always to use:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python my_script.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="a-complete-example-start-to-finish" class="level2">
-<h2 class="anchored" data-anchor-id="a-complete-example-start-to-finish">A Complete Example: Start to Finish</h2>
+<section id="a-worked-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-worked-example">A Worked Example</h2>
 <p>Here is the full sequence of commands for starting a brand new assignment. Let’s say the assignment is called <code>assignment_01</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate into your course folder</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> Psych_9040</span>

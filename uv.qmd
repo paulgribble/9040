@@ -32,7 +32,7 @@ You should already have `uv` installed from the [Setup](setup.html) page. If not
 
 Here is the core workflow you will use over and over in this course. Every time you start a new assignment or project, you will follow roughly these steps:
 
-### 1. Create a project folder and initialize it
+### 1. Initialize a new project
 
 Open your terminal, navigate to wherever you want to work (e.g. your `Psych_9040` folder), and run:
 
@@ -58,7 +58,7 @@ Don't worry about all of these right now. The two important ones are:
 - **`pyproject.toml`** --- this is the "recipe card" for your project. It lists your project's name, version, and most importantly, what packages it depends on.
 - **`main.py`** --- a starter Python file with a simple "Hello world" program in it.
 
-### 2. Add packages your project needs
+### 2. Add packages
 
 Let's say your project needs NumPy (for numerical computing) and Matplotlib (for plotting). You add them with:
 
@@ -166,7 +166,7 @@ This happens because the plain `python` command is using your system Python, whi
 uv run python my_script.py
 ```
 
-## A Complete Example: Start to Finish
+## A Worked Example
 
 Here is the full sequence of commands for starting a brand new assignment. Let's say the assignment is called `assignment_01`:
 
