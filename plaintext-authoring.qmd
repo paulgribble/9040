@@ -7,7 +7,7 @@ format:
     number-sections: true
 ---
 
-# Authoring Documents in Plaintext
+# Why Plaintext?
 
 ## Scientific Documents
 
