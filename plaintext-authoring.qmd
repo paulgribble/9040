@@ -952,7 +952,7 @@ A few notes:
 - Keep the `.sty` files in the same directory as your `.tex` file (or in your local texmf tree if you want them available globally).
 - Journal-provided LaTeX templates work on exactly this principle — they give you a `.cls` or `.sty` file that handles all the formatting, and you just write your content.
 
-### Example: Paper
+### Example: A Paper
 
 Download and unpack the archive [example_paper.tgz](files/example_paper.tgz)
 
@@ -1043,7 +1043,7 @@ Now try commenting out `\usepackage{plg_nice}` and uncommenting `\usepackage{plg
 
 The possibilities for styling a LaTeX document are almost endless. Anything you can think of, you can do.
 
-### Example: Letter
+### Example: A Letter
 
 As a final example, some time ago I created a LaTeX style file that duplicates the official Western letterhead, so that I could easily write letters. As a result, I can write a letter like this:
 
