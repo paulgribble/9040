@@ -285,15 +285,19 @@ window.Quarto = {
   </ul></li>
   <li><a href="#custom-style-files" id="toc-custom-style-files" class="nav-link" data-scroll-target="#custom-style-files"><span class="header-section-number">4.9</span> Custom Style Files</a>
   <ul class="collapse">
-  <li><a href="#a-real-example" id="toc-a-real-example" class="nav-link" data-scroll-target="#a-real-example"><span class="header-section-number">4.9.1</span> A Real Example</a></li>
-  <li><a href="#a-letter-example" id="toc-a-letter-example" class="nav-link" data-scroll-target="#a-letter-example"><span class="header-section-number">4.9.2</span> A Letter Example</a></li>
+  <li><a href="#example-paper" id="toc-example-paper" class="nav-link" data-scroll-target="#example-paper"><span class="header-section-number">4.9.1</span> Example: Paper</a></li>
+  <li><a href="#example-letter" id="toc-example-letter" class="nav-link" data-scroll-target="#example-letter"><span class="header-section-number">4.9.2</span> Example: Letter</a></li>
   </ul></li>
-  <li><a href="#quick-reference-1" id="toc-quick-reference-1" class="nav-link" data-scroll-target="#quick-reference-1"><span class="header-section-number">4.10</span> Quick Reference</a>
+  </ul></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">5</span> Quarto</a>
   <ul class="collapse">
-  <li><a href="#terminal-commands" id="toc-terminal-commands" class="nav-link" data-scroll-target="#terminal-commands"><span class="header-section-number">4.10.1</span> Terminal Commands</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">4.10.2</span> Tools</a></li>
-  <li><a href="#further-learning" id="toc-further-learning" class="nav-link" data-scroll-target="#further-learning"><span class="header-section-number">4.10.3</span> Further Learning</a></li>
+  <li><a href="#quarto-resources" id="toc-quarto-resources" class="nav-link" data-scroll-target="#quarto-resources"><span class="header-section-number">5.1</span> Quarto Resources</a></li>
   </ul></li>
+  <li><a href="#quick-reference-1" id="toc-quick-reference-1" class="nav-link" data-scroll-target="#quick-reference-1"><span class="header-section-number">6</span> Quick Reference</a>
+  <ul class="collapse">
+  <li><a href="#terminal-commands" id="toc-terminal-commands" class="nav-link" data-scroll-target="#terminal-commands"><span class="header-section-number">6.1</span> Terminal Commands</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">6.2</span> Tools</a></li>
+  <li><a href="#further-learning" id="toc-further-learning" class="nav-link" data-scroll-target="#further-learning"><span class="header-section-number">6.3</span> Further Learning</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -1347,8 +1351,8 @@ Done! You're ready for the exercises.</code></pre>
 <li>Keep the <code>.sty</code> files in the same directory as your <code>.tex</code> file (or in your local texmf tree if you want them available globally).</li>
 <li>Journal-provided LaTeX templates work on exactly this principle — they give you a <code>.cls</code> or <code>.sty</code> file that handles all the formatting, and you just write your content.</li>
 </ul>
-<section id="a-real-example" class="level3" data-number="4.9.1">
-<h3 data-number="4.9.1" class="anchored" data-anchor-id="a-real-example"><span class="header-section-number">4.9.1</span> A Real Example</h3>
+<section id="example-paper" class="level3" data-number="4.9.1">
+<h3 data-number="4.9.1" class="anchored" data-anchor-id="example-paper"><span class="header-section-number">4.9.1</span> Example: Paper</h3>
 <p>Download and unpack the archive <a href="files/example_paper.tgz">example_paper.tgz</a></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tar <span class="at">-xvzf</span> example_paper.tgz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> tree example_paper</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1416,8 +1420,8 @@ Done! You're ready for the exercises.</code></pre>
 <p>Now try commenting out <code>\usepackage{plg_nice}</code> and uncommenting <code>\usepackage{plg_jnp}</code>. Recompile to <code>.pdf</code>. See how it looks now.</p>
 <p>The possibilities for styling a LaTeX document are almost endless. Anything you can think of, you can do.</p>
 </section>
-<section id="a-letter-example" class="level3" data-number="4.9.2">
-<h3 data-number="4.9.2" class="anchored" data-anchor-id="a-letter-example"><span class="header-section-number">4.9.2</span> A Letter Example</h3>
+<section id="example-letter" class="level3" data-number="4.9.2">
+<h3 data-number="4.9.2" class="anchored" data-anchor-id="example-letter"><span class="header-section-number">4.9.2</span> Example: Letter</h3>
 <p>As a final example, some time ago I created a LaTeX style file that duplicates the official Western letterhead, so that I could easily write letters. As a result, I can write a letter like this:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>{<span class="ex">Psychology_letter</span>}</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1445,14 +1449,33 @@ Done! You're ready for the exercises.</code></pre>
 <p>A quick compile:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pdflatex letter.tex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>and I get a file <code>letter.pdf</code> that looks like this:</p>
-<p><img src="files/letter.png" class="img-fluid"></p>
+<p><img src="images/letter.png" class="img-fluid"></p>
 <p>Once you spend some time writing documents using LaTeX, going back and dealing with MS Turd is quite a shock to the system.</p>
 </section>
 </section>
-<section id="quick-reference-1" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="quick-reference-1"><span class="header-section-number">4.10</span> Quick Reference</h2>
-<section id="terminal-commands" class="level3" data-number="4.10.1">
-<h3 data-number="4.10.1" class="anchored" data-anchor-id="terminal-commands"><span class="header-section-number">4.10.1</span> Terminal Commands</h3>
+</section>
+<section id="quarto" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Quarto</h1>
+<p><a href="https://quarto.org/">Quarto</a> is an open-source publishing system built by Posit (the company behind RStudio). It builds on top of Pandoc but adds a layer of features that make it especially appealing for scientific writing.</p>
+<p>Why might you care, given that you already know Markdown + Pandoc and LaTeX?</p>
+<p>Quarto lets you <strong>embed executable code</strong> (R, Python, Julia) directly in your document. When you render the document, the code runs, and the output — figures, tables, statistical results — is inserted automatically. This means your paper and your analysis live in the same file. If your data changes, you re-render and everything updates. No more copying and pasting numbers from R into your manuscript and hoping you didn’t transpose a digit.</p>
+<p>Beyond that, Quarto gives you cross-references, numbered figures and equations, callout blocks, and multi-format output (PDF, HTML, Word, slides, websites, books) with less configuration than raw Pandoc. It uses the same Markdown syntax you already know, with the same YAML headers and the same LaTeX math. In fact, the course notes you’re reading right now were written in Quarto markdown.</p>
+<p><img src="images/quarto_pic.png" class="img-fluid"></p>
+<p>Think of it as Markdown + Pandoc with even more functionality. You get reproducible computation, richer document features, and a single tool that handles everything from a homework assignment to a thesis to a lab website, even slides for a talk.</p>
+<p>Another example: my undergraduate course <a href="https://gribblelab.org/2812_FW23/">Statistics For Psychology II</a> is done in Quarto… including the course website, the course notes, the slides, and the homeworks. The midterm and final exams are done in LaTeX.</p>
+<section id="quarto-resources" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="quarto-resources"><span class="header-section-number">5.1</span> Quarto Resources</h2>
+<ul>
+<li>Quarto home: <a href="https://quarto.org/" class="uri">https://quarto.org/</a></li>
+<li>Getting started guide: <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></li>
+<li>Gallery of examples: <a href="https://quarto.org/docs/gallery/" class="uri">https://quarto.org/docs/gallery/</a></li>
+</ul>
+</section>
+</section>
+<section id="quick-reference-1" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Quick Reference</h1>
+<section id="terminal-commands" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="terminal-commands"><span class="header-section-number">6.1</span> Terminal Commands</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to PDF</span></span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">--citeproc</span> <span class="at">-o</span> paper.pdf</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1468,8 +1491,8 @@ Done! You're ready for the exercises.</code></pre>
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="co"># LaTeX: clean up auxiliary files</span></span>
 <span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-c</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="tools" class="level3" data-number="4.10.2">
-<h3 data-number="4.10.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">4.10.2</span> Tools</h3>
+<section id="tools" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">6.2</span> Tools</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -1527,8 +1550,8 @@ Done! You're ready for the exercises.</code></pre>
 </tbody>
 </table>
 </section>
-<section id="further-learning" class="level3" data-number="4.10.3">
-<h3 data-number="4.10.3" class="anchored" data-anchor-id="further-learning"><span class="header-section-number">4.10.3</span> Further Learning</h3>
+<section id="further-learning" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="further-learning"><span class="header-section-number">6.3</span> Further Learning</h2>
 <ul>
 <li><strong>Overleaf’s LaTeX tutorials</strong> (excellent for beginners): <a href="https://www.overleaf.com/learn" class="uri">https://www.overleaf.com/learn</a></li>
 <li><strong>The Not So Short Introduction to LaTeX2e</strong> (classic free guide): search CTAN for “lshort”</li>
@@ -1539,7 +1562,6 @@ Done! You're ready for the exercises.</code></pre>
 </ul>
 
 
-</section>
 </section>
 </section>
 
