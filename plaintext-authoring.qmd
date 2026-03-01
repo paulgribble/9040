@@ -1076,7 +1076,7 @@ any text editor, on any operating system.
 A quick compile:
 
 ```bash
-$ pdflatex letter.tex
+$ xelatex letter.tex
 ```
 
 and I get a file `letter.pdf` that looks like this:
