@@ -7,8 +7,6 @@ format:
     number-sections: true
 ---
 
-# Plaintext
-
 ## Scientific Documents
 
 What does a thesis or a paper consist of, structurally?
@@ -250,13 +248,13 @@ Make sure you have Pandoc and a LaTeX distribution installed (see above).
 
 Download the [files/plaintext-exercises.tgz](files/plaintext-exercises.tgz) archive, move it to your `Psych_9040/` directory, and then unpack it:
 
-```{bash}
+```bash
 $ tar -xvzf plaintext-exercises.tgz
 ```
 
 This is what it looks like:
 
-```{bash}
+```bash
 $ tree -F plaintext-exercises
 ```
 
@@ -284,7 +282,7 @@ plaintext-exercises/
 
 Now run the `setup.sh` script which downloads a `.csl` file that will be used for APA-style citations:
 
-```{bash}
+```bash
 $ bash setup.sh
 ```
 
@@ -876,9 +874,216 @@ Our findings replicate the threat superiority effect
 - You then had the option to "eject" to LaTeX for fine-tuning. No information was lost.
 - Ask yourself: what would it be like to do this in MS Word?
 
----
+## Custom Style Files
 
-## Quick Reference Summary
+Remember the principle from the beginning: separate content from style. LaTeX lets you take this even further with custom style files (`.sty`).
+
+All those `\usepackage` commands and configuration lines in your preamble? You can move them into a `.sty` file and load the whole thing with a single line. For example, suppose your preamble has:
+```latex
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[backend=biber, style=apa, natbib=true]{biblatex}
+\addbibresource{refs.bib}
+\usepackage{setspace}
+\doublespacing
+\usepackage{lineno}
+\linenumbers
+```
+
+You can put all of that into a file called `manuscript.sty`:
+```latex
+% manuscript.sty — double-spaced, line-numbered, for journal submission
+\ProvidesPackage{manuscript}
+
+\RequirePackage[margin=1in]{geometry}
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage[backend=biber, style=apa, natbib=true]{biblatex}
+\addbibresource{refs.bib}
+\RequirePackage{setspace}
+\doublespacing
+\RequirePackage{lineno}
+\linenumbers
+```
+
+Then your `.tex` file's preamble shrinks to:
+```latex
+\documentclass[12pt]{article}
+\usepackage{manuscript}
+
+\title{Effects of Caffeine on Grip Strength}
+\author{A.\ Student}
+\date{February 2025}
+
+\begin{document}
+...
+```
+
+Now make a second style file called `preprint.sty` that uses single spacing, no line numbers, and a different margin:
+```latex
+% preprint.sty — clean single-spaced format for preprint servers
+\ProvidesPackage{preprint}
+
+\RequirePackage[margin=1.25in]{geometry}
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage[backend=biber, style=apa, natbib=true]{biblatex}
+\addbibresource{refs.bib}
+```
+
+To switch between submission and preprint formatting, you change one line:
+```latex
+\usepackage{manuscript}   % for journal submission
+% \usepackage{preprint}   % for preprint/sharing
+```
+
+Your content doesn't change at all. The same `.tex` file produces a double-spaced, line-numbered manuscript for the journal, or a clean single-spaced preprint, depending on which `.sty` file you load. This is separation of content and style in practice.
+
+A few notes:
+
+- Inside `.sty` files, use `\RequirePackage` instead of `\usepackage`. They do the same thing, but `\RequirePackage` is the convention for package and style files.
+- The `\ProvidesPackage{name}` line should match the filename (without `.sty`).
+- Keep the `.sty` files in the same directory as your `.tex` file (or in your local texmf tree if you want them available globally).
+- Journal-provided LaTeX templates work on exactly this principle — they give you a `.cls` or `.sty` file that handles all the formatting, and you just write your content.
+
+### A Real Example
+
+Download and unpack the archive [example_paper.tgz](files/example_paper.tgz)
+
+```bash
+$ tar -xvzf example_paper.tgz
+```
+
+```bash
+$ tree example_paper
+```
+
+```
+example_paper
+├── Figure1.pdf
+├── Figure2.pdf
+├── Figure3.pdf
+├── Figure4.pdf
+├── Figure5.pdf
+├── Figure6.pdf
+├── Figure7.pdf
+├── jneurophysiol.bst
+├── paper.tex
+├── plg_jnp.sty
+├── plg_min.sty
+├── plg_nice.sty
+└── refs.bib
+1 directory, 12 files
+```
+
+There is a manuscript file `paper.tex`, a bibtex file `refs.bib`, 7 Figures (`Figure*.pdf`), and three `.sty` files, which I've created, which styles the manuscript three different ways. The `jneurophysiol.bst` file is provided for us and styles the bibliography according to the J Neurophysiol style.
+
+Open the `paper.tex` main manuscript file and you will see:
+
+```latex
+\documentclass{article}
+
+% MINIMAL LATEX
+\usepackage{plg_min}
+
+% IMPROVED LATEX
+% \usepackage{plg_nice}
+
+% MY "J Neurophysiol classic" PREPRINT STYLE
+% \usepackage{plg_jnp}
+
+
+\title{A Context-Free Model of Savings in Motor Learning}
+
+\author[1,$\ddagger$]{Mahdiyar Shahbazi}
+\author[2,3]{Olivier Codol}
+\author[4,5,$\dagger$]{Jonathan A. Michaels}
+\author[1,4,$\dagger$,*]{Paul L. Gribble}
+\affil[1]{Dept. Psychology, Western University, London, ON, Canada}
+\affil[2]{Mila--Qu\'ebec Artificial Intelligence Institute, Montr\'eal, QC, Canada}
+\affil[3]{Dept. Neuroscience, Universit\'e de Montr\'eal, Montr\'eal, QC, Canada}
+\affil[4]{Dept. Physiology \& Pharmacology, Schulich School of Medicine \& Dentistry, London, ON, Canada}
+\affil[5]{School of Kinesiology and Health Science, Faculty of Health, York University, Toronto, ON, Canada}
+\affil[$\dagger$]{Co-senior authors}
+\affil[$\ddagger$]{Present address: Dept. Organismic and Evolutionary Biology, Harvard University, Boston, MA, USA}
+\affil[*]{Corresponding author: pgribble@uwo.ca}
+
+\date{\normalsize\today}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+Learning to adapt voluntary movements to an external perturbation, whether mechanical or visual, is 
+```
+
+Try compiling the document to a `.pdf` as it is now (with `\usepackage{plg_min}` uncommented):
+
+```bash
+$ pdflatex paper.tex
+$ bibtex paper.tex
+$ pdflatex paper.tex
+$ pdflatex paper.tex
+```
+
+Open `paper.pdf` and have a look.
+
+Now try commenting out `\usepackage{plg_min}` and uncommenting `\usepackage{plg_nice}`. Recompile to `.pdf`. See how it looks now.
+
+Now try commenting out `\usepackage{plg_nice}` and uncommenting `\usepackage{plg_jnp}`. Recompile to `.pdf`. See how it looks now.
+
+The possibilities for styling a LaTeX document are almost endless. Anything you can think of, you can do.
+
+### A Letter Example
+
+As a final example, some time ago I created a LaTeX style file that duplicates the official Western letterhead, so that I could easily write letters. As a result, I can write a letter like this:
+
+```latex
+\documentclass{Psychology_letter}
+
+\begin{document}
+
+\thedate{\today}
+
+\recipient{Ford Prefect\\
+Arthur's friend\\
+The Hitchhiker's Guide to the Galaxy}
+
+\regarding{something important}
+
+\greeting{Dear Colleague,}
+
+Isn't it great to be able to write a letter using LaTeX and 
+not have to open MS Turd, and deal with fonts, hidden menus, 
+and changes in formatting, not to mention random crashes. In 
+addition this plaintext file will be readable forever, using 
+any text editor, on any operating system.
+
+\closingsig{Sincerely,}
+
+\end{document}
+```
+
+A quick compile:
+
+```bash
+$ pdflatex letter.tex
+```
+
+and I get a file `letter.pdf` that looks like this:
+
+![](files/letter.png)
+
+Once you spend some time writing documents using LaTeX, going back and dealing with MS Turd is quite a shock to the system.
+
+## Quick Reference
 
 ### Terminal Commands
 
