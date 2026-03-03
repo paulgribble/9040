@@ -1,0 +1,12 @@
+{
+  "hash": "bbc562588398083890ab0c5a242cfe6f",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: Homework 8\n---\n\n---\n\nDue: Mar 22 by 11:59 pm eastern standard time\n\nSubmit a single file called `name_08.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_08.py`\n\n---\n\n## Signal Processing Exercises\n\nHere is some Python code to generate a complex signal composed of sinusoids at several frequencies. The signal is sampled at 1000 Hz.\n\n::: {#ef329a06 .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\nt = np.arange(0, 0.5, 1/1000)  # 500 ms of time at 1000 Hz\ny1 = np.sin(2*np.pi*30 * t)    # pure sinusoid at  30 Hz\ny2 = np.sin(2*np.pi*125 * t)   # pure sinusoid at 125 Hz\ny3 = np.sin(2*np.pi*300 * t)   # pure sinusoid at 300 Hz\ny = y1 + (0.8*y2) + (0.9*y3)\n```\n:::\n\n\n1. Plot the signal `y` in the time domain. Label the axes and include a title.\n2. Plot the magnitude spectrum of `y` using the `scipy.signal.welch()` function. Label the axes and include a title.\n3. Highpass filter the signal to remove the 30 Hz component. Plot the filtered signal in the time domain and also plot the magnitude spectrum of the filtered signal. Label the axes and include a title.\n4. Lowpass the filtered signal from 3. to remove the 300 Hz component. Plot the filtered signal in the time domain and also plot the magnitude spectrum of the filtered signal. Label the axes and include a title.\n\n",
+    "supporting": [
+      "hw08_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
