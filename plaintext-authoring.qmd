@@ -1039,7 +1039,7 @@ Open `paper.pdf` and have a look.
 
 Now try commenting out `\usepackage{plg_min}` and uncommenting `\usepackage{plg_nice}`. Recompile to `.pdf`. See how it looks now.
 
-Now try commenting out `\usepackage{plg_nice}` and uncommenting `\usepackage{plg_jnp}`. Recompile to `.pdf`. See how it looks now.
+Now try commenting out `\usepackage{plg_nice}` and uncommenting `\usepackage{plg_jnp}`. Recompile to `.pdf`. See how it looks now. (Note you may have to first delete all the intermediate files that were created from above. Try `latexmk -c paper` and then `rm paper.bbl` before you recompile using `pdflatex` and `bibtex`.)
 
 The possibilities for styling a LaTeX document are almost endless. Anything you can think of, you can do.
 

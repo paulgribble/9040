@@ -1417,7 +1417,7 @@ Done! You're ready for the exercises.</code></pre>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pdflatex paper.tex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Open <code>paper.pdf</code> and have a look.</p>
 <p>Now try commenting out <code>\usepackage{plg_min}</code> and uncommenting <code>\usepackage{plg_nice}</code>. Recompile to <code>.pdf</code>. See how it looks now.</p>
-<p>Now try commenting out <code>\usepackage{plg_nice}</code> and uncommenting <code>\usepackage{plg_jnp}</code>. Recompile to <code>.pdf</code>. See how it looks now.</p>
+<p>Now try commenting out <code>\usepackage{plg_nice}</code> and uncommenting <code>\usepackage{plg_jnp}</code>. Recompile to <code>.pdf</code>. See how it looks now. (Note you may have to first delete all the intermediate files that were created from above. Try <code>latexmk -c paper</code> and then <code>rm paper.bbl</code> before you recompile using <code>pdflatex</code> and <code>bibtex</code>.)</p>
 <p>The possibilities for styling a LaTeX document are almost endless. Anything you can think of, you can do.</p>
 </section>
 <section id="example-a-letter" class="level3" data-number="4.9.2">
