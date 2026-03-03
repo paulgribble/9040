@@ -180,29 +180,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="homework-8" class="level1">
+<h1>Homework 8</h1>
 <hr>
 <p>Due: Mar 22 by 11:59 pm eastern standard time</p>
-<p>Submit a single file called <code>name_08.py</code> to Brightspace/OWL where <code>name</code> is replaced with your last name, e.g.&nbsp;<code>gribble_08.py</code></p>
+<p>Submit a single file called <code>name_08.py</code> to Brightspace/OWL where <code>name</code> is replaced with your last name, e.g.&nbsp;<code>gribble_08.py</code>. If you would rather use a jupyter notebook that is OK too, upload your <code>.ipynb</code> file, e.g.&nbsp;<code>gribble_08.ipynb</code>.</p>
 <hr>
 <section id="signal-processing-exercises" class="level2">
 <h2 class="anchored" data-anchor-id="signal-processing-exercises">Signal Processing Exercises</h2>
-<p>Here is some Python code to generate a complex signal composed of sinusoids at several frequencies. The signal is sampled at 1000 Hz.</p>
-<div id="ef329a06" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span><span class="op">/</span><span class="dv">1000</span>)  <span class="co"># 500 ms of time at 1000 Hz</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">30</span> <span class="op">*</span> t)    <span class="co"># pure sinusoid at  30 Hz</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">125</span> <span class="op">*</span> t)   <span class="co"># pure sinusoid at 125 Hz</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>y3 <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">300</span> <span class="op">*</span> t)   <span class="co"># pure sinusoid at 300 Hz</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> y1 <span class="op">+</span> (<span class="fl">0.8</span><span class="op">*</span>y2) <span class="op">+</span> (<span class="fl">0.9</span><span class="op">*</span>y3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>Use the following code to generate a noisy signal composed of sinusoids at several frequencies, sampled at 1000 Hz:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)  <span class="co"># for reproducibility</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># sampling rate (Hz)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span><span class="op">/</span>fs)  <span class="co"># 1 second of data</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">30</span><span class="op">*</span>t)          <span class="co"># 30 Hz component</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> <span class="fl">0.8</span> <span class="op">*</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">125</span><span class="op">*</span>t)   <span class="co"># 125 Hz component</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>y3 <span class="op">=</span> <span class="fl">0.9</span> <span class="op">*</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">300</span><span class="op">*</span>t)   <span class="co"># 300 Hz component</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>noise <span class="op">=</span> np.random.randn(<span class="bu">len</span>(t)) <span class="op">*</span> <span class="fl">0.5</span>  <span class="co"># Gaussian noise</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> y1 <span class="op">+</span> y2 <span class="op">+</span> y3 <span class="op">+</span> noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol type="1">
-<li>Plot the signal <code>y</code> in the time domain. Label the axes and include a title.</li>
-<li>Plot the magnitude spectrum of <code>y</code> using the <code>scipy.signal.welch()</code> function. Label the axes and include a title.</li>
-<li>Highpass filter the signal to remove the 30 Hz component. Plot the filtered signal in the time domain and also plot the magnitude spectrum of the filtered signal. Label the axes and include a title.</li>
-<li>Lowpass the filtered signal from 3. to remove the 300 Hz component. Plot the filtered signal in the time domain and also plot the magnitude spectrum of the filtered signal. Label the axes and include a title.</li>
+<li><p>Plot the signal <code>y</code> in the time domain. Label the axes and include a title.</p></li>
+<li><p>Compute and plot the <strong>power spectral density</strong> of <code>y</code> using <code>scipy.signal.welch()</code> with <code>nperseg=256</code>. Label the axes and include a title. In a code comment, briefly describe what you see—can you identify the three frequency components? (1–2 sentences)</p></li>
+<li><p>Using a Butterworth low-pass filter (see the <code>plg_lowpass</code> function from the course notes), <strong>low-pass filter</strong> the signal at a cutoff frequency of 80 Hz. Make a 2-panel figure: (a) the top panel should show <em>both</em> the original signal and the filtered signal overlaid in the time domain (use different colors and a legend), and (b) the bottom panel should show the PSD of the filtered signal. Label all axes and include titles.</p></li>
+<li><p>Now apply a <strong>high-pass filter</strong> at 80 Hz to the <em>original</em> unfiltered signal <code>y</code>. Plot the PSD of the high-passed signal. In a code comment, describe what frequency components remain. (1–2 sentences)</p></li>
 </ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -12,7 +12,7 @@ Submit your source file (`paper.md` or `paper.tex`), your `refs.bib` file, and t
 
 ## Background
 
-You have been given a Word document ([`convert_this.docx`](convert_this.docx)) containing a short
+You have been given a Word document ([`convert_this.docx`](../files/convert_this.docx)) containing a short
 scientific paper about sleep restriction and postural sway. It's the kind of
 document a student might produce in Word: functional, but fragile.
 
