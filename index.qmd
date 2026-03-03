@@ -46,7 +46,7 @@ format:
 | Feb 23/26    | [Graphical Displays of Data](graphics.qmd)                                               | [HW06](hw/hw06.qmd) |
 | Mar 2/5      | Reproducibility/Replicability I: [plaintext authoring](plaintext-authoring.qmd)          | [HW07](hw/hw07.qmd) |
 | Mar 9/12     | *no classes* (Paul away)  Reproducibility/Replicability II: [clean code](clean_code.qmd) |          -          |
-| Mar 16/19    | [Sampling, Signal Processing, & Filtering Data](signals.qmd)                             | [HW08](hw/hw08.qmd) |
+| Mar 16/19    | Sampling, Signal Processing, & Filtering Data                                            |        HW08         |
 | Mar 23/26    | Statistical Thinking & Inferential Statistical Tests                                     |        HW09         |
 | Mar 30/Apr 2 | Fitting Models to Data                                                                   |        HW10         |
 | Apr 6/Apr 9  | Simulating Dynamical Systems                                                             |          -          |

@@ -1,0 +1,46 @@
+---
+title: "Homework 8"
+---
+
+# Homework 8
+
+---
+
+Due: Mar 22 by 11:59 pm eastern standard time
+
+Submit a single file called `name_08.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_08.py`
+
+---
+
+## Signal Processing Exercises
+
+Use the following code to generate a noisy signal composed of sinusoids at several frequencies, sampled at 1000 Hz:
+
+```python
+import numpy as np
+import scipy as sp
+import matplotlib.pyplot as plt
+
+np.random.seed(42)  # for reproducibility
+
+fs = 1000  # sampling rate (Hz)
+t = np.arange(0, 1, 1/fs)  # 1 second of data
+
+y1 = np.sin(2*np.pi*30*t)          # 30 Hz component
+y2 = 0.8 * np.sin(2*np.pi*125*t)   # 125 Hz component
+y3 = 0.9 * np.sin(2*np.pi*300*t)   # 300 Hz component
+noise = np.random.randn(len(t)) * 0.5  # Gaussian noise
+y = y1 + y2 + y3 + noise
+```
+
+1. Plot the signal `y` in the time domain. Label the axes and include a title.
+
+2. Compute and plot the **raw magnitude spectrum** of `y` using `scipy.fft.rfft()` and `scipy.fft.rfftfreq()`. Label the axes and include a title. In a code comment, briefly describe what you see---can you identify the three frequency components? (1--2 sentences)
+
+3. Compute and plot the **power spectral density** of `y` using `scipy.signal.welch()` with `nperseg=256`. Label the axes and include a title. In a code comment, describe how this compares to the raw FFT from Q2. (1--2 sentences)
+
+4. Using a Butterworth low-pass filter (see the `plg_lowpass` function from the course notes), **low-pass filter** the signal at a cutoff frequency of 80 Hz. Make a 2-panel figure: (a) the top panel should show *both* the original signal and the filtered signal overlaid in the time domain (use different colors and a legend), and (b) the bottom panel should show the PSD of the filtered signal. Label all axes and include titles.
+
+5. Now apply a **high-pass filter** at 80 Hz to the *original* unfiltered signal `y`. Plot the PSD of the high-passed signal. In a code comment, describe what frequency components remain. (1--2 sentences)
+
+6. **(Bonus)** Compute a **multitaper PSD** of `y` using either the manual DPSS approach from the course notes (`scipy.signal.windows.dpss()` with NW=2) or the MNE-Python one-liner (`mne.time_frequency.psd_array_multitaper()` with `bandwidth=2.0, normalization='full'`). On a single set of axes, overlay the multitaper PSD and the Welch PSD from Q3 using different colors and a legend. In a code comment, describe any differences you notice. (1--2 sentences)

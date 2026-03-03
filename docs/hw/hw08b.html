@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing FW25 (Jan-Apr 2026) – Psychology 9040B FW25</title>
+<title>Homework 8 – Psychology 9040B FW25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/hmc_t_square.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c403d798273eef921068aca0a4124571.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/hmc_t_square.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c403d798273eef921068aca0a4124571.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,11 +116,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo light-content">
-    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo dark-content">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/hmc_t_square.png" alt="" class="navbar-logo light-content">
+    <img src="../images/hmc_t_square.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Psychology 9040B FW25</span>
     </a>
   </div>
@@ -96,11 +131,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.pdf"> 
+    <a class="nav-link" href="../syllabus.pdf"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
@@ -128,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scientific Computing FW25 (Jan-Apr 2026)</h1>
+<h1 class="title">Homework 8</h1>
 </div>
 
 
@@ -145,160 +180,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="info">
-<tbody><tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>URL</strong>
-</td>
-<td>
-<a href="https://gribblelab.org/9040">www.gribblelab.org/9040</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>Instructor</strong>
-</td>
-<td>
-Paul Gribble (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#112;&#x67;&#114;&#x69;&#98;&#98;&#108;&#x65;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>pgribble at uwo dot ca</noscript>)
-</td>
-</tr>
-<tr>
-<td style="text-align:right; padding: 7px;">
-<strong>Classes</strong>
-</td>
-<td>
-Mondays &amp; Thursdays, 9:30 am - 11:00 am in <a href="https://wts.uwo.ca/ctg/classrooms/western_interdisciplinary_research_building/wirb_1110.html">WIRB 1110</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>TA</strong>
-</td>
-<td>
-Anthony Cruz (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#x61;&#x63;&#114;&#x75;&#122;&#50;&#x37;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>acruz27 at uwo dot ca</noscript>)
-</td>
-</tr>
-</tbody></table>
+<section id="homework-8" class="level1">
+<h1>Homework 8</h1>
 <hr>
-<ul>
-<li><a href="./homeworks.html">A note about homeworks</a></li>
-</ul>
+<p>Due: Mar 22 by 11:59 pm eastern standard time</p>
+<p>Submit a single file called <code>name_08.py</code> to Brightspace/OWL where <code>name</code> is replaced with your last name, e.g.&nbsp;<code>gribble_08.py</code></p>
 <hr>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<div class="mt-4 table-bordered">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 75%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>Topic / Notes</th>
-<th style="text-align: center;">Homework</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan 5/8</td>
-<td><a href="./intro.html">Intro</a> ; <a href="./setup.html">Setup</a> ; <a href="./uv.html">uv</a> ; <a href="./git.html">Git</a></td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Jan 12/15</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (expressions &amp; variables)</td>
-<td style="text-align: center;"><a href="./hw/hw01.html">HW01</a></td>
-</tr>
-<tr class="odd">
-<td>Jan 19/22</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (loops &amp; conditionals)</td>
-<td style="text-align: center;"><a href="./hw/hw02.html">HW02</a></td>
-</tr>
-<tr class="even">
-<td>Jan 26/29</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (data structures &amp; functions)</td>
-<td style="text-align: center;"><a href="./hw/hw03.html">HW03</a></td>
-</tr>
-<tr class="odd">
-<td>Feb 2/5</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (NumPy &amp; File i/o)</td>
-<td style="text-align: center;"><a href="./hw/hw04.html">HW04</a></td>
-</tr>
-<tr class="even">
-<td>Feb 9/12</td>
-<td><a href="./oop.html">Object Oriented Programming (OOP)</a></td>
-<td style="text-align: center;"><a href="./hw/hw05.html">HW05</a></td>
-</tr>
-<tr class="odd">
-<td>Feb 16/19</td>
-<td><em>no classes</em> (reading week)</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Feb 23/26</td>
-<td><a href="./graphics.html">Graphical Displays of Data</a></td>
-<td style="text-align: center;"><a href="./hw/hw06.html">HW06</a></td>
-</tr>
-<tr class="odd">
-<td>Mar 2/5</td>
-<td>Reproducibility/Replicability I: <a href="./plaintext-authoring.html">plaintext authoring</a></td>
-<td style="text-align: center;"><a href="./hw/hw07.html">HW07</a></td>
-</tr>
-<tr class="even">
-<td>Mar 9/12</td>
-<td><em>no classes</em> (Paul away) Reproducibility/Replicability II: <a href="./clean_code.html">clean code</a></td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td>Mar 16/19</td>
-<td>Sampling, Signal Processing, &amp; Filtering Data</td>
-<td style="text-align: center;">HW08</td>
-</tr>
-<tr class="even">
-<td>Mar 23/26</td>
-<td>Statistical Thinking &amp; Inferential Statistical Tests</td>
-<td style="text-align: center;">HW09</td>
-</tr>
-<tr class="odd">
-<td>Mar 30/Apr 2</td>
-<td>Fitting Models to Data</td>
-<td style="text-align: center;">HW10</td>
-</tr>
-<tr class="even">
-<td>Apr 6/Apr 9</td>
-<td>Simulating Dynamical Systems</td>
-<td style="text-align: center;">-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<ul>
-<li><a href="./concepts.html">concepts</a> covered each week</li>
-<li><a href="./code.html">sample code</a> produced in class</li>
-</ul>
+<section id="signal-processing-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="signal-processing-exercises">Signal Processing Exercises</h2>
+<p>Use the following code to generate a noisy signal composed of sinusoids at several frequencies, sampled at 1000 Hz:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)  <span class="co"># for reproducibility</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> <span class="dv">1000</span>  <span class="co"># sampling rate (Hz)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span><span class="op">/</span>fs)  <span class="co"># 1 second of data</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">30</span><span class="op">*</span>t)          <span class="co"># 30 Hz component</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> <span class="fl">0.8</span> <span class="op">*</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">125</span><span class="op">*</span>t)   <span class="co"># 125 Hz component</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>y3 <span class="op">=</span> <span class="fl">0.9</span> <span class="op">*</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span><span class="dv">300</span><span class="op">*</span>t)   <span class="co"># 300 Hz component</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>noise <span class="op">=</span> np.random.randn(<span class="bu">len</span>(t)) <span class="op">*</span> <span class="fl">0.5</span>  <span class="co"># Gaussian noise</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> y1 <span class="op">+</span> y2 <span class="op">+</span> y3 <span class="op">+</span> noise</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li><p>Plot the signal <code>y</code> in the time domain. Label the axes and include a title.</p></li>
+<li><p>Compute and plot the <strong>raw magnitude spectrum</strong> of <code>y</code> using <code>scipy.fft.rfft()</code> and <code>scipy.fft.rfftfreq()</code>. Label the axes and include a title. In a code comment, briefly describe what you see—can you identify the three frequency components? (1–2 sentences)</p></li>
+<li><p>Compute and plot the <strong>power spectral density</strong> of <code>y</code> using <code>scipy.signal.welch()</code> with <code>nperseg=256</code>. Label the axes and include a title. In a code comment, describe how this compares to the raw FFT from Q2. (1–2 sentences)</p></li>
+<li><p>Using a Butterworth low-pass filter (see the <code>plg_lowpass</code> function from the course notes), <strong>low-pass filter</strong> the signal at a cutoff frequency of 80 Hz. Make a 2-panel figure: (a) the top panel should show <em>both</em> the original signal and the filtered signal overlaid in the time domain (use different colors and a legend), and (b) the bottom panel should show the PSD of the filtered signal. Label all axes and include titles.</p></li>
+<li><p>Now apply a <strong>high-pass filter</strong> at 80 Hz to the <em>original</em> unfiltered signal <code>y</code>. Plot the PSD of the high-passed signal. In a code comment, describe what frequency components remain. (1–2 sentences)</p></li>
+<li><p><strong>(Bonus)</strong> Compute a <strong>multitaper PSD</strong> of <code>y</code> using either the manual DPSS approach from the course notes (<code>scipy.signal.windows.dpss()</code> with NW=2) or the MNE-Python one-liner (<code>mne.time_frequency.psd_array_multitaper()</code> with <code>bandwidth=2.0, normalization='full'</code>). On a single set of axes, overlay the multitaper PSD and the Welch PSD from Q3 using different colors and a legend. In a code comment, describe any differences you notice. (1–2 sentences)</p></li>
+</ol>
+
+
 </section>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings">Readings</h2>
-<ul>
-<li><a href="https://wesmckinney.com/book/">Python for Data Analysis</a> by Wes McKinney</li>
-<li><a href="https://matthew-brett.github.io/curious-git/index.html">The Curious Coder’s Guide to Git</a> by Matthew Brett</li>
-<li><a href="https://poldrack.github.io/BetterCodeBetterScience/">Better Code, Better Science</a> by Russ Poldrack</li>
-</ul>
-
-
 </section>
 
 </main> <!-- /main -->
