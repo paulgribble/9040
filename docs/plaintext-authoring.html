@@ -326,6 +326,9 @@ window.Quarto = {
 
 <section id="why-plaintext" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Why Plaintext?</h1>
+<ul>
+<li><a href="https://mptc.io/">Modern Plain Text Computing</a> by Professor of Sociology Kieran Healy</li>
+</ul>
 <section id="scientific-documents" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="scientific-documents"><span class="header-section-number">1.1</span> Scientific Documents</h2>
 <p>What does a thesis or a paper consist of, structurally?</p>
@@ -567,6 +570,9 @@ window.Quarto = {
 <h1 data-number="3"><span class="header-section-number">3</span> Pandoc</h1>
 <p><a href="https://pandoc.org/">Pandoc</a> is a command-line tool created by Professor or Philosophy (and programmer) <a href="https://johnmacfarlane.net">John MacFarlane</a>. It converts between dozens of document formats, e.g.:</p>
 <p>Markdown → PDF, Word, HTML, LaTeX (and back)</p>
+<ul>
+<li><a href="https://kieranhealy.org/blog/archives/2014/01/23/plain-text/">Plain Text, Papers, Pandoc</a></li>
+</ul>
 <section id="installation" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="installation"><span class="header-section-number">3.1</span> Installation</h2>
 <ul>
@@ -803,6 +809,10 @@ Done! You're ready for the exercises.</code></pre>
 <p>LaTeX (pronounced “LAH-tek” or “LAY-tek”) is a typesetting system created by Leslie Lamport in 1984, built on top of Donald Knuth’s TeX (1978). Knuth, a computer scientist, created TeX because he was unhappy with the typographic quality of his textbooks. LaTeX adds a layer of convenience on top of TeX.</p>
 <p>When you compile a LaTeX document, the system makes thousands of micro-decisions about line breaks, hyphenation, spacing, and page layout. The result is typographically excellent output, the kind of polished, professional look you see in textbooks and journal articles.</p>
 <p>Word processors like Microsoft Word, or Google Docs, or Apple’s Pages, are written to make some typographic “decisions” but the truth is that they pale in comparison to the polished professional look you get using LaTeX.</p>
+<p>The benefits of LaTeX go beyond typography. Because your document is a plaintext file, you get all the advantages of plaintext authoring we discussed earlier. Your source is human-readable, and version-controllable with Git — you can see exactly what changed between drafts, roll back mistakes, and maintain a complete history of your writing without resorting to <code>thesis_v7_FINAL_really_final.docx</code>. The file will open in any text editor on any operating system, today or decades from now, with no dependence on a particular vendor’s software. Content and style are cleanly separated: you write <code>\section{Methods}</code> and a style file or document class handles how that section looks, which means you can reformat an entire document for a different journal by swapping one line in the preamble. And because LaTeX is open-source and has been in continuous use since the 1980s, there is an enormous ecosystem of packages, templates, and community support behind it.</p>
+<ul>
+<li><a href="https://www.andy-roberts.net/latex/benefits/">LaTeX isn’t for everyone but it could be for you</a></li>
+</ul>
 <section id="pandoc-latex" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="pandoc-latex"><span class="header-section-number">4.1.1</span> Pandoc &amp; LaTeX</h3>
 <p>When you ran <code>pandoc paper.md -o paper.pdf</code> above, Pandoc actually:</p>

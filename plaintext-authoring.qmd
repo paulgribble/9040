@@ -9,6 +9,9 @@ format:
 
 # Why Plaintext?
 
+- [Modern Plain Text Computing](https://mptc.io/) by Professor of Sociology Kieran Healy
+
+
 ## Scientific Documents
 
 What does a thesis or a paper consist of, structurally?
@@ -154,6 +157,8 @@ Pandoc (which we'll meet next) extends basic Markdown with features essential fo
 [Pandoc](https://pandoc.org/) is a command-line tool created by Professor or Philosophy (and programmer) [John MacFarlane](https://johnmacfarlane.net). It converts between dozens of document formats, e.g.:
 
 Markdown → PDF, Word, HTML, LaTeX (and back)
+
+- [Plain Text, Papers, Pandoc](https://kieranhealy.org/blog/archives/2014/01/23/plain-text/)
 
 ## Installation
 
@@ -426,6 +431,10 @@ LaTeX (pronounced "LAH-tek" or "LAY-tek") is a typesetting system created by Les
 When you compile a LaTeX document, the system makes thousands of micro-decisions about line breaks, hyphenation, spacing, and page layout. The result is typographically excellent output, the kind of polished, professional look you see in textbooks and journal articles.
 
 Word processors like Microsoft Word, or Google Docs, or Apple's Pages, are written to make some typographic "decisions" but the truth is that they pale in comparison to the polished professional look you get using LaTeX.
+
+The benefits of LaTeX go beyond typography. Because your document is a plaintext file, you get all the advantages of plaintext authoring we discussed earlier. Your source is human-readable, and version-controllable with Git — you can see exactly what changed between drafts, roll back mistakes, and maintain a complete history of your writing without resorting to `thesis_v7_FINAL_really_final.docx`. The file will open in any text editor on any operating system, today or decades from now, with no dependence on a particular vendor's software. Content and style are cleanly separated: you write `\section{Methods}` and a style file or document class handles how that section looks, which means you can reformat an entire document for a different journal by swapping one line in the preamble. And because LaTeX is open-source and has been in continuous use since the 1980s, there is an enormous ecosystem of packages, templates, and community support behind it.
+
+- [LaTeX isn’t for everyone but it could be for you](https://www.andy-roberts.net/latex/benefits/)
 
 ### Pandoc & LaTeX
 
