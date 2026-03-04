@@ -481,14 +481,122 @@ So you've already been using LaTeX. You just had Pandoc as a middleman. Learning
 
 Many working scientists use a hybrid: draft quickly in Markdown, then move to LaTeX when the document matures and needs fine-tuning.
 
+However many working scientists (and other kinds of authors) just use LaTeX ; it can be as simple or as complex as you need it to be.
+
 ## Document Structure
 
 A LaTeX document has two parts: the **preamble** (setup and configuration) and the **document body** (your content).
 
-### Minimal Example {#sec-minimal-example}
+### A minimal example
+
+```latex
+\documentclass{article}
+
+\begin{document}
+
+\section*{Abstract}
+
+An influential idea in neuroscience is that the sensory-motor system
+is activated when observing the actions of others. This idea has
+recently been extended to motor learning, in which observation results
+in sensory-motor plasticity and behavioral changes in both motor and
+somatosensory domains. However, it is unclear how the brain maps
+visual information onto motor circuits for learning. Here we test the
+idea that the somatosensory system, and specifically primary
+somatosensory cortex (S1), plays a role in motor learning by
+observing. In experiment 1, we applied stimulation to the median nerve
+to occupy the somatosensory system with unrelated inputs while
+participants observed a tutor learning to reach in a force
+field. Stimulation disrupted motor learning by observing in a
+limb-specific manner. Stimulation delivered to the right arm (the same
+arm used by the tutor) disrupted learning, whereas left arm
+stimulation did not. This is consistent with the idea that a
+somatosensory representation of the observed effector must be
+available during observation for learning to occur. In experiment 2,
+we assessed S1 cortical processing before and after observation by
+measuring somatosensory evoked potentials (SEPs) associated with
+median nerve stimulation. SEP amplitudes increased only for
+participants who observed learning. Moreover, SEPs increased more for
+participants who exhibited greater motor learning following
+observation. Taken together, these findings support the idea that
+motor learning by observing relies on functional plasticity in S1. We
+propose that visual signals about the movements of others are mapped
+onto motor circuits for learning via the somatosensory system.
+
+\end{document}
+```
+
+Paste the above into an empty plaintext file, save it as `simple.tex` and compile it to pdf using `pdflatex simple.tex`. Open `simple.pdf` and see what it looks like.
+
+Let's say we want to not indent the first line of the paragraph: change the first line of the paragraph to:
+
+```latex
+\noindent An influential idea in neuroscience is that the sensory-motor system
+```
+
+Re-compile to `.pdf` and see what it looks like.
+
+We can also specify this globally in the document by putting a command in the *preamble*, which is the part of the file between the `documentclass` command and the `begin{document}` command:
+
+```latex
+\documentclass{article}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+...
+```
+
+We can add another command to remove the page number from the bottom of the page:
+
+```latex
+\documentclass{article}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+...
+```
+
+Re-compile and see what the `.pdf` looks like.
+
+If we want left-justified (instead of full-justified text) then we can put another command in the preamble:
+
+```latex
+\documentclass{article}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\raggedright
+
+\begin{document}
+...
+```
+
+Finally if we want 12pt font, and we want Times instead of the default LaTeX font (which is called Computer Modern):
 
 ```latex
 \documentclass[12pt]{article}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\usepackage{mathptmx}
+
+\begin{document}
+...
+```
+
+Re-compile to `.pdf` and see how things look.
+
+![](images/simple.png)
+
+You can see how the style gets put in one place and the content (and the semantics, like headings) remains, on its own, in the body of the document.
+
+### A More worked Example {#sec-worked-example}
+
+```latex
+\documentclass[11pt]{article}
 
 % --- Preamble: load packages and configure ---
 \usepackage[margin=1in]{geometry}
@@ -548,6 +656,8 @@ of caffeine on grip strength \citep{warren2010effect}.
 
 \end{document}
 ```
+
+I'll admit the aesthetics of this default styling isn't great but you can change that easily enough.
 
 ### Key Concepts
 
@@ -716,7 +826,7 @@ For this exercise we will be using the files in the `exercise2/` directory:
 
 1. Go to <https://www.overleaf.com/> and log in.
 2. Create a new blank project.
-3. Start with the minimal template from @sec-minimal-example above.
+3. Start with the minimal template from @sec-worked-example above.
 4. **Complete these tasks:**
 
 **Task 1 — Equations**: Add a "Data Analysis" subsection under Methods. Include the formula for Pearson's correlation coefficient as a numbered equation:
@@ -1157,4 +1267,4 @@ latexmk -c
 - **Pandoc User's Guide**: <https://pandoc.org/MANUAL.html>
 - **LaTeX StackExchange** (Q&A community): <https://tex.stackexchange.com/>
 - **BibTeX entry types and fields**: <https://www.bibtex.com/e/entry-types/>
-
+- [Plaintext Workshop](https://github.com/paulgribble/plaintext_workshop): something I put together a few years ago that presents these concepts in a more concise way, with some other examples
