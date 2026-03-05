@@ -443,6 +443,8 @@ Another example: my undergraduate course [Statistics For Psychology II](https://
 
 # LaTeX
 
+- [TeXLive](https://www.tug.org/texlive/) : download LaTeX
+
 ## What/Why?
 
 LaTeX (pronounced "LAH-tek" or "LAY-tek") is a typesetting system created by Leslie Lamport in 1984, built on top of Donald Knuth's TeX (1978). Knuth, a computer scientist, created TeX because he was unhappy with the typographic quality of his textbooks. LaTeX adds a layer of convenience on top of TeX.
