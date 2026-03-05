@@ -670,6 +670,8 @@ I'll admit the aesthetics of this default styling isn't great but you can change
 
 **Comments** start with `%` and are ignored by the compiler.
 
+**Citations** : Note that the above example uses biblatex (and the `biber` tool) instead of `bibtex` ; biblatex is just another bibliography tool that can be used with LaTeX, and it has more default styles than bibtex (<https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles>)
+
 ### Compiling
 
 ```bash
@@ -1223,6 +1225,72 @@ and I get a file `letter.pdf` that looks like this:
 ![](images/letter.png)
 
 Once you spend some time writing documents using LaTeX, going back and dealing with MS Turd is quite a shock to the system.
+
+## Citations using `.csl`
+
+Markdown + Pandoc is able to use `.csl` styles from the Citation Style Language (CSL) repository ... and there are hundreds available, much more than the default styles available in BibTeX or BibLaTeX. Can we use `.csl` styles directly with LaTeX?
+
+The answer is a qualified yes. We have seen how we can use `pdflatex` to compile LaTeX documents and we can also use `xelatex` (for example which is necessary when using the `fontspec` package to have custom fonts) ... but there is a third way to compile LaTeX documents, and it's called `lualatex` (based on the Lua programming language).
+
+The `lualatex` tool is able to compile LaTeX documents that use a `.csl` file to define citation/bibliography styles. Here is an example:
+
+```latex
+\documentclass[11pt]{article}
+
+\usepackage[style=nature]{citation-style-language} % make sure nature.csl exists in the same directory
+\addbibresource{refs.bib}
+
+\usepackage{fontspec}  % with fontspec, use xelatex or lualatex not pdflatex
+\setmainfont{Palatino}
+\setsansfont{Helvetica Neue}
+
+\usepackage[margin=1.2in]{geometry} % define page margins
+\usepackage{microtype} % makes even better typography
+
+\usepackage{titlesec} % style section and subsection headings
+\titleformat*{\section}{\bfseries\sffamily\large}
+\titleformat*{\subsection}{\bfseries\sffamily\normalsize}
+
+\usepackage{lipsum} % for generating placeholder text
+
+\begin{document}
+
+\title{The Answers to Important Questions}
+\author{Jane Smith, Ph.D.}
+\date{\today}
+\maketitle
+
+\thispagestyle{empty} % no page number on first page
+
+\section*{Abstract}
+
+\lipsum[1]
+
+\section*{Introduction}
+
+\lipsum[2]
+
+Here is a reference to an article \citep{smith2020sleep} and another reference to another \citep{mccormick2007hodgkin}.
+
+\printbibliography
+
+\end{document}
+```
+
+We compile using `lualatex` three times (usually three is necessary to get all the references sorted):
+
+```bash
+$ lualatex simple.tex
+$ lualatex simple.tex
+$ lualatex simple.tex
+```
+
+And here is the `.pdf`:
+
+![](images/latexcsl.png)
+
+
+The other way is to use `pdflatex` (or `xelatex`) once, then run a tool called `citeproc-lua` on the `.aux` file that's produced by the first command (`pdflatex` or `xelatex`)... this produces the `.bbl` file needed for the bibliography. Then run `pdflatex` or `xelatex` again and the `.pdf` will be generated.
 
 # Quick Reference
 

@@ -293,6 +293,7 @@ window.Quarto = {
   <li><a href="#example-a-paper" id="toc-example-a-paper" class="nav-link" data-scroll-target="#example-a-paper"><span class="header-section-number">5.9.1</span> Example: A Paper</a></li>
   <li><a href="#example-a-letter" id="toc-example-a-letter" class="nav-link" data-scroll-target="#example-a-letter"><span class="header-section-number">5.9.2</span> Example: A Letter</a></li>
   </ul></li>
+  <li><a href="#citations-using-.csl" id="toc-citations-using-.csl" class="nav-link" data-scroll-target="#citations-using-.csl"><span class="header-section-number">5.10</span> Citations using <code>.csl</code></a></li>
   </ul></li>
   <li><a href="#quick-reference-1" id="toc-quick-reference-1" class="nav-link" data-scroll-target="#quick-reference-1"><span class="header-section-number">6</span> Quick Reference</a>
   <ul class="collapse">
@@ -1046,6 +1047,7 @@ Done! You're ready for the exercises.</code></pre>
 <p><strong>Environments</strong> are blocks delimited by <code>\begin{...}</code> and <code>\end{...}</code>: <code>\begin{abstract}...\end{abstract}</code>, <code>\begin{figure}...\end{figure}</code></p>
 <p><strong>Packages</strong> extend LaTeX’s capabilities. You load them in the preamble with <code>\usepackage{...}</code>. It’s a similar idea to Python libraries.</p>
 <p><strong>Comments</strong> start with <code>%</code> and are ignored by the compiler.</p>
+<p><strong>Citations</strong> : Note that the above example uses biblatex (and the <code>biber</code> tool) instead of <code>bibtex</code> ; biblatex is just another bibliography tool that can be used with LaTeX, and it has more default styles than bibtex (<a href="https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles" class="uri">https://www.overleaf.com/learn/latex/Biblatex_bibliography_styles</a>)</p>
 </section>
 <section id="compiling" class="level3" data-number="5.2.4">
 <h3 data-number="5.2.4" class="anchored" data-anchor-id="compiling"><span class="header-section-number">5.2.4</span> Compiling</h3>
@@ -1561,25 +1563,78 @@ Done! You're ready for the exercises.</code></pre>
 <p>Once you spend some time writing documents using LaTeX, going back and dealing with MS Turd is quite a shock to the system.</p>
 </section>
 </section>
+<section id="citations-using-.csl" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="citations-using-.csl"><span class="header-section-number">5.10</span> Citations using <code>.csl</code></h2>
+<p>Markdown + Pandoc is able to use <code>.csl</code> styles from the Citation Style Language (CSL) repository … and there are hundreds available, much more than the default styles available in BibTeX or BibLaTeX. Can we use <code>.csl</code> styles directly with LaTeX?</p>
+<p>The answer is a qualified yes. We have seen how we can use <code>pdflatex</code> to compile LaTeX documents and we can also use <code>xelatex</code> (for example which is necessary when using the <code>fontspec</code> package to have custom fonts) … but there is a third way to compile LaTeX documents, and it’s called <code>lualatex</code> (based on the Lua programming language).</p>
+<p>The <code>lualatex</code> tool is able to compile LaTeX documents that use a <code>.csl</code> file to define citation/bibliography styles. Here is an example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode latex code-with-copy"><code class="sourceCode latex"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>[11pt]{<span class="ex">article</span>}</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[style=nature]{<span class="ex">citation-style-language</span>} <span class="co">% make sure nature.csl exists in the same directory</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">\addbibresource</span>{refs.bib}</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">fontspec</span>}  <span class="co">% with fontspec, use xelatex or lualatex not pdflatex</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">\setmainfont</span>{Palatino}</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="fu">\setsansfont</span>{Helvetica Neue}</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[margin=1.2in]{<span class="ex">geometry</span>} <span class="co">% define page margins</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">microtype</span>} <span class="co">% makes even better typography</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">titlesec</span>} <span class="co">% style section and subsection headings</span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="fu">\titleformat*</span>{<span class="kw">\section</span>}{<span class="fu">\bfseries\sffamily\large</span>}</span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="fu">\titleformat*</span>{<span class="kw">\subsection</span>}{<span class="fu">\bfseries\sffamily\normalsize</span>}</span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">lipsum</span>} <span class="co">% for generating placeholder text</span></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="fu">\title</span>{The Answers to Important Questions}</span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a><span class="fu">\author</span>{Jane Smith, Ph.D.}</span>
+<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a><span class="fu">\date</span>{<span class="fu">\today</span>}</span>
+<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a><span class="fu">\maketitle</span></span>
+<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a><span class="fu">\thispagestyle</span>{empty} <span class="co">% no page number on first page</span></span>
+<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a><span class="kw">\section*</span>{Abstract}</span>
+<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-30"><a href="#cb47-30" aria-hidden="true" tabindex="-1"></a><span class="fu">\lipsum</span>[1]</span>
+<span id="cb47-31"><a href="#cb47-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-32"><a href="#cb47-32" aria-hidden="true" tabindex="-1"></a><span class="kw">\section*</span>{Introduction}</span>
+<span id="cb47-33"><a href="#cb47-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-34"><a href="#cb47-34" aria-hidden="true" tabindex="-1"></a><span class="fu">\lipsum</span>[2]</span>
+<span id="cb47-35"><a href="#cb47-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-36"><a href="#cb47-36" aria-hidden="true" tabindex="-1"></a>Here is a reference to an article <span class="kw">\citep</span>{<span class="ex">smith2020sleep</span>} and another reference to another <span class="kw">\citep</span>{<span class="ex">mccormick2007hodgkin</span>}.</span>
+<span id="cb47-37"><a href="#cb47-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-38"><a href="#cb47-38" aria-hidden="true" tabindex="-1"></a><span class="fu">\printbibliography</span></span>
+<span id="cb47-39"><a href="#cb47-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-40"><a href="#cb47-40" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We compile using <code>lualatex</code> three times (usually three is necessary to get all the references sorted):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> lualatex simple.tex</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> lualatex simple.tex</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> lualatex simple.tex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>And here is the <code>.pdf</code>:</p>
+<p><img src="images/latexcsl.png" class="img-fluid"></p>
+<p>The other way is to use <code>pdflatex</code> (or <code>xelatex</code>) once, then run a tool called <code>citeproc-lua</code> on the <code>.aux</code> file that’s produced by the first command (<code>pdflatex</code> or <code>xelatex</code>)… this produces the <code>.bbl</code> file needed for the bibliography. Then run <code>pdflatex</code> or <code>xelatex</code> again and the <code>.pdf</code> will be generated.</p>
+</section>
 </section>
 <section id="quick-reference-1" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Quick Reference</h1>
 <section id="terminal-commands" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="terminal-commands"><span class="header-section-number">6.1</span> Terminal Commands</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to PDF</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">--citeproc</span> <span class="at">-o</span> paper.pdf</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to Word</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">--citeproc</span> <span class="at">-o</span> paper.docx</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to LaTeX</span></span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">-s</span> <span class="at">-o</span> paper.tex</span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co"># LaTeX: compile with automatic re-runs</span></span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-pdf</span> paper.tex</span>
-<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co"># LaTeX: clean up auxiliary files</span></span>
-<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-c</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to PDF</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">--citeproc</span> <span class="at">-o</span> paper.pdf</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to Word</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">--citeproc</span> <span class="at">-o</span> paper.docx</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Pandoc: Markdown to LaTeX</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> paper.md <span class="at">-s</span> <span class="at">-o</span> paper.tex</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a><span class="co"># LaTeX: compile with automatic re-runs</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-pdf</span> paper.tex</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a><span class="co"># LaTeX: clean up auxiliary files</span></span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a><span class="ex">latexmk</span> <span class="at">-c</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="tools" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">6.2</span> Tools</h2>
