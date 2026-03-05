@@ -10,7 +10,7 @@ format:
 # Why Plaintext?
 
 - [Modern Plain Text Computing](https://mptc.io/) by Professor of Sociology Kieran Healy
-
+- [Plaintext Workshop](https://github.com/paulgribble/plaintext_workshop): something I put together a few years ago that presents these concepts in a more concise way, with some other examples
 
 ## Scientific Documents
 
