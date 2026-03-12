@@ -168,7 +168,7 @@ eeg = pink + alpha + beta + np.random.randn(N_eeg) * 3
 
 # --- Periodogram vs Welch ---
 freqs_p, psd_p = sp.signal.periodogram(eeg, fs=fs)
-freqs_w, psd_w = sp.signal.welch(eeg, fs=fs, nperseg=2*fs)
+freqs_w, psd_w = sp.signal.welch(eeg, fs=fs, nperseg=.75*fs)
 
 fig, axes = plt.subplots(3, 1, figsize=(8,6))
 

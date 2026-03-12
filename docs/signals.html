@@ -344,7 +344,7 @@ window.Quarto = {
 <section id="python-code-for-spectrum" class="level3" data-number="1.5.1">
 <h3 data-number="1.5.1" class="anchored" data-anchor-id="python-code-for-spectrum"><span class="header-section-number">1.5.1</span> Python code for Spectrum</h3>
 <p>Here is some Python code to illustrate these concepts. We construct a one second signal sampled at 1000 Hz that is composed of a 6 Hz, 10 Hz and 13 Hz component. We then use the <code>scipy.fft.rfft()</code> function from the SciPy package to compute the Fast Fourier transform, we extract the magnitude information, we set our frequency range (up to the Nyquist) and we plot the spectrum, which is shown below.</p>
-<div id="db45080a" class="cell" data-execution_count="1">
+<div id="6c1a0c99" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -387,7 +387,7 @@ window.Quarto = {
 <h3 data-number="1.6.1" class="anchored" data-anchor-id="python-code-for-power-spectral-density"><span class="header-section-number">1.6.1</span> Python code for power spectral density</h3>
 <p>To see why PSD estimation matters, consider a signal that looks more like real neural data. Real EEG, for example, has a characteristic 1/f background (more power at lower frequencies) with broad bumps at specific frequency bands—it does <em>not</em> consist of sharp sinusoidal peaks. A periodogram of such a signal is wildly jagged, and the broad spectral features that neuroscientists care about (alpha, beta, etc.) are completely hidden in the noise. The Welch PSD averages out that noise and reveals the underlying spectral shape.</p>
 <p>Here we simulate 30 seconds of EEG-like data with a 1/f background, an alpha band (~8–12 Hz), and a beta band (~20–30 Hz):</p>
-<div id="e3814bb2" class="cell" data-execution_count="2">
+<div id="9a789bf8" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> <span class="dv">256</span>                            <span class="co"># typical EEG sampling rate</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>duration <span class="op">=</span> <span class="dv">30</span>                       <span class="co"># 30 seconds of data</span></span>
@@ -418,7 +418,7 @@ window.Quarto = {
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Periodogram vs Welch ---</span></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>freqs_p, psd_p <span class="op">=</span> sp.signal.periodogram(eeg, fs<span class="op">=</span>fs)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>freqs_w, psd_w <span class="op">=</span> sp.signal.welch(eeg, fs<span class="op">=</span>fs, nperseg<span class="op">=</span><span class="dv">2</span><span class="op">*</span>fs)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>freqs_w, psd_w <span class="op">=</span> sp.signal.welch(eeg, fs<span class="op">=</span>fs, nperseg<span class="op">=</span><span class="fl">.75</span><span class="op">*</span>fs)</span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>))</span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
@@ -479,11 +479,11 @@ Note
 <section id="python-code-for-multitaper-psd" class="level3" data-number="1.6.3">
 <h3 data-number="1.6.3" class="anchored" data-anchor-id="python-code-for-multitaper-psd"><span class="header-section-number">1.6.3</span> Python code for multitaper PSD</h3>
 <p>The <a href="https://mne.tools/">MNE-Python</a> package (install with <code>pip install mne</code>) provides a multitaper function that works just like <code>scipy.signal.welch()</code>—one line in, PSD out:</p>
-<div id="c1df85d7" class="cell" data-execution_count="3">
+<div id="9a8f9540" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mne.time_frequency <span class="im">import</span> psd_array_multitaper</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Here we compare Welch and multitaper on a signal with two close frequency components (10 Hz and 14 Hz, only 4 Hz apart) buried in noise. With only 2 seconds of data, Welch must use short segments and therefore has limited frequency resolution. The multitaper method uses the full signal with multiple tapers, giving it both good resolution and a smooth estimate:</p>
-<div id="f5662a2a" class="cell" data-execution_count="4">
+<div id="460fa2a7" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> <span class="dv">1000</span></span>
@@ -601,7 +601,7 @@ Note
 <p>Essentially a spectrogram is a way to visualize a series of power spectra computed from slices of a signal over time. Imagine a series of single power spectra (frequency versus power) repeated over time and stacked next to each other over a time axis.</p>
 <p>The SciPy package has a function called <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.spectrogram.html#scipy.signal.spectrogram"><code>scipy.signal.spectrogram()</code></a> that will generate a spectrogram.</p>
 <p>Here we generate a 100 Hz signal within noise, sampled at 2000 Hz, and we add a transient “chirp” of a 400 Hz signal partway through.</p>
-<div id="ff4e0957" class="cell" data-execution_count="5">
+<div id="20abdee5" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="fl">0.0005</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> np.arange(<span class="fl">0.0</span>, <span class="fl">20.0</span>, dt)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="dv">100</span> <span class="op">*</span> time)</span>
@@ -633,7 +633,7 @@ Note
 <h2 data-number="1.9" class="anchored" data-anchor-id="filtering"><span class="header-section-number">1.9</span> Filtering</h2>
 <p>The Fourier series representation and its computational implementation, the FFT and the PSD, are useful not only for determining what frequency components are present in a signal, but we can also perform operations within frequency space in order to manipulate the strength of different frequency components in the signal. This can be especially effective for eliminating noise sources with known frequency content.</p>
 <p>Let’s look at a concrete example, a spectrum of a noisy signal with peaks at 10, 50 and 200 Hz.</p>
-<div id="c2872d47" class="cell" data-execution_count="6">
+<div id="f0e135a5" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span><span class="op">/</span>fs)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>t<span class="op">*</span><span class="dv">10</span>) <span class="op">+</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>t<span class="op">*</span><span class="dv">50</span>) <span class="op">+</span> np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>t<span class="op">*</span><span class="dv">200</span>)</span>
@@ -675,7 +675,7 @@ Note
 <section id="python-code-for-filtering" class="level3" data-number="1.9.2">
 <h3 data-number="1.9.2" class="anchored" data-anchor-id="python-code-for-filtering"><span class="header-section-number">1.9.2</span> Python code for filtering</h3>
 <p>Here is a function in Python to do low-pass filtering using a Butterworth filter. Note that we use <code>filtfilt</code> rather than <code>lfilter</code>—<code>filtfilt</code> applies the filter forward and then backward, resulting in zero phase distortion. A single-pass filter (<code>lfilter</code>) would shift the signal in time, which is undesirable when you need to preserve the temporal alignment of events (e.g.&nbsp;stimulus onsets, movement onsets, etc).</p>
-<div id="7e2734e3" class="cell" data-execution_count="7">
+<div id="d2fd27d9" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plg_lowpass(y, samprate, cutoff, order<span class="op">=</span><span class="dv">2</span>):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> cutoff <span class="op">/</span> (samprate <span class="op">/</span> <span class="dv">2</span>) <span class="co"># Normalize the cutoff frequency</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    b, a <span class="op">=</span> sp.signal.butter(N<span class="op">=</span>order, Wn<span class="op">=</span>w, btype<span class="op">=</span><span class="st">'lowpass'</span>) <span class="co"># get the filter coefficients</span></span>
@@ -683,7 +683,7 @@ Note
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> yf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>One for high-pass filtering:</p>
-<div id="17100a66" class="cell" data-execution_count="8">
+<div id="84531676" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plg_highpass(y, samprate, cutoff, order<span class="op">=</span><span class="dv">2</span>):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> cutoff <span class="op">/</span> (samprate <span class="op">/</span> <span class="dv">2</span>) <span class="co"># Normalize the cutoff frequency</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    b, a <span class="op">=</span> sp.signal.butter(N<span class="op">=</span>order, Wn<span class="op">=</span>w, btype<span class="op">=</span><span class="st">'highpass'</span>) <span class="co"># get the filter coefficients</span></span>
@@ -691,7 +691,7 @@ Note
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> yf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>One for band-pass filtering and band-stop filtering:</p>
-<div id="7644035d" class="cell" data-execution_count="9">
+<div id="8e5133ed" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plg_bandpass(y, samprate, cutoffs, order<span class="op">=</span><span class="dv">2</span>):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    cutoffs <span class="op">=</span> np.array(cutoffs)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> cutoffs <span class="op">/</span> (samprate <span class="op">/</span> <span class="dv">2</span>) <span class="co"># Normalize the cutoff frequencies</span></span>
@@ -699,7 +699,7 @@ Note
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    yf <span class="op">=</span> sp.signal.filtfilt(b, a, y) <span class="co"># perform the filtering</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> yf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="af4f1432" class="cell" data-execution_count="10">
+<div id="82c31c6c" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plg_bandstop(y, samprate, cutoffs, order<span class="op">=</span><span class="dv">2</span>):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    cutoffs <span class="op">=</span> np.array(cutoffs)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> cutoffs <span class="op">/</span> (samprate <span class="op">/</span> <span class="dv">2</span>) <span class="co"># Normalize the cutoff frequencies</span></span>
@@ -709,7 +709,7 @@ Note
 </div>
 <p>You can download a Python file containing all 4 filter functions above here: <a href="code/plg_filters.py">plg_filters.py</a></p>
 <p>Here we demo the four types of filters by using them to filter broadband noise:</p>
-<div id="087188cf" class="cell" data-execution_count="11">
+<div id="87ec0ed2" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fs <span class="op">=</span> <span class="dv">1000</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">1</span><span class="op">/</span>fs)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.randn(<span class="bu">len</span>(t))</span>
@@ -733,7 +733,7 @@ Note
 </div>
 </div>
 </div>
-<div id="7c883724" class="cell" data-execution_count="12">
+<div id="9e808b22" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>yf <span class="op">=</span> plg_lowpass(y, fs, <span class="dv">200</span>) <span class="co"># low-pass filter at 200 Hz</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>freqs,psd <span class="op">=</span> sp.signal.welch(yf,fs<span class="op">=</span>fs,nperseg<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
@@ -755,7 +755,7 @@ Note
 </div>
 </div>
 </div>
-<div id="352cbd9c" class="cell" data-execution_count="13">
+<div id="231332ac" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>yf <span class="op">=</span> plg_highpass(y, fs, <span class="dv">200</span>) <span class="co"># high-pass filter at 200 Hz</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>freqs,psd <span class="op">=</span> sp.signal.welch(yf,fs<span class="op">=</span>fs,nperseg<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
@@ -777,7 +777,7 @@ Note
 </div>
 </div>
 </div>
-<div id="2ff50f40" class="cell" data-execution_count="14">
+<div id="b764538b" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>yf <span class="op">=</span> plg_bandpass(y, fs, [<span class="dv">200</span>,<span class="dv">300</span>]) <span class="co"># band-pass filter at 200-300 Hz</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>freqs,psd <span class="op">=</span> sp.signal.welch(yf,fs<span class="op">=</span>fs,nperseg<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
@@ -799,7 +799,7 @@ Note
 </div>
 </div>
 </div>
-<div id="dd4edf64" class="cell" data-execution_count="15">
+<div id="3c26131d" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>yf <span class="op">=</span> plg_bandstop(y, fs, [<span class="dv">200</span>,<span class="dv">300</span>]) <span class="co"># band-stop filter at 200-300 Hz</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>freqs,psd <span class="op">=</span> sp.signal.welch(yf,fs<span class="op">=</span>fs,nperseg<span class="op">=</span><span class="dv">100</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">6</span>))</span>
