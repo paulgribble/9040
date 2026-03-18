@@ -6,7 +6,7 @@ title: "Homework 8"
 
 ---
 
-Due: Mar 22 by 11:59 pm eastern standard time
+Due: Mar 29 by 11:59 pm eastern standard time
 
 Submit a single file called `name_08.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_08.py`. If you would rather use a jupyter notebook that is OK too, upload your `.ipynb` file, e.g. `gribble_08.ipynb`.
 
