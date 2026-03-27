@@ -49,7 +49,7 @@ format:
 | Mar 16/19    | *no classes*                                                                             |          -          |
 | Mar 23/26    | [Sampling, Signal Processing, & Filtering Data](signals.qmd)                             | [HW08](hw/hw08.qmd) |
 | Mar 30/Apr 2 | [Statistical Thinking & Inferential Statistical Tests](statistics.qmd)                   | [HW09](hw/hw09.qmd) |
-| Apr 6/Apr 9  | Fitting Models to Data                                                                   |          -          |
+| Apr 6/Apr 9  | [Fitting Models to Data](statistics.qmd)                                                 |          -          |
 
 : {tbl-colwidths="[15,75,10]"}
 </div>
