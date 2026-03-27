@@ -1,0 +1,34 @@
+---
+title: Statistical Procedures
+---
+
+---
+
+## Topics
+- estimating population parameters using random samples
+- null hypothesis significance testing (NHST)
+- Maximum Likelihood Estimation (MLE)
+
+## Notes
+- Statistics I: [Parametric Statistical Tests](parametric_stats_tests.qmd)
+- Statistics II: [Resampling, Bootstrapping, & Cross-Validation](resampling_bootstrapping_crossvalidation.qmd)
+- Statistics III: [Maximum likelihood estimation (MLE)](mle.qmd)
+
+## Notebooks
+- [stats_demo1.ipynb](stats_demo1.ipynb) (right-click to download)
+- [stats_demo2.ipynb](stats_demo2.ipynb) (right-click to download)
+
+## Additional Resources
+- the Tutorials listed here are good, in particular “Review of Basic Statistics”: [https://designingexperiments.com/supplements/](https://designingexperiments.com/supplements/)
+- [Designing Experiments and Analyzing Data:
+A Model Comparison Perspective](https://designingexperiments.com/)] by Maxwell, Delaney, and Kelley
+- chapter 1 [Using p-values to test a hypothesis](https://lakens.github.io/statistical_inferences/01-pvalue.html) from the book [Improving Your Statistical Inferences](https://lakens.github.io/statistical_inferences/) by Daniel Lakens
+- [Answering questions with data](https://www.crumplab.com/statistics/) book by Matthew Crump, Danielle Navarro, and Jeffrey Suzuki
+- [Learning Statistics with R](https://learningstatisticswithr.com) by Danielle Navarro (and an adaptation for Python: [Learning Statistics with Python](https://ethanweed.github.io/pythonbook/landingpage.html))
+- [Dance of the p-values](https://www.youtube.com/watch?v=5OL1RqHrZQ8) (YouTube) by Geoff Cumming
+- [Improving Your Statistical Inferences](https://lakens.github.io/statistical_inferences/) by Daniel Lakens
+
+## Bayesian Approaches
+- [Introduction to Applied Bayesian Statistics and Estimation for Social Scientists](https://link.springer.com/book/10.1007/978-0-387-71265-9) by Scott Lynch (2007)
+- [Doing Bayesian Data Analysis](https://sites.google.com/site/doingbayesiandataanalysis/) by John Kruschke (2015)
+- [Frequentism and Baysianism: A Practical Introduction](https://jakevdp.github.io/blog/2014/03/11/frequentism-and-bayesianism-a-practical-intro/) by Jake VanderPlas

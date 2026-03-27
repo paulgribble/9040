@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics: resampling &amp; bootstrapping – Psychology 9040B FW25</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/hmc_t_square.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c403d798273eef921068aca0a4124571.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta http-equiv="cache-control" content="no-cache"> 
+<meta http-equiv="expires" content="0"> 
+<meta http-equiv="pragma" content="no-cache">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo light-content">
+    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Psychology 9040B FW25</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.pdf"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://westernu.brightspace.com/d2l/home/163612"> 
+<span class="menu-text">OWL/Brightspace</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gribblelab.org/coding"> 
+<span class="menu-text">Exercises</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#estimating-population-parameters" id="toc-estimating-population-parameters" class="nav-link active" data-scroll-target="#estimating-population-parameters"><span class="header-section-number">1</span> Estimating Population Parameters</a>
+  <ul class="collapse">
+  <li><a href="#parametric-approach-sem" id="toc-parametric-approach-sem" class="nav-link" data-scroll-target="#parametric-approach-sem"><span class="header-section-number">1.1</span> Parametric approach: SEM</a></li>
+  <li><a href="#the-95-confidence-interval" id="toc-the-95-confidence-interval" class="nav-link" data-scroll-target="#the-95-confidence-interval"><span class="header-section-number">1.2</span> The 95% confidence interval</a></li>
+  <li><a href="#non-parametric-approach-bootstrapping" id="toc-non-parametric-approach-bootstrapping" class="nav-link" data-scroll-target="#non-parametric-approach-bootstrapping"><span class="header-section-number">1.3</span> Non-parametric approach: Bootstrapping</a></li>
+  <li><a href="#bootstrap-code" id="toc-bootstrap-code" class="nav-link" data-scroll-target="#bootstrap-code"><span class="header-section-number">1.4</span> Bootstrap code</a></li>
+  <li><a href="#scipy.stats.bootstrap" id="toc-scipy.stats.bootstrap" class="nav-link" data-scroll-target="#scipy.stats.bootstrap"><span class="header-section-number">1.5</span> scipy.stats.bootstrap()</a></li>
+  <li><a href="#bca-bootstrap" id="toc-bca-bootstrap" class="nav-link" data-scroll-target="#bca-bootstrap"><span class="header-section-number">1.6</span> BCa bootstrap</a></li>
+  </ul></li>
+  <li><a href="#null-hypothesis-statistical-testing" id="toc-null-hypothesis-statistical-testing" class="nav-link" data-scroll-target="#null-hypothesis-statistical-testing"><span class="header-section-number">2</span> Null hypothesis statistical testing</a>
+  <ul class="collapse">
+  <li><a href="#parametric-approach-t-test" id="toc-parametric-approach-t-test" class="nav-link" data-scroll-target="#parametric-approach-t-test"><span class="header-section-number">2.1</span> Parametric approach: t-test</a></li>
+  <li><a href="#non-parametric-approach-permutation-test" id="toc-non-parametric-approach-permutation-test" class="nav-link" data-scroll-target="#non-parametric-approach-permutation-test"><span class="header-section-number">2.2</span> Non-parametric approach: permutation test</a></li>
+  <li><a href="#permutation-test-code" id="toc-permutation-test-code" class="nav-link" data-scroll-target="#permutation-test-code"><span class="header-section-number">2.3</span> Permutation test code</a></li>
+  <li><a href="#scipy.stats.permutation_test" id="toc-scipy.stats.permutation_test" class="nav-link" data-scroll-target="#scipy.stats.permutation_test"><span class="header-section-number">2.4</span> scipy.stats.permutation_test()</a></li>
+  </ul></li>
+  <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation"><span class="header-section-number">3</span> Cross-validation</a>
+  <ul class="collapse">
+  <li><a href="#overfitting-example" id="toc-overfitting-example" class="nav-link" data-scroll-target="#overfitting-example"><span class="header-section-number">3.1</span> Overfitting example</a></li>
+  <li><a href="#leave-one-out-cross-validation" id="toc-leave-one-out-cross-validation" class="nav-link" data-scroll-target="#leave-one-out-cross-validation"><span class="header-section-number">3.2</span> Leave-one-out cross-validation</a></li>
+  <li><a href="#k-fold-cross-validation" id="toc-k-fold-cross-validation" class="nav-link" data-scroll-target="#k-fold-cross-validation"><span class="header-section-number">3.3</span> K-fold cross-validation</a></li>
+  <li><a href="#assumptions-of-cross-validation" id="toc-assumptions-of-cross-validation" class="nav-link" data-scroll-target="#assumptions-of-cross-validation"><span class="header-section-number">3.4</span> Assumptions of cross-validation</a></li>
+  </ul></li>
+  <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources"><span class="header-section-number">4</span> Other Resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics: resampling &amp; bootstrapping</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We will look at two topics related to resampling methods: (1) estimating population parameters using the bootstrap, and (2) performing null hypothesis tests using permutation tests.</p>
+<section id="estimating-population-parameters" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="estimating-population-parameters"><span class="header-section-number">1</span> Estimating Population Parameters</h2>
+<p>Usually our scientific questions are about populations, but we cannot measure the entire population. Instead we take a random sample of the population and use information about the sample to infer information about the population. This is called inference.</p>
+<p>If we take a random sample of size N=10 from a population, the best estimate of the population mean is the mean of the sample.</p>
+<p>What is the precision of this estimate? We know it relates to the sample size. The larger the sample size the more precise the estimate.</p>
+<section id="parametric-approach-sem" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="parametric-approach-sem"><span class="header-section-number">1.1</span> Parametric approach: SEM</h3>
+<p>In the <strong>parametric</strong> approach, we assume that the population is normally distributed. We use the standard deviation of the sample, and the sample size, to compute the <em>standard error of the mean</em>, which is an estimate (a <em>parametric</em> estimate) of the standard deviation of the sampling distribution of means. The standard error of the mean is thus an estimate of the precision of the sample mean as an estimate of the population mean. The standard error of the mean <span class="math inline">SEM</span> is given by:</p>
+<p><span class="math display">SEM = \frac{s}{\sqrt{N}}</span></p>
+<p>where <span class="math inline">s</span> is the standard deviation of our sample, and <span class="math inline">N</span> is the sample size. Notice how the sample size affects the SEM. The larger the sample size, the smaller the SEM.</p>
+</section>
+<section id="the-95-confidence-interval" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="the-95-confidence-interval"><span class="header-section-number">1.2</span> The 95% confidence interval</h3>
+<p>We can use the SEM to calculate the <em>confidence interval</em> of our estimate of the population mean. The 95% confidence interval is given by:</p>
+<p><span class="math display">\bar{y} \pm t_{(.975,N-1)} \left( SEM \right)</span></p>
+<p>where <span class="math inline">\bar{y}</span> is the sample mean, and <span class="math inline">t_{.975,N-1}</span> is the critical value of the <span class="math inline">t</span> statistic for a 95% confidence interval, <span class="math inline">N</span> is the sample size, and <span class="math inline">SEM</span> is the standard error of the mean.</p>
+<p>So when we perform one experiment, and collect one sample, we can not only produce an estimate of the population mean (the mean of our sample) we can also produce, assuming the population is normally distributed, metrics corresponding to the precision of our estimate of the population mean (the SEM, the 95% confidence interval). This is useful information to have when we interpret the estimate of the population mean, especially if we are comparing estimates of population means of two samples (e.g.&nbsp;placebo vs.&nbsp;drug).</p>
+<p>What is the meaning of the 95% confidence interval? We want to say it’s the interval that we are 95% sure contains the true population value—but this is incorrect.</p>
+<p>The correct interpretation of the 95% confidence interval is as follows: If we were to take many random samples of size N from the population, and for each sample compute the mean plus or minus the 95% confidence interval, then 95% of those confidence intervals would contain the true population mean. Of course this means 5% of the intervals would not. Which ones? We don’t know. And of course usually we have only sampled once from the population (we do our experiment once).</p>
+<p>In the image below, the vertical lines indicated 95% confidence intervals of 100 repeated samples and the dots indicate sample means. The horizontal dashed line indicates the true (unknown) population mean. Of the 100 confidence intervals, 95 intervals (light blue lines) contain the true population mean and 5 do not (red lines).</p>
+<p><img src="images/95ci.png" class="img-fluid" style="width:80.0%"></p>
+</section>
+<section id="non-parametric-approach-bootstrapping" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="non-parametric-approach-bootstrapping"><span class="header-section-number">1.3</span> Non-parametric approach: Bootstrapping</h3>
+<p>What happens if we cannot assume that the population is normally distributed?</p>
+<p>Before we answer this question, let’s ask another question—how likely is this to occur? In fact there are many examples of variables we are interested in measuring, that are not normally distributed. Strictly speaking, any variable that cannot take on a negative value is not normally distributed. Many variables follow a log-normal distribution, e.g.&nbsp;reaction times; e.g.&nbsp;size of living tissue (length, weight); e.g.&nbsp;number of hospitalized cases of COVID-19; and many others (see the <a href="https://en.wikipedia.org/wiki/Log-normal_distribution">Wikipedia page</a> for a list of examples). Many variables follow a <a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson distribution</a>, e.g.&nbsp;inter-spike-intervals of neurons.</p>
+<p>If the population is not normally distributed, we cannot use the SEM to calculate the precision of our estimate of the population mean. We need to use a <em>non-parametric</em> approach. We can use the <strong>bootstrap</strong> to estimate the standard deviation of the sampling distribution of means.</p>
+<p>In the bootstrap we generate, through simulation, an <em>empirical sampling distribution of means</em>. We can no longer rely on a formula such as shown above, to calculate metrics corresponding to the precision of our estimate of the population mean. Instead what we do in the bootstrap is generate, through simulation, an <em>empirical sampling distribution of means</em>. In essence we simulate repeating our experiment again and again, (e.g.&nbsp;10,000 times) and each time we compute a sample mean. We can then look at the distribution of sample means, and use this distribution to estimate the precision of our estimate of the population mean (e.g.&nbsp;by taking the standard deviation of the empirical sampling distribution of means).</p>
+<p>How do we simulate repeating our experiment 10,000 times? We only have one sample! How do we take new samples from the population without actually collecting new data? The trick in the boostrap is that we do this by sampling <em>with replacement</em> from our sample. We use our sample as a proxy for the population. We repeatedly (10,000 times) take samples of size N from our sample. The <em>with replacement</em> part means that each observation in our sample may be taken more than once (and by extension, some observations in our sample may be left unsampled). If we resampled our original sample without replacement, we would just end up with 10,000 exact copies of our original sample. That would not be very useful.</p>
+<p>Of course the validity of this approach rests on the assumption that our sample is a reasonable proxy for the population … and in the usual way, the larger (and more random) the sample, the more this is true.</p>
+</section>
+<section id="bootstrap-code" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="bootstrap-code"><span class="header-section-number">1.4</span> Bootstrap code</h3>
+<p>Let’s say we performed an experiment measuring reaction times (RTs) and collected a sample of 20 RTs. We can use the bootstrap to estimate the standard deviation of the sampling distribution of means.</p>
+<p>So what we are going to do is repeatedly (10,000 times) take samples of size N , <em>with replacement</em>, from our sample. We then calculate the mean of each sample and store it in an array.</p>
+<p>Here is our sample of size N=20 RTs, which were drawn from a log-normal distribution (not a normal distribution).</p>
+<div id="17522cb0" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>RTs_sample <span class="op">=</span> np.array([<span class="dv">500</span>,<span class="dv">650</span>,<span class="dv">650</span>,<span class="dv">750</span>,<span class="dv">1200</span>,<span class="dv">800</span>,<span class="dv">650</span>,<span class="dv">1000</span>,<span class="dv">750</span>,<span class="dv">1400</span>,<span class="dv">700</span>,<span class="dv">900</span>,<span class="dv">900</span>,<span class="dv">1300</span>,<span class="dv">850</span>,<span class="dv">950</span>,<span class="dv">750</span>,<span class="dv">850</span>,<span class="dv">1050</span>,<span class="dv">900</span>])</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample mean is </span><span class="sc">{</span>np<span class="sc">.</span>mean(RTs_sample)<span class="sc">:.2f}</span><span class="ss"> ms"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>plt.hist(RTs_sample)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sample mean is 875.00 ms</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="resampling_bootstrapping_crossvalidation_files/figure-html/cell-2-output-2.png" width="571" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now what we will do is repeatedly sample, 10,000 times, with replacement, from our original sample of N=20 RTs, each time producing a new sample of size N=20. We will compute the mean of each of these bootstrap samples, and store it in an array.</p>
+<div id="3497e084" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>nboot <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>RTs_boot_means <span class="op">=</span> np.zeros(nboot)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="bu">len</span>(RTs_sample)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(nboot):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    RTs_boot_sample <span class="op">=</span> np.random.choice(RTs_sample, size<span class="op">=</span>N, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    RTs_boot_means[i] <span class="op">=</span> np.mean(RTs_boot_sample)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can look at the distribution of bootstrap sample means:</p>
+<div id="6df8f287" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.hist(RTs_boot_means, bins<span class="op">=</span>np.array(np.arange(<span class="dv">600</span>,<span class="dv">1200</span>,<span class="dv">10</span>)))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="resampling_bootstrapping_crossvalidation_files/figure-html/cell-4-output-1.png" width="576" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Question</strong>: why does the distribution of the sample means look like a normal distribution? I thought we were sampling from a non-normal distribution?</p>
+<p><strong>Answer</strong>: The <em>Central Limit Theorem</em> says that the sampling distribution looks more and more like a normal distribution as the sample size increases, even if the population from which the samples were drawn is not normally distributed.</p>
+<p>We can compute the mean of the bootstrap sample means, which is an estimate of the mean of the true sampling distribution of means from the population:</p>
+<div id="37ebcf30" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>RTs_boot_means_mean <span class="op">=</span> np.mean(RTs_boot_means)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mean of bootstrap sample means is </span><span class="sc">{</span>RTs_boot_means_mean<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>mean of bootstrap sample means is 875.56</code></pre>
+</div>
+</div>
+<p>This is very close to our sample mean, which is not surprising.</p>
+<p>Now we can compute the standard deviation of the bootstrap sample means, which is an estimate of the standard deviation of the true sampling distribution of means from the population:</p>
+<div id="04e95811" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>RTs_boot_means_std <span class="op">=</span> np.std(RTs_boot_means)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"sd of bootstrap sample means is </span><span class="sc">{</span>RTs_boot_means_std<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sd of bootstrap sample means is 49.81</code></pre>
+</div>
+</div>
+<p>We can also compute a 95% confidence interval for the mean of the population by simply picking off values from the boostrap sample we generated. We have 10,000 bootstrap sample means in our empirical sampling distribution of means. We know 95% of 10,000 is 9500. If we sort our bootstrap means, we can simply pick the 250th and 9,750th values. These are the 2.5th and 97.5th percentiles of the bootstrap sample means. The these two values represent our 95% confidence interval for the mean of the population.</p>
+<div id="dbe01727" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>RTs_boot_means_sorted <span class="op">=</span> np.sort(RTs_boot_means)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>RTs_boot_means_95CI <span class="op">=</span> RTs_boot_means_sorted[[<span class="dv">250</span>,<span class="dv">9750</span>]]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"95% confidence interval for the mean of the population is (</span><span class="sc">{</span>RTs_boot_means_95CI[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">, </span><span class="sc">{</span>RTs_boot_means_95CI[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>95% confidence interval for the mean of the population is (782.5, 975.0)</code></pre>
+</div>
+</div>
+<p>Below we overlay the mean and 95% confidence interval on the histogram of bootstrap sample means:</p>
+<div id="5307dd07" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.hist(RTs_boot_means, bins<span class="op">=</span>np.array(np.arange(<span class="dv">600</span>,<span class="dv">1200</span>,<span class="dv">10</span>)))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>RTs_boot_means_mean, color<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>RTs_boot_means_95CI[<span class="dv">0</span>], color<span class="op">=</span><span class="st">"red"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>RTs_boot_means_95CI[<span class="dv">1</span>], color<span class="op">=</span><span class="st">"red"</span>, linestyle<span class="op">=</span><span class="st">"--"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="resampling_bootstrapping_crossvalidation_files/figure-html/cell-8-output-1.png" width="576" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>If we had done this all using the parametric approach, we would have violated the assumption that the population is normally distributed. The consequence of this violation would be that our confidence interval would be incorrect.</p>
+<p>The bootstrap approach is very powerful because it allows us to estimate the precision of our estimate of the population mean, even if we cannot assume that the population is normally distributed.</p>
+</section>
+<section id="scipy.stats.bootstrap" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="scipy.stats.bootstrap"><span class="header-section-number">1.5</span> scipy.stats.bootstrap()</h3>
+<p>The SciPy package has a bootstrap function called <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html#scipy-stats-bootstrap"><code>scipy.stats.bootstrap()</code></a> which will do the same thing as our code above (and it has some other options as well):</p>
+<div id="a5d77b49" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>boot_out <span class="op">=</span> sp.stats.bootstrap([RTs_sample], np.mean, n_resamples<span class="op">=</span><span class="dv">10000</span>, method<span class="op">=</span><span class="st">'percentile'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ci95 <span class="op">=</span> boot_out.confidence_interval</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"95% confidence interval for the mean of the population is (</span><span class="sc">{</span>ci95[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">, </span><span class="sc">{</span>ci95[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>95% confidence interval for the mean of the population is (782.5, 975.0)</code></pre>
+</div>
+</div>
+</section>
+<section id="bca-bootstrap" class="level3" data-number="1.6">
+<h3 data-number="1.6" class="anchored" data-anchor-id="bca-bootstrap"><span class="header-section-number">1.6</span> BCa bootstrap</h3>
+<p>It turns out that for data with some features, the basic “percentile method” described above for determining the 95% confidence limits in a bootstrap can be improved upon. The “BCa” method, which stands for “accelerated bias-corrected”, is a way to adjust the percentile limits to take into account these “second-order” effects. For details see:</p>
+<blockquote class="blockquote">
+<p>Efron B. (1987), “Better bootstrap confidence intervals”, <em>Journal of the American Statistical Society</em>, 82, 171-200. <a href="http://dx.doi.org/10.2307/2289144">http://dx.doi.org/10.2307/2289144</a></p>
+</blockquote>
+<p>Also see this book on bootstraps more generally:</p>
+<blockquote class="blockquote">
+<p>Efron B, Tibshirani R, Tibshirani RJ (1994) An introduction to the bootstrap. Philadelphia, PA: Chapman &amp; Hall/CRC. <a href="http://dx.doi.org/10.1201/9780429246593/introduction-bootstrap-bradley-efron-tibshirani">http://dx.doi.org/10.1201/9780429246593/introduction-bootstrap-bradley-efron-tibshirani</a></p>
+</blockquote>
+<p>In Python we can use the <code>scipy.stats.bootstrap()</code> function with the argument <code>method='BCa'</code> to implement this correction:</p>
+<div id="47c1712c" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>boot_out <span class="op">=</span> sp.stats.bootstrap([RTs_sample], np.mean, n_resamples<span class="op">=</span><span class="dv">10000</span>, method<span class="op">=</span><span class="st">'BCa'</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>ci95 <span class="op">=</span> boot_out.confidence_interval</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"95% confidence interval for the mean of the population is (</span><span class="sc">{</span>ci95[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">, </span><span class="sc">{</span>ci95[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>95% confidence interval for the mean of the population is (787.5, 982.5)</code></pre>
+</div>
+</div>
+<p>In fact <code>'BCa'</code> is the default <code>method=</code> option for <code>scipy.stats.boostrap()</code>.</p>
+</section>
+</section>
+<section id="null-hypothesis-statistical-testing" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="null-hypothesis-statistical-testing"><span class="header-section-number">2</span> Null hypothesis statistical testing</h2>
+<p>When we perform an experiment to test the effect of an experimental manipulation on the mean of a dependent variable, we take two random samples and apply the manipulation, then perform a statistical test on the means of the two samples to compute a p-value. If the p-value is less than our chosen alpha level, we reject the null hypothesis that the two samples were drawn from the same population.</p>
+<section id="parametric-approach-t-test" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="parametric-approach-t-test"><span class="header-section-number">2.1</span> Parametric approach: t-test</h3>
+<p>If we perform an independent samples t-test for example, we compute a t-statistic which takes into account both the difference between means, the variance of the samples, and the sample size N (formula not shown here).</p>
+<p>From the t-statistic we compute a p-value which tells the probability of observing a t-statistic (i.e.&nbsp;a difference between means) this big or bigger, under the null hypothesis in which both samples were taken from the same population.</p>
+<p>Here is an example:</p>
+<div id="d6fb4c5e" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.random.normal(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">15</span>) <span class="co"># mean = 0.5, sd = 1</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.random.normal(<span class="fl">0.0</span>, <span class="dv">1</span>, <span class="dv">15</span>) <span class="co"># mean = 0.0, sd = 1</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The mean of the first sample is </span><span class="sc">{</span>np<span class="sc">.</span>mean(y1)<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The mean of the second sample is </span><span class="sc">{</span>np<span class="sc">.</span>mean(y2)<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The mean of the first sample is 0.684
+The mean of the second sample is -0.172</code></pre>
+</div>
+</div>
+<div id="ee6d8be8" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>out <span class="op">=</span> sp.stats.ttest_ind(y1, y2, alternative<span class="op">=</span><span class="st">'greater'</span>) <span class="co"># one-tailed t-test</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The t-statistic is </span><span class="sc">{</span>out<span class="sc">.</span>statistic<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The p-value is </span><span class="sc">{</span>out<span class="sc">.</span>pvalue<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The t-statistic is 2.628
+The p-value is 0.007</code></pre>
+</div>
+</div>
+<p>The calculations underlying the t-test rest on the assumption that the population(s) are normally distributed with equal variance. If this assumption is violated, the t-test will not be valid (the computed p-value will not be an accurate estimate of the probability of observing a difference between means this big or bigger under the null hypothesis).</p>
+</section>
+<section id="non-parametric-approach-permutation-test" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="non-parametric-approach-permutation-test"><span class="header-section-number">2.2</span> Non-parametric approach: permutation test</h3>
+<p>If the normality assumption is violated, we can use a <em>permutation test</em> to compute a p-value. The permutation test is a non-parametric approach to statistical testing. It does not rely on any assumptions about the distribution of the data. In this way it is a very powerful approach.</p>
+<p>The only assumption of the permutation test is the <em>assumption of exchangeability</em>. This means that if the null hypothesis is true, then any data point that appears in one of our groups is just as likely to have appeared in the other group. This implies that each observation is independent of the other observations. In some complex experimental designs, and/or with some kinds of data, this assumption may not be true, and it may require some careful consideration to determine what parts of the data are exchangeable under the null hypothesis.</p>
+<p>The idea behind the permutation test is to simulate the null hypothesis. We assume the null hypothesis is true, and that the data we have in hand for each group was sampled from the same population. We then simulate repeating our experiment, many times (e.g.&nbsp;10,000 times), each time taking two new random samples from the population and computing the difference between means. We then compute the proportion of times the difference between means is as big or bigger than the difference between means we observed in our actual experiment. This proportion is our p-value.</p>
+<p>How do we simulate sampling from “the population” when all we have in hand is the two samples we collected? The idea is that if the null hypothesis is true, then the two samples we collected are just two random samples from the same population. So we can simulate sampling from “the population” by randomly shuffling the data from both samples together, and then taking two new random samples from the shuffled data.</p>
+<p>We can do this many times (e.g.&nbsp;10,000 times), and each time we will get two new random samples from the same “population” (which is simply both real samples pooled together).</p>
+</section>
+<section id="permutation-test-code" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="permutation-test-code"><span class="header-section-number">2.3</span> Permutation test code</h3>
+<p>First let’s compute the observed difference between means of our experimental samples:</p>
+<div id="4abd6791" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>meandiff_obs <span class="op">=</span> np.mean(y1) <span class="op">-</span> np.mean(y2)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The observed difference between means is </span><span class="sc">{</span>meandiff_obs<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The observed difference between means is 0.856</code></pre>
+</div>
+</div>
+<p>Now let’s perform a permutation test to estimate the probability we could have observed a difference between means this big or bigger under the null hypothesis that both samples were drawn from the same population:</p>
+<div id="ba7db28c" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>nboot <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>meandiffs_sim <span class="op">=</span> np.zeros(nboot)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>N1 <span class="op">=</span> <span class="bu">len</span>(y1)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>N2 <span class="op">=</span> <span class="bu">len</span>(y2)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>pooled <span class="op">=</span> np.concatenate((y1,y2)) <span class="co"># put both samples in one big array</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(nboot):</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    np.random.shuffle(pooled) <span class="co"># shuffle the data</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    y1_sim <span class="op">=</span> pooled[:N1] <span class="co"># take the first N1 elements as the first sample</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    y2_sim <span class="op">=</span> pooled[N1:] <span class="co"># take the last N2 elements as the second sample</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    meandiffs_sim[i] <span class="op">=</span> np.mean(y1_sim) <span class="op">-</span> np.mean(y2_sim) <span class="co"># compute the difference between means</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can look at the distribution of the simulated differences between means:</p>
+<div id="a3120076" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>plt.hist(meandiffs_sim, bins<span class="op">=</span>np.array(np.arange(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">.1</span>)))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>meandiff_obs, color<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="resampling_bootstrapping_crossvalidation_files/figure-html/cell-15-output-1.png" width="594" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see the distribution of the simulated differences between means is centered around 0, which is what we would expect if the null hypothesis were true. The red line indicates the difference between means we observed in our actual experiment.</p>
+<p>Now to compute a p-value we can simply count the number of times the simulated difference between means was as big or bigger than the observed difference between means (the number of simulated outcomes to the right of the red line in the Figure above), and divide by the number of simulations:</p>
+<div id="7fd0a44a" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pval <span class="op">=</span> np.<span class="bu">sum</span>(meandiffs_sim <span class="op">&gt;=</span> meandiff_obs) <span class="op">/</span> nboot <span class="co"># one-tailed test</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The p-value is </span><span class="sc">{</span>pval<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The p-value is 0.007</code></pre>
+</div>
+</div>
+</section>
+<section id="scipy.stats.permutation_test" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="scipy.stats.permutation_test"><span class="header-section-number">2.4</span> scipy.stats.permutation_test()</h3>
+<p>The SciPy package has a permutation test function called <code>scipy.stats.permutation_test()</code>. But our own code above is not that complex and the advantage of writing our own code is that we can understand exactly what is going on (and modify it as needed). Nevertheless here’s how we could use it.</p>
+<p>First we have to define a Python function that takes in data and outputs our statistic of interest. In this case our statistic of interest is the difference in means between our two groups:</p>
+<div id="e77fdbee" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mystat(x,y):</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(x)<span class="op">-</span>np.mean(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can call <code>scipy.stats.permutation_test()</code>:</p>
+<div id="0d2f7f44" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> sp.stats.permutation_test(data<span class="op">=</span>[y1,y2], statistic<span class="op">=</span>mystat, n_resamples<span class="op">=</span><span class="dv">10000</span>, alternative<span class="op">=</span><span class="st">"greater"</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"statistic=</span><span class="sc">{</span>results<span class="sc">.</span>statistic<span class="sc">:.3f}</span><span class="ss">, p=</span><span class="sc">{</span>results<span class="sc">.</span>pvalue<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.hist(results.null_distribution, bins<span class="op">=</span>np.array(np.arange(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">.1</span>)))</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>plt.axvline(results.statistic, color<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>statistic=0.856, p=0.007</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="resampling_bootstrapping_crossvalidation_files/figure-html/cell-18-output-2.png" width="594" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="cross-validation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="cross-validation"><span class="header-section-number">3</span> Cross-validation</h2>
+<p>Cross-validation is a technique for estimating the performance of a statistical learning or curve fitting method. It is also widely used as a method to control for the <strong>overfitting</strong> problem.</p>
+<p>The overfitting problem is a common problem in statistical learning and curve fitting. It occurs when the data are fit too closely, which on the one hand minimizes the error of the fit (which is a good thing) but on the other hand results in a model or curve fit that performs very poorly on new data.</p>
+<section id="overfitting-example" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="overfitting-example"><span class="header-section-number">3.1</span> Overfitting example</h3>
+<p>Here are some (x,y) data that we are interested in modeling so that we can make predictions in the future:</p>
+<div id="32716d35" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import warnings</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># warnings.simplefilter('ignore', np.RankWarning)</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">1</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="op">-</span><span class="fl">3.08</span>, <span class="op">-</span><span class="fl">0.90</span>, <span class="op">-</span><span class="fl">1.34</span>, <span class="op">-</span><span class="fl">3.10</span>, <span class="op">-</span><span class="fl">4.08</span>, <span class="op">-</span><span class="fl">4.24</span>, <span class="op">-</span><span class="fl">6.02</span>, <span class="op">-</span><span class="fl">3.87</span>, <span class="op">-</span><span class="fl">.25</span>, <span class="fl">3.55</span>])</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'ro'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="resampling_bootstrapping_crossvalidation_files/figure-html/cell-19-output-1.png" width="569" height="415" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We are going to fit a polynomial curve to the data using the <code>np.polyfit()</code> function. The <code>np.polyfit()</code> function takes as input the x and y data, and the degree of the polynomial to fit. It returns the coefficients of the polynomial.</p>
+<p>Let’s fit polynomials of degree 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9 to the data, and for each compute sum of squared error between the predicted values of y and the actual values of y:</p>
+<div id="1dcc5838" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>p_coefs <span class="op">=</span> []</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>SSE <span class="op">=</span> np.zeros(<span class="dv">10</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,deg <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>)):</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> np.polyfit(x,y,deg)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    p_coefs.append(p)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    yhat <span class="op">=</span> np.polyval(p,x)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    SSE[i] <span class="op">=</span> np.<span class="bu">sum</span>((yhat<span class="op">-</span>y)<span class="op">**</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now let’s plot the data and the polynomial fits:</p>
+<div id="ec13302c" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>xi <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">12</span>,<span class="dv">100</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,p <span class="kw">in</span> <span class="bu">enumerate</span>(p_coefs):</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">5</span>, i<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, y, <span class="st">'ro'</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    yi <span class="op">=</span> np.polyval(p, xi)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(xi, yi, <span class="st">'b-'</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    plt.xlim((<span class="op">-</span><span class="dv">2</span>,<span class="dv">12</span>))</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    plt.ylim((<span class="op">-</span><span class="dv">8</span>,<span class="dv">8</span>))</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"deg=</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">, SSE=</span><span class="sc">{</span>SSE[i]<span class="sc">:.3f}</span><span class="ss">"</span>, fontsize <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="resampling_bootstrapping_crossvalidation_files/figure-html/cell-21-output-1.png" width="769" height="374" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>What you see in the Figure above is as the degree of the polynomial increases, the fit of the curve (in blue) to the data (in red) gets better and better. Shouldn’t we use the polynomial associated with the best fit, i.e.&nbsp;the polynomial of degree 9?</p>
+<p>At some point the fit gets so good that it starts to <strong>overfit</strong> the data. In other words, the curve fit is so good that it starts to fit the noise in the data, and it starts to perform very poorly on <em>new data</em>.</p>
+</section>
+<section id="leave-one-out-cross-validation" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="leave-one-out-cross-validation"><span class="header-section-number">3.2</span> Leave-one-out cross-validation</h3>
+<p>How do we identify when overfitting is occurring if we do not have any new data? We can simulate this by leaving one data point out when we fit the model and then testing the model fit not on the data that was used to fit the model but on the data point that was left out. In this way the data point that was left out is a simulation of new data.</p>
+<p>We repeat this “leave-one-out” cross-validation procedure for each data point in the dataset. In this way each data point gets to be the “new data” once. We can then compute the average sum of squared error across all the “leave-one-out” cross-validation procedures.</p>
+<div id="11df33c9" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>SSE_cv <span class="op">=</span> np.zeros(<span class="dv">10</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    x_train <span class="op">=</span> np.delete(x,i)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    y_train <span class="op">=</span> np.delete(y,i)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    x_test <span class="op">=</span> x[i]</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    y_test <span class="op">=</span> y[i]</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    p_coefs <span class="op">=</span> []</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ix,deg <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>)):</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> np.polyfit(x_train,y_train,deg)</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        p_coefs.append(p)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        yhat <span class="op">=</span> np.polyval(p,x_test)</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        SSE_cv[ix] <span class="op">+=</span> np.<span class="bu">sum</span>((yhat<span class="op">-</span>y_test)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>SSE_cv <span class="op">=</span> SSE_cv <span class="op">/</span> n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now let’s plot <code>SSE_cv</code>, evaluated on the left-one-out datapoints, as a function of the degree of the polynomial. We will take the square root of SSE so that we can better see the difference between the SSE values for the different polynomial fits:</p>
+<div id="c75b9dfa" class="cell" data-execution_count="22">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>ax.plot(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>),np.sqrt(SSE_cv),<span class="st">'bo-'</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"degree of polynomial"</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"sqrt(SSE) (left-one-out)"</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax.twinx()</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>ax2.plot(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>),np.sqrt(SSE),<span class="st">'ro-'</span>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"sqrt(SSE) (full dataset)"</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>fig.legend((<span class="st">"left-one-out"</span>,<span class="st">"full dataset"</span>), loc<span class="op">=</span><span class="st">"center"</span>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="resampling_bootstrapping_crossvalidation_files/figure-html/cell-23-output-1.png" width="662" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>What we can clearly see is that while the SSE for the full dataset decreases monotonically as the degree of polynomial (the complexity of the model) increases, the SSE for the left-one-out data does not. Let’s plot <code>SSE_cv</code> on its own to better see what is going on. We will also plot using a logarithmic scale on the y-axis just so we can better see the pattern:</p>
+<div id="17aa0a4c" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>sse_plot <span class="op">=</span> ax.semilogy(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>),np.sqrt(SSE_cv),<span class="st">'bo-'</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>ax.semilogy(<span class="dv">4</span>,np.sqrt(SSE_cv[<span class="dv">4</span>]),<span class="st">'ro'</span>, markersize<span class="op">=</span><span class="dv">15</span>, markerfacecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"degree of polynomial"</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"sqrt(SSE) (left-one-out)"</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>ax.legend(sse_plot, (<span class="st">"left-one-out"</span>,<span class="st">""</span>), loc<span class="op">=</span><span class="st">"best"</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="resampling_bootstrapping_crossvalidation_files/figure-html/cell-24-output-1.png" width="661" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>What we can clearly see is a non-monotonic relationship between polynomial degree and cross-validated SSE. In fact, it is clear that the polynomial of degree 4 is the best fit to the left-one-out data (circled in red in the Figure above). The SSE is lowest for the polynomial of degree 4, and the SSE for the polynomial of degree 4 is significantly lower than the SSE for the polynomial of degree 9.</p>
+<p>This is despite the fact that the SSE on the original (fit) dataset for polynomial 4 was not the lowest SSE. Polynomials of degree 5,6,7,8, and 9 produced better fits to the original dataset … but they <strong>overfit</strong> the data and performed poorly on the left-one-out data.</p>
+</section>
+<section id="k-fold-cross-validation" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="k-fold-cross-validation"><span class="header-section-number">3.3</span> K-fold cross-validation</h3>
+<p>Cross-validation can also be done using a leave-N-out approach in which N data points are left out of the fit and used to test the fit. This is called <strong>N-fold cross-validation</strong>.</p>
+</section>
+<section id="assumptions-of-cross-validation" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="assumptions-of-cross-validation"><span class="header-section-number">3.4</span> Assumptions of cross-validation</h3>
+<p>Cross-validation is a very powerful technique for controlling overfitting in all kinds of contexts from curve fitting, to machine learning, to statistical inference. It relies only on the assumption that the data are independent and identically distributed (i.i.d.).</p>
+</section>
+</section>
+<section id="other-resources" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="other-resources"><span class="header-section-number">4</span> Other Resources</h2>
+<ul>
+<li><a href="https://www.jwilber.me/permutationtest/">Permutation test using Alpacas</a></li>
+<li><a href="https://link.springer.com/book/10.1007/0-8176-4444-X">Resampling Methods: A practical guide to data analysis</a> by Phillip I. Good</li>
+<li><a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)">Cross-validation</a> (Wikipedia)</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/gribblelab\.org\/9040");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Scientific Computing FW25 (Jan-Apr 2026) – Psychology 9040B FW25</title>
+<title>Homework 8 – Psychology 9040B FW25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/hmc_t_square.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c403d798273eef921068aca0a4124571.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/hmc_t_square.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c403d798273eef921068aca0a4124571.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -81,11 +116,11 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo light-content">
-    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo dark-content">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/hmc_t_square.png" alt="" class="navbar-logo light-content">
+    <img src="../images/hmc_t_square.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Psychology 9040B FW25</span>
     </a>
   </div>
@@ -96,11 +131,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.pdf"> 
+    <a class="nav-link" href="../syllabus.pdf"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
@@ -128,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Scientific Computing FW25 (Jan-Apr 2026)</h1>
+<h1 class="title">Homework 8</h1>
 </div>
 
 
@@ -145,158 +180,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<table class="info">
-<tbody><tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>URL</strong>
-</td>
-<td>
-<a href="https://gribblelab.org/9040">www.gribblelab.org/9040</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>Instructor</strong>
-</td>
-<td>
-Paul Gribble (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#112;&#x67;&#114;&#x69;&#98;&#98;&#108;&#x65;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>pgribble at uwo dot ca</noscript>)
-</td>
-</tr>
-<tr>
-<td style="text-align:right; padding: 7px;">
-<strong>Classes</strong>
-</td>
-<td>
-Mondays &amp; Thursdays, 9:30 am - 11:00 am in <a href="https://wts.uwo.ca/ctg/classrooms/western_interdisciplinary_research_building/wirb_1110.html">WIRB 1110</a>
-</td>
-</tr>
-<tr>
-<td class="align=&quot;right&quot;" style="text-align:right; padding: 7px;">
-<strong>TA</strong>
-</td>
-<td>
-Anthony Cruz (<script type="text/javascript">
-<!--
-h='&#x75;&#x77;&#x6f;&#46;&#x63;&#x61;';a='&#64;';n='&#x61;&#x63;&#114;&#x75;&#122;&#50;&#x37;';e=n+a+h;
-document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail email">'+e+'<\/'+'a'+'>');
-// -->
-</script><noscript>acruz27 at uwo dot ca</noscript>)
-</td>
-</tr>
-</tbody></table>
 <hr>
+<p>Due: Apr 5 by 11:59 pm eastern standard time</p>
+<p>Submit a single file called <code>name_09.py</code> to Brightspace/OWL where <code>name</code> is replaced with your last name, e.g.&nbsp;<code>gribble_09.py</code></p>
+<hr>
+<section id="estimate-your-heart-rate-using-your-phones-camera" class="level2">
+<h2 class="anchored" data-anchor-id="estimate-your-heart-rate-using-your-phones-camera">Estimate your heart rate using your phone’s camera</h2>
+<p>Estimate your heart rate using a video taken with your webcam or your smartphone (or if you don’t have access to one, you can analyse my video instead, linked below).</p>
+<p>Here’s what you will do to generate the data. First, make sure you’re in a brightly lit space (i.e.&nbsp;turn on the lights if you’re in a dark room). Better yet, find a light source like a desk lamp or a window, and stand in front of it with your webcam or smartphone camera. Take a minute or two to sit down and relax, to get your heart rate near its resting rate (usually around 60 beats per minute). Now gently rest the tip of your index finger against the lens of your webcam or smartphone camera. Now record a video. Record for somewhere between 15 and 30 seconds. Try not to move your finger, keep it as still as you can for the duration of the video.</p>
+<p>If you used your smartphone, transfer the video file to your computer. Open it up and look at it on the screen. Here’s a sample frame from mine, which was approximately 15 seconds in duration (sample rate 24.0 frames per second):</p>
+<p><img src="../images/heartbeat_frame.png" class="img-fluid" style="width:20.0%"></p>
+<p>Here is a link to the complete video (you can right-click and save as… to download it):</p>
+<p><video src="../images/IMG_1383.MOV" class="img-fluid" style="width:20.0%" controls=""><a href="../images/IMG_1383.MOV">Video</a></video></p>
+<p>The idea here is that as your heart pumps blood through your arteries and veins, the amount of light that the camera detects, as it comes through your fingertip, will be modulated by the differences in blood flow. The variation in brightness will be quite subtle, perhaps even not visible with the naked eye, and so your task is to use signal processing techniques to try to detect it.</p>
+<p>Here are some suggestions as to how to proceed. First load in the video file. Each frame of the video will have three channels: red, green and blue. Each frame will contain the brightness of each pixel for each of the three channels red, green and blue. You might as well average over all the pixels in the frame to get an average brightness measure. The signal that you ultimately want is probably the brightness of the red channel over time (i.e.&nbsp;for each frame of the video).</p>
+<p>Here are some other things to consider:</p>
 <ul>
-<li><a href="./homeworks.html">A note about homeworks</a></li>
-</ul>
-<hr>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<div class="mt-4 table-bordered">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 75%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Date</th>
-<th>Topic / Notes</th>
-<th style="text-align: center;">Homework</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan 5/8</td>
-<td><a href="./intro.html">Intro</a> ; <a href="./setup.html">Setup</a> ; <a href="./uv.html">uv</a> ; <a href="./git.html">Git</a></td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Jan 12/15</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (expressions &amp; variables)</td>
-<td style="text-align: center;"><a href="./hw/hw01.html">HW01</a></td>
-</tr>
-<tr class="odd">
-<td>Jan 19/22</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (loops &amp; conditionals)</td>
-<td style="text-align: center;"><a href="./hw/hw02.html">HW02</a></td>
-</tr>
-<tr class="even">
-<td>Jan 26/29</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (data structures &amp; functions)</td>
-<td style="text-align: center;"><a href="./hw/hw03.html">HW03</a></td>
-</tr>
-<tr class="odd">
-<td>Feb 2/5</td>
-<td><a href="./fundamentals.html">Fundamentals</a> (NumPy &amp; File i/o)</td>
-<td style="text-align: center;"><a href="./hw/hw04.html">HW04</a></td>
-</tr>
-<tr class="even">
-<td>Feb 9/12</td>
-<td><a href="./oop.html">Object Oriented Programming (OOP)</a></td>
-<td style="text-align: center;"><a href="./hw/hw05.html">HW05</a></td>
-</tr>
-<tr class="odd">
-<td>Feb 16/19</td>
-<td><em>no classes</em> (reading week)</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Feb 23/26</td>
-<td><a href="./graphics.html">Graphical Displays of Data</a></td>
-<td style="text-align: center;"><a href="./hw/hw06.html">HW06</a></td>
-</tr>
-<tr class="odd">
-<td>Mar 2/5</td>
-<td>Reproducibility/Replicability I: <a href="./plaintext-authoring.html">plaintext authoring</a></td>
-<td style="text-align: center;"><a href="./hw/hw07.html">HW07</a></td>
-</tr>
-<tr class="even">
-<td>Mar 9/12</td>
-<td><em>no classes</em> (Paul away) Reproducibility/Replicability II: <a href="./clean_code.html">clean code</a></td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td>Mar 16/19</td>
-<td><em>no classes</em></td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td>Mar 23/26</td>
-<td><a href="./signals.html">Sampling, Signal Processing, &amp; Filtering Data</a></td>
-<td style="text-align: center;"><a href="./hw/hw08.html">HW08</a></td>
-</tr>
-<tr class="odd">
-<td>Mar 30/Apr 2</td>
-<td><a href="./statistics.html">Statistical Thinking &amp; Inferential Statistical Tests</a></td>
-<td style="text-align: center;"><a href="./hw/hw09.html">HW09</a></td>
-</tr>
-<tr class="even">
-<td>Apr 6/Apr 9</td>
-<td>Fitting Models to Data</td>
-<td style="text-align: center;">-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-<ul>
-<li><a href="./concepts.html">concepts</a> covered each week</li>
-<li><a href="./code.html">sample code</a> produced in class</li>
+<li>make sure to use the correct sampling rate (frame rate) of your video file when doing signal analysis or filtering</li>
+<li>in what frequency range do you expect your heart rate to reside?</li>
 </ul>
 </section>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings">Readings</h2>
+<section id="your-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="your-tasks">Your tasks</h2>
+<ol type="1">
+<li>Compute the average pixel brightness, averaged over all pixels, for the red channel, for each frame. This gives you a time series, one value for each frame of the video. Subtract the mean of the time series from each value. This will center the time series around zero. Plot the resulting time series on the y-axis, and time in seconds on the x-axis.</li>
+<li>Band-pass filter the zero-centered time series from task 1 using cutoff frequencies to bracket what you think is likely to be your own heart rate during the recording. Remember, cutoff frequencies are defined in Hz (cycles per second) whereas heart rate is typically characterized as beats per minute. So a 60 beats per minute resting heart rate corresponds to 1.0 Hz. Plot the filtered time series.</li>
+<li>Compute and plot a spectrum of the filtered time series. Identify the frequency corresponding to the peak of the spectrum and convert the value to beats per minute.</li>
+</ol>
+</section>
+<section id="hints" class="level2">
+<h2 class="anchored" data-anchor-id="hints">Hints</h2>
 <ul>
-<li><a href="https://wesmckinney.com/book/">Python for Data Analysis</a> by Wes McKinney</li>
-<li><a href="https://matthew-brett.github.io/curious-git/index.html">The Curious Coder’s Guide to Git</a> by Matthew Brett</li>
-<li><a href="https://poldrack.github.io/BetterCodeBetterScience/">Better Code, Better Science</a> by Russ Poldrack</li>
+<li>you will probably need to install the packages <code>imageio</code> and <code>imageio-ffmpeg</code> (<code>uv add imageio "imageio[ffmpeg]"</code>)</li>
+<li>then in your Python code you can use the <code>imageio</code> package to load in the video file like so:</li>
 </ul>
+<div id="3ba0b217" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> imageio</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="st">"../images/IMG_1383.MOV"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>vid <span class="op">=</span> imageio.get_reader(filename,  <span class="st">'ffmpeg'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>fps <span class="op">=</span> vid.get_meta_data()[<span class="st">'fps'</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"read video at </span><span class="sc">{</span>fps<span class="sc">}</span><span class="ss"> fps"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>read video at 24.0 fps</code></pre>
+</div>
+</div>
+<ul>
+<li>read in frames from the video like so:</li>
+</ul>
+<div id="e4eb086d" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> image <span class="kw">in</span> vid.iter_data():</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">+=</span> <span class="dv">1</span> <span class="co"># count frames</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> np.zeros(n)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> image <span class="kw">in</span> vid.iter_data():</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    red[i] <span class="op">=</span> np.mean(image[:,:,<span class="dv">0</span>]) <span class="co"># the third dimension codes red/green/blue channels</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    i <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="sample-plot" class="level2">
+<h2 class="anchored" data-anchor-id="sample-plot">Sample plot</h2>
+<p>When I do this for my video (linked above), band-pass filtering between 40 and 80 beats per minute, I get the following:</p>
+<div id="24b1cc97" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hw09_files/figure-html/cell-4-output-1.png" width="758" height="758" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You don’t need to get the exact same thing. The important thing is that you can identify the frequency corresponding to the peak of the spectrum, and convert that to beats per minute.</p>
 
 
 </section>

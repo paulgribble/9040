@@ -1,0 +1,104 @@
+---
+title: Homework 8
+---
+
+---
+
+Due: Apr 5 by 11:59 pm eastern standard time
+
+Submit a single file called `name_09.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_09.py`
+
+---
+
+## Estimate your heart rate using your phone's camera
+
+Estimate your heart rate using a video taken with your webcam or your smartphone (or if you don't have access to one, you can analyse my video instead, linked below).
+
+Here's what you will do to generate the data. First, make sure you're in a brightly lit space (i.e. turn on the lights if you're in a dark room). Better yet, find a light source like a desk lamp or a window, and stand in front of it with your webcam or smartphone camera. Take a minute or two to sit down and relax, to get your heart rate near its resting rate (usually around 60 beats per minute). Now gently rest the tip of your index finger against the lens of your webcam or smartphone camera. Now record a video. Record for somewhere between 15 and 30 seconds. Try not to move your finger, keep it as still as you can for the duration of the video.
+
+If you used your smartphone, transfer the video file to your computer. Open it up and look at it on the screen. Here's a sample frame from mine, which was approximately 15 seconds in duration (sample rate 24.0 frames per second):
+
+![](../images/heartbeat_frame.png){width=20%}
+
+Here is a link to the complete video (you can right-click and save as... to download it):
+
+![](../images/IMG_1383.MOV){width=20%}
+
+The idea here is that as your heart pumps blood through your arteries and veins, the amount of light that the camera detects, as it comes through your fingertip, will be modulated by the differences in blood flow. The variation in brightness will be quite subtle, perhaps even not visible with the naked eye, and so your task is to use signal processing techniques to try to detect it.
+
+Here are some suggestions as to how to proceed. First load in the video file. Each frame of the video will have three channels: red, green and blue. Each frame will contain the brightness of each pixel for each of the three channels red, green and blue. You might as well average over all the pixels in the frame to get an average brightness measure. The signal that you ultimately want is probably the brightness of the red channel over time (i.e. for each frame of the video).
+
+Here are some other things to consider:
+
+- make sure to use the correct sampling rate (frame rate) of your video file when doing signal analysis or filtering
+- in what frequency range do you expect your heart rate to reside?
+
+## Your tasks
+
+1. Compute the average pixel brightness, averaged over all pixels, for the red channel, for each frame. This gives you a time series, one value for each frame of the video. Subtract the mean of the time series from each value. This will center the time series around zero. Plot the resulting time series on the y-axis, and time in seconds on the x-axis.
+2. Band-pass filter the zero-centered time series from task 1 using cutoff frequencies to bracket what you think is likely to be your own heart rate during the recording. Remember, cutoff frequencies are defined in Hz (cycles per second) whereas heart rate is typically characterized as beats per minute. So a 60 beats per minute resting heart rate corresponds to 1.0 Hz. Plot the filtered time series.
+3. Compute and plot a spectrum of the filtered time series. Identify the frequency corresponding to the peak of the spectrum and convert the value to beats per minute.
+
+## Hints
+
+- you will probably need to install the packages `imageio` and `imageio-ffmpeg` (`uv add imageio "imageio[ffmpeg]"`)
+- then in your Python code you can use the `imageio` package to load in the video file like so:
+```{python}
+#| warning: false
+import imageio
+filename = "../images/IMG_1383.MOV"
+vid = imageio.get_reader(filename,  'ffmpeg')
+fps = vid.get_meta_data()['fps']
+print(f"read video at {fps} fps")
+```
+- read in frames from the video like so:
+```{python}
+#| warning: false
+import numpy as np
+n = 0
+for image in vid.iter_data():
+    n += 1 # count frames
+red = np.zeros(n)
+i = 0
+for image in vid.iter_data():
+    red[i] = np.mean(image[:,:,0]) # the third dimension codes red/green/blue channels
+    i += 1
+```
+
+## Sample plot
+
+When I do this for my video (linked above), band-pass filtering between 40 and 80 beats per minute, I get the following:
+
+```{python}
+#| echo: false
+import scipy as sp
+import numpy as np
+import matplotlib.pyplot as plt
+def plg_bandpass(y, samprate, cutoffs, order=5):
+    cutoffs = np.array(cutoffs)
+    w = cutoffs / (samprate / 2) # Normalize the cutoff frequencies
+    b, a = sp.signal.butter(N=order, Wn=w, btype='bandpass') # get the filter coefficients
+    yf = sp.signal.filtfilt(b, a, y) # perform the filtering
+    return yf
+red = red - np.mean(red)
+red = plg_bandpass(red, 24, [40/60, 80/60])
+t = np.arange(len(red)) / 24
+fig,ax = plt.subplots(2,1,figsize=(8,8))
+ax[0].plot(t,red,'r-')
+ax[0].set_xlabel('time (sec)')
+ax[0].set_ylabel('red brightness')
+ax[0].set_title('zero-centered bandpass-filtered red channel brightness over time')
+ax[0].grid()
+f, Pxx = sp.signal.welch(red, fs=24)
+ax[1].plot(f*60, Pxx,'r.-')
+ax[1].set_xlim([0,200])
+ax[1].set_xticks(np.arange(0,200,10))
+ax[1].set_xlabel('heart rate (beats per minute)')
+ax[1].set_ylabel('power')
+ax[1].set_title('spectrum of zero-centered bandpass-filtered red channel brightness')
+ax[1].grid()
+plt.tight_layout()
+plt.show()
+```
+
+You don't need to get the exact same thing. The important thing is that you can identify the frequency corresponding to the peak of the spectrum, and convert that to beats per minute.

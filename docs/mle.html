@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Statistics: Maximum Likelihood Estimation (MLE) – Psychology 9040B FW25</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/hmc_t_square.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c403d798273eef921068aca0a4124571.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<meta http-equiv="cache-control" content="no-cache"> 
+<meta http-equiv="expires" content="0"> 
+<meta http-equiv="pragma" content="no-cache">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo light-content">
+    <img src="./images/hmc_t_square.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Psychology 9040B FW25</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./syllabus.pdf"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://westernu.brightspace.com/d2l/home/163612"> 
+<span class="menu-text">OWL/Brightspace</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://gribblelab.org/coding"> 
+<span class="menu-text">Exercises</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-mle" id="toc-what-is-mle" class="nav-link active" data-scroll-target="#what-is-mle"><span class="header-section-number">1</span> What is MLE?</a></li>
+  <li><a href="#coin-flipping" id="toc-coin-flipping" class="nav-link" data-scroll-target="#coin-flipping"><span class="header-section-number">2</span> Coin Flipping</a>
+  <ul class="collapse">
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data"><span class="header-section-number">2.1</span> The Data</a></li>
+  <li><a href="#the-model" id="toc-the-model" class="nav-link" data-scroll-target="#the-model"><span class="header-section-number">2.2</span> The Model</a></li>
+  <li><a href="#the-likelihood-function" id="toc-the-likelihood-function" class="nav-link" data-scroll-target="#the-likelihood-function"><span class="header-section-number">2.3</span> The Likelihood Function</a></li>
+  </ul></li>
+  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution"><span class="header-section-number">3</span> Normal Distribution</a></li>
+  <li><a href="#a-more-complex-example" id="toc-a-more-complex-example" class="nav-link" data-scroll-target="#a-more-complex-example"><span class="header-section-number">4</span> A more complex example</a></li>
+  <li><a href="#estimating-psychometric-functions" id="toc-estimating-psychometric-functions" class="nav-link" data-scroll-target="#estimating-psychometric-functions"><span class="header-section-number">5</span> Estimating Psychometric Functions</a>
+  <ul class="collapse">
+  <li><a href="#the-logistic-function" id="toc-the-logistic-function" class="nav-link" data-scroll-target="#the-logistic-function"><span class="header-section-number">5.1</span> The Logistic Function</a></li>
+  <li><a href="#maximum-likelihood-estimation" id="toc-maximum-likelihood-estimation" class="nav-link" data-scroll-target="#maximum-likelihood-estimation"><span class="header-section-number">5.2</span> Maximum Likelihood Estimation</a></li>
+  </ul></li>
+  <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing"><span class="header-section-number">6</span> Hypothesis Testing</a>
+  <ul class="collapse">
+  <li><a href="#likelihood-ratio-test" id="toc-likelihood-ratio-test" class="nav-link" data-scroll-target="#likelihood-ratio-test"><span class="header-section-number">6.1</span> Likelihood Ratio Test</a></li>
+  <li><a href="#illy-vs-lavazza" id="toc-illy-vs-lavazza" class="nav-link" data-scroll-target="#illy-vs-lavazza"><span class="header-section-number">6.2</span> Illy vs Lavazza</a></li>
+  <li><a href="#testing-against-a-null-model" id="toc-testing-against-a-null-model" class="nav-link" data-scroll-target="#testing-against-a-null-model"><span class="header-section-number">6.3</span> Testing against a null model</a></li>
+  </ul></li>
+  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings"><span class="header-section-number">7</span> Readings</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides"><span class="header-section-number">8</span> Slides</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Statistics: Maximum Likelihood Estimation (MLE)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="what-is-mle" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="what-is-mle"><span class="header-section-number">1</span> What is MLE?</h2>
+<p>Maximum Likelihood Estimation (MLE) is a method for estimating the parameters of a statistical model given some observed data. The parameters are the unknown quantities that we want to estimate. For example, if we have a model that describes the probability of a coin flip, then the parameter of that model is the probability of a heads <span class="math inline">\theta</span>. If we have a model that describes the probability of a gaussian random process, then the parameters are the mean <span class="math inline">\mu</span> and standard deviation <span class="math inline">\sigma</span>.</p>
+<p>The idea behind MLE is that we want to find the values of the parameters that make the data that we observed most likely. In other words, we want to find the values of the parameters that maximize the probability of the data that we observed.</p>
+<p>MLE is a powerful tool for estimating the parameters of a statistical model because it is a general method that can be applied to any model for which you can compute the likelihood function. The only assumptions of MLE are that the data is independent and identically distributed (i.i.d.) and that the model is correct. As such it can be used when the the typical assumptions of parametric statistics (e.g.&nbsp;normality, homoscedasticity, etc.) are not met.</p>
+</section>
+<section id="coin-flipping" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="coin-flipping"><span class="header-section-number">2</span> Coin Flipping</h2>
+<p>Assume somebody gives you a coin, and they claim that it is fair, i.e. the probabilty of a heads is the same as the probability of tails, i.e. both are 50%. Your task is to observe the behaviour of the coin and then determine what the probability of heads <span class="math inline">\theta</span> really is. Is it 50% or is it something else? (which would reflect a biased coin)</p>
+<section id="the-data" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="the-data"><span class="header-section-number">2.1</span> The Data</h3>
+<p>You flip the coin 20 times and you observe 12 heads and 8 tails.</p>
+</section>
+<section id="the-model" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="the-model"><span class="header-section-number">2.2</span> The Model</h3>
+<p>We must now decide on a model. A convenient model for this case is the Binomial Distribution, which models a Bernoulli process (a sequence of binary random responses). The Binomial model is:</p>
+<p><span id="eq-bernoulli"><span class="math display">
+y_{i} \sim f(\theta,y_{i}) = \frac{N!}{y_{i}!(N-y_{i})!}\theta^{y_{i}}(1-\theta)^{N-y_{i}}
+\tag{1}</span></span></p>
+<p>The model has a single parameter, <span class="math inline">\theta</span>, and that is exactly what we want to estimate. In maximum likelihood estimation, we determine what value of the parameter <span class="math inline">\theta</span> would make the data that we observed most probable?</p>
+</section>
+<section id="the-likelihood-function" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="the-likelihood-function"><span class="header-section-number">2.3</span> The Likelihood Function</h3>
+<p>For the Binomial model, there actually exists a closed-form analytic solution to the maximum likelihood estimate of <span class="math inline">\theta</span>, namely the number of heads divided by the number of coin flips, or in this case, 12/20 = 0.60. Let’s assume however that there isn’t a closed form solution, or that we don’t know of one. We will use optimization to find the value of <span class="math inline">\theta</span> that maximizes the likelihood of the data that we observed. To do this we need to compute the likelihood of our data, given a candidate value (i.e.&nbsp;a guess) for <span class="math inline">\theta</span>.</p>
+<p>As we saw in the readings, after some insight into Bayes Theorem, we can compute the likelihood of a model <span class="math inline">\theta</span> given data <span class="math inline">y</span> as:</p>
+<p><span id="eq-likelihood"><span class="math display">
+\mathcal{L}(\theta|y) = p(y|\theta)
+\tag{2}</span></span></p>
+<p>And we know that for the Binomial distribution,</p>
+<p><span id="eq-p-heads-tails"><span class="math display">\begin{aligned}
+  p(heads|\theta) &amp;= \theta\\
+  p(tails|\theta) &amp;= (1-\theta)
+\end{aligned}
+\tag{3}</span></span></p>
+<p>The other trick we need to invoke is that the likelihood of the entire dataset is the product of the likelihoods of each individual data point in the dataset.</p>
+<p>And finally, because multiplying a bunch of probabilities makes computers feel icky, we take the logarithm to convert the products into sums, and so instead of multiplying the likelihood of each observation in the data set, we add the log-likelihood of each data point.</p>
+<p>And finally finally, because optimizers like to minimize things and not maximize things, we multiply the sum of log-likelihoods by (-1) to get the negative log likelihood of the dataset:</p>
+<p><span id="eq-NLL-bernoulli"><span class="math display">
+NLL = - \sum_{i=1}^{N}\log p(y_{i}|\theta)
+\tag{4}</span></span></p>
+<p>So now we can write a function in R to compute the negative log likelihood of a data vector <span class="math inline">y</span> given a guess at the parameter <span class="math inline">\theta</span>:</p>
+<div id="bf75a346" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">def</span> NLL(theta,y):</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    NLL <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    N <span class="op">=</span> <span class="bu">len</span>(y)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        <span class="cf">if</span> y[i]<span class="op">==</span><span class="dv">1</span>:</span>
+<span id="cb1-8"><a href="#cb1-8"></a>            p <span class="op">=</span> theta   <span class="co"># heads</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>        <span class="cf">if</span> y[i]<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb1-10"><a href="#cb1-10"></a>            p <span class="op">=</span> <span class="dv">1</span><span class="op">-</span>theta <span class="co"># tails</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>        NLL <span class="op">=</span> NLL <span class="op">+</span> np.log(p)</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="cf">return</span> <span class="op">-</span>NLL</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can make use of a built-in optimizer in R to find the parameter value <span class="math inline">\theta</span> that minimizes the negative log likelihood. Note that one has to give the optimizer a starting guess at the parameter value, here I give it a starting guess of 0.5.</p>
+<div id="92b665f3" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>flips <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>]) <span class="co"># 12 heads, 8 tails</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>out <span class="op">=</span> sp.optimize.minimize(NLL, <span class="fl">0.5</span>, args<span class="op">=</span>(flips), method<span class="op">=</span><span class="st">'Nelder-Mead'</span>, options<span class="op">=</span>{<span class="st">'disp'</span>: <span class="va">True</span>})</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss"> The MLE estimate of theta is: </span><span class="sc">{</span>out<span class="sc">.</span>x[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully.
+         Current function value: 13.460233
+         Iterations: 11
+         Function evaluations: 22
+
+ The MLE estimate of theta is: 0.60</code></pre>
+</div>
+</div>
+<p>And so our best estimate of <span class="math inline">\theta</span> is 0.6, which matches the known closed-form analytic solution (which is 12 divided by 20 which equals 0.60).</p>
+</section>
+</section>
+<section id="normal-distribution" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="normal-distribution"><span class="header-section-number">3</span> Normal Distribution</h2>
+<p>Let’s do another example, this time with a model that involves estimating two parameters. Imagine you are handed a dataset comprised of a list of 20 numbers <span class="math inline">x_{i}</span>:</p>
+<div id="c052f695" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>x <span class="op">=</span> np.array([<span class="dv">85</span>,<span class="dv">84</span>,<span class="dv">75</span>,<span class="dv">93</span>,<span class="dv">88</span>,<span class="dv">82</span>,<span class="dv">85</span>,<span class="dv">94</span>,<span class="dv">86</span>,<span class="dv">76</span>,<span class="dv">81</span>,<span class="dv">98</span>,<span class="dv">95</span>,<span class="dv">82</span>,<span class="dv">76</span>,<span class="dv">91</span>,<span class="dv">81</span>,<span class="dv">82</span>,<span class="dv">72</span>,<span class="dv">94</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Assume that you want to model these data as coming from a gaussian random process. That is, there is some unknown mean <span class="math inline">\mu</span> and standard deviation <span class="math inline">\sigma</span>. Thus our model has two unknown parameters.</p>
+<p>Now set aside for the moment that we all know full well that there is a closed-form analytic solution to this problem, namely:</p>
+<p><span id="eq-mle-normal"><span class="math display">
+\begin{aligned}
+\hat{\mu} &amp;= \frac{1}{N}\sum_{i=1}^{N}x_{i}\\
+\hat{\sigma} &amp;= \frac{1}{N} \sum_{i=1}^{N}(x_{i}-\hat{\mu})^{2}
+\end{aligned}
+\tag{5}</span></span></p>
+<p>The point of MLE is to show that as long as you have a forward model of the probability of the data given a guess at the parameter(s), you can use an optimizer to find the parameter value(s) that maximize the likelihood (minimize the negative log-likelihood) of the data given the parameter(s).</p>
+<p>We can compute the probability of the data <span class="math inline">x</span> given parameters <span class="math inline">\hat{\mu}</span> and <span class="math inline">\hat{\sigma}</span> using the equation for the normal distribution pdf (probability density function):</p>
+<p><span id="eq-pdf-normal"><span class="math display">
+p(y|\hat{\mu},\hat{\sigma}) = \frac{1}{\hat{\sigma} \sqrt{2 \pi}}\mathrm{e}^{-\frac{(x-\hat{\mu})^{2}}{2 \hat{\sigma}^{2}}}
+\tag{6}</span></span></p>
+<p>After taking the log and some algebraic manipulation (not shown) we get:</p>
+<p><span id="eq-likelihood-normal"><span class="math display">
+\mathcal{L}(\hat{\mu},\hat{\sigma}|y) = -\frac{N}{2}\log(2\pi) -\frac{N}{2}\log\hat{\sigma}^{2}-\frac{1}{2\hat{\sigma}^{2}}\sum_{i=1}^{N}(x_{i}-\hat{\mu})^{2}
+\tag{7}</span></span></p>
+<p>Let’s put this into a Python function to compute the negative log-likelihood of the data <span class="math inline">x</span> given parameter guesses <span class="math inline">\hat{\mu}</span> and <span class="math inline">\hat{\sigma}</span>:</p>
+<div id="8c223997" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> NLL(theta,x):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    mu <span class="op">=</span> theta[<span class="dv">0</span>]</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    sigma <span class="op">=</span> theta[<span class="dv">1</span>]</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    N <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    NLL <span class="op">=</span> <span class="op">-</span>(N<span class="op">/</span><span class="dv">2</span>)<span class="op">*</span>np.log(<span class="dv">2</span><span class="op">*</span>np.pi) <span class="op">-</span> (N<span class="op">/</span><span class="dv">2</span>)<span class="op">*</span>np.log(sigma<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    tmp <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
+<span id="cb5-8"><a href="#cb5-8"></a>        tmp <span class="op">=</span> tmp <span class="op">+</span> (x[i]<span class="op">-</span>mu)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>    NLL <span class="op">=</span> NLL <span class="op">+</span> <span class="op">-</span>(<span class="dv">1</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>(sigma<span class="op">**</span><span class="dv">2</span>)))<span class="op">*</span>tmp</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="cf">return</span> <span class="op">-</span>NLL</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can use an R optimizer to find the parameter values that minimize this function:</p>
+<div id="316b9eba" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>out <span class="op">=</span> sp.optimize.minimize(NLL, [<span class="dv">100</span>,<span class="dv">10</span>], args<span class="op">=</span>(x), method<span class="op">=</span><span class="st">'Nelder-Mead'</span>, options<span class="op">=</span>{<span class="st">'disp'</span>: <span class="va">True</span>})</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">The MLE estimates of mu and sigma are: </span><span class="sc">{</span>out<span class="sc">.</span>x[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ss"> and </span><span class="sc">{</span>out<span class="sc">.</span>x[<span class="dv">1</span>]<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully.
+         Current function value: 67.813987
+         Iterations: 46
+         Function evaluations: 88
+
+The MLE estimates of mu and sigma are: 85.00 and 7.18</code></pre>
+</div>
+</div>
+<p>Note that I still have to give an initial guess at the parameter values … here I simply guessed <code>x = [100,10]</code> which corresponds to an initial guess of <span class="math inline">\hat{\mu}=100</span> and <span class="math inline">\hat{\sigma}=10</span>.</p>
+<p>So again, the point here is that no matter how complicated our model of the data is, as long as we can write down the likelihood function (which amounts to a probability model of how likely different values of data are, given model parameters), then we can use an optimizer to find the model parameters that maximize the likelihood of the data.</p>
+</section>
+<section id="a-more-complex-example" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="a-more-complex-example"><span class="header-section-number">4</span> A more complex example</h2>
+<p>Let’s say a colleague hands you a coin and you are told that it is fair, in other words the probability of heads and tails is the same, <span class="math inline">p(\mathrm{heads})=p(\mathrm{tails})=0.5</span>. You are asked to flip the coin, and each time give it back to your colleague who will put it in his pocket, and then take it out again and hand it back to you. You do this 100 times and you observe the following data:</p>
+<div id="27125893" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>flips <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>,</span>
+<span id="cb8-2"><a href="#cb8-2"></a>       <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb8-3"><a href="#cb8-3"></a>       <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb8-4"><a href="#cb8-4"></a>       <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>       <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You are then told that at some point, your colleague <strong>switched the coin</strong> from the fair coin to an unfair coin with <span class="math inline">p(\mathrm{heads})=0.9</span>. Your task is to try to estimate <strong>when</strong> the switch occurred, i.e.&nbsp;at what point in the sequence of 100 coin flips.</p>
+<p>Our first question will be, how are we going to model this process? Clearly like our first example, a Binomial model is appropriate … but we also have to model the switching of a coin (when?).</p>
+<p>A natural Binomial model might look like this. For trials <span class="math inline">1</span> to <span class="math inline">s</span>, <span class="math inline">p(\mathrm{heads}) = 0.5</span> and for trials <span class="math inline">s+1</span> to <span class="math inline">100</span>, <span class="math inline">p(\mathrm{heads})=0.9</span>. Now we have a model of the process that involves the unknown parameter <span class="math inline">s</span>, the switch trial. Let’s write a function in R to compute the negative log-likelihood given the observed data and a guess at the <span class="math inline">s</span> parameter:</p>
+<div id="1bf34b89" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> NLL(s, data):</span>
+<span id="cb9-2"><a href="#cb9-2"></a>    n <span class="op">=</span> <span class="bu">len</span>(data)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    NLL <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb9-5"><a href="#cb9-5"></a>        <span class="cf">if</span> i <span class="op">&lt;=</span> s:   <span class="co"># still the unbiased coin</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a>            p <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>        <span class="cf">else</span>:        <span class="co"># coin has switched to biased coin</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>            p <span class="op">=</span> <span class="fl">0.9</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>        <span class="cf">if</span> data[i]<span class="op">==</span><span class="dv">1</span>:</span>
+<span id="cb9-10"><a href="#cb9-10"></a>            NLL <span class="op">=</span> NLL <span class="op">+</span> np.log(p)</span>
+<span id="cb9-11"><a href="#cb9-11"></a>        <span class="cf">if</span> data[i]<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb9-12"><a href="#cb9-12"></a>            NLL <span class="op">=</span> NLL <span class="op">+</span> np.log(<span class="dv">1</span><span class="op">-</span>p)</span>
+<span id="cb9-13"><a href="#cb9-13"></a>    <span class="cf">return</span> <span class="op">-</span>NLL</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can optimize:</p>
+<div id="00fe1e7b" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>out <span class="op">=</span> sp.optimize.minimize(NLL, <span class="dv">50</span>, args<span class="op">=</span>(flips), method<span class="op">=</span><span class="st">'Nelder-Mead'</span>, options<span class="op">=</span>{<span class="st">'disp'</span>: <span class="va">True</span>})</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">The MLE estimate of s is: </span><span class="sc">{</span><span class="bu">int</span>(np.<span class="bu">round</span>(out.x[<span class="dv">0</span>]))<span class="sc">:d}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully.
+         Current function value: 46.643079
+         Iterations: 19
+         Function evaluations: 50
+
+The MLE estimate of s is: 39</code></pre>
+</div>
+</div>
+<p>We can see that the best estimate is that <span class="math inline">s=39</span>, trial 39, is when the coin switch occurred. In fact this is a very good estimate, since I generated the data using the following, in which the flip happened at trial 41:</p>
+<div id="1d747e04" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>np.random.seed(<span class="dv">1234</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>flips <span class="op">=</span> np.concatenate((np.random.binomial(<span class="dv">1</span>,<span class="fl">0.5</span>,<span class="dv">40</span>), np.random.binomial(<span class="dv">1</span>,<span class="fl">0.9</span>,<span class="dv">60</span>)))</span>
+<span id="cb12-3"><a href="#cb12-3"></a>flips</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>array([0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1,
+       0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+       1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1])</code></pre>
+</div>
+</div>
+<p>You can imagine extending this example for the case in which you have to estimate both the time of the coin switch, and the new <span class="math inline">p(\mathrm{heads})</span>.</p>
+</section>
+<section id="estimating-psychometric-functions" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="estimating-psychometric-functions"><span class="header-section-number">5</span> Estimating Psychometric Functions</h2>
+<p>Another example to look at in which MLE is used to estimate a model of data, is the case of estimating a psychometric function.</p>
+<p>A <em>psychometric function</em> relates a parameter of a physical stimulus to an experimental participant’s subjective response. In a typical experiment, some parameter of a stimulus is varied across some range on each of several trials, and an experimental participant is asked on each to report their subjective response. For example in an experiment on visual perception, the experimenter might vary the relative brightness of two sine-wave gratings, and ask the participant which is brighter, the one on the left or the one on the right. In an experiment on auditory perception, the experimenter might vary the first formant frequency of a synthetic vowel sound along a continuous range, and ask the participant, do you hear an /i/ or an /a/? These are examples of a two-alternative-forced-choice (2-AFC) task. What we’re interested in is how the probability of responding with one of the two choices varies with the stimulus.</p>
+<p>Here we will consider the situation where the physical stimulus being varied is the direction of movement of a participant’s (passive) arm, which is moved by a robotic device to the left or right of the participant’s midline (to varying extents), and the participant’s response is binary (<strong>left</strong> or <strong>right</strong>). This paradigm has been described in several of our recent papers:</p>
+<blockquote class="blockquote">
+<p>Wong JD, Wilson ET, Gribble PL (2011) Spatially selective enhancement of proprioceptive acuity following motor learning. J Neurophysiol 105:2512–2521 Available at: <a href="http://dx.doi.org/10.1152/jn.00949.2010">http://dx.doi.org/10.1152/jn.00949.2010</a>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Ostry DJ, Darainy M, Mattar AAG, Wong J, Gribble PL (2010) Somatosensory plasticity and motor learning. J Neurosci 30:5384–5393 Available at: <a href="http://dx.doi.org/10.1523/JNEUROSCI.4571-09.2010">http://dx.doi.org/10.1523/JNEUROSCI.4571-09.2010</a>.</p>
+</blockquote>
+<section id="the-logistic-function" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="the-logistic-function"><span class="header-section-number">5.1</span> The Logistic Function</h3>
+<p>We assume the shape of the psychometric function is <em>logistic</em> (see Figure below). The function relates lateral hand position (relative to a participant’s midline) to the probability of the participant responding that their hand is to the <em>right</em> of midline. The vertical dashed line indicates the hand position at which the probability of responding <em>right</em> is 50%, known as the perceptual <em>threshold</em> (in this case at the actual midline, 0 mm).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/logistic.png" class="quarto-figure quarto-figure-center figure-img" height="400"></p>
+</figure>
+</div>
+<p>The logistic function is given by the following equation:</p>
+<p><span id="eq-logistic"><span class="math display">
+p = 1 / \left( 1 + e^{-y} \right)
+\tag{8}</span></span></p>
+<p>where <span class="math inline">p = \mathrm{Pr}(\mathrm{right} | x)</span>.</p>
+<p>Here the value of <span class="math inline">y</span> is a linear function of the lateral hand position <span class="math inline">x</span>, given by the following equation:</p>
+<p><span id="eq-logistic-linear"><span class="math display">
+y = \beta_{0} + \beta_{1} x
+\tag{9}</span></span></p>
+<p>where <span class="math inline">\beta_{0}</span> and <span class="math inline">\beta_{1}</span> are parameters of the model. The</p>
+<p>The shape (steepness) and position (in terms of the threshold) of the logistic function can be directly related to the parameters <span class="math inline">\beta_{0}</span> and <span class="math inline">\beta_{1}</span>. Another quantity that we sometimes compute is the distance between the 75th and 25th percentile (in other words the middle 50&nbsp;%), as a measure of <em>acuity</em>.</p>
+<p><span id="eq-logistic-params"><span class="math display">
+\begin{aligned}
+    \mathrm{threshold} &amp;= -\beta_{0}/\beta_{1} \\
+    \mathrm{slope} &amp;= \beta_{1} / 4 \\
+    \mathrm{acuity} &amp;= \mathrm{ilog}(\beta,.75) - \mathrm{ilog}(\beta,.25)
+\end{aligned}
+\tag{10}</span></span></p>
+<p>where <span class="math inline">\mathrm{ilog}(\beta,p)</span> is the inverse logistic function:</p>
+<p><span id="eq-logistic-inverse"><span class="math display">
+x = \left[ \log \left( -p / (p - 1) \right) - \beta_{0} \right] / \beta_{1}
+\tag{11}</span></span></p>
+<p>and as before, <span class="math inline">p = \mathrm{Pr}(\mathrm{response}=\mathrm{right} | x)</span>.</p>
+</section>
+<section id="maximum-likelihood-estimation" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="maximum-likelihood-estimation"><span class="header-section-number">5.2</span> Maximum Likelihood Estimation</h3>
+<p>Assume we have empirical data consisting of binary responses <span class="math inline">R</span> (<span class="math inline">r_{1}</span> through <span class="math inline">r_{n}</span>) (each <em>left</em> or <em>right</em>) for some number of hand positions <span class="math inline">X</span> (<span class="math inline">x_{1}</span> through <span class="math inline">x_{n}</span>). To estimate a psychophysical function we need to find the values of <span class="math inline">\beta_{0}</span> and <span class="math inline">\beta_{1}</span> that when run through the logistic function best fit the data.</p>
+<p>How do we define a metric for determining “best fit”? Unfortunately we cannot use a criterion such as <em>least-squares</em> combined with standard linear regression approaches. Using least-squares and a standard linear model is inappropriate because it violates a number of the assumptions of linear regression using least-squares. First, the error term would be <em>heteroskedastic</em> which means that the variance of the dependent variable is not constant across the range of the independent variable. Second, the error term is not normally distributed, because it is binary and thus takes on only two possible values. Third, there is no straightforward way of guaranteeing that predicted probabilities will not be greater than 1 or less than 0, which of course is not meaningful.</p>
+<p>Instead, we will define a new cost function. We will find the values of <span class="math inline">\beta_{0}</span> and <span class="math inline">\beta{1}</span> that maximize the <em>likelihood of the data</em>.</p>
+<p>Unlike estimation problems like linear regression, in which there is a closed-form expression for the parameters that minimize a cost function (e.g.&nbsp;least-squares), in this case using maximum likelihood estimation (MLE) there is no closed-form solution, and so we must use numerical optimization to find the parameter values <span class="math inline">\beta_{0}</span> and <span class="math inline">\beta{1}</span> that result in the best fit, i.e.&nbsp;that maximize the likelihood of the data (the set of positions and binary responses) given the model (<span class="math inline">\beta_{0}</span> and <span class="math inline">\beta{1}</span>).</p>
+<p>The probability of an individual binary response <span class="math inline">r</span>, given a hand position <span class="math inline">x</span> is given by</p>
+<p><span id="eq-logistic-prob"><span class="math display">
+\begin{aligned}
+    Pr(r = \mathrm{right}|x) &amp;= p\\
+    Pr(r = \mathrm{left}|x) &amp;= 1-p
+\end{aligned}
+\tag{12}</span></span></p>
+<p>where <span class="math inline">p</span> depends upon <span class="math inline">\beta_{0}</span> and <span class="math inline">\beta_{1}</span> and position <span class="math inline">x</span> according to <a href="#eq-logistic" class="quarto-xref">Equation&nbsp;8</a> and <a href="#eq-logistic-linear" class="quarto-xref">Equation&nbsp;9</a> above.</p>
+<p>The likelihood of the data (all <span class="math inline">n</span> responses taken together) is proportional to the product of the probabilities of each response <span class="math inline">r_{i}|x_{i}</span>:</p>
+<p><span id="eq-logistic-likelihood"><span class="math display">
+\mathrm{L}(\mathrm{model}|\mathrm{data}) = \prod_{i=1}^{n}{\mathrm{Pr}(\mathrm{resp}_{i}|x_{i})}
+\tag{13}</span></span></p>
+<p>The product of many probabilities (which range from 0 to 1) becomes very small very quickly, and for large datasets, the likelihood is a very small number—so small that computers will have difficulties representing it accurately. To fix this, we take the logarithm, which has the dual effect of changing small fractions into larger numbers, and also changing products into sums. So instead of degenerating into a smaller and smaller fraction, this quantity accumulates into a manageable-sized number. This is thus the log-likelihood of the data:</p>
+<p><span id="eq-logistic-loglikelihood"><span class="math display">
+\log \left[ \mathrm{L}(\mathrm{model}|\mathrm{data}) \right] = \sum_{i=1}^{n}{\log \left[ \mathrm{Pr}(\mathrm{resp}_{i}|x_{i}) \right]}
+\tag{14}</span></span></p>
+<p>Finally, since numerical optimizers are set up to find the minimum, not maximum, of a cost function, we multiply the log-likelihood by <span class="math inline">(-1)</span>. This gives us a cost function in terms of the <em>negative log-likelihood</em> of the data, given the model.</p>
+<p><span id="eq-logistic-cost"><span class="math display">
+- \log \left[ \mathrm{L}(\mathrm{model}|\mathrm{data}) \right] = -\sum_{i=1}^{n}{\log \left[ \mathrm{Pr}(\mathrm{resp}_{i}|x_{i}) \right]}
+\tag{15}</span></span></p>
+<p>The equation shown directly above is our cost function. Now given our dataset (the set of hand positions <span class="math inline">x_{i}</span> and binary responses <span class="math inline">r_{i}</span>) and a candidate “model” <span class="math inline">(\beta_{0},\beta_{1})</span>, we can compute the cost, and use numerical optimization techniques to find the model <span class="math inline">(\beta_{0},\beta_{1})</span> that minimizes the cost (the negative log-likelihood of the data).</p>
+<p>The table below shows an example of the kind of data we are interested in fitting:</p>
+<div id="tab:data">
+<table class="caption-top table">
+<caption>Example data</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">x (mm)</th>
+<th style="text-align: center;">response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1.1150</td>
+<td style="text-align: center;">left</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10.2260</td>
+<td style="text-align: center;">right</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-9.2050</td>
+<td style="text-align: center;">left</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5.2180</td>
+<td style="text-align: center;">right</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">…</td>
+<td style="text-align: center;">…</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Typically we represent the response in a numerical format, where 0=left and 1=right. Also typically we have many more data points than shown, e.g.&nbsp;in a typical experiment we may test 7 positions each sampled 8 times for a total of 56 observations.</p>
+<p>Assume we have an array of hand positions <code>X</code> in metres and an array of binary responses <code>R</code> (where left=0 and right=1).</p>
+<p>First let’s write our logistic function:</p>
+<div id="22c5d670" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">def</span> logistic(y):</span>
+<span id="cb14-2"><a href="#cb14-2"></a>    p <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>np.exp(<span class="op">-</span>y))</span>
+<span id="cb14-3"><a href="#cb14-3"></a>    <span class="cf">return</span> p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can write our cost function, called <code>NLL</code> as follows:</p>
+<div id="1f9764c0" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">def</span> NLL(B,X,R):</span>
+<span id="cb15-2"><a href="#cb15-2"></a>    y <span class="op">=</span> B[<span class="dv">0</span>] <span class="op">+</span> B[<span class="dv">1</span>]<span class="op">*</span>X</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    p <span class="op">=</span> logistic(y)</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    NLL <span class="op">=</span> <span class="op">-</span>np.<span class="bu">sum</span>(np.log(p[R<span class="op">==</span><span class="dv">1</span>])) <span class="op">-</span> np.<span class="bu">sum</span>(np.log(<span class="dv">1</span><span class="op">-</span>p[R<span class="op">==</span><span class="dv">0</span>]))</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    <span class="cf">return</span> NLL</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s load in some example data and plot it (note I’ve added some random scatter along the y-axis to help visualize each individual response). We will also compute mean response as a function of position (since the positions are noisy around 11 distinct values we’ll do some clever programming to group them and take averages).</p>
+<div id="f7bb9f9a" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a>url <span class="op">=</span> <span class="st">"files/psychometric_data.txt"</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a>pdata <span class="op">=</span> np.loadtxt(url)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>X <span class="op">=</span> pdata[:,<span class="dv">0</span>]</span>
+<span id="cb16-7"><a href="#cb16-7"></a>R <span class="op">=</span> pdata[:,<span class="dv">1</span>]</span>
+<span id="cb16-8"><a href="#cb16-8"></a>idx <span class="op">=</span> np.argsort(X)</span>
+<span id="cb16-9"><a href="#cb16-9"></a>Xs <span class="op">=</span> X[idx]</span>
+<span id="cb16-10"><a href="#cb16-10"></a>Rs <span class="op">=</span> R[idx]</span>
+<span id="cb16-11"><a href="#cb16-11"></a>Xr <span class="op">=</span> np.reshape(Xs,(<span class="dv">11</span>,<span class="dv">14</span>))</span>
+<span id="cb16-12"><a href="#cb16-12"></a>Rr <span class="op">=</span> np.reshape(Rs,(<span class="dv">11</span>,<span class="dv">14</span>))</span>
+<span id="cb16-13"><a href="#cb16-13"></a>Xm <span class="op">=</span> np.mean(Xr,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb16-14"><a href="#cb16-14"></a>Rm <span class="op">=</span> np.mean(Rr,axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb16-15"><a href="#cb16-15"></a>plt.plot(X, R<span class="op">+</span>np.random.randn(<span class="bu">len</span>(R))<span class="op">*</span><span class="fl">0.02</span>, <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'blue'</span>, alpha<span class="op">=</span><span class="fl">0.25</span>, markersize<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb16-16"><a href="#cb16-16"></a>plt.plot(Xm,Rm,<span class="st">'rs'</span>)</span>
+<span id="cb16-17"><a href="#cb16-17"></a>plt.xlabel(<span class="st">'X'</span>)</span>
+<span id="cb16-18"><a href="#cb16-18"></a>plt.ylabel(<span class="st">'Response'</span>)</span>
+<span id="cb16-19"><a href="#cb16-19"></a>plt.grid()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mle_files/figure-html/cell-13-output-1.png" width="589" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can see that when <span class="math inline">X</span> is to the far left (negative values), the response is always <span class="math inline">0</span>, which corresponds to “Left”. On the far right, the response is always <span class="math inline">1</span>, or “Right”. In between, the responses gradually change. In the middle somewhere, responses are about half “Left” and half “Right”.</p>
+<p>Now let’s use MLE to fit a psychometric function to the data. Again, note that one has to give the optimizer an initial guess. Here my initial guess is <span class="math inline">(-.1,.1)</span>.</p>
+<div id="f3c32b4d" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>out <span class="op">=</span> sp.optimize.minimize(NLL,[<span class="op">-</span><span class="fl">.1</span>,<span class="fl">.1</span>],args<span class="op">=</span>(X,R))</span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(<span class="ss">f"The MLE estimate of beta is: </span><span class="sc">{</span>out<span class="sc">.</span>x<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The MLE estimate of beta is: [0.60414064 0.48710976]</code></pre>
+</div>
+</div>
+<div id="1bbace0b" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>Xp <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">100</span>)</span>
+<span id="cb19-2"><a href="#cb19-2"></a>p <span class="op">=</span> logistic(out.x[<span class="dv">0</span>] <span class="op">+</span> out.x[<span class="dv">1</span>]<span class="op">*</span>Xp)</span>
+<span id="cb19-3"><a href="#cb19-3"></a>plt.plot(X, R<span class="op">+</span>np.random.randn(<span class="bu">len</span>(R))<span class="op">*</span><span class="fl">0.02</span>, <span class="st">'o'</span>, color<span class="op">=</span><span class="st">'blue'</span>, alpha<span class="op">=</span><span class="fl">0.25</span>, markersize<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb19-4"><a href="#cb19-4"></a>plt.plot(Xm,Rm,<span class="st">'rs'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5"></a>plt.plot(Xp, p, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6"></a>plt.xlabel(<span class="st">'X'</span>)</span>
+<span id="cb19-7"><a href="#cb19-7"></a>plt.ylabel(<span class="st">'Response'</span>)</span>
+<span id="cb19-8"><a href="#cb19-8"></a>plt.grid()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mle_files/figure-html/cell-15-output-1.png" width="589" height="429" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can see that the fitted curve does a very good job of characterizing how the participant’s responses change as the stimulus changes value from left (negative <span class="math inline">X</span>) to right (positive <span class="math inline">X</span>).</p>
+</section>
+</section>
+<section id="hypothesis-testing" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="hypothesis-testing"><span class="header-section-number">6</span> Hypothesis Testing</h2>
+<section id="likelihood-ratio-test" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="likelihood-ratio-test"><span class="header-section-number">6.1</span> Likelihood Ratio Test</h3>
+<p>Once we can compute the log-likelihood of our data given a model (a probability distribution and values for the parameters associated with that model) then we can also perform null hypothesis significance testing. Specifically, we can use the <strong>likelihood ratio test</strong> to compare two models of our data.</p>
+<p>The test statistic is the ration of the likelihood of the data under a null model to the likelihood of the data under an alternative model. Often the test statistic is expressed as a logarithm, in other words the difference between the two logarithms of the likelihoods. This avoids numerical problems that can arise when the likelihoods are very small or very large.</p>
+<p>We can define a test statistic <span class="math inline">D</span> as shown below. If the null model is true, then the likelihood ratio test statistic will be distributed according to a chi-square distribution with degrees of freedom equal to the difference in the number of parameters between the two models. If the null model is false, then the likelihood ratio test statistic <span class="math inline">D</span> will be large. The null model is rejected if the likelihood ratio test statistic is larger than the critical value of the chi-square distribution.</p>
+<p><span id="eq-likelihood-ratio-test"><span class="math display">
+D = -2 \left[ \log(p(\mathrm{data}|\mathrm{null})) + \log(p(\mathrm{data}|\mathrm{alternative})) \right]
+\tag{16}</span></span></p>
+<p>Under the null hypothesis, the test statistic <span class="math inline">D</span> is distributed according to a chi-square distribution with degrees of freedom equal to the difference in the number of parameters between the two models.</p>
+</section>
+<section id="illy-vs-lavazza" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="illy-vs-lavazza"><span class="header-section-number">6.2</span> Illy vs Lavazza</h3>
+<p>In the slides for this week we saw an example dataset in which my lab tested me on my ability to discriminate between two different brands of coffee. They gave me 20 cups of coffee (10 Illy and 10 Lavazza) in random order and for each I had to say whether the coffee was made using Illy beans or using Lavazza beans.</p>
+<p>The data were that 16 times I was correct and 4 times I was incorrect.</p>
+<p>The experiment can be modelled as 20 Bernoulli trials. We know the probability density function for a Bernoulli process is the Binomial distribution, which has two parameters: <span class="math inline">n</span> (number of trials) and <span class="math inline">w</span> (probabilty of success on any given trial).</p>
+<p>The Binomial distribution gives the probability of observing <span class="math inline">y</span> successes in <span class="math inline">n</span> trials, given a probability of success <span class="math inline">w</span> on each trial. Thus our Likelihood function is:</p>
+<p><span id="eq-binomial"><span class="math display">
+L(w|y,n) = \frac{n!}{y!(n-y)!} w^y (1-w)^{n-y}
+\tag{17}</span></span></p>
+<p>What model explains the data? This is equivalent to asking, what is the value of parameter <span class="math inline">w</span>? If it near 1.0 then I have a very good ability to discriminate between Illy and Lavazza. If it is near 0.5 then basically I have no ability, I am performing no differently than someone who is randomly guessing.</p>
+<p>When we performed MLE (in the slides) we found that the MLE estimate of <span class="math inline">w</span> was 0.8. We also saw that there is in fact an analytic solution for the MLE estimate of <span class="math inline">w</span> in a Binomial distribution, which is simply:</p>
+<p><span class="math display">
+\hat{w} = \frac{y}{n}
+</span></p>
+<p>which is also <span class="math inline">w=0.8</span>.</p>
+</section>
+<section id="testing-against-a-null-model" class="level3" data-number="6.3">
+<h3 data-number="6.3" class="anchored" data-anchor-id="testing-against-a-null-model"><span class="header-section-number">6.3</span> Testing against a null model</h3>
+<p>But now we want to perform a hypothesis test against a null model in which <span class="math inline">w=0.5</span>. We can do this using the likelihood ratio test.</p>
+<p>Using <a href="#eq-binomial" class="quarto-xref">Equation&nbsp;17</a> above we can compute the likelihood of the data under the MLE model in which <span class="math inline">w=0.8</span>, and under the null hypothesis model in which <span class="math inline">w=0.5</span>. We can then compute the <span class="math inline">D</span> statistic, and compute a p-value using the chi-square distribution with 1 degree of freedom (because the difference in the number of parameters between the two models is 1).</p>
+<div id="ce40dfd6" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="im">from</span> math <span class="im">import</span> factorial</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="kw">def</span> binomial_likelihood(w, y, n):</span>
+<span id="cb20-4"><a href="#cb20-4"></a>    <span class="cf">return</span> (factorial(n)<span class="op">/</span>(factorial(y)<span class="op">*</span>factorial(n<span class="op">-</span>y))) <span class="op">*</span> ((w<span class="op">**</span>y)<span class="op">*</span>((<span class="dv">1</span><span class="op">-</span>w)<span class="op">**</span>(n<span class="op">-</span>y)))</span>
+<span id="cb20-5"><a href="#cb20-5"></a></span>
+<span id="cb20-6"><a href="#cb20-6"></a>LL_mle <span class="op">=</span> np.log(binomial_likelihood(<span class="fl">0.8</span>, <span class="dv">16</span>, <span class="dv">20</span>))</span>
+<span id="cb20-7"><a href="#cb20-7"></a>LL_null <span class="op">=</span> np.log(binomial_likelihood(<span class="fl">0.5</span>, <span class="dv">16</span>, <span class="dv">20</span>))</span>
+<span id="cb20-8"><a href="#cb20-8"></a>D <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> <span class="op">*</span> (LL_null <span class="op">-</span> LL_mle)</span>
+<span id="cb20-9"><a href="#cb20-9"></a>pvalue <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> sp.stats.chi2.cdf(D, <span class="dv">1</span>)</span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="bu">print</span>(<span class="ss">f"D(</span><span class="sc">{</span><span class="dv">1</span><span class="sc">}</span><span class="ss">) = </span><span class="sc">{</span>D<span class="sc">:.2f}</span><span class="ss">, p-value = </span><span class="sc">{</span>pvalue<span class="sc">:.5f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>D(1) = 7.71, p-value = 0.00549</code></pre>
+</div>
+</div>
+<p>Thus we can reject the null hypothesis at a p-value of 0.00549. This means that we can conclude that a model with a <span class="math inline">w</span> parameter of <span class="math inline">0.8</span> better explains the observed data than a model with <span class="math inline">w=0.5</span>.</p>
+</section>
+</section>
+<section id="readings" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="readings"><span class="header-section-number">7</span> Readings</h2>
+<ul>
+<li><a href="../files/Myung2003.pdf">Myung2003.pdf</a></li>
+<li><a href="../files/matt_golder_mle.pdf">Matt Golder: MLE</a></li>
+<li><a href="http://www.johnmyleswhite.com/notebook/2010/04/21/doing-maximum-likelihood-estimation-by-hand-in-r/">John Myles White: MLE in R</a></li>
+</ul>
+</section>
+<section id="slides" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="slides"><span class="header-section-number">8</span> Slides</h2>
+<ul>
+<li><a href="../files/MLE_slides.pdf">MLE_slides.pdf</a></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/gribblelab\.org\/9040");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
