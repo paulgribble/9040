@@ -280,6 +280,115 @@ plt.xlim(-2,2)
 plt.show()
 ```
 
+### The Exact Permutation Test
+
+We can compute an exact estimate of the sampling distribution of differences-between-means by testing all possible permutations of group membership. This is known as an exact permutation test. Here is some sample code:
+
+```python
+import numpy as np
+from itertools import combinations, islice
+from math import comb
+import matplotlib.pyplot as plt
+from tqdm import tqdm
+import multiprocessing
+
+N_CORES = 10 # number of parallel cpu cores
+N = 13 # sample size of each of two samples
+
+
+def _worker(args):
+    combined, n1, n_total, start, chunk_size, worker_id = args
+    gen = islice(combinations(range(n_total), n1), start, start + chunk_size)
+    diffs = []
+    for idx in tqdm(gen, total=chunk_size, position=worker_id, desc=f"Core {worker_id:2d}", leave=False, miniters=1):
+        idx = list(idx)
+        mask = np.ones(n_total, dtype=bool)
+        mask[idx] = False
+        diff = np.mean(combined[mask]) - np.mean(combined[idx])
+        diffs.append(diff)
+    return diffs
+
+def permutation_test(y1, y2, n_cores=N_CORES):
+    n1 = len(y1)
+    combined = np.concatenate([y1, y2])
+    n_total = len(combined)
+    y1m = np.mean(y1)
+    y2m = np.mean(y2)
+    obs_diff = y2m - y1m
+    n_perms = comb(n_total, n1)
+    print(f"number of permutations = {n_perms}")
+    chunk_size = n_perms // n_cores
+    remainder = n_perms % n_cores
+    args_list = []
+    start = 0
+    for i in range(n_cores):
+        size = chunk_size + (1 if i < remainder else 0)
+        args_list.append((combined, n1, n_total, start, size, i))
+        start += size
+    ctx = multiprocessing.get_context("fork")
+    with ctx.Pool(n_cores) as pool:
+        results = pool.map(_worker, args_list)
+    print("\n" * n_cores)
+    samp_dist = np.concatenate([np.array(r) for r in results])
+    p = np.mean(np.abs(samp_dist) >= np.abs(obs_diff))
+    return p, y1m, y2m, samp_dist
+
+
+if __name__ == "__main__":
+
+    tqdm.set_lock(tqdm.get_lock())
+    np.random.seed(9040)
+    y1 = np.random.normal(loc=0.0, scale=1.0, size=N) # mean=0.0, sd=1.0, n=N
+    y2 = np.random.normal(loc=1.3, scale=1.4, size=N) # mean=1.3, sd=1.4, n=N
+
+    p,y1m,y2m,samp_dist = permutation_test(y1,y2)
+
+    print(f"mean(y1) = {y1m:.3f}")
+    print(f"mean(y2) = {y2m:.3f}")
+    print(f"mean(y2)-mean(y1) = {y2m-y1m:.3f}")
+    print(f"p = {p:.3f}")
+
+    plt.hist(samp_dist, bins=100, edgecolor='black')
+    plt.axvline(y2m - y1m, color='red', linewidth=2, label=f'Observed diff = {y2m-y1m:.3f}')
+    plt.xlabel('Difference between means')
+    plt.ylabel('Frequency')
+    plt.title('Permutation Test: Sampling Distribution of Mean Differences')
+    plt.text(0.95, 0.95, f'p = {p:.3f}', transform=plt.gca().transAxes,
+             fontsize=12, verticalalignment='top', horizontalalignment='right')
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig('permutation_test.png', dpi=150)
+    print("figure saved to permutation_test.png")
+```
+
+The number of permutations grows quickly with sample size:
+
+$$
+\text{Number of permutations} = \binom{2N}{N} = \frac{(2N)!}{N! \cdot N!}
+$$
+
+| N (per group) | Total observations (2N) | Number of permutations C(2N, N) |
+| :-----------: | :---------------------: | ------------------------------: |
+|       2       |            4            |                               6 |
+|       3       |            6            |                              20 |
+|       4       |            8            |                              70 |
+|       5       |           10            |                             252 |
+|       6       |           12            |                             924 |
+|       7       |           14            |                           3,432 |
+|       8       |           16            |                          12,870 |
+|       9       |           18            |                          48,620 |
+|      10       |           20            |                         184,756 |
+|      11       |           22            |                         705,432 |
+|      12       |           24            |                       2,704,156 |
+|      13       |           26            |                      10,400,600 |
+|      14       |           28            |                      40,116,600 |
+|      15       |           30            |                     155,117,520 |
+|      16       |           32            |                     601,080,390 |
+|      17       |           34            |                   2,333,606,220 |
+|      18       |           36            |                   9,075,135,300 |
+|      19       |           38            |                  35,345,263,800 |
+|      20       |           40            |                 137,846,528,640 |
+
 ## Cross-validation
 
 Cross-validation is a technique for estimating the performance of a statistical learning or curve fitting method. It is also widely used as a method to control for the **overfitting** problem.

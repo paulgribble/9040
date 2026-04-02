@@ -220,6 +220,7 @@ window.Quarto = {
   <li><a href="#non-parametric-approach-permutation-test" id="toc-non-parametric-approach-permutation-test" class="nav-link" data-scroll-target="#non-parametric-approach-permutation-test"><span class="header-section-number">2.2</span> Non-parametric approach: permutation test</a></li>
   <li><a href="#permutation-test-code" id="toc-permutation-test-code" class="nav-link" data-scroll-target="#permutation-test-code"><span class="header-section-number">2.3</span> Permutation test code</a></li>
   <li><a href="#scipy.stats.permutation_test" id="toc-scipy.stats.permutation_test" class="nav-link" data-scroll-target="#scipy.stats.permutation_test"><span class="header-section-number">2.4</span> scipy.stats.permutation_test()</a></li>
+  <li><a href="#the-exact-permutation-test" id="toc-the-exact-permutation-test" class="nav-link" data-scroll-target="#the-exact-permutation-test"><span class="header-section-number">2.5</span> The Exact Permutation Test</a></li>
   </ul></li>
   <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation"><span class="header-section-number">3</span> Cross-validation</a>
   <ul class="collapse">
@@ -291,7 +292,7 @@ window.Quarto = {
 <p>Let’s say we performed an experiment measuring reaction times (RTs) and collected a sample of 20 RTs. We can use the bootstrap to estimate the standard deviation of the sampling distribution of means.</p>
 <p>So what we are going to do is repeatedly (10,000 times) take samples of size N , <em>with replacement</em>, from our sample. We then calculate the mean of each sample and store it in an array.</p>
 <p>Here is our sample of size N=20 RTs, which were drawn from a log-normal distribution (not a normal distribution).</p>
-<div id="17522cb0" class="cell" data-execution_count="1">
+<div id="3ca06be4" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -313,7 +314,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Now what we will do is repeatedly sample, 10,000 times, with replacement, from our original sample of N=20 RTs, each time producing a new sample of size N=20. We will compute the mean of each of these bootstrap samples, and store it in an array.</p>
-<div id="3497e084" class="cell" data-execution_count="2">
+<div id="a645068c" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>nboot <span class="op">=</span> <span class="dv">10000</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>RTs_boot_means <span class="op">=</span> np.zeros(nboot)</span>
@@ -323,7 +324,7 @@ window.Quarto = {
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    RTs_boot_means[i] <span class="op">=</span> np.mean(RTs_boot_sample)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now we can look at the distribution of bootstrap sample means:</p>
-<div id="6df8f287" class="cell" data-execution_count="3">
+<div id="7fef96ab" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.hist(RTs_boot_means, bins<span class="op">=</span>np.array(np.arange(<span class="dv">600</span>,<span class="dv">1200</span>,<span class="dv">10</span>)))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
@@ -337,7 +338,7 @@ window.Quarto = {
 <p><strong>Question</strong>: why does the distribution of the sample means look like a normal distribution? I thought we were sampling from a non-normal distribution?</p>
 <p><strong>Answer</strong>: The <em>Central Limit Theorem</em> says that the sampling distribution looks more and more like a normal distribution as the sample size increases, even if the population from which the samples were drawn is not normally distributed.</p>
 <p>We can compute the mean of the bootstrap sample means, which is an estimate of the mean of the true sampling distribution of means from the population:</p>
-<div id="37ebcf30" class="cell" data-execution_count="4">
+<div id="b4f7ec8d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>RTs_boot_means_mean <span class="op">=</span> np.mean(RTs_boot_means)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mean of bootstrap sample means is </span><span class="sc">{</span>RTs_boot_means_mean<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -346,7 +347,7 @@ window.Quarto = {
 </div>
 <p>This is very close to our sample mean, which is not surprising.</p>
 <p>Now we can compute the standard deviation of the bootstrap sample means, which is an estimate of the standard deviation of the true sampling distribution of means from the population:</p>
-<div id="04e95811" class="cell" data-execution_count="5">
+<div id="92c43381" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>RTs_boot_means_std <span class="op">=</span> np.std(RTs_boot_means)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"sd of bootstrap sample means is </span><span class="sc">{</span>RTs_boot_means_std<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -354,7 +355,7 @@ window.Quarto = {
 </div>
 </div>
 <p>We can also compute a 95% confidence interval for the mean of the population by simply picking off values from the boostrap sample we generated. We have 10,000 bootstrap sample means in our empirical sampling distribution of means. We know 95% of 10,000 is 9500. If we sort our bootstrap means, we can simply pick the 250th and 9,750th values. These are the 2.5th and 97.5th percentiles of the bootstrap sample means. The these two values represent our 95% confidence interval for the mean of the population.</p>
-<div id="dbe01727" class="cell" data-execution_count="6">
+<div id="6b91e9d3" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>RTs_boot_means_sorted <span class="op">=</span> np.sort(RTs_boot_means)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>RTs_boot_means_95CI <span class="op">=</span> RTs_boot_means_sorted[[<span class="dv">250</span>,<span class="dv">9750</span>]]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"95% confidence interval for the mean of the population is (</span><span class="sc">{</span>RTs_boot_means_95CI[<span class="dv">0</span>]<span class="sc">:.1f}</span><span class="ss">, </span><span class="sc">{</span>RTs_boot_means_95CI[<span class="dv">1</span>]<span class="sc">:.1f}</span><span class="ss">)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -363,7 +364,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Below we overlay the mean and 95% confidence interval on the histogram of bootstrap sample means:</p>
-<div id="5307dd07" class="cell" data-execution_count="7">
+<div id="be61bcb3" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.hist(RTs_boot_means, bins<span class="op">=</span>np.array(np.arange(<span class="dv">600</span>,<span class="dv">1200</span>,<span class="dv">10</span>)))</span>
@@ -386,7 +387,7 @@ window.Quarto = {
 <section id="scipy.stats.bootstrap" class="level3" data-number="1.5">
 <h3 data-number="1.5" class="anchored" data-anchor-id="scipy.stats.bootstrap"><span class="header-section-number">1.5</span> scipy.stats.bootstrap()</h3>
 <p>The SciPy package has a bootstrap function called <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html#scipy-stats-bootstrap"><code>scipy.stats.bootstrap()</code></a> which will do the same thing as our code above (and it has some other options as well):</p>
-<div id="a5d77b49" class="cell" data-execution_count="8">
+<div id="37f5c511" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>boot_out <span class="op">=</span> sp.stats.bootstrap([RTs_sample], np.mean, n_resamples<span class="op">=</span><span class="dv">10000</span>, method<span class="op">=</span><span class="st">'percentile'</span>)</span>
@@ -408,7 +409,7 @@ window.Quarto = {
 <p>Efron B, Tibshirani R, Tibshirani RJ (1994) An introduction to the bootstrap. Philadelphia, PA: Chapman &amp; Hall/CRC. <a href="http://dx.doi.org/10.1201/9780429246593/introduction-bootstrap-bradley-efron-tibshirani">http://dx.doi.org/10.1201/9780429246593/introduction-bootstrap-bradley-efron-tibshirani</a></p>
 </blockquote>
 <p>In Python we can use the <code>scipy.stats.bootstrap()</code> function with the argument <code>method='BCa'</code> to implement this correction:</p>
-<div id="47c1712c" class="cell" data-execution_count="9">
+<div id="d2f8e08f" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>boot_out <span class="op">=</span> sp.stats.bootstrap([RTs_sample], np.mean, n_resamples<span class="op">=</span><span class="dv">10000</span>, method<span class="op">=</span><span class="st">'BCa'</span>)</span>
@@ -429,7 +430,7 @@ window.Quarto = {
 <p>If we perform an independent samples t-test for example, we compute a t-statistic which takes into account both the difference between means, the variance of the samples, and the sample size N (formula not shown here).</p>
 <p>From the t-statistic we compute a p-value which tells the probability of observing a t-statistic (i.e.&nbsp;a difference between means) this big or bigger, under the null hypothesis in which both samples were taken from the same population.</p>
 <p>Here is an example:</p>
-<div id="d6fb4c5e" class="cell" data-execution_count="10">
+<div id="c6c13e2c" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.random.normal(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">15</span>) <span class="co"># mean = 0.5, sd = 1</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.random.normal(<span class="fl">0.0</span>, <span class="dv">1</span>, <span class="dv">15</span>) <span class="co"># mean = 0.0, sd = 1</span></span>
@@ -440,7 +441,7 @@ window.Quarto = {
 The mean of the second sample is -0.172</code></pre>
 </div>
 </div>
-<div id="ee6d8be8" class="cell" data-execution_count="11">
+<div id="f50e55ce" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>out <span class="op">=</span> sp.stats.ttest_ind(y1, y2, alternative<span class="op">=</span><span class="st">'greater'</span>) <span class="co"># one-tailed t-test</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The t-statistic is </span><span class="sc">{</span>out<span class="sc">.</span>statistic<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
@@ -463,7 +464,7 @@ The p-value is 0.007</code></pre>
 <section id="permutation-test-code" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="permutation-test-code"><span class="header-section-number">2.3</span> Permutation test code</h3>
 <p>First let’s compute the observed difference between means of our experimental samples:</p>
-<div id="4abd6791" class="cell" data-execution_count="12">
+<div id="13526a25" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>meandiff_obs <span class="op">=</span> np.mean(y1) <span class="op">-</span> np.mean(y2)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The observed difference between means is </span><span class="sc">{</span>meandiff_obs<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -471,7 +472,7 @@ The p-value is 0.007</code></pre>
 </div>
 </div>
 <p>Now let’s perform a permutation test to estimate the probability we could have observed a difference between means this big or bigger under the null hypothesis that both samples were drawn from the same population:</p>
-<div id="ba7db28c" class="cell" data-execution_count="13">
+<div id="78d3efd8" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">9040</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>nboot <span class="op">=</span> <span class="dv">10000</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>meandiffs_sim <span class="op">=</span> np.zeros(nboot)</span>
@@ -485,7 +486,7 @@ The p-value is 0.007</code></pre>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    meandiffs_sim[i] <span class="op">=</span> np.mean(y1_sim) <span class="op">-</span> np.mean(y2_sim) <span class="co"># compute the difference between means</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now we can look at the distribution of the simulated differences between means:</p>
-<div id="a3120076" class="cell" data-execution_count="14">
+<div id="45f79100" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>plt.hist(meandiffs_sim, bins<span class="op">=</span>np.array(np.arange(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">.1</span>)))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>meandiff_obs, color<span class="op">=</span><span class="st">"red"</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>)</span>
@@ -500,7 +501,7 @@ The p-value is 0.007</code></pre>
 </div>
 <p>We can see the distribution of the simulated differences between means is centered around 0, which is what we would expect if the null hypothesis were true. The red line indicates the difference between means we observed in our actual experiment.</p>
 <p>Now to compute a p-value we can simply count the number of times the simulated difference between means was as big or bigger than the observed difference between means (the number of simulated outcomes to the right of the red line in the Figure above), and divide by the number of simulations:</p>
-<div id="7fd0a44a" class="cell" data-execution_count="15">
+<div id="d9979667" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pval <span class="op">=</span> np.<span class="bu">sum</span>(meandiffs_sim <span class="op">&gt;=</span> meandiff_obs) <span class="op">/</span> nboot <span class="co"># one-tailed test</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The p-value is </span><span class="sc">{</span>pval<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -512,12 +513,12 @@ The p-value is 0.007</code></pre>
 <h3 data-number="2.4" class="anchored" data-anchor-id="scipy.stats.permutation_test"><span class="header-section-number">2.4</span> scipy.stats.permutation_test()</h3>
 <p>The SciPy package has a permutation test function called <code>scipy.stats.permutation_test()</code>. But our own code above is not that complex and the advantage of writing our own code is that we can understand exactly what is going on (and modify it as needed). Nevertheless here’s how we could use it.</p>
 <p>First we have to define a Python function that takes in data and outputs our statistic of interest. In this case our statistic of interest is the difference in means between our two groups:</p>
-<div id="e77fdbee" class="cell" data-execution_count="16">
+<div id="c4258941" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mystat(x,y):</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(x)<span class="op">-</span>np.mean(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now we can call <code>scipy.stats.permutation_test()</code>:</p>
-<div id="0d2f7f44" class="cell" data-execution_count="17">
+<div id="1a8714a9" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> sp.stats.permutation_test(data<span class="op">=</span>[y1,y2], statistic<span class="op">=</span>mystat, n_resamples<span class="op">=</span><span class="dv">10000</span>, alternative<span class="op">=</span><span class="st">"greater"</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"statistic=</span><span class="sc">{</span>results<span class="sc">.</span>statistic<span class="sc">:.3f}</span><span class="ss">, p=</span><span class="sc">{</span>results<span class="sc">.</span>pvalue<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plt.hist(results.null_distribution, bins<span class="op">=</span>np.array(np.arange(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="fl">.1</span>)))</span>
@@ -536,6 +537,199 @@ The p-value is 0.007</code></pre>
 </div>
 </div>
 </section>
+<section id="the-exact-permutation-test" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="the-exact-permutation-test"><span class="header-section-number">2.5</span> The Exact Permutation Test</h3>
+<p>We can compute an exact estimate of the sampling distribution of differences-between-means by testing all possible permutations of group membership. This is known as an exact permutation test. Here is some sample code:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> combinations, islice</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> comb</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> multiprocessing</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>N_CORES <span class="op">=</span> <span class="dv">10</span> <span class="co"># number of parallel cpu cores</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">13</span> <span class="co"># sample size of each of two samples</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _worker(args):</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    combined, n1, n_total, start, chunk_size, worker_id <span class="op">=</span> args</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    gen <span class="op">=</span> islice(combinations(<span class="bu">range</span>(n_total), n1), start, start <span class="op">+</span> chunk_size)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    diffs <span class="op">=</span> []</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> idx <span class="kw">in</span> tqdm(gen, total<span class="op">=</span>chunk_size, position<span class="op">=</span>worker_id, desc<span class="op">=</span><span class="ss">f"Core </span><span class="sc">{</span>worker_id<span class="sc">:2d}</span><span class="ss">"</span>, leave<span class="op">=</span><span class="va">False</span>, miniters<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> <span class="bu">list</span>(idx)</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>        mask <span class="op">=</span> np.ones(n_total, dtype<span class="op">=</span><span class="bu">bool</span>)</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>        mask[idx] <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>        diff <span class="op">=</span> np.mean(combined[mask]) <span class="op">-</span> np.mean(combined[idx])</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>        diffs.append(diff)</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> diffs</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> permutation_test(y1, y2, n_cores<span class="op">=</span>N_CORES):</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>    n1 <span class="op">=</span> <span class="bu">len</span>(y1)</span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>    combined <span class="op">=</span> np.concatenate([y1, y2])</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>    n_total <span class="op">=</span> <span class="bu">len</span>(combined)</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>    y1m <span class="op">=</span> np.mean(y1)</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>    y2m <span class="op">=</span> np.mean(y2)</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>    obs_diff <span class="op">=</span> y2m <span class="op">-</span> y1m</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>    n_perms <span class="op">=</span> comb(n_total, n1)</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"number of permutations = </span><span class="sc">{</span>n_perms<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>    chunk_size <span class="op">=</span> n_perms <span class="op">//</span> n_cores</span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>    remainder <span class="op">=</span> n_perms <span class="op">%</span> n_cores</span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>    args_list <span class="op">=</span> []</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>    start <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_cores):</span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>        size <span class="op">=</span> chunk_size <span class="op">+</span> (<span class="dv">1</span> <span class="cf">if</span> i <span class="op">&lt;</span> remainder <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>        args_list.append((combined, n1, n_total, start, size, i))</span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>        start <span class="op">+=</span> size</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>    ctx <span class="op">=</span> multiprocessing.get_context(<span class="st">"fork"</span>)</span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> ctx.Pool(n_cores) <span class="im">as</span> pool:</span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>        results <span class="op">=</span> pool.<span class="bu">map</span>(_worker, args_list)</span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span> <span class="op">*</span> n_cores)</span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>    samp_dist <span class="op">=</span> np.concatenate([np.array(r) <span class="cf">for</span> r <span class="kw">in</span> results])</span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> np.mean(np.<span class="bu">abs</span>(samp_dist) <span class="op">&gt;=</span> np.<span class="bu">abs</span>(obs_diff))</span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p, y1m, y2m, samp_dist</span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>    tqdm.set_lock(tqdm.get_lock())</span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a>    np.random.seed(<span class="dv">9040</span>)</span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>    y1 <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="fl">0.0</span>, scale<span class="op">=</span><span class="fl">1.0</span>, size<span class="op">=</span>N) <span class="co"># mean=0.0, sd=1.0, n=N</span></span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>    y2 <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="fl">1.3</span>, scale<span class="op">=</span><span class="fl">1.4</span>, size<span class="op">=</span>N) <span class="co"># mean=1.3, sd=1.4, n=N</span></span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>    p,y1m,y2m,samp_dist <span class="op">=</span> permutation_test(y1,y2)</span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"mean(y1) = </span><span class="sc">{</span>y1m<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"mean(y2) = </span><span class="sc">{</span>y2m<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"mean(y2)-mean(y1) = </span><span class="sc">{</span>y2m<span class="op">-</span>y1m<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"p = </span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb29-63"><a href="#cb29-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-64"><a href="#cb29-64" aria-hidden="true" tabindex="-1"></a>    plt.hist(samp_dist, bins<span class="op">=</span><span class="dv">100</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb29-65"><a href="#cb29-65" aria-hidden="true" tabindex="-1"></a>    plt.axvline(y2m <span class="op">-</span> y1m, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Observed diff = </span><span class="sc">{</span>y2m<span class="op">-</span>y1m<span class="sc">:.3f}</span><span class="ss">'</span>)</span>
+<span id="cb29-66"><a href="#cb29-66" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Difference between means'</span>)</span>
+<span id="cb29-67"><a href="#cb29-67" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb29-68"><a href="#cb29-68" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Permutation Test: Sampling Distribution of Mean Differences'</span>)</span>
+<span id="cb29-69"><a href="#cb29-69" aria-hidden="true" tabindex="-1"></a>    plt.text(<span class="fl">0.95</span>, <span class="fl">0.95</span>, <span class="ss">f'p = </span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">'</span>, transform<span class="op">=</span>plt.gca().transAxes,</span>
+<span id="cb29-70"><a href="#cb29-70" aria-hidden="true" tabindex="-1"></a>             fontsize<span class="op">=</span><span class="dv">12</span>, verticalalignment<span class="op">=</span><span class="st">'top'</span>, horizontalalignment<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb29-71"><a href="#cb29-71" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb29-72"><a href="#cb29-72" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb29-73"><a href="#cb29-73" aria-hidden="true" tabindex="-1"></a>    plt.savefig(<span class="st">'permutation_test.png'</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb29-74"><a href="#cb29-74" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"figure saved to permutation_test.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The number of permutations grows quickly with sample size:</p>
+<p><span class="math display">
+\text{Number of permutations} = \binom{2N}{N} = \frac{(2N)!}{N! \cdot N!}
+</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 34%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">N (per group)</th>
+<th style="text-align: center;">Total observations (2N)</th>
+<th style="text-align: right;">Number of permutations C(2N, N)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: right;">70</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: right;">252</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: right;">924</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">14</td>
+<td style="text-align: right;">3,432</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: right;">12,870</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: right;">48,620</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: right;">184,756</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: right;">705,432</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: right;">2,704,156</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: right;">10,400,600</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">28</td>
+<td style="text-align: right;">40,116,600</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">30</td>
+<td style="text-align: right;">155,117,520</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: right;">601,080,390</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">34</td>
+<td style="text-align: right;">2,333,606,220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">36</td>
+<td style="text-align: right;">9,075,135,300</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">38</td>
+<td style="text-align: right;">35,345,263,800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">40</td>
+<td style="text-align: right;">137,846,528,640</td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 <section id="cross-validation" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="cross-validation"><span class="header-section-number">3</span> Cross-validation</h2>
@@ -544,15 +738,15 @@ The p-value is 0.007</code></pre>
 <section id="overfitting-example" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="overfitting-example"><span class="header-section-number">3.1</span> Overfitting example</h3>
 <p>Here are some (x,y) data that we are interested in modeling so that we can make predictions in the future:</p>
-<div id="32716d35" class="cell" data-execution_count="18">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import warnings</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># warnings.simplefilter('ignore', np.RankWarning)</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">1</span>)</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="op">-</span><span class="fl">3.08</span>, <span class="op">-</span><span class="fl">0.90</span>, <span class="op">-</span><span class="fl">1.34</span>, <span class="op">-</span><span class="fl">3.10</span>, <span class="op">-</span><span class="fl">4.08</span>, <span class="op">-</span><span class="fl">4.24</span>, <span class="op">-</span><span class="fl">6.02</span>, <span class="op">-</span><span class="fl">3.87</span>, <span class="op">-</span><span class="fl">.25</span>, <span class="fl">3.55</span>])</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'ro'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="5e3d7753" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># import warnings</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># warnings.simplefilter('ignore', np.RankWarning)</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">10</span>,<span class="dv">1</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="op">-</span><span class="fl">3.08</span>, <span class="op">-</span><span class="fl">0.90</span>, <span class="op">-</span><span class="fl">1.34</span>, <span class="op">-</span><span class="fl">3.10</span>, <span class="op">-</span><span class="fl">4.08</span>, <span class="op">-</span><span class="fl">4.24</span>, <span class="op">-</span><span class="fl">6.02</span>, <span class="op">-</span><span class="fl">3.87</span>, <span class="op">-</span><span class="fl">.25</span>, <span class="fl">3.55</span>])</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'ro'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -563,30 +757,30 @@ The p-value is 0.007</code></pre>
 </div>
 <p>We are going to fit a polynomial curve to the data using the <code>np.polyfit()</code> function. The <code>np.polyfit()</code> function takes as input the x and y data, and the degree of the polynomial to fit. It returns the coefficients of the polynomial.</p>
 <p>Let’s fit polynomials of degree 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9 to the data, and for each compute sum of squared error between the predicted values of y and the actual values of y:</p>
-<div id="1dcc5838" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>p_coefs <span class="op">=</span> []</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>SSE <span class="op">=</span> np.zeros(<span class="dv">10</span>)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,deg <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>)):</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> np.polyfit(x,y,deg)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    p_coefs.append(p)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    yhat <span class="op">=</span> np.polyval(p,x)</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    SSE[i] <span class="op">=</span> np.<span class="bu">sum</span>((yhat<span class="op">-</span>y)<span class="op">**</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="05b51962" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>p_coefs <span class="op">=</span> []</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>SSE <span class="op">=</span> np.zeros(<span class="dv">10</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,deg <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>)):</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> np.polyfit(x,y,deg)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    p_coefs.append(p)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    yhat <span class="op">=</span> np.polyval(p,x)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    SSE[i] <span class="op">=</span> np.<span class="bu">sum</span>((yhat<span class="op">-</span>y)<span class="op">**</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now let’s plot the data and the polynomial fits:</p>
-<div id="ec13302c" class="cell" data-execution_count="20">
+<div id="af4daddc" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>xi <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">12</span>,<span class="dv">100</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,p <span class="kw">in</span> <span class="bu">enumerate</span>(p_coefs):</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">5</span>, i<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, y, <span class="st">'ro'</span>)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    yi <span class="op">=</span> np.polyval(p, xi)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(xi, yi, <span class="st">'b-'</span>)</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    plt.xlim((<span class="op">-</span><span class="dv">2</span>,<span class="dv">12</span>))</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    plt.ylim((<span class="op">-</span><span class="dv">8</span>,<span class="dv">8</span>))</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"deg=</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">, SSE=</span><span class="sc">{</span>SSE[i]<span class="sc">:.3f}</span><span class="ss">"</span>, fontsize <span class="op">=</span> <span class="dv">10</span>)</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">5</span>,figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>xi <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">12</span>,<span class="dv">100</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,p <span class="kw">in</span> <span class="bu">enumerate</span>(p_coefs):</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    plt.subplot(<span class="dv">2</span>, <span class="dv">5</span>, i<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, y, <span class="st">'ro'</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    yi <span class="op">=</span> np.polyval(p, xi)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(xi, yi, <span class="st">'b-'</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    plt.xlim((<span class="op">-</span><span class="dv">2</span>,<span class="dv">12</span>))</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    plt.ylim((<span class="op">-</span><span class="dv">8</span>,<span class="dv">8</span>))</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"deg=</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">, SSE=</span><span class="sc">{</span>SSE[i]<span class="sc">:.3f}</span><span class="ss">"</span>, fontsize <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -603,35 +797,35 @@ The p-value is 0.007</code></pre>
 <h3 data-number="3.2" class="anchored" data-anchor-id="leave-one-out-cross-validation"><span class="header-section-number">3.2</span> Leave-one-out cross-validation</h3>
 <p>How do we identify when overfitting is occurring if we do not have any new data? We can simulate this by leaving one data point out when we fit the model and then testing the model fit not on the data that was used to fit the model but on the data point that was left out. In this way the data point that was left out is a simulation of new data.</p>
 <p>We repeat this “leave-one-out” cross-validation procedure for each data point in the dataset. In this way each data point gets to be the “new data” once. We can then compute the average sum of squared error across all the “leave-one-out” cross-validation procedures.</p>
-<div id="11df33c9" class="cell" data-execution_count="21">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(x)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>SSE_cv <span class="op">=</span> np.zeros(<span class="dv">10</span>)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    x_train <span class="op">=</span> np.delete(x,i)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    y_train <span class="op">=</span> np.delete(y,i)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    x_test <span class="op">=</span> x[i]</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    y_test <span class="op">=</span> y[i]</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    p_coefs <span class="op">=</span> []</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ix,deg <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>)):</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> np.polyfit(x_train,y_train,deg)</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        p_coefs.append(p)</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        yhat <span class="op">=</span> np.polyval(p,x_test)</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        SSE_cv[ix] <span class="op">+=</span> np.<span class="bu">sum</span>((yhat<span class="op">-</span>y_test)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>SSE_cv <span class="op">=</span> SSE_cv <span class="op">/</span> n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="39b39260" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>SSE_cv <span class="op">=</span> np.zeros(<span class="dv">10</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    x_train <span class="op">=</span> np.delete(x,i)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    y_train <span class="op">=</span> np.delete(y,i)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    x_test <span class="op">=</span> x[i]</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    y_test <span class="op">=</span> y[i]</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    p_coefs <span class="op">=</span> []</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ix,deg <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>)):</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        p <span class="op">=</span> np.polyfit(x_train,y_train,deg)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>        p_coefs.append(p)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        yhat <span class="op">=</span> np.polyval(p,x_test)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        SSE_cv[ix] <span class="op">+=</span> np.<span class="bu">sum</span>((yhat<span class="op">-</span>y_test)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>SSE_cv <span class="op">=</span> SSE_cv <span class="op">/</span> n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Now let’s plot <code>SSE_cv</code>, evaluated on the left-one-out datapoints, as a function of the degree of the polynomial. We will take the square root of SSE so that we can better see the difference between the SSE values for the different polynomial fits:</p>
-<div id="c75b9dfa" class="cell" data-execution_count="22">
+<div id="caed8996" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>ax.plot(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>),np.sqrt(SSE_cv),<span class="st">'bo-'</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"degree of polynomial"</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"sqrt(SSE) (left-one-out)"</span>)</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax.twinx()</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>ax2.plot(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>),np.sqrt(SSE),<span class="st">'ro-'</span>)</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"sqrt(SSE) (full dataset)"</span>)</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>fig.legend((<span class="st">"left-one-out"</span>,<span class="st">"full dataset"</span>), loc<span class="op">=</span><span class="st">"center"</span>)</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>ax.plot(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>),np.sqrt(SSE_cv),<span class="st">'bo-'</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"degree of polynomial"</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"sqrt(SSE) (left-one-out)"</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax.twinx()</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>ax2.plot(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>),np.sqrt(SSE),<span class="st">'ro-'</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"sqrt(SSE) (full dataset)"</span>)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>fig.legend((<span class="st">"left-one-out"</span>,<span class="st">"full dataset"</span>), loc<span class="op">=</span><span class="st">"center"</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -642,16 +836,16 @@ The p-value is 0.007</code></pre>
 </div>
 </div>
 <p>What we can clearly see is that while the SSE for the full dataset decreases monotonically as the degree of polynomial (the complexity of the model) increases, the SSE for the left-one-out data does not. Let’s plot <code>SSE_cv</code> on its own to better see what is going on. We will also plot using a logarithmic scale on the y-axis just so we can better see the pattern:</p>
-<div id="17aa0a4c" class="cell" data-execution_count="23">
+<div id="503b7b6a" class="cell" data-execution_count="23">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>sse_plot <span class="op">=</span> ax.semilogy(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>),np.sqrt(SSE_cv),<span class="st">'bo-'</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>ax.semilogy(<span class="dv">4</span>,np.sqrt(SSE_cv[<span class="dv">4</span>]),<span class="st">'ro'</span>, markersize<span class="op">=</span><span class="dv">15</span>, markerfacecolor<span class="op">=</span><span class="st">'none'</span>)</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"degree of polynomial"</span>)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"sqrt(SSE) (left-one-out)"</span>)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>ax.legend(sse_plot, (<span class="st">"left-one-out"</span>,<span class="st">""</span>), loc<span class="op">=</span><span class="st">"best"</span>)</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>sse_plot <span class="op">=</span> ax.semilogy(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">10</span>),np.sqrt(SSE_cv),<span class="st">'bo-'</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>ax.semilogy(<span class="dv">4</span>,np.sqrt(SSE_cv[<span class="dv">4</span>]),<span class="st">'ro'</span>, markersize<span class="op">=</span><span class="dv">15</span>, markerfacecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"degree of polynomial"</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"sqrt(SSE) (left-one-out)"</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>ax.legend(sse_plot, (<span class="st">"left-one-out"</span>,<span class="st">""</span>), loc<span class="op">=</span><span class="st">"best"</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
