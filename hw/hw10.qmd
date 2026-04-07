@@ -6,8 +6,7 @@ title: Homework 10
 
 Due: tba
 
-Submit a single file called `name_10.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_10.py`
-
 ---
 
-tba
+Details: tba
+
