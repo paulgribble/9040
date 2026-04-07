@@ -8,7 +8,7 @@ Due: Apr 14 by 11:59 pm eastern standard time
 
 Submit a single jupyter notebook called `name_10.ipynb` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_10.ipynb`
 
-Homework 10 will be graded out of 9 points.
+Homework 10 will be graded out of 9 points. Note that for Homework 10 you can only submit once, you cannot resubmit again to fix errors. Your grade on Homework 10 will be based on the first submission. For Homework 10, late submissions will receive a grade of zero.
 
 ---
 

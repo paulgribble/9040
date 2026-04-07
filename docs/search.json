@@ -767,7 +767,7 @@
     "href": "hw/hw10.html",
     "title": "Homework 10",
     "section": "",
-    "text": "Due: Apr 14 by 11:59 pm eastern standard time\nSubmit a single jupyter notebook called name_10.ipynb to Brightspace/OWL where name is replaced with your last name, e.g. gribble_10.ipynb\nHomework 10 will be graded out of 9 points."
+    "text": "Due: Apr 14 by 11:59 pm eastern standard time\nSubmit a single jupyter notebook called name_10.ipynb to Brightspace/OWL where name is replaced with your last name, e.g. gribble_10.ipynb\nHomework 10 will be graded out of 9 points. Note that for Homework 10 you can only submit once, you cannot resubmit again to fix errors. Your grade on Homework 10 will be based on the first submission. Late submissions will receive a grade of zero."
   },
   {
     "objectID": "hw/hw10.html#question-1-exploratory-plot-1-point",
