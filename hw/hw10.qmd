@@ -4,10 +4,12 @@ title: Homework 10
 
 ---
 
-Due: tba
+Due: Apr 12 by 11:59 pm eastern standard time
+
+Submit a single file called `name_10.py` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_10.py`
 
 ---
 
-Homework 10 will be graded out of 9 points. Details to be announced.
+Homework 10 will be graded out of 9 points. Details soon ....
 
 
