@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework 8 – Psychology 9040B FW25</title>
+<title>Homework 9 – Psychology 9040B FW25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework 8</h1>
+<h1 class="title">Homework 9</h1>
 </div>
 
 
@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>you will probably need to install the packages <code>imageio</code> and <code>imageio-ffmpeg</code> (<code>uv add imageio "imageio[ffmpeg]"</code>)</li>
 <li>then in your Python code you can use the <code>imageio</code> package to load in the video file like so:</li>
 </ul>
-<div id="3ba0b217" class="cell" data-execution_count="1">
+<div id="2cdad4d3" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> imageio</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="st">"../images/IMG_1383.MOV"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>vid <span class="op">=</span> imageio.get_reader(filename,  <span class="st">'ffmpeg'</span>)</span>
@@ -227,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>read in frames from the video like so:</li>
 </ul>
-<div id="e4eb086d" class="cell" data-execution_count="2">
+<div id="d087d091" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> image <span class="kw">in</span> vid.iter_data():</span>
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sample-plot" class="level2">
 <h2 class="anchored" data-anchor-id="sample-plot">Sample plot</h2>
 <p>When I do this for my video (linked above), band-pass filtering between 40 and 80 beats per minute, I get the following:</p>
-<div id="24b1cc97" class="cell" data-execution_count="3">
+<div id="7b93f4f6" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
