@@ -4,7 +4,7 @@ title: Homework 10
 
 ---
 
-Due: Apr 19 by 11:59 pm eastern standard time
+Due: Apr 14 by 11:59 pm eastern standard time
 
 Submit a single jupyter notebook called `name_10.ipynb` to Brightspace/OWL where `name` is replaced with your last name, e.g. `gribble_10.ipynb`
 
