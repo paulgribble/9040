@@ -767,7 +767,7 @@
     "href": "hw/hw10.html",
     "title": "Homework 10",
     "section": "",
-    "text": "Due: Apr 14 by 11:59 pm eastern standard time\nSubmit a single jupyter notebook called name_10.ipynb to Brightspace/OWL where name is replaced with your last name, e.g. gribble_10.ipynb\nHomework 10 will be graded out of 9 points. Note that for Homework 10 you can only submit once, you cannot resubmit again to fix errors. Your grade on Homework 10 will be based on the first submission. Late submissions will receive a grade of zero."
+    "text": "Due: Apr 14 by 11:59 pm eastern standard time\nSubmit a single jupyter notebook called name_10.ipynb to Brightspace/OWL where name is replaced with your last name, e.g. gribble_10.ipynb\nHomework 10 will be graded out of 9 points. Note that for Homework 10 you can only submit once, you cannot resubmit again to fix errors. Your grade on Homework 10 will be based on the first submission. For Homework 10, late submissions will receive a grade of zero."
   },
   {
     "objectID": "hw/hw10.html#question-1-exploratory-plot-1-point",
@@ -802,7 +802,7 @@
     "href": "hw/hw10.html#question-5-the-best-model-2.0-points",
     "title": "Homework 10",
     "section": "Question 5 — The best model [2.0 points]",
-    "text": "Question 5 — The best model [2.0 points]\nBased on your LOO-CV results, state which polynomial degree you would select as the best model. Produce a final plot showing the data (red dots) and the best-fitting polynomial (blue curve).\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an individual assignment — do not share code or answers. Also remember, as stated in section 12 of the course syllabus, the use of generative artificial intelligence (AI) tools/software/apps to complete the weekly homework assignments is not acceptable, and consitutes an academic offence."
+    "text": "Question 5 — The best model [2.0 points]\nBased on your LOO-CV results, state which polynomial degree you would select as the best model. Produce a final plot showing the data (red dots) and the best-fitting polynomial (blue curve).\n\n\n\n\n\n\n\nImportant\n\n\n\nThis is an individual assignment — do not share code or answers. Also remember, as stated in section 12 of the course syllabus, the use of generative artificial intelligence (AI) tools/software/apps to complete any part of this homework assignment is not acceptable, and consitutes an academic offence."
   },
   {
     "objectID": "intro.html",

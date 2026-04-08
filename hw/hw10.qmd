@@ -94,8 +94,7 @@ Based on your LOO-CV results, state which polynomial degree you would select as 
 ---
 
 ::: {.callout-important}
-This is an individual assignment — do not share code or answers. Also remember, as stated in section 12 of the course syllabus, the use of generative artificial intelligence (AI) tools/software/apps to complete the weekly
-homework assignments is not acceptable, and consitutes an academic offence.
+This is an individual assignment — do not share code or answers. Also remember, as stated in section 12 of the course syllabus, the use of generative artificial intelligence (AI) tools/software/apps to complete any part of this homework assignment is not acceptable, and consitutes an academic offence.
 :::
 
 
