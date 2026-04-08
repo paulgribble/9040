@@ -415,6 +415,8 @@ We are going to fit a polynomial curve to the data using the `np.polyfit()` func
 Let's fit polynomials of degree 0, 1, 2, 3, 4, 5, 6, 7, 8, and 9 to the data, and for each compute sum of squared error between the predicted values of y and the actual values of y:
 
 ```{python}
+#| echo: false
+#| warning: false
 p_coefs = []
 SSE = np.zeros(10)
 for i,deg in enumerate(range(0,10)):
@@ -427,7 +429,7 @@ for i,deg in enumerate(range(0,10)):
 Now let's plot the data and the polynomial fits:
 
 ```{python}
-#| code-fold: true
+#| echo: false
 fig,ax = plt.subplots(2,5,figsize=(8, 4))
 xi = np.linspace(-2,12,100)
 for i,p in enumerate(p_coefs):
@@ -453,6 +455,7 @@ We repeat this "leave-one-out" cross-validation procedure for each data point in
 
 ```{python} 
 #| warning: false
+#| echo: false
 n = len(x)
 SSE_cv = np.zeros(10)
 for i in range(n):
@@ -473,7 +476,7 @@ Now let's plot `SSE_cv`, evaluated on the left-one-out datapoints, as a function
 
 ```{python}
 #| warning: false
-#| code-fold: true
+#| echo: false
 fig,ax = plt.subplots()
 ax.plot(range(0,10),np.sqrt(SSE_cv),'bo-')
 ax.set_xlabel("degree of polynomial")
@@ -489,7 +492,7 @@ What we can clearly see is that while the SSE for the full dataset decreases mon
 
 ```{python}
 #| warning: false
-#| code-fold: true
+#| echo: false
 fig,ax = plt.subplots()
 sse_plot = ax.semilogy(range(0,10),np.sqrt(SSE_cv),'bo-')
 ax.semilogy(4,np.sqrt(SSE_cv[4]),'ro', markersize=15, markerfacecolor='none')
